@@ -1,4 +1,4 @@
-# CoverView
+# cover
 
 一个简单的封面生成器，**基于 [rutikwankhade/CoverView](https://github.com/rutikwankhade/CoverView) 修改**
 
