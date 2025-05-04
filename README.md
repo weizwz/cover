@@ -1,36 +1,19 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CoverView
 
-## Getting Started
+一个简单的封面生成器，**基于 [rutikwankhade/CoverView](https://github.com/rutikwankhade/CoverView) 修改**
 
-First, run the development server:
+全新架构升级，使用 next.js 和 react19 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+汉化+本土功能定制
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 功能修改
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [x] 中文汉化
+- [x] 使用在线iconify的simple-icons系列图标，3000+
+- [ ] 支持自定义图标，支持在线图标
+- [x] 应用本土化开源字体，提供13+免费商用字体
+- [x] 纹理修改，14+图案，支持除自定义背景图片外的其他主题
+- [x] 修改平台为尺寸，提供常用比例，如3:2，16:9等
+- [ ] 添加保存倍数设置
+- [ ] 添加保存按钮，存储常用配置信息到本地浏览器
+- [ ] 添加复制到剪切板按钮
