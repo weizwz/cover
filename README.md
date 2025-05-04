@@ -2,7 +2,7 @@
 
 一个简单的封面生成器，**基于 [rutikwankhade/CoverView](https://github.com/rutikwankhade/CoverView) 修改**
 
-全新架构升级，使用 next.js 和 react19 
+全新架构升级，使用 `next.js` && `react19` && `shadcn/ui` && `tailwindcss4`
 
 汉化+本土功能定制
 
