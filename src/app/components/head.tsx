@@ -10,8 +10,8 @@ export default function Head() {
           <Image
             src="/logo.png"
             alt="logo"
-            width={30}
-            height={30}
+            width={28}
+            height={28}
             priority
           />
           <div className="text-xl ml-2 font-bold font-mono text-indigo-700">cover
