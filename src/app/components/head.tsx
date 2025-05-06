@@ -15,7 +15,7 @@ export default function Head() {
             priority
           />
           <div className="text-xl ml-2 font-bold font-mono text-primary">cover
-            <span className="hidden md:inline"> - 封面制作器</span>
+            <span className="hidden md:inline"> - 封面生成器</span>
           </div>
         </div>
         <div className="h-full flex items-center justify-end">

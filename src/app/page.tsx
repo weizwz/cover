@@ -1,10 +1,11 @@
 import Head from "./components/head";
+import Editor from "./components/editor";
 
 export default function Home() {
   return (
-    <div>
+    <div className="h-screen">
       <Head />
-      main
+      <Editor />
     </div>
   );
 }
