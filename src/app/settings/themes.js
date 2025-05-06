@@ -8,38 +8,38 @@ import mobileThemePlaceholder from '../assets/images/mobile-theme-placeholder.we
 
 export const THEMES = [
   {
-    label: 'modern',
-    name: '现代风',
+    label: '现代风',
+    value: 'modern',
     preview: modernThemePlaceholder
   },
   {
-    label: 'basic',
-    name: '背景卡片',
+    label: '背景卡片',
+    value: 'basic',
     preview: basicThemePlaceholder
   },
   {
-    label: 'outline',
-    name: '背景平铺',
+    label: '背景平铺',
+    value: 'outline',
     preview: outlineThemePlaceholder
   },
   {
-    label: 'background',
-    name: '背景图 - 需加载图片',
+    label: '背景图 - 需加载图片',
+    value: 'background',
     preview: backgroundThemePlaceholder
   },
   {
-    label: 'stylish',
-    name: '图文对称 - 需加载图片',
+    label: '图文对称 - 需加载图片',
+    value: 'stylish',
     preview: stylishThemePlaceholder
   },
   {
-    label: 'preview',
-    name: '桌面预览',
+    label: '桌面预览',
+    value: 'preview',
     preview: previewThemePlaceholder
   },
   {
-    label: 'mobile',
-    name: '手机预览',
+    label: '手机预览',
+    value: 'mobile',
     preview: mobileThemePlaceholder
   }
 ]
