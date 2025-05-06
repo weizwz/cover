@@ -21,6 +21,12 @@ interface Size extends SelectOption {}
 
 interface IconOption extends SelectOption {}
 
+interface UnsplashParam {
+  query: string
+  page: number
+  per_page: number
+}
+
 interface Setting {
   title: string
   author: string

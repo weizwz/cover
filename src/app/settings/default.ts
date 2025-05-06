@@ -4,13 +4,19 @@ import { PATTERNS } from './patterns'
 import { COLORS_RANDOM } from './colorsRandom'
 import { SIZES } from './sizes'
 
-export const defaultIcon: IconOption = { label: 'xiaohongshu', value: 'xiaohongshu' }
+export const DEFAULT_ICON: IconOption = { label: 'xiaohongshu', value: 'xiaohongshu' }
 
-export const defaultSettings: Setting = {
+export const DEFAULT_UNSPLASH_PARAM: UnsplashParam = {
+  query: 'background',
+  page: 1,
+  per_page: 12
+}
+
+export const DEFAULT_SETTING: Setting = {
   title: '免费、快速的封面生成器',
   author: '唯知笔记',
   download: 'png',
-  icon: defaultIcon,
+  icon: DEFAULT_ICON,
   customIcon: '',
   theme: THEMES[0],
   font: FONTS[0],
