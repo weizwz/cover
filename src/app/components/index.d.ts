@@ -1,6 +1,6 @@
 interface CoverContextType {
-  unsplashImage: Setting
-  setUnsplashImage: React.Dispatch<React.SetStateAction<Setting>>
-  param: UnsplashParam
-  setParam: React.Dispatch<React.SetStateAction<UnsplashParam>>
+  coverSetting: Setting
+  setCoverSetting: React.Dispatch<React.SetStateAction<Setting>>
+  unsplashParam: UnsplashParam
+  setUnsplashParam: React.Dispatch<React.SetStateAction<UnsplashParam>>
 }

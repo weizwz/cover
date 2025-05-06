@@ -1,5 +1,6 @@
 import { CoverProvider } from './coverContext'
 import EDitorSetting from './editorSetting'
+import { Separator } from "@/components/ui/separator"
 
 export default function Editor() {
   return (
@@ -9,6 +10,7 @@ export default function Editor() {
           <div className='h-full md:w-1/4'>
             <EDitorSetting />
           </div>
+          <Separator orientation="vertical" />
         </CoverProvider>
       </div>
     </div>
