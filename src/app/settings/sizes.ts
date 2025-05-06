@@ -1,4 +1,4 @@
-export const SIZES = [
+export const SIZES: Size[] = [
   {
     label: '正方比例 1:1',
     value: 'square'

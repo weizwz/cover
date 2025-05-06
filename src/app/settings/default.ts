@@ -4,17 +4,17 @@ import { PATTERNS } from './patterns'
 import { COLORS_RANDOM } from './colorsRandom'
 import { SIZES } from './sizes'
 
-export const defaultIcon = { label: 'xiaohongshu', value: 'xiaohongshu' }
+export const defaultIcon: IconOption = { label: 'xiaohongshu', value: 'xiaohongshu' }
 
-export const defaultSettings = {
+export const defaultSettings: Setting = {
   title: '免费、快速的封面生成器',
-  bgColor: COLORS_RANDOM[0].bgColor,
-  pattern: PATTERNS[0].value,
-  download: 'PNG',
   author: '唯知笔记',
+  download: 'png',
   icon: defaultIcon,
-  font: FONTS[0].value,
-  theme: THEMES[0].value,
   customIcon: '',
-  size: SIZES[2].value
+  theme: THEMES[0],
+  font: FONTS[0],
+  color: COLORS_RANDOM[0],
+  pattern: PATTERNS[0],
+  size: SIZES[2]
 }

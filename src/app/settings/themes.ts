@@ -6,7 +6,7 @@ import outlineThemePlaceholder from '../assets/images/outline-theme-placeholder.
 import previewThemePlaceholder from '../assets/images/preview-theme-placeholder.webp'
 import mobileThemePlaceholder from '../assets/images/mobile-theme-placeholder.webp'
 
-export const THEMES = [
+export const THEMES: Theme[] = [
   {
     label: '现代风',
     value: 'modern',

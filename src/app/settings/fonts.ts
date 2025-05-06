@@ -1,4 +1,4 @@
-export const FONTS = [
+export const FONTS: Font[] = [
   {
     label: '系统默认',
     value: 'font-default',
@@ -72,6 +72,8 @@ export const FONTS = [
 ]
 
 class FontLoader {
+  private loadedFonts: Set<string>;
+
   constructor() {
     this.loadedFonts = new Set()
   }
@@ -81,8 +83,8 @@ class FontLoader {
    * @param {string} fontFamily 字体名称
    * @param {string} fontUrl 字体的CSS文件URL
    */
-  loadFont(fontFamily, fontUrl) {
-    if (!fontFamily || !fontUrl) {
+  loadFont(fontFamily: string, fontUrl?: string) {
+    if (!fontUrl) {
       return
     }
     // 检查字体是否已经加载过

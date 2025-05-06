@@ -1,4 +1,4 @@
-export const PATTERNS = [
+export const PATTERNS: Pattern[] = [
   {
     label: '无',
     value: '',

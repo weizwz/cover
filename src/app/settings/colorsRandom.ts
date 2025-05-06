@@ -1,4 +1,4 @@
-export const COLORS_RANDOM = [
+export const COLORS_RANDOM: ColorRandom[] = [
   {
     bgColor: '#80D8CF',
   },
