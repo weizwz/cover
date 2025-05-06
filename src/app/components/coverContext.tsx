@@ -1,3 +1,5 @@
+'use client'
+
 import React, { createContext, useState } from 'react'
 import { DEFAULT_SETTING, DEFAULT_UNSPLASH_PARAM } from '../settings/default'
 
