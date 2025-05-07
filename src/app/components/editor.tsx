@@ -7,7 +7,7 @@ export default function Editor() {
     <div className="pt-14 h-full">
       <div className="h-full w-full flex overflow-hidden">
         <CoverProvider>
-          <div className='h-full md:w-1/4'>
+          <div className='h-full lg:w-1/4'>
             <EDitorSetting />
           </div>
           <Separator orientation="vertical" />

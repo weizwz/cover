@@ -105,6 +105,7 @@ const IconSelect = ({ onChange = (newValue?: SingleValue<IconOption> | MultiValu
         menuList: (base) => ({ ...base, padding: 0 }),
         control: (provided, state) => ({
           ...provided,
+          minHeight: '36px',
           borderRadius: 'calc(var(--radius) - 2px)',
           backgroundColor: 'white',
           borderColor: state.isFocused || state.menuIsOpen ? 'var(--ring)' : 'var(--input)',
