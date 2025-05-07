@@ -1,5 +1,6 @@
+'use client'
+
 import React, { useContext, useState } from 'react'
-import '../assets/css/theme.css'
 import { CoverContext } from './coverContext'
 import unsplash from '../config/unsplash'
 import { LoaderCircle, Download } from 'lucide-react'

@@ -30,12 +30,6 @@ interface UnsplashImageResp {
   links: UnsplashImageRespLink
 }
 
-interface EditorImageProps {
-  theme: string
-  size: string
-  [key: string]: any // To allow additional props
-}
-
 interface EditorToImgProps {
   children: React.ReactNode;
 }

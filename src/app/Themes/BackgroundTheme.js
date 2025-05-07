@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
-import { ImgContext } from '../../utils/ImgContext'
-import UnsplashSearch from '../UnsplashSearch'
+import { CoverContext } from '../components/coverContext'
+import UnsplashSearch from '../components/unsplashSearch'
 
 const BackgroundTheme = ({ config }) => {
   const { title, author, font, icon, customIcon, color } = config
-  const { unsplashImage, setUnsplashImage } = useContext(ImgContext)
+  const { unsplashImage, setUnsplashImage } = useContext(CoverContext)
 
   return (
     <div className='overflow-y-hidden flex flex-col w-full h-full' style={{ backgroundColor: color.bgColor }}>

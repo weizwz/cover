@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState, useEffect, useContext } from 'react'
 import { Button } from '@/components/ui/button'
 import { Search } from 'lucide-react'
