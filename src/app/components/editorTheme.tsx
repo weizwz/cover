@@ -1,20 +1,19 @@
 'use client'
 
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import Image from 'next/image';
 import { CoverContext } from './coverContext'
 import { THEMES } from '../settings/themes'
 
 const EditorTheme = () => {
-  const { coverSetting } = useContext(CoverContext)
-  const [setting, setSetting] = useState(coverSetting)
+  const { coverSetting, setCoverSetting } = useContext(CoverContext)
 
   const changeTheme = (value: string) => {
     const selectedOption = THEMES.filter((item) => {
       return item.value === value
     })
-    setSetting({
-      ...setting,
+    setCoverSetting({
+      ...coverSetting,
       theme: selectedOption[0]
     })
   }
@@ -26,7 +25,7 @@ const EditorTheme = () => {
         {THEMES.map((item) => (
           <div
             className={`${
-              item.value === setting.theme.value ? 'border-gray-400 shadow-md' : ''
+              item.value === coverSetting.theme.value ? 'border-gray-400 shadow-md' : ''
             } flex flex-col items-center justify-center border border-gray-200 p-1 overflow-hidden rounded-lg cursor-pointer border-hover duration-100`}
             key={item.label}>
             <Image src={item.preview.src} width={100} height={60} alt={item.label} onClick={(e) => changeTheme(item.value)} />
