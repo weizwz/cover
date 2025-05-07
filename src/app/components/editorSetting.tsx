@@ -65,7 +65,7 @@ const EditorSetting = () => {
           <div className='flex w-full xl:w-1/2 xl:pr-2 space-x-1.5 mb-4'>
             <Label htmlFor='font' className='w-12 justify-end'>字体</Label>
             <Select defaultValue={setting.font.value} onValueChange={(value) => { changeValue(value, 'font', FONTS) }}>
-              <SelectTrigger id='font' className='flex-1 mr-0 overflow-hidden'>
+              <SelectTrigger id='font' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
                 <SelectValue placeholder='请选择字体' />
               </SelectTrigger>
               <SelectContent position='popper'>
@@ -91,7 +91,7 @@ const EditorSetting = () => {
           <div className='flex w-full xl:w-1/2 xl:pr-2 space-x-1.5 mb-4'>
             <Label htmlFor='pattern' className='w-12 justify-end'>纹理</Label>
             <Select defaultValue={setting.pattern.value} onValueChange={(value) => { changeValue(value, 'pattern', PATTERNS) }}>
-              <SelectTrigger id='pattern' className='flex-1 mr-0 overflow-hidden'>
+              <SelectTrigger id='pattern' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
                 <SelectValue placeholder='请选择纹理' />
               </SelectTrigger>
               <SelectContent position='popper'>
@@ -106,7 +106,7 @@ const EditorSetting = () => {
           <div className='flex w-full xl:w-1/2 xl:pl-2 space-x-1.5 mb-4'>
             <Label htmlFor='size' className='w-12 justify-end'>尺寸</Label>
             <Select defaultValue={setting.size.value} onValueChange={(value) => { changeValue(value, 'size', SIZES) }}>
-              <SelectTrigger id='pattern' className='flex-1 mr-0 overflow-hidden'>
+              <SelectTrigger id='pattern' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
                 <SelectValue placeholder='请选择尺寸' />
               </SelectTrigger>
               <SelectContent position='popper'>
