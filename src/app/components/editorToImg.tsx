@@ -5,7 +5,7 @@ import { CoverContext } from './coverContext'
 import unsplash from '../config/unsplash'
 import { LoaderCircle, Download } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import html2canvas from 'html2canvas'
+import html2canvas from 'html2canvas-pro'
 
 
 const EditorToImg: React.FC<EditorToImgProps> = (props) => {
@@ -32,7 +32,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
       let data = await getData(componentRef.current);
       await saveImage(data);
 
-      if (coverSetting.unsplashImage) {
+      if (coverSetting.unsplashImage?.downloadLink) {
         unsplash.photos.trackDownload({ downloadLocation: coverSetting.unsplashImage.downloadLink });
       }
     }
@@ -55,15 +55,16 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
 
   return (
     <React.Fragment>
-      <div ref={componentRef} className="w-full flex justify-center mb-8">
-        {props.children}
+      <div className='relative'>
+        <div ref={componentRef} className="w-full">
+          {props.children}
+        </div>
+        <div className='absolute top-0 left-full px-4'>
+          <Button disabled={loading} variant="outline" size="icon" onClick={() => downloadImage()}>
+            {loading ? <LoaderCircle className="animate-spin" /> : <Download />}
+          </Button>
+        </div>
       </div>
-      <Button onClick={() => downloadImage()}>
-        <span>
-          {loading ? <LoaderCircle /> : <Download />}
-        </span>
-        <span className="mx-2">下载</span>
-      </Button>
     </React.Fragment>
   );
 };
