@@ -1,5 +1,8 @@
 export const COLORS_RANDOM: ColorRandom[] = [
   {
+    bgColor: '#432DD7',
+  },
+  {
     bgColor: '#80D8CF',
   },
   {
