@@ -1,0 +1,3 @@
+interface ThemeProps {
+  config: Setting
+}

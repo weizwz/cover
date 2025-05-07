@@ -5,9 +5,9 @@ import EditorToImg from "./editorToImg"
 
 const EditorPreview = () => {
   return (
-    <div className='h-full w-full overflow-y-auto p-4'>
+    <div className='h-full w-full overflow-y-auto p-4 bg-gray-50'>
       <h2 className='text-lg font-bold text-center mb-4'>封面预览</h2>
-      <div className='flex justify-center items-center'>
+      <div className='flex flex-col justify-center items-center'>
         <EditorToImg>
           <EditorImage />
         </EditorToImg>

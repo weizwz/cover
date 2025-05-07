@@ -6,7 +6,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import { CoverContext } from './coverContext'
 import IconSelect from './iconSelect'
 import { fontLoader, FONTS } from '../settings/fonts'
@@ -15,23 +15,22 @@ import { SIZES } from '../settings/sizes'
 // import { DEFAULT_SETTING } from '../settings/default'
 
 const EditorSetting = () => {
-  const { coverSetting } = useContext(CoverContext)
-  const [setting, setSetting] = useState(coverSetting)
+  const { coverSetting, setCoverSetting } = useContext(CoverContext)
 
   const changeValue = (value: string, key: string, array: any[]) => {
     const selectedOption = array.filter((item) => {
       return item.value === value
     })
-    setSetting({
-      ...setting,
+    setCoverSetting({
+      ...coverSetting,
       [key]: selectedOption[0]
     })
   }
 
   // 动态加载字体
   useEffect(() => {
-    fontLoader.loadFont(setting.font.label, setting.font.url)
-  }, [setting.font.label, setting.font.url])
+    fontLoader.loadFont(coverSetting.font.label, coverSetting.font.url)
+  }, [coverSetting.font.label, coverSetting.font.url])
 
   return (
     <div className='h-full w-full overflow-y-auto p-4 pr-8'>
@@ -44,8 +43,8 @@ const EditorSetting = () => {
               id='title'
               className='flex-1 focus-visible:ring-1'
               placeholder='请输入封面标题'
-              defaultValue={setting.title}
-              onChange={(e) => setSetting({ ...setting, title: e.target.value })}
+              defaultValue={coverSetting.title}
+              onChange={(e) => setCoverSetting({ ...coverSetting, title: e.target.value })}
             />
           </div>
           <div className='flex w-full space-x-1.5 mb-4'>
@@ -54,17 +53,17 @@ const EditorSetting = () => {
               id='author'
               className='flex-1 focus-visible:ring-1'
               placeholder='请输入作者'
-              defaultValue={setting.author}
-              onChange={(e) => setSetting({ ...setting, author: e.target.value })}
+              defaultValue={coverSetting.author}
+              onChange={(e) => setCoverSetting({ ...coverSetting, author: e.target.value })}
             />
           </div>
           <div className='flex w-full space-x-1.5 mb-4'>
             <Label htmlFor='author' className='w-12 justify-end'>图标</Label>
-            <IconSelect onChange={(selectedOption) => setSetting({ ...setting, icon: selectedOption as IconOption })} />
+            <IconSelect onChange={(selectedOption) => setCoverSetting({ ...coverSetting, icon: selectedOption as IconOption })} />
           </div>
           <div className='flex w-full xl:w-1/2 xl:pr-2 space-x-1.5 mb-4'>
             <Label htmlFor='font' className='w-12 justify-end'>字体</Label>
-            <Select defaultValue={setting.font.value} onValueChange={(value) => { changeValue(value, 'font', FONTS) }}>
+            <Select defaultValue={coverSetting.font.value} onValueChange={(value) => { changeValue(value, 'font', FONTS) }}>
               <SelectTrigger id='font' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
                 <SelectValue placeholder='请选择字体' />
               </SelectTrigger>
@@ -84,13 +83,13 @@ const EditorSetting = () => {
               type='color'
               className='flex-1 focus-visible:ring-1'
               placeholder='请选择背景色'
-              defaultValue={setting.color.bgColor}
-              onChange={(e) => setSetting({ ...setting, color: { bgColor: e.target.value} })}
+              defaultValue={coverSetting.color.bgColor}
+              onChange={(e) => setCoverSetting({ ...coverSetting, color: { bgColor: e.target.value} })}
             />
           </div>
           <div className='flex w-full xl:w-1/2 xl:pr-2 space-x-1.5 mb-4'>
             <Label htmlFor='pattern' className='w-12 justify-end'>纹理</Label>
-            <Select defaultValue={setting.pattern.value} onValueChange={(value) => { changeValue(value, 'pattern', PATTERNS) }}>
+            <Select defaultValue={coverSetting.pattern.value} onValueChange={(value) => { changeValue(value, 'pattern', PATTERNS) }}>
               <SelectTrigger id='pattern' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
                 <SelectValue placeholder='请选择纹理' />
               </SelectTrigger>
@@ -105,7 +104,7 @@ const EditorSetting = () => {
           </div>
           <div className='flex w-full xl:w-1/2 xl:pl-2 space-x-1.5 mb-4'>
             <Label htmlFor='size' className='w-12 justify-end'>尺寸</Label>
-            <Select defaultValue={setting.size.value} onValueChange={(value) => { changeValue(value, 'size', SIZES) }}>
+            <Select defaultValue={coverSetting.size.value} onValueChange={(value) => { changeValue(value, 'size', SIZES) }}>
               <SelectTrigger id='pattern' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
                 <SelectValue placeholder='请选择尺寸' />
               </SelectTrigger>

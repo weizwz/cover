@@ -3,41 +3,40 @@
 import { useContext, useState } from 'react'
 import '../assets/css/theme.css'
 import '../assets/css/patterns.css'
-import ModernTheme from '../Themes/ModernTheme'
-import BasicTheme from '../Themes/BasicTheme'
-import OutlineTheme from '../Themes/OutlineTheme'
-import PreviewTheme from '../Themes/PreviewTheme'
-import StylishTheme from '../Themes/StylishTheme'
-import MobileMockupTheme from '../Themes/MobileMockupTheme'
-import BackgroundTheme from '../Themes/BackgroundTheme'
+import ModernTheme from '../themes/ModernTheme'
+import BasicTheme from '../themes/BasicTheme'
+import OutlineTheme from '../themes/OutlineTheme'
+import PreviewTheme from '../themes/PreviewTheme'
+import StylishTheme from '../themes/StylishTheme'
+import MobileMockupTheme from '../themes/MobileMockupTheme'
+import BackgroundTheme from '../themes/BackgroundTheme'
 import { CoverContext } from './coverContext'
 
 const EditorImage = () => {
   const { coverSetting } = useContext(CoverContext)
-  const [setting] = useState(coverSetting)
   
   const selectTheme = (theme: string) => {
     switch (theme) {
       case 'basic':
-        return <BasicTheme config={setting} />
+        return <BasicTheme config={coverSetting} />
       case 'modern':
-        return <ModernTheme config={setting} />
+        return <ModernTheme config={coverSetting} />
       case 'outline':
-        return <OutlineTheme config={setting} />
+        return <OutlineTheme config={coverSetting} />
       case 'preview':
-        return <PreviewTheme config={setting} />
+        return <PreviewTheme config={coverSetting} />
       case 'stylish':
-        return <StylishTheme config={setting} />
+        return <StylishTheme config={coverSetting} />
       case 'mobile':
-        return <MobileMockupTheme config={setting} />
+        return <MobileMockupTheme config={coverSetting} />
       case 'background':
-        return <BackgroundTheme config={setting} />
+        return <BackgroundTheme config={coverSetting} />
       default:
-        return <BasicTheme config={setting} />
+        return <BasicTheme config={coverSetting} />
     }
   }
 
-  return <div className={`md:scale-100 scale-50 w-full ${setting.size}`}>{selectTheme(setting.theme.value)}</div>
+  return <div className={`md:scale-100 scale-50 w-full ${coverSetting.size.value}`}>{selectTheme(coverSetting.theme.value)}</div>
 }
 
 export default EditorImage

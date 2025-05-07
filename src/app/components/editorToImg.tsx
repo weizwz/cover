@@ -55,7 +55,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
 
   return (
     <React.Fragment>
-      <div ref={componentRef} className="w-full flex justify-center">
+      <div ref={componentRef} className="w-full flex justify-center mb-8">
         {props.children}
       </div>
       <Button onClick={() => downloadImage()}>
