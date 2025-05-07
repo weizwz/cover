@@ -106,6 +106,8 @@ const IconSelect = ({ onChange = (newValue?: SingleValue<IconOption> | MultiValu
         control: (provided, state) => ({
           ...provided,
           minHeight: '36px',
+          height: '36px',
+          alignItems: 'flex-start',
           borderRadius: 'calc(var(--radius) - 2px)',
           backgroundColor: 'white',
           borderColor: state.isFocused || state.menuIsOpen ? 'var(--ring)' : 'var(--input)',

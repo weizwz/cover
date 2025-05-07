@@ -1,7 +1,7 @@
 export const PATTERNS: Pattern[] = [
   {
     label: '无',
-    value: '',
+    value: 'none',
   },
   {
     label: '网格纸',
