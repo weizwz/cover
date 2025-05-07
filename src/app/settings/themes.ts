@@ -23,12 +23,12 @@ export const THEMES: Theme[] = [
     preview: outlineThemePlaceholder
   },
   {
-    label: '背景图 - 需加载图片',
+    label: '背景图',
     value: 'background',
     preview: backgroundThemePlaceholder
   },
   {
-    label: '图文对称 - 需加载图片',
+    label: '图文对称',
     value: 'stylish',
     preview: stylishThemePlaceholder
   },

@@ -14,7 +14,7 @@ export default function Editor() {
           <Separator orientation="vertical" />
           <div className='h-full lg:flex-1'></div>
           <Separator orientation="vertical" />
-          <div className='h-full w-[300px]'>
+          <div className='h-full w-[200px] 2xl:w-[300px]'>
             <EditorTheme />
           </div>
         </CoverProvider>

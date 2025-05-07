@@ -35,7 +35,7 @@ const EditorSetting = () => {
 
   return (
     <div className='h-full w-full overflow-y-auto p-4 pr-8'>
-      <h2 className='text-lg font-bold text-center mb-4'>配置</h2>
+      <h2 className='text-lg font-bold text-center mb-4'>基础配置</h2>
       <form>
         <div className='flex w-full items-center flex-wrap'>
           <div className='flex w-full space-x-1.5 mb-4'>
