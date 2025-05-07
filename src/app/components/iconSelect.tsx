@@ -17,9 +17,9 @@ const CustomOption = ({ data, isFocused, isSelected, innerRef, innerProps }: Opt
       ref={innerRef}
       {...innerProps}
       className={`p-2 ${isFocused || isSelected ? 'bg-gray-100' : ''}`}>
-      <div className='flex items-center'>
-        <span className='mr-2'>{data.label}</span>
-        <div className='ml-auto mr-2'>
+      <div className='flex items-center justify-between'>
+        <span className='mr-2 overflow-hidden text-ellipsis'>{data.label}</span>
+        <div className='ml-auto w-[24px]'>
           <img loading='lazy' width={24} height={24} src={`${iconifyHost}/simple-icons/${data.value}.svg`} alt={`${data.label} icon`} />
         </div>
       </div>
@@ -76,7 +76,7 @@ const IconSelect = ({ onChange = (newValue?: SingleValue<IconOption> | MultiValu
         setSelectOptions([defaultIcon, ...options])
         setLoading(false)
       } catch (error) {
-        console.error('加载图标失败:', error)
+        console.error('The Iconify API call failed :', error)
         setLoading(false)
       }
     }
@@ -89,11 +89,11 @@ const IconSelect = ({ onChange = (newValue?: SingleValue<IconOption> | MultiValu
     onChange(newValue)
   }
 
-  if (loading) return <div>Loading...</div>
+  if (loading) return <div className='flex-1 h-9 px-3 py-1 border border-input rounded-md'>图标加载中...</div>
 
   return (
     <Select
-      className='flex-1'
+      className='react-select flex-1'
       value={selectValue}
       options={selectOptions}
       components={{ Option: CustomOption, MenuList: MenuList }}
@@ -102,7 +102,18 @@ const IconSelect = ({ onChange = (newValue?: SingleValue<IconOption> | MultiValu
       isSearchable={true}
       isClearable={false}
       styles={{
-        menuList: (base) => ({ ...base, padding: 0 })
+        menuList: (base) => ({ ...base, padding: 0 }),
+        control: (provided, state) => ({
+          ...provided,
+          borderRadius: 'calc(var(--radius) - 2px)',
+          backgroundColor: 'white',
+          borderColor: state.isFocused || state.menuIsOpen ? 'var(--ring)' : 'var(--input)',
+          boxShadow: state.isFocused || state.menuIsOpen ? '0 0 0 1px var(--input)' : '',
+          ':hover': {
+            borderColor: 'var(--input)',
+            boxShadow: '',
+          },
+        })
       }}
     />
   )
