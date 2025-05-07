@@ -29,3 +29,22 @@ interface UnsplashImageResp {
   urls: UnsplashImageRespUrl,
   links: UnsplashImageRespLink
 }
+
+interface EditorImageProps {
+  theme: string
+  size: string
+  [key: string]: any // To allow additional props
+}
+
+interface EditorToImgProps {
+  children: React.ReactNode;
+}
+
+interface GetDataOptions {
+  useCORS: boolean
+  scale: number
+  backgroundColor: string | null
+  allowTaint: boolean
+  height: number
+  width: number
+}

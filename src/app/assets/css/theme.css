@@ -1,0 +1,38 @@
+.square {
+  width: 600px;
+  height: 600px;
+}
+.horizontal3-2 {
+  width: 800px;
+  height: 533.3px;
+}
+.horizontal4-3 {
+  width: 800px;
+  height: 600px;
+}
+.horizontal16-9 {
+  width: 800px;
+  height: 450px;
+}
+.horizontal2-1 {
+  width: 800px;
+  height: 400px;
+}
+.vertical2-3 {
+  width: 600px;
+  height: 900px;
+}
+.vertical3-4 {
+  width: 600px;
+  height: 800px;
+}
+.vertical9-16 {
+  width: 600px;
+  height: 1066.6px;
+}
+.vertical1-2 {
+  width: 600px;
+  height: 1200px;
+}
+
+/* 主题布局自适应 */

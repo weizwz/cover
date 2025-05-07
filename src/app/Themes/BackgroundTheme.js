@@ -3,11 +3,11 @@ import { ImgContext } from '../../utils/ImgContext'
 import UnsplashSearch from '../UnsplashSearch'
 
 const BackgroundTheme = ({ config }) => {
-  const { title, author, font, icon, customIcon, bgColor } = config
+  const { title, author, font, icon, customIcon, color } = config
   const { unsplashImage, setUnsplashImage } = useContext(ImgContext)
 
   return (
-    <div className='overflow-y-hidden flex flex-col w-full h-full' style={{ backgroundColor: bgColor }}>
+    <div className='overflow-y-hidden flex flex-col w-full h-full' style={{ backgroundColor: color.bgColor }}>
       {unsplashImage ? (
         <div className='w-full h-full relative flex group'>
           <div className='h-full w-full'>
