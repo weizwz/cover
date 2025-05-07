@@ -12,6 +12,12 @@ export const DEFAULT_UNSPLASH_PARAM: UnsplashParam = {
   per_page: 12
 }
 
+export const DEFAULT_UNSPLASH_IMAGE: UnsplashImage = {
+  searchText: DEFAULT_UNSPLASH_PARAM.query,
+  url: '',
+  downloadLink: ''
+}
+
 export const DEFAULT_SETTING: Setting = {
   title: '免费、快速的封面生成器',
   author: '唯知笔记',
@@ -22,5 +28,6 @@ export const DEFAULT_SETTING: Setting = {
   font: FONTS[0],
   color: COLORS_RANDOM[0],
   pattern: PATTERNS[0],
-  size: SIZES[2]
+  size: SIZES[2],
+  unsplashImage: DEFAULT_UNSPLASH_IMAGE
 }

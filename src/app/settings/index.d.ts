@@ -27,6 +27,12 @@ interface UnsplashParam {
   per_page: number
 }
 
+interface UnsplashImage {
+  searchText: string,
+  url: string,
+  downloadLink: string
+}
+
 interface Setting {
   title: string
   author: string
@@ -37,5 +43,6 @@ interface Setting {
   font: Font
   color: ColorRandom
   pattern: Pattern
-  size: Size
+  size: Size,
+  unsplashImage?: UnsplashImage
 }
