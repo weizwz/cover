@@ -42,3 +42,9 @@ interface GetDataOptions {
   height: number
   width: number
 }
+
+interface FontData {
+  type: string;
+  typeName: string;
+  list: Font[];
+}

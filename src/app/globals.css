@@ -5,24 +5,30 @@
 
 /* 自定义字体 */
 @theme {
+  --font-astpywk: 'ToneOZ-Pinyin-WenKai-Medium', 'sans-serif';
   --font-default: 'system-ui', 'sans-serif';
-  --font-syht: 'Noto Sans CJK SC', 'sans-serif';
-  --font-syst: 'Noto Serif CJK HK', 'sans-serif';
+  --font-ChillKai: 'ChillKai', 'sans-serif';
+  --font-dyh: 'Smiley Sans Oblique', 'sans-serif';
   --font-dymht: 'Douyin Sans', 'sans-serif';
   --font-gsht: 'Sarasa Mono TC', 'sans-serif';
+  --font-hcqyt: '寒蝉全圆体 Bold', 'sans-serif';
+  --font-jcyt: 'JiangChengYuanTi', 'sans-serif';
+  --font-jhlst: 'KingHwa_OldSong', 'sans-serif';
+  --font-mm: 'Maple Mono CN SemiBold', 'sans-serif';
+  --font-qzkzkt: 'TW-Kai', 'sans-serif';
+  --font-rzjryzzk: 'nzgrRuYinZouZhangKai', 'sans-serif';
+  --font-syht: 'Noto Sans CJK SC', 'sans-serif';
+  --font-syst: 'Noto Serif CJK HK', 'sans-serif';
+  --font-wyyt: 'WenYuan Rounded SC M', 'sans-serif';
+  --font-wyht: 'WenYuan Sans SC', 'sans-serif';
+  --font-wyst: 'WenYuan Serif SC', 'sans-serif';
   --font-xwwk: 'LXGW WenKai GB', 'sans-serif';
   --font-xwxxh: 'LXGW Neo XiHei', 'sans-serif';
   --font-xwmh: 'LXGW Marker Gothic', 'sans-serif';
-  --font-dyh: 'Smiley Sans Oblique', 'sans-serif';
-  --font-zqfs: 'Zhuque Fangsong (technical preview)', 'sans-serif';
   --font-yffyt: 'YFFYT', 'sans-serif';
-  --font-jcyt: 'JiangChengYuanTi', 'sans-serif';
-  --font-mm: 'Maple Mono CN SemiBold', 'sans-serif';
-  --font-astpywk: 'ToneOZ-Pinyin-WenKai-Medium', 'sans-serif';
-  --font-hcqyt: '寒蝉全圆体 Bold', 'sans-serif';
   --font-yqt: 'Child Fun Sans Demo', 'sans-serif';
-  --font-rzjryzzk: 'nzgrRuYinZouZhangKai', 'sans-serif';
   --font-yzgcxst: 'YEFONTXiaoShiTou', 'sans-serif';
+  --font-zqfs: 'Zhuque Fangsong (technical preview)', 'sans-serif';
 }
 
 @theme inline {
@@ -136,10 +142,10 @@
 }
 
 @layer base {
-  /* * {
+  * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
-  } */
+  }
 }

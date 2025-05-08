@@ -12,7 +12,9 @@ interface ColorRandom {
 }
 
 interface Font extends SelectOption {
-  url: string,
+  url: string
+  type: string
+  typeName: string
   lineHeight?: string
 }
 

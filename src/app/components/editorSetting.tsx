@@ -4,9 +4,9 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
 
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { CoverContext } from './coverContext'
 import IconSelect from './iconSelect'
 import { fontLoader, FONTS } from '../settings/fonts'
@@ -16,6 +16,29 @@ import { SIZES } from '../settings/sizes'
 
 const EditorSetting = () => {
   const { coverSetting, setCoverSetting } = useContext(CoverContext)
+  const [ fontData, setFontData ] = useState<FontData[]>([])
+
+  // 初始化
+  useEffect(() => {
+    setFontData(groupWithTypeName(FONTS))
+  }, [])
+
+  // 字体分组显示
+  const groupWithTypeName = (items: Font[]): FontData[] => {
+    const grouped = items.reduce<Record<string, FontData>>((acc, item) => {
+      if (!acc[item.type]) {
+        acc[item.type] = {
+          type: item.type,
+          typeName: item.typeName,
+          list: []
+        };
+      }
+      acc[item.type].list.push(item);
+      return acc;
+    }, {});
+  
+    return Object.values(grouped);
+  }
 
   const changeValue = (value: string, key: string, array: any[]) => {
     const selectedOption = array.filter((item) => {
@@ -68,10 +91,15 @@ const EditorSetting = () => {
                 <SelectValue placeholder='请选择字体' />
               </SelectTrigger>
               <SelectContent position='popper'>
-                {FONTS.map((item) => (
-                  <SelectItem className={item.value} key={item.value} value={item.value}>
-                    {item.label}
-                  </SelectItem>
+                {fontData.map((item) => (
+                  <SelectGroup key={item.type}>
+                    <SelectLabel className='font-bold text-primary'>{item.typeName}</SelectLabel>
+                    {item.list.map((temp) => (
+                      <SelectItem className={temp.value} key={temp.value} value={temp.value}>
+                        {temp.label}
+                      </SelectItem>
+                    ))}
+                  </SelectGroup>
                 ))}
               </SelectContent>
             </Select>
@@ -125,3 +153,4 @@ const EditorSetting = () => {
 }
 
 export default EditorSetting
+
