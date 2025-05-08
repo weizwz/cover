@@ -14,12 +14,12 @@ const Editor = () => {
   useEffect(() => {
     const mediaQueryList = window.matchMedia('(max-width: 1024px)')
 
-    const handleResize = (event: MediaQueryListEvent | any) => {
+    const handleResize = (event: MediaQueryListEvent) => {
       setIsSmallScreen(event.matches)
     }
 
     // 初始化检查
-    handleResize(mediaQueryList)
+    setIsSmallScreen(mediaQueryList.matches)
     // 添加事件监听器
     mediaQueryList.addEventListener('change', handleResize)
     // 清理事件监听器
