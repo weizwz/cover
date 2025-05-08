@@ -10,24 +10,9 @@ export const FONTS: Font[] = [
     url: 'https://fontsapi.zeoseven.com/69/main/result.css'
   },
   {
-    label: '思源宋体',
-    value: 'font-syst',
-    url: 'https://fontsapi.zeoseven.com/562/main/result.css'
-  },
-  {
-    label: '抖音美好体',
-    value: 'font-dymht',
-    url: 'https://fontsapi.zeoseven.com/84/main/result.css'
-  },
-  {
     label: '更纱黑体',
     value: 'font-gsht',
     url: 'https://fontsapi.zeoseven.com/207/main/result.css'
-  },
-  {
-    label: '霞鹜文楷',
-    value: 'font-xwwk',
-    url: 'https://fontsapi.zeoseven.com/95/main/result.css'
   },
   {
     label: '霞鹜新晰黑',
@@ -35,19 +20,9 @@ export const FONTS: Font[] = [
     url: 'https://fontsapi.zeoseven.com/19/main/result.css'
   },
   {
-    label: '霞鹜漫黑',
-    value: 'font-xwmh',
-    url: 'https://fontsapi.zeoseven.com/134/main/result.css'
-  },
-  {
-    label: '得意黑',
-    value: 'font-dyh',
-    url: 'https://fontsapi.zeoseven.com/92/main/result.css'
-  },
-  {
-    label: '纳米老宋',
-    value: 'font-nmls',
-    url: 'https://fontsapi.zeoseven.com/467/main/result.css'
+    label: '思源宋体',
+    value: 'font-syst',
+    url: 'https://fontsapi.zeoseven.com/562/main/result.css'
   },
   {
     label: '朱雀仿宋',
@@ -55,9 +30,30 @@ export const FONTS: Font[] = [
     url: 'https://fontsapi.zeoseven.com/7/main/result.css'
   },
   {
-    label: '云峰飞云体',
-    value: 'font-yffyt',
-    url: 'https://fontsapi.zeoseven.com/446/main/result.css'
+    label: '霞鹜文楷',
+    value: 'font-xwwk',
+    url: 'https://fontsapi.zeoseven.com/95/main/result.css'
+  },
+  {
+    label: '澳声通拼音文楷',
+    value: 'font-astpywk',
+    lineHeight: 'leading-[1.5]',
+    url: 'https://chinese-fonts-cdn.deno.dev/packages/ToneOZ-Pinyin-WenKai/dist/ToneOZ-Pinyin-WenKai-Bold/result.css'
+  },
+  {
+    label: '润植家如印奏章楷',
+    value: 'font-rzjryzzk',
+    url: 'https://chinese-fonts-cdn.deno.dev/packages/rzjryzzk/dist/nzgrRuYinZouZhangKai/result.css'
+  },
+  {
+    label: '得意黑',
+    value: 'font-dyh',
+    url: 'https://fontsapi.zeoseven.com/92/main/result.css'
+  },
+  {
+    label: '抖音美好体',
+    value: 'font-dymht',
+    url: 'https://fontsapi.zeoseven.com/84/main/result.css'
   },
   {
     label: '江城圆体',
@@ -65,10 +61,35 @@ export const FONTS: Font[] = [
     url: 'https://fontsapi.zeoseven.com/59/main/result.css'
   },
   {
-    label: 'JetBrains Maple Mono',
-    value: 'font-jmm',
-    url: 'https://fontsapi.zeoseven.com/521/main/result.css'
-  }
+    label: '寒蝉全圆体',
+    value: 'font-hcqyt',
+    url: 'https://chinese-fonts-cdn.deno.dev/packages/hcqyt/dist/ChillRoundFBold/result.css'
+  },
+  {
+    label: 'Maple Mono',
+    value: 'font-mm',
+    url: 'https://chinese-fonts-cdn.deno.dev/packages/maple-mono-cn/dist/MapleMono-CN-SemiBold/result.css'
+  },
+  {
+    label: '霞鹜漫黑',
+    value: 'font-xwmh',
+    url: 'https://fontsapi.zeoseven.com/134/main/result.css'
+  },
+  {
+    label: '游趣体',
+    value: 'font-yqt',
+    url: 'https://chinese-fonts-cdn.deno.dev/packages/yqt/dist/ChildFunSans-Demo/result.css'
+  },
+  {
+    label: '云峰飞云体',
+    value: 'font-yffyt',
+    url: 'https://fontsapi.zeoseven.com/446/main/result.css'
+  },
+  {
+    label: '也字工厂小石头',
+    value: 'font-yzgcxst',
+    url: 'https://chinese-fonts-cdn.deno.dev/packages/yzgcxst/dist/%E4%B9%9F%E5%AD%97%E5%B7%A5%E5%8E%82%E5%B0%8F%E7%9F%B3%E5%A4%B4/result.css'
+  },
 ]
 
 class FontLoader {

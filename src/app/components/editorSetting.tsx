@@ -69,7 +69,7 @@ const EditorSetting = () => {
               </SelectTrigger>
               <SelectContent position='popper'>
                 {FONTS.map((item) => (
-                  <SelectItem key={item.value} value={item.value}>
+                  <SelectItem className={item.value} key={item.value} value={item.value}>
                     {item.label}
                   </SelectItem>
                 ))}

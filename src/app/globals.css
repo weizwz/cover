@@ -14,11 +14,15 @@
   --font-xwxxh: 'LXGW Neo XiHei', 'sans-serif';
   --font-xwmh: 'LXGW Marker Gothic', 'sans-serif';
   --font-dyh: 'Smiley Sans Oblique', 'sans-serif';
-  --font-nmls: 'NanoOldSong-A', 'sans-serif';
-  --font-nmls: 'Zhuque Fangsong (technical preview)', 'sans-serif';
+  --font-zqfs: 'Zhuque Fangsong (technical preview)', 'sans-serif';
   --font-yffyt: 'YFFYT', 'sans-serif';
   --font-jcyt: 'JiangChengYuanTi', 'sans-serif';
-  --font-jmm: 'JetBrains Maple Mono', 'sans-serif';
+  --font-mm: 'Maple Mono CN SemiBold', 'sans-serif';
+  --font-astpywk: 'ToneOZ-Pinyin-WenKai-Medium', 'sans-serif';
+  --font-hcqyt: '寒蝉全圆体 Bold', 'sans-serif';
+  --font-yqt: 'Child Fun Sans Demo', 'sans-serif';
+  --font-rzjryzzk: 'nzgrRuYinZouZhangKai', 'sans-serif';
+  --font-yzgcxst: 'YEFONTXiaoShiTou', 'sans-serif';
 }
 
 @theme inline {

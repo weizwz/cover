@@ -18,7 +18,7 @@ const ModernTheme: React.FC<ThemeProps> = ({ config }) => {
 
         <div className='h-full w-2/3 py-8 pr-8'>
           <div className={`${font.value} bg-white px-12 justify-center text-left rounded-2xl h-full p-4 flex flex-col`}>
-            <h1 className='text-3xl md:text-5xl font-bold text-gray-800'>{title}</h1>
+            <h1 className={`text-3xl md:text-5xl ${font?.lineHeight} font-bold text-gray-800`}>{title}</h1>
             <h2 className='text-xl mt-10 font-semibold text-left '>{author}</h2>
           </div>
         </div>
