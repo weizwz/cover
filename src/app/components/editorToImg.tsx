@@ -6,6 +6,7 @@ import unsplash from '../config/unsplash'
 import { LoaderCircle, Download } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import html2canvas from 'html2canvas-pro'
+import { getFormattedDateTime } from '../tools/date'
 
 
 const EditorToImg: React.FC<EditorToImgProps> = (props) => {
@@ -15,10 +16,9 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
   const componentRef = React.createRef<HTMLDivElement>();
 
   async function saveImage(data: string): Promise<void> {
-    const getCurrentDate = (): string => new Date().toISOString().split('T')[0];
     var a = document.createElement('a') as HTMLAnchorElement;
     a.href = data;
-    a.download = `cover-${getCurrentDate()}.png`;
+    a.download = `cover-${getFormattedDateTime()}.png`;
     document.body.appendChild(a);
     setLoading(false);
     a.click();
