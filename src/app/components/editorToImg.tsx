@@ -60,7 +60,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
           {props.children}
         </div>
         <div className='absolute top-0 left-full px-4'>
-          <Button disabled={loading} variant="outline" size="icon" onClick={() => downloadImage()}>
+          <Button className='cursor-pointer' disabled={loading} variant="outline" size="icon" onClick={() => downloadImage()}>
             {loading ? <LoaderCircle className="animate-spin" /> : <Download />}
           </Button>
         </div>
