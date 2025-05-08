@@ -84,7 +84,7 @@ const EditorSetting = () => {
             <Label htmlFor='author' className='w-12 justify-end'>图标</Label>
             <IconSelect onChange={(selectedOption) => setCoverSetting({ ...coverSetting, icon: selectedOption as IconOption })} />
           </div>
-          <div className='flex w-full xl:w-1/2 xl:pr-2 space-x-1.5 mb-4'>
+          <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
             <Label htmlFor='font' className='w-12 justify-end'>字体</Label>
             <Select defaultValue={coverSetting.font.value} onValueChange={(value) => { changeValue(value, 'font', FONTS) }}>
               <SelectTrigger id='font' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
@@ -104,7 +104,7 @@ const EditorSetting = () => {
               </SelectContent>
             </Select>
           </div>
-          <div className='flex w-full xl:w-1/2 xl:pl-2 space-x-1.5 mb-4'>
+          <div className='flex w-full 2xl:w-1/2 2xl:pl-2 space-x-1.5 mb-4'>
             <Label htmlFor='bg' className='w-12 justify-end'>背景色</Label>
             <Input
               id='bg'
@@ -115,7 +115,7 @@ const EditorSetting = () => {
               onChange={(e) => setCoverSetting({ ...coverSetting, color: { bgColor: e.target.value} })}
             />
           </div>
-          <div className='flex w-full xl:w-1/2 xl:pr-2 space-x-1.5 mb-4'>
+          <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
             <Label htmlFor='pattern' className='w-12 justify-end'>纹理</Label>
             <Select defaultValue={coverSetting.pattern.value} onValueChange={(value) => { changeValue(value, 'pattern', PATTERNS) }}>
               <SelectTrigger id='pattern' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
@@ -130,7 +130,7 @@ const EditorSetting = () => {
               </SelectContent>
             </Select>
           </div>
-          <div className='flex w-full xl:w-1/2 xl:pl-2 space-x-1.5 mb-4'>
+          <div className='flex w-full 2xl:w-1/2 2xl:pl-2 space-x-1.5 mb-4'>
             <Label htmlFor='size' className='w-12 justify-end'>尺寸</Label>
             <Select defaultValue={coverSetting.size.value} onValueChange={(value) => { changeValue(value, 'size', SIZES) }}>
               <SelectTrigger id='pattern' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
