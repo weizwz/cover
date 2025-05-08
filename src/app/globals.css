@@ -1,7 +1,25 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
+
+/* 自定义字体 */
+@theme {
+  --font-default: 'system-ui', 'sans-serif';
+  --font-syht: 'Noto Sans CJK SC', 'sans-serif';
+  --font-syst: 'Noto Serif CJK HK', 'sans-serif';
+  --font-dymht: 'Douyin Sans', 'sans-serif';
+  --font-gsht: 'Sarasa Mono TC', 'sans-serif';
+  --font-xwwk: 'LXGW WenKai GB', 'sans-serif';
+  --font-xwxxh: 'LXGW Neo XiHei', 'sans-serif';
+  --font-xwmh: 'LXGW Marker Gothic', 'sans-serif';
+  --font-dyh: 'Smiley Sans Oblique', 'sans-serif';
+  --font-nmls: 'NanoOldSong-A', 'sans-serif';
+  --font-nmls: 'Zhuque Fangsong (technical preview)', 'sans-serif';
+  --font-yffyt: 'YFFYT', 'sans-serif';
+  --font-jcyt: 'JiangChengYuanTi', 'sans-serif';
+  --font-jmm: 'JetBrains Maple Mono', 'sans-serif';
+}
 
 @theme inline {
   --color-background: var(--background);
@@ -114,10 +132,10 @@
 }
 
 @layer base {
-  * {
+  /* * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
-  }
+  } */
 }
