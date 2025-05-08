@@ -8,22 +8,22 @@ import mobileThemePlaceholder from '../assets/images/mobile-theme-placeholder.we
 
 export const THEMES: Theme[] = [
   {
-    label: '现代风',
+    label: '现代',
     value: 'modern',
     preview: modernThemePlaceholder
   },
   {
-    label: '背景卡片',
+    label: '经典',
     value: 'basic',
     preview: basicThemePlaceholder
   },
   {
-    label: '背景平铺',
+    label: '平铺',
     value: 'outline',
     preview: outlineThemePlaceholder
   },
   {
-    label: '背景图',
+    label: '背景',
     value: 'background',
     preview: backgroundThemePlaceholder
   },
