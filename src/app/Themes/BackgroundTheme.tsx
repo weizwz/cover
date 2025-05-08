@@ -20,7 +20,7 @@ const BackgroundTheme: React.FC<ThemeProps> = ({ config }) => {
 
           <div className='h-full absolute top-0 right-0 left-0 p-12'>
             <Button
-              className='cursor-pointer absolute top-4 right-4 rounded-full'
+              className='hidden cursor-pointer absolute top-4 right-4 rounded-full text-center group-hover:flex'
               variant='outline'
               size='icon'
               onClick={() =>
