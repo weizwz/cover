@@ -48,15 +48,15 @@ export const PATTERNS: Pattern[] = [
     value: 'bubbles',
   },
   {
-    label: '蚀日之时',
+    label: '蚀日',
     value: 'eclipse',
   },
   {
-    label: '星际之道',
+    label: '星际',
     value: 'star-tracks',
   },
   {
-    label: '午日阳光',
+    label: '阳光',
     value: 'sunshine',
   },
 ]

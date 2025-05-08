@@ -3,7 +3,7 @@ const BasicTheme: React.FC<ThemeProps> = ({ config }) => {
 
   return (
     <div className={`flex text-gray-800 justify-center items-center h-full ${pattern.value}  p-12`} style={{ backgroundColor: color.bgColor }}>
-      <div className={`w-full h-full max-h-[360px] max-w-[640px] flex flex-col justify-center items-center gap-12 p-12 ${font.value} bg-white/90 rounded-xl`}>
+      <div className={`w-full h-full max-h-[360px] max-w-[640px] flex flex-col justify-center items-center gap-12 p-12 ${font.value} bg-white rounded-xl`}>
         <div>
           <h1 className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-gray-800`}>{title}</h1>
         </div>
