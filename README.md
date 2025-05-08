@@ -2,14 +2,13 @@
 
 一个简单的封面生成器，**基于 [rutikwankhade/CoverView](https://github.com/rutikwankhade/CoverView) 修改**
 
-全新架构升级，使用 `next.js v15` && `react v19` && `shadcn/ui` && `tailwindcss v4` && `lucide icons`
+全新架构升级，使用 `next.js v15` + `react v19` + `shadcn/ui` + `tailwindcss v4` + `lucide icons`
 
 在原来的基础上进行了汉化 + 本土功能定制和扩展
 
 ## 功能修改
 
-- [x] 全新架构 `next.js v15` + `react v19`
-- [x] 页面文字汉化
+- [x] 文字汉化
 - [x] 使用iconify的simple-icons系列图标，当前3000+
 - [ ] 支持自定义图标，支持在线图标
 - [x] 应用开源/免费商用字体，当前23+
