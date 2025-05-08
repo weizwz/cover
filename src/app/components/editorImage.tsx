@@ -1,6 +1,6 @@
 'use client'
 
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import '../assets/css/theme.css'
 import '../assets/css/patterns.css'
 import ModernTheme from '../themes/ModernTheme'

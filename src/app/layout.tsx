@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "cover - 封面生成器",
+  title: "thisCover 封面生成器",
   description: "免费、快速的封面生成器",
 };
 
