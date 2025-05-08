@@ -4,11 +4,10 @@ import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { X } from 'lucide-react'
-import PcBg from '../assets/images/pc.webp'
+import pcBg from '../assets/images/pc.webp'
 
 const PreviewTheme: React.FC<ThemeProps> = ({ config }) => {
   const { title, color, pattern, author, icon, font, customIcon, size } = config
-
   const [image, setImage] = useState<string | undefined>(undefined)
 
   return (
@@ -23,7 +22,7 @@ const PreviewTheme: React.FC<ThemeProps> = ({ config }) => {
           <h1 className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white text-center`}>{title}</h1>
 
           <div className='w-full aspect-[1.5382] group flex flex-col relative'>
-            <img src={PcBg.src} className='absolute top-0 left-0 w-full z-10' alt='background' />
+            <img src={pcBg.src} className='absolute top-0 left-0 w-full z-10' alt='background' />
 
             {image ? (
               // 图片宽高比1.5382 显示区域宽高比1.5397  显示区域宽占总内容区域比0.7667
@@ -40,22 +39,20 @@ const PreviewTheme: React.FC<ThemeProps> = ({ config }) => {
                 </Button>
               </div>
             ) : (
-              <div className='absolute top-0 left-0 h-full w-full z-20 p-10'>
-                <div className='h-full flex flex-col px-8 py-12 items-center'>
-                  <div className='w-fit rounded overflow-hidden mb-4'>
-                    <Input
-                      type='file'
-                      accept='image/png, image/jpeg'
-                      className='cursor-pointer bg-white'
-                      onChange={(e) => {
-                        if (e.target.files && e.target.files[0]) {
-                          setImage(URL.createObjectURL(e.target.files[0]))
-                        }
-                      }}
-                    />
-                  </div>
-                  <span className='text-center'>上传PC截图</span>
+              <div className='absolute z-10 inset-y-[11.58%] inset-x-[11.66%] w-[76.68%] aspect-[1.5397] px-4 py-12 flex flex-col items-center'>
+                <div className='w-fit rounded overflow-hidden mb-4'>
+                  <Input
+                    type='file'
+                    accept='image/png, image/jpeg, image/webp'
+                    className='cursor-pointer bg-white'
+                    onChange={(e) => {
+                      if (e.target.files && e.target.files[0]) {
+                        setImage(URL.createObjectURL(e.target.files[0]))
+                      }
+                    }}
+                  />
                 </div>
+                <span className='text-center'>上传PC截图</span>
               </div>
             )}
           </div>

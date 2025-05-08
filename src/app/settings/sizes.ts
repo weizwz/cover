@@ -1,7 +1,7 @@
 export const SIZES: Size[] = [
   {
     label: '正方比例 1:1',
-    value: 'square vertical1-1'
+    value: 'square vertical1-1 horizontal1-1'
   },
   {
     label: '横板比例 2:1',
