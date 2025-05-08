@@ -42,7 +42,7 @@ const Editor = () => {
               </div>
             </TabsContent>
             <TabsContent value='preview'>
-              <div className='w-full overflow-auto bg-gray-50'>
+              <div className='w-full h-full overflow-auto bg-gray-50'>
                 <EditorPreview />
               </div>
             </TabsContent>
