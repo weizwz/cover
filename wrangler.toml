@@ -1,6 +1,6 @@
 # wrangler.toml
 
-name = "cover-worker"
+name = "cover"
  # 替换为你实际的 Worker 入口文件路径
 main = "./worker.js"
 compatibility_date = "2025-05-09"
