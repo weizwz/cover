@@ -40,7 +40,7 @@ const BackgroundTheme: React.FC<ThemeProps> = ({ config }) => {
                 </div>
               )}
               <h1 className={`mt-8 text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white text-center text-shadow-lg text-shadow-black`}>{title}</h1>
-              <div className='flex flex-col items-center mt-4 mb-16'>
+              <div className='flex flex-col items-center mt-6 mb-16'>
                 <h2 className='text-2xl  font-semibold text-left text-white text-shadow-sm text-shadow-black'>{author}</h2>
               </div>
             </div>
