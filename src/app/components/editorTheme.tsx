@@ -28,7 +28,7 @@ const EditorTheme = () => {
               item.value === coverSetting.theme.value ? 'border-gray-400 shadow-sm shadow-indigo-600/50' : ''
             } flex flex-col items-center justify-center border border-gray-200 p-1 overflow-hidden rounded-lg cursor-pointer border-hover duration-100`}
             key={item.label}>
-            <Image src={item.preview.src} width={100} height={60} alt={item.label} onClick={(e) => changeTheme(item.value)} />
+            <Image src={item.preview.src} width={100} height={60} alt={item.label} onClick={() => changeTheme(item.value)} />
             <div className='text-sm text-center text-gray-600 font-bold whitespace-nowrap'>{item.label}</div>
           </div>
         ))}

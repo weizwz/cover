@@ -40,7 +40,15 @@ const EditorSetting = () => {
     return Object.values(grouped);
   }
 
-  const changeValue = (value: string, key: string, array: any[]) => {
+  const changeIcon = (option: IconOption) => {
+    setCoverSetting({
+      ...coverSetting,
+      icon: option
+    })
+  }
+
+  type changeOptions = Font | Pattern | Size
+  const changeValue = (value: string, key: string, array: changeOptions[]) => {
     const selectedOption = array.filter((item) => {
       return item.value === value
     })
@@ -82,7 +90,7 @@ const EditorSetting = () => {
           </div>
           <div className='flex w-full space-x-1.5 mb-4'>
             <Label htmlFor='author' className='w-12 justify-end'>图标</Label>
-            <IconSelect onChange={(selectedOption) => setCoverSetting({ ...coverSetting, icon: selectedOption as IconOption })} />
+            <IconSelect onChange={changeIcon} />
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
             <Label htmlFor='font' className='w-12 justify-end'>字体</Label>

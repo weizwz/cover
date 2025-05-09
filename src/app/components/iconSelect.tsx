@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import Select, { OptionProps } from 'react-select'
-import type { ActionMeta, MenuListProps, MultiValue, SingleValue } from 'react-select'
+import type { MenuListProps, MultiValue, SingleValue } from 'react-select'
 import { FixedSizeList as List } from 'react-window'
 import { DEFAULT_ICON } from '../settings/default'
 
@@ -20,7 +20,7 @@ const CustomOption = ({ data, isFocused, isSelected, innerRef, innerProps }: Opt
       <div className='flex items-center justify-between'>
         <span className='mr-2 overflow-hidden text-ellipsis'>{data.label}</span>
         <div className='ml-auto w-[24px]'>
-          <img loading='lazy' width={24} height={24} src={`${iconifyHost}/simple-icons/${data.value}.svg`} alt={`${data.label} icon`} />
+          <img className='w-6 h-6' loading='lazy' src={`${iconifyHost}/simple-icons/${data.value}.svg`} alt={`${data.label} icon`} />
         </div>
       </div>
     </div>
@@ -54,7 +54,7 @@ const MenuList = ({ options, children, maxHeight, getValue }: MenuListProps<Icon
   )
 }
 
-const IconSelect = ({ onChange = (newValue?: SingleValue<IconOption> | MultiValue<IconOption>) => {} }) => {
+const IconSelect = (props: { onChange: (arg0: IconOption) => void }) => {
   const [selectValue, setSelectValue] = useState<SingleValue<IconOption>>(defaultIcon)
   const [selectOptions, setSelectOptions] = useState([defaultIcon])
   const [loading, setLoading] = useState(true)
@@ -68,7 +68,7 @@ const IconSelect = ({ onChange = (newValue?: SingleValue<IconOption> | MultiValu
         const response = await fetch(iconifyHost + '/collection?prefix=simple-icons&chars=true&aliases=true')
         const result = await response.json()
 
-        const options = result.uncategorized.map((item: any) => ({
+        const options = result.uncategorized.map((item: SelectOption) => ({
           value: item,
           label: item
         }))
@@ -84,9 +84,9 @@ const IconSelect = ({ onChange = (newValue?: SingleValue<IconOption> | MultiValu
     fetchData()
   }, [])
 
-  const handleChange = (newValue: MultiValue<IconOption> | SingleValue<IconOption>, actionMeta: ActionMeta<IconOption>) => {
-    setSelectValue(newValue as SingleValue<IconOption>)
-    onChange(newValue)
+  const handleChange = (newValue: MultiValue<IconOption> | SingleValue<IconOption>) => {
+    setSelectValue(newValue as IconOption)
+    props.onChange(newValue as IconOption)
   }
 
   if (loading) return <div className='flex-1 h-9 px-3 py-1 border border-input rounded-md'>图标加载中...</div>

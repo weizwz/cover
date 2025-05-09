@@ -18,11 +18,11 @@ interface Font extends SelectOption {
   lineHeight?: string
 }
 
-interface Pattern extends SelectOption {}
+type Pattern = SelectOption
 
-interface Size extends SelectOption {}
+type Size = SelectOption
 
-interface IconOption extends SelectOption {}
+type IconOption = SelectOption
 
 interface UnsplashParam {
   query: string
@@ -31,8 +31,8 @@ interface UnsplashParam {
 }
 
 interface UnsplashImage {
-  searchText: string,
-  url: string,
+  searchText: string
+  url: string
   downloadLink: string
 }
 
@@ -46,6 +46,6 @@ interface Setting {
   font: Font
   color: ColorRandom
   pattern: Pattern
-  size: Size,
+  size: Size
   unsplashImage?: UnsplashImage
 }

@@ -16,7 +16,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
   const componentRef = React.createRef<HTMLDivElement>();
 
   async function saveImage(data: string): Promise<void> {
-    var a = document.createElement('a') as HTMLAnchorElement;
+    const a = document.createElement('a') as HTMLAnchorElement;
     a.href = data;
     a.download = `cover-${getFormattedDateTime()}.png`;
     document.body.appendChild(a);
@@ -29,7 +29,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
     setLoading(true);
 
     if (componentRef.current) {
-      let data = await getData(componentRef.current);
+      const data = await getData(componentRef.current);
       await saveImage(data);
 
       if (coverSetting.unsplashImage?.downloadLink) {
