@@ -7,7 +7,7 @@ const EditorPreview = () => {
   return (
     <div className='h-full w-full bg-gray-50'>
       <h2 className='text-lg font-bold text-center py-4'>封面预览</h2>
-      <div className='w-fit sm:w-full flex flex-col justify-center items-center'>
+      <div className='w-fit sm:w-full flex flex-col justify-center items-center pb-12'>
         <EditorToImg>
           <EditorImage />
         </EditorToImg>
