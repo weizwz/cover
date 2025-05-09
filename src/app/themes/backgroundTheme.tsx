@@ -29,10 +29,10 @@ const BackgroundTheme: React.FC<ThemeProps> = ({ config }) => {
               <X />
             </Button>
 
-            <div className={`${font.value} text-left rounded-xl h-full flex flex-col justify-center text-shadow-lg text-shadow-black`}>
-              <h1 className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white text-center`}>{title}</h1>
+            <div className={`${font.value} text-left rounded-xl h-full flex flex-col justify-center`}>
+              <h1 className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white text-center text-shadow-lg text-shadow-black`}>{title}</h1>
               <div className='flex flex-col items-center mt-10'>
-                <h2 className='text-2xl  font-semibold text-left text-white'>{author}</h2>
+                <h2 className='text-2xl  font-semibold text-left text-white text-shadow-sm text-shadow-black'>{author}</h2>
                 {customIcon ? (
                   <div className=' '>
                     <img src={customIcon} alt='img' className='w-12 h-12 m-2 rounded-full bg-white border-2 border-white' />

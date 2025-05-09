@@ -17,9 +17,9 @@ const OutlineTheme: React.FC<ThemeProps> = ({ config }) => {
               <img className='w-24 h-24' src={`https://api.iconify.design/simple-icons/${icon.value}.svg?color=%23fff`} alt={`${icon.label} icon`} />
             </div>
           )}
-          <div className={`${font.value} mb-12 text-shadow-lg text-shadow-black`}>
-            <h1 className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white`}>{title}</h1>
-            <h2 className='text-2xl mt-6 font-semibold text-white'>{author}</h2>
+          <div className={`${font.value} mb-12`}>
+            <h1 className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white text-shadow-lg text-shadow-black`}>{title}</h1>
+            <h2 className='text-2xl mt-6 font-semibold text-white text-shadow-sm text-shadow-black'>{author}</h2>
           </div>
         </div>
       </div>

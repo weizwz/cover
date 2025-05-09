@@ -17,10 +17,12 @@ const MobileMockupTheme: React.FC<ThemeProps> = ({ config }) => {
         className={`${font.value} h-full rounded-2xl flex items-center relative z-10 ${size.value.indexOf('vertical') === 0 ? 'flex-col px-24 py-12' : ''} ${
           size.value.indexOf('vertical') === -1 ? 'px-24' : ''
         }`}>
-        <div className='flex-1 flex flex-col justify-end items-center text-shadow-lg text-shadow-black'>
-          <h2 className='text-2xl mb-2 font-semibold text-white'>{author}</h2>
+        <div className='flex-1 flex flex-col justify-end items-center'>
+          <h2 className='text-2xl mb-2 font-semibold text-white text-shadow-sm text-shadow-black'>{author}</h2>
           <h1
-            className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white text-center ${size.value.indexOf('square') === 0 ? 'pl-8' : ''}`}>
+            className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white text-center text-shadow-lg text-shadow-black ${
+              size.value.indexOf('square') === 0 ? 'pl-8' : ''
+            }`}>
             {title}
           </h1>
         </div>
