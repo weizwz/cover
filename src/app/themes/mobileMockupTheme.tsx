@@ -56,6 +56,7 @@ const MobileMockupTheme: React.FC<ThemeProps> = ({ config }) => {
                 />
               </div>
               <span className='text-center'>上传手机截图</span>
+              <span className='text-center text-gray-600 text-sm'>截图高宽比&gt;=11:5效果最佳</span>
             </div>
           )}
         </div>

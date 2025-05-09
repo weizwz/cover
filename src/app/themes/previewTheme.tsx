@@ -52,7 +52,8 @@ const PreviewTheme: React.FC<ThemeProps> = ({ config }) => {
                     }}
                   />
                 </div>
-                <span className='text-center'>上传PC截图</span>
+                <span className='text-center text-gray-800'>上传PC截图</span>
+                <span className='text-center text-gray-600 text-sm'>截图宽高比&gt;=3:2效果最佳</span>
               </div>
             )}
           </div>
