@@ -29,7 +29,7 @@ const UnsplashSearch: React.FC<UnsplashSearchProps> = ({ largeImgPreview }) => {
       // 在这里处理 Enter 键被按下的逻辑
       searchImage()
     }
-  };
+  }
 
   const searchImage = () => {
     if (text.trim() === '') {
@@ -80,16 +80,21 @@ const UnsplashSearch: React.FC<UnsplashSearchProps> = ({ largeImgPreview }) => {
           onClick={() => setUnsplashParam({ ...unsplashParam, page: unsplashParam.page > 1 ? unsplashParam.page - 1 : 1 })}>
           上一页
         </Button>
-        <Button  className='cursor-pointer' onClick={() => setUnsplashParam({ ...unsplashParam, page: unsplashParam.page + 1 })}>下一页</Button>
+        <Button className='cursor-pointer' onClick={() => setUnsplashParam({ ...unsplashParam, page: unsplashParam.page + 1 })}>
+          下一页
+        </Button>
       </div>
 
       <div className={`overflow-y-auto overflow-x-hidden rounded-lg mb-4`} style={{ height: 'calc(100% - 60px)' }}>
         <div className={`grid gap-4 ${largeImgPreview ? 'grid-cols-4' : 'grid-cols-3'}`}>
           {imageList.map((image) => {
             return (
-              <div key={image.id} className={`rounded-lg relative cursor-pointer w-full ${largeImgPreview ? 'h-32' : 'h-20'}`}>
-                <span className='font-Inter top-2 left-2 absolute z-10 text-sm font-semibold text-white opacity-50'>点击选择此照片</span>
-                <UnsplashImage src={image.urls.regular} alt={image.alt_description} onClick={() => selectImage(image)} />
+              <div
+                key={image.id}
+                className={`rounded-lg relative cursor-pointer w-full ${largeImgPreview ? 'h-32' : 'h-20'}`}
+                onClick={() => selectImage(image)}>
+                <span className='font-Inter top-2 left-2 absolute z-10 text-xs font-semibold text-white text-shadow-xs text-shadow-black'>点击选择此照片</span>
+                <UnsplashImage src={image.urls.regular} alt={image.alt_description} />
               </div>
             )
           })}
