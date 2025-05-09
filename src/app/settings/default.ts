@@ -19,7 +19,7 @@ export const DEFAULT_UNSPLASH_IMAGE: UnsplashImage = {
 }
 
 export const DEFAULT_SETTING: Setting = {
-  title: '免费、快速的封面生成器',
+  title: '免费、漂亮的封面生成器',
   author: '唯知笔记',
   download: 'png',
   icon: DEFAULT_ICON,
