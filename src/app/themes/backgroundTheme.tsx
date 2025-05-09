@@ -30,18 +30,18 @@ const BackgroundTheme: React.FC<ThemeProps> = ({ config }) => {
             </Button>
 
             <div className={`${font.value} text-left rounded-xl h-full flex flex-col justify-center`}>
-              <h1 className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white text-center text-shadow-lg text-shadow-black`}>{title}</h1>
-              <div className='flex flex-col items-center mt-10'>
+              {customIcon ? (
+                <div className=' '>
+                  <img src={customIcon} alt='img' className='w-12 h-12 m-2 rounded-full bg-white border-2 border-white' />
+                </div>
+              ) : (
+                <div className='flex items-center justify-center'>
+                  <img className='w-18 h-18' src={`https://api.iconify.design/simple-icons/${icon.value}.svg?color=%23fff`} alt={`${icon.label} icon`} />
+                </div>
+              )}
+              <h1 className={`mt-8 text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white text-center text-shadow-lg text-shadow-black`}>{title}</h1>
+              <div className='flex flex-col items-center mt-4 mb-16'>
                 <h2 className='text-2xl  font-semibold text-left text-white text-shadow-sm text-shadow-black'>{author}</h2>
-                {customIcon ? (
-                  <div className=' '>
-                    <img src={customIcon} alt='img' className='w-12 h-12 m-2 rounded-full bg-white border-2 border-white' />
-                  </div>
-                ) : (
-                  <div className='flex items-center justify-center mt-2'>
-                    <img className='w-8 h-8' src={`https://api.iconify.design/simple-icons/${icon.value}.svg?color=%23fff`} alt={`${icon.label} icon`} />
-                  </div>
-                )}
               </div>
             </div>
           </div>
