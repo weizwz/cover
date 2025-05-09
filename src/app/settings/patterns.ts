@@ -4,6 +4,10 @@ export const PATTERNS: Pattern[] = [
     value: 'none',
   },
   {
+    label: '甜点心',
+    value: 'dessert',
+  },
+  {
     label: '网格纸',
     value: 'graph-paper',
   },
@@ -14,10 +18,6 @@ export const PATTERNS: Pattern[] = [
   {
     label: '幸运星',
     value: 'star',
-  },
-  {
-    label: '小甜点',
-    value: 'dessert',
   },
   {
     label: '叉号集',
