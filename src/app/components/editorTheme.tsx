@@ -21,7 +21,7 @@ const EditorTheme = () => {
   return (
     <div className='h-full w-full overflow-y-auto p-4'>
       <h2 className='text-lg font-bold text-center mb-4'>主题选择</h2>
-      <div className='grid 2xl:grid-cols-2 gap-4'>
+      <div className='grid grid-cols-2 md:grid-cols-1 2xl:grid-cols-2 gap-4'>
         {THEMES.map((item) => (
           <div
             className={`${

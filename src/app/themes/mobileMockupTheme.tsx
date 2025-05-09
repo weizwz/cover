@@ -18,9 +18,11 @@ const MobileMockupTheme: React.FC<ThemeProps> = ({ config }) => {
           size.value.indexOf('vertical') === -1 ? 'px-24' : ''
         }`}>
         <div className='flex-1 flex flex-col justify-end items-center'>
-          <h2 className='text-2xl mb-2 font-semibold text-white'>{author}</h2>
+          <h2 className='text-2xl mb-2 font-semibold text-white text-shadow-sm text-shadow-black'>{author}</h2>
           <h1
-            className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white text-center ${size.value.indexOf('square') === 0 ? 'pl-8' : ''}`}>
+            className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white text-center text-shadow-lg text-shadow-black ${
+              size.value.indexOf('square') === 0 ? 'pl-8' : ''
+            }`}>
             {title}
           </h1>
         </div>
@@ -30,7 +32,7 @@ const MobileMockupTheme: React.FC<ThemeProps> = ({ config }) => {
           {image ? (
             // 图片宽高比0.5286  显示区域宽高比0.4498  显示区域宽占总内容区域比0.7297, 高占比0.8575
             <div className='group relative w-full h-full flex'>
-              <div className='absolute inset-y-[7.125%] inset-x-[13.515%] w-[72.97%] aspect-[0.4498]'>
+              <div className='absolute inset-y-[7.125%] inset-x-[13.515%] w-[72.97%] aspect-[0.4498] overflow-hidden'>
                 <img src={image} className='w-full object-cover object-top' alt='preview' />
               </div>
               <Button
@@ -56,6 +58,7 @@ const MobileMockupTheme: React.FC<ThemeProps> = ({ config }) => {
                 />
               </div>
               <span className='text-center'>上传手机截图</span>
+              <span className='text-center text-gray-600 text-sm'>截图高宽比&gt;=11:5效果最佳</span>
             </div>
           )}
         </div>

@@ -17,9 +17,9 @@ const PreviewTheme: React.FC<ThemeProps> = ({ config }) => {
         <div
           className={`${font.value} h-full rounded-2xl flex flex-col items-center ${
             size.value.indexOf('vertical') >= 0 ? 'justify-center' : ''
-          } relative z-10 p-12`}>
-          <h2 className='text-2xl mb-2 font-semibold text-white'>{author}</h2>
-          <h1 className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white text-center`}>{title}</h1>
+          } relative z-10 p-12 `}>
+          <h2 className='text-2xl mb-2 font-semibold text-white text-shadow-sm text-shadow-black'>{author}</h2>
+          <h1 className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white text-center text-shadow-lg text-shadow-black`}>{title}</h1>
 
           <div className='w-full aspect-[1.5382] group flex flex-col relative'>
             <img src={pcBg.src} className='absolute top-0 left-0 w-full z-10' alt='background' />
@@ -27,7 +27,7 @@ const PreviewTheme: React.FC<ThemeProps> = ({ config }) => {
             {image ? (
               // 图片宽高比1.5382 显示区域宽高比1.5397  显示区域宽占总内容区域比0.7667
               <div className='relative w-full h-full flex'>
-                <div className='absolute inset-y-[11.58%] inset-x-[11.66%] w-[76.68%] aspect-[1.5397]'>
+                <div className='absolute inset-y-[11.64%] inset-x-[11.62%] w-[76.76%] aspect-[1.5397] overflow-hidden'>
                   <img src={image} className='w-full object-cover object-top' alt='preview' />
                 </div>
                 <Button
@@ -52,7 +52,8 @@ const PreviewTheme: React.FC<ThemeProps> = ({ config }) => {
                     }}
                   />
                 </div>
-                <span className='text-center'>上传PC截图</span>
+                <span className='text-center text-gray-800'>上传PC截图</span>
+                <span className='text-center text-gray-600 text-sm'>截图宽高比&gt;=3:2效果最佳</span>
               </div>
             )}
           </div>

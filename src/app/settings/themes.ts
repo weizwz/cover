@@ -8,6 +8,11 @@ import mobileThemePlaceholder from '../assets/images/mobile-theme-placeholder.we
 
 export const THEMES: Theme[] = [
   {
+    label: '平铺',
+    value: 'outline',
+    preview: outlineThemePlaceholder
+  },
+  {
     label: '现代',
     value: 'modern',
     preview: modernThemePlaceholder
@@ -16,11 +21,6 @@ export const THEMES: Theme[] = [
     label: '经典',
     value: 'basic',
     preview: basicThemePlaceholder
-  },
-  {
-    label: '平铺',
-    value: 'outline',
-    preview: outlineThemePlaceholder
   },
   {
     label: '背景',

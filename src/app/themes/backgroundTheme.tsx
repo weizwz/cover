@@ -29,19 +29,19 @@ const BackgroundTheme: React.FC<ThemeProps> = ({ config }) => {
               <X />
             </Button>
 
-            <div className={`${font.value} text-left rounded-xl h-full flex flex-col justify-center text-shadow-lg text-shadow-black`}>
-              <h1 className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white text-center`}>{title}</h1>
-              <div className='flex flex-col items-center mt-10'>
-                <h2 className='text-2xl  font-semibold text-left text-white'>{author}</h2>
-                {customIcon ? (
-                  <div className=' '>
-                    <img src={customIcon} alt='img' className='w-12 h-12 m-2 rounded-full bg-white border-2 border-white' />
-                  </div>
-                ) : (
-                  <div className='flex items-center justify-center mt-2'>
-                    <img className='w-8 h-8' src={`https://api.iconify.design/simple-icons/${icon.value}.svg?color=%23fff`} alt={`${icon.label} icon`} />
-                  </div>
-                )}
+            <div className={`${font.value} text-left rounded-xl h-full flex flex-col justify-center`}>
+              {customIcon ? (
+                <div className=' '>
+                  <img src={customIcon} alt='img' className='w-12 h-12 m-2 rounded-full bg-white border-2 border-white' />
+                </div>
+              ) : (
+                <div className='flex items-center justify-center'>
+                  <img className='w-18 h-18' src={`https://api.iconify.design/simple-icons/${icon.value}.svg?color=%23fff`} alt={`${icon.label} icon`} />
+                </div>
+              )}
+              <h1 className={`mt-8 text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white text-center text-shadow-lg text-shadow-black`}>{title}</h1>
+              <div className='flex flex-col items-center mt-6 mb-16'>
+                <h2 className='text-2xl  font-semibold text-left text-white text-shadow-sm text-shadow-black'>{author}</h2>
               </div>
             </div>
           </div>

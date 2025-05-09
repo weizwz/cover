@@ -15,7 +15,7 @@ const StylishTheme: React.FC<ThemeProps> = ({ config }) => {
       <div className='h-full flex flex-row items-center bg-white justify-center'>
         <div className='h-full w-1/2 bg-white rounded-l-xl'>
           <div className={`${font.value} p-12 justify-center text-left rounded-xl h-full flex flex-col`}>
-            <h1 className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} text-gray-800 font-bold`}>{title}</h1>
+            <h1 className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} text-gray-800 font-bold text-shadow-lg`}>{title}</h1>
             <div className='flex items-center mt-10 text-left'>
               {customIcon ? (
                 <div className=' '>
@@ -26,7 +26,7 @@ const StylishTheme: React.FC<ThemeProps> = ({ config }) => {
                   <img className='w-8 h-8' src={`https://api.iconify.design/simple-icons/${icon.value}.svg`} alt={`${icon.label} icon`} />
                 </div>
               )}
-              <h2 className='text-2xl font-semibold text-left text-gray-800'>{author}</h2>
+              <h2 className='text-2xl font-semibold text-left text-gray-800 text-shadow-sm'>{author}</h2>
             </div>
           </div>
         </div>

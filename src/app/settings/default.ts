@@ -7,7 +7,7 @@ import { SIZES } from './sizes'
 export const DEFAULT_ICON: IconOption = { label: 'xiaohongshu', value: 'xiaohongshu' }
 
 export const DEFAULT_UNSPLASH_PARAM: UnsplashParam = {
-  query: 'background',
+  query: 'beautiful background',
   page: 1,
   per_page: 12
 }
@@ -19,7 +19,7 @@ export const DEFAULT_UNSPLASH_IMAGE: UnsplashImage = {
 }
 
 export const DEFAULT_SETTING: Setting = {
-  title: '免费、快速的封面生成器',
+  title: '免费、漂亮的封面生成器',
   author: '唯知笔记',
   download: 'png',
   icon: DEFAULT_ICON,
@@ -27,7 +27,7 @@ export const DEFAULT_SETTING: Setting = {
   theme: THEMES[0],
   font: FONTS[0],
   color: COLORS_RANDOM[0],
-  pattern: PATTERNS[0],
-  size: SIZES[2],
+  pattern: PATTERNS[1],
+  size: SIZES[0],
   unsplashImage: DEFAULT_UNSPLASH_IMAGE
 }
