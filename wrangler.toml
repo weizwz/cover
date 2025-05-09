@@ -1,0 +1,27 @@
+# wrangler.toml
+
+name = "cover"
+type = "javascript"
+
+account_id = "wushangdanya@gmail.com" # 替换为你的 Cloudflare 账户 ID
+workers_dev = true
+route = ""
+zone_id = ""
+
+# 启用 Node.js 兼容性标志，如果确实需要的话
+compatibility_flags = ["nodejs_compat"]
+
+[build]
+# 构建命令，构建 Next.js 应用
+command = "pnpm i && pnpm run build"
+
+# 指定静态导出目录
+# [build.upload]
+# 默认情况下，`next export` 将输出放在 `out` 目录下
+# dir = "out" 
+# format = "modules"
+
+# 环境变量可以在这里定义
+# [env.production]
+# name = "production-worker-name"
+# route = "your-production-route.example.com/*"
