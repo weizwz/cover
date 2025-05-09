@@ -8,7 +8,7 @@ import mobileThemePlaceholder from '../assets/images/mobile-theme-placeholder.we
 
 export const THEMES: Theme[] = [
   {
-    label: '平铺',
+    label: '简洁',
     value: 'outline',
     preview: outlineThemePlaceholder
   },
