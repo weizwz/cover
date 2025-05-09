@@ -17,9 +17,9 @@ const PreviewTheme: React.FC<ThemeProps> = ({ config }) => {
         <div
           className={`${font.value} h-full rounded-2xl flex flex-col items-center ${
             size.value.indexOf('vertical') >= 0 ? 'justify-center' : ''
-          } relative z-10 p-12`}>
-          <h2 className='text-2xl mb-2 font-semibold text-white'>{author}</h2>
-          <h1 className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white text-center`}>{title}</h1>
+          } relative z-10 p-12 `}>
+          <h2 className='text-2xl mb-2 font-semibold text-white text-shadow-lg text-shadow-black'>{author}</h2>
+          <h1 className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white text-center text-shadow-lg text-shadow-black`}>{title}</h1>
 
           <div className='w-full aspect-[1.5382] group flex flex-col relative'>
             <img src={pcBg.src} className='absolute top-0 left-0 w-full z-10' alt='background' />
