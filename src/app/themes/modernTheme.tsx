@@ -1,3 +1,5 @@
+'use client'
+
 const ModernTheme: React.FC<ThemeProps> = ({ config }) => {
   const { title, color, pattern, author, icon, font, customIcon, size } = config
   

@@ -1,3 +1,5 @@
+'use client'
+
 export const FONTS: Font[] = [
   {
     label: '系统默认',
