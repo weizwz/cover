@@ -13,13 +13,14 @@ const eslintConfig = [
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
   {
     rules: {
-      '@typescript-eslint/no-unused-vars': [
-        'warn',
-        {
-          varsIgnorePattern: '^(pattern|size)$',
-          // argsIgnorePattern: '^_'
-        }
-      ],
+      '@next/next/no-img-element': 'off', // 关闭image告警
+      '@typescript-eslint/no-unused-vars': 'off', // 关闭未使用变量告警
+      // [
+      //   'warn',
+      //   {
+      //     varsIgnorePattern: '^(pattern|size)$',
+      //   }
+      // ],
       'no-unused-vars': 'off'
     }
   }
