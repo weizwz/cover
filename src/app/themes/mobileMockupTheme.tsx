@@ -30,7 +30,7 @@ const MobileMockupTheme: React.FC<ThemeProps> = ({ config }) => {
           {image ? (
             // 图片宽高比0.5286  显示区域宽高比0.4498  显示区域宽占总内容区域比0.7297, 高占比0.8575
             <div className='group relative w-full h-full flex'>
-              <div className='absolute inset-y-[7.125%] inset-x-[13.515%] w-[72.97%] aspect-[0.4498]'>
+              <div className='absolute inset-y-[7.125%] inset-x-[13.515%] w-[72.97%] aspect-[0.4498] overflow-hidden'>
                 <img src={image} className='w-full object-cover object-top' alt='preview' />
               </div>
               <Button

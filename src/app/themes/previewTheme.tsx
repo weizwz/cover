@@ -27,7 +27,7 @@ const PreviewTheme: React.FC<ThemeProps> = ({ config }) => {
             {image ? (
               // 图片宽高比1.5382 显示区域宽高比1.5397  显示区域宽占总内容区域比0.7667
               <div className='relative w-full h-full flex'>
-                <div className='absolute inset-y-[11.58%] inset-x-[11.66%] w-[76.68%] aspect-[1.5397]'>
+                <div className='absolute inset-y-[11.58%] inset-x-[11.66%] w-[76.68%] aspect-[1.5397] overflow-hidden'>
                   <img src={image} className='w-full object-cover object-top' alt='preview' />
                 </div>
                 <Button
