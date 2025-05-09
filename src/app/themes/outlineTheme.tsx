@@ -14,12 +14,12 @@ const OutlineTheme: React.FC<ThemeProps> = ({ config }) => {
             </div>
           ) : (
             <div className='items-center flex'>
-              <img className='w-24 h-24' src={`https://api.iconify.design/simple-icons/${icon.value}.svg?color=%23fff`} alt={`${icon.label} icon`} />
+              <img className='w-18 h-18' src={`https://api.iconify.design/simple-icons/${icon.value}.svg?color=%23fff`} alt={`${icon.label} icon`} />
             </div>
           )}
-          <div className={`${font.value} mb-12`}>
+          <div className={`${font.value} mb-16`}>
             <h1 className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white text-shadow-lg text-shadow-black`}>{title}</h1>
-            <h2 className='text-2xl mt-6 font-semibold text-white text-shadow-sm text-shadow-black'>{author}</h2>
+            <h2 className='text-2xl mt-4 font-semibold text-white text-shadow-sm text-shadow-black'>{author}</h2>
           </div>
         </div>
       </div>
