@@ -21,15 +21,10 @@ const EditorSetting = () => {
   const { coverSetting, setCoverSetting } = useContext(CoverContext)
   const [fontData, setFontData] = useState<FontData[]>([])
   const [showAlert, setShowAlert] = useState(false)
-  const [loading, setLoading] = useState(true)
 
   // 初始化
   useEffect(() => {
     setFontData(groupWithTypeName(FONTS))
-    const savedData = localStorage.getItem('coverSetting')
-    const defaultData = savedData ? JSON.parse(savedData) : DEFAULT_SETTING
-    setCoverSetting({ ...DEFAULT_SETTING, ...defaultData })
-    setLoading(false)
   }, [])
 
   // 字体分组显示
@@ -104,8 +99,6 @@ const EditorSetting = () => {
   useEffect(() => {
     fontLoader.loadFont(coverSetting.font.label, coverSetting.font.url)
   }, [coverSetting.font.label, coverSetting.font.url])
-
-  if (loading) return ''
 
   return (
     <div className='h-full w-full overflow-y-auto p-4 pr-8'>
