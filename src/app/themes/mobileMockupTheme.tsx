@@ -12,7 +12,7 @@ const MobileMockupTheme: React.FC<ThemeProps> = ({ config }) => {
 
   return (
     <div className={`overflow-y-hidden w-full h-full justify-center relative`} style={{ backgroundColor: color.bgColor }}>
-      <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern.value} filter-opacity-50`} />
+      <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern.value} ${pattern.isOpacity ? 'filter-opacity-50' : ''}`} />
       <div
         className={`${font.value} h-full rounded-2xl flex items-center relative z-10 ${size.value.indexOf('vertical') === 0 ? 'flex-col px-24 py-12' : ''} ${
           size.value.indexOf('vertical') === -1 ? 'px-24' : ''

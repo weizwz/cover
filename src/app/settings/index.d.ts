@@ -18,7 +18,9 @@ interface Font extends SelectOption {
   lineHeight?: string
 }
 
-type Pattern = SelectOption
+interface Pattern extends SelectOption {
+  isOpacity?: boolean
+}
 
 type Size = SelectOption
 
