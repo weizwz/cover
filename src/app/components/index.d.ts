@@ -8,7 +8,6 @@ interface CoverContextType {
 interface UnsplashImageProps {
   src: string
   alt: string
-  onClick: (event: React.MouseEvent<HTMLImageElement>) => void
 }
 
 interface UnsplashSearchProps {

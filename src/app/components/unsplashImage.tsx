@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { LoaderCircle } from 'lucide-react'
 
-const UnsplashImage: React.FC<UnsplashImageProps> = ({ src, alt, onClick }) => {
+const UnsplashImage: React.FC<UnsplashImageProps> = ({ src, alt }) => {
   // 使用一个状态变量来跟踪图片是否已经加载完毕
   const [isLoaded, setIsLoaded] = useState(false)
 
@@ -14,7 +14,7 @@ const UnsplashImage: React.FC<UnsplashImageProps> = ({ src, alt, onClick }) => {
           <LoaderCircle />
         </div>
       )}
-      <img src={src} alt={alt} onLoad={() => setIsLoaded(true)} onClick={onClick} className='rounded-lg object-cover h-full w-full' />
+      <img src={src} alt={alt} onLoad={() => setIsLoaded(true)} className='rounded-lg object-cover h-full w-full' />
     </div>
   )
 }

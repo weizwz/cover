@@ -6,7 +6,7 @@ const OutlineTheme: React.FC<ThemeProps> = ({ config }) => {
   return (
     <div className='w-full h-full bg-white'>
       <div className={`overflow-y-hidden text-gray-800 h-full relative`} style={{ backgroundColor: color.bgColor }}>
-        <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern.value} filter-opacity-50`} />
+        <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern.value} ${pattern.isOpacity ? 'filter-opacity-50' : ''}`} />
         <div className={`h-full rounded-2xl p-24 flex flex-col justify-center relative z-10`}>
           {customIcon ? (
             <div className='m-6'>
