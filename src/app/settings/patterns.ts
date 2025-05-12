@@ -19,7 +19,12 @@ export const PATTERNS: Pattern[] = [
     isOpacity: true
   },
   {
-    label: '幸运星',
+    label: '大钻石',
+    value: 'diamond',
+    isOpacity: true
+  },
+  {
+    label: '五角星',
     value: 'star',
     isOpacity: true
   },
@@ -44,18 +49,23 @@ export const PATTERNS: Pattern[] = [
     isOpacity: true
   },
   {
+    label: '海盗旗',
+    value: 'skulls',
+    isOpacity: true
+  },
+  {
     label: '砖墙堆',
     value: 'brick-wall',
     isOpacity: true
   },
   {
-    label: '井字棋',
-    value: 'tic-tac-toe',
+    label: '吹泡泡',
+    value: 'bubbles',
     isOpacity: true
   },
   {
-    label: '吹泡沫',
-    value: 'bubbles',
+    label: '爱心集',
+    value: 'love',
     isOpacity: true
   },
   {
@@ -63,11 +73,11 @@ export const PATTERNS: Pattern[] = [
     value: 'eclipse',
   },
   {
-    label: '星际',
+    label: '星轨',
     value: 'star-tracks',
   },
   {
-    label: '阳光',
+    label: '暖阳',
     value: 'sunshine',
   },
 ]
