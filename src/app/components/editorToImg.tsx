@@ -41,7 +41,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
   async function getData(element: HTMLElement): Promise<string> {
     const options: GetDataOptions = {
       useCORS: true,
-      scale: 2,
+      scale: window.devicePixelRatio | 1,
       backgroundColor: null,
       allowTaint: true,
       height: element.offsetHeight,
