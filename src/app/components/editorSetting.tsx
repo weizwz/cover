@@ -1,10 +1,12 @@
 'use client'
 
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Check } from 'lucide-react'
 
 import { useContext, useEffect, useState } from 'react'
 import { CoverContext } from './coverContext'
@@ -13,14 +15,21 @@ import { fontLoader, FONTS } from '../settings/fonts'
 import { PATTERNS } from '../settings/patterns'
 import { SIZES } from '../settings/sizes'
 import { DEFAULT_SETTING } from '../settings/default'
+import { imgToBase64 } from '../tools/img'
 
 const EditorSetting = () => {
   const { coverSetting, setCoverSetting } = useContext(CoverContext)
   const [fontData, setFontData] = useState<FontData[]>([])
+  const [showAlert, setShowAlert] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   // 初始化
   useEffect(() => {
     setFontData(groupWithTypeName(FONTS))
+    const savedData = localStorage.getItem('coverSetting')
+    const defaultData = savedData ? JSON.parse(savedData) : DEFAULT_SETTING
+    setCoverSetting({ ...DEFAULT_SETTING, ...defaultData })
+    setLoading(false)
   }, [])
 
   // 字体分组显示
@@ -58,6 +67,29 @@ const EditorSetting = () => {
     })
   }
 
+  const saveSetting = () => {
+    if (coverSetting.customIcon) {
+      //转为base64
+      imgToBase64(coverSetting.customIcon).then((res) => {
+        coverSetting.customIcon = 'data:image/png;base64,' + res
+        localStorage.setItem('coverSetting', JSON.stringify(coverSetting))
+      })
+    } else {
+      localStorage.setItem('coverSetting', JSON.stringify(coverSetting))
+    }
+    setShowAlert(true)
+  }
+
+  useEffect(() => {
+    if (showAlert) {
+      const timer = setTimeout(() => {
+        setShowAlert(false)
+      }, 2000)
+
+      return () => clearTimeout(timer)
+    }
+  }, [showAlert])
+
   const resetSetting = () => {
     setCoverSetting({
       ...DEFAULT_SETTING,
@@ -72,6 +104,8 @@ const EditorSetting = () => {
   useEffect(() => {
     fontLoader.loadFont(coverSetting.font.label, coverSetting.font.url)
   }, [coverSetting.font.label, coverSetting.font.url])
+
+  if (loading) return ''
 
   return (
     <div className='h-full w-full overflow-y-auto p-4 pr-8'>
@@ -183,11 +217,21 @@ const EditorSetting = () => {
           </div>
         </div>
       </form>
-      <div className='flex justify-center items-center'>
-        <Button className='cursor-pointer' onClick={resetSetting}>
+      <div className='flex justify-center items-center p-4'>
+        <Button className='cursor-pointer mr-4' onClick={saveSetting}>
+          保存
+        </Button>
+        <Button className='cursor-pointer' variant='outline' onClick={resetSetting}>
           重置
         </Button>
       </div>
+      {showAlert && (
+        <Alert className='fixed z-50 w-auto top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+          <Check className='h-4 w-4' />
+          <AlertTitle>保存成功!</AlertTitle>
+          <AlertDescription>当前数据仅保存在浏览器中，请放心使用</AlertDescription>
+        </Alert>
+      )}
     </div>
   )
 }

@@ -8,7 +8,7 @@ const CoverContext = createContext<CoverContextType>({
   setCoverSetting: () => {},
   unsplashParam: DEFAULT_UNSPLASH_PARAM,
   setUnsplashParam: () => {}
-});
+})
 
 const CoverProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [coverSetting, setCoverSetting] = useState(DEFAULT_SETTING)
