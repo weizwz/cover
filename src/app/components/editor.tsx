@@ -34,7 +34,7 @@ const Editor = () => {
     mediaQueryList.addEventListener('change', handleResize)
     // 清理事件监听器
     return () => mediaQueryList.removeEventListener('change', handleResize)
-  }, [])
+  }, [setCoverSetting])
 
   if (loading)
     return (
