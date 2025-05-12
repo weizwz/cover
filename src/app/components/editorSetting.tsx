@@ -1,6 +1,6 @@
 'use client'
 
-// import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
@@ -12,11 +12,11 @@ import IconSelect from './iconSelect'
 import { fontLoader, FONTS } from '../settings/fonts'
 import { PATTERNS } from '../settings/patterns'
 import { SIZES } from '../settings/sizes'
-// import { DEFAULT_SETTING } from '../settings/default'
+import { DEFAULT_SETTING } from '../settings/default'
 
 const EditorSetting = () => {
   const { coverSetting, setCoverSetting } = useContext(CoverContext)
-  const [ fontData, setFontData ] = useState<FontData[]>([])
+  const [fontData, setFontData] = useState<FontData[]>([])
 
   // 初始化
   useEffect(() => {
@@ -31,13 +31,13 @@ const EditorSetting = () => {
           type: item.type,
           typeName: item.typeName,
           list: []
-        };
+        }
       }
-      acc[item.type].list.push(item);
-      return acc;
-    }, {});
-  
-    return Object.values(grouped);
+      acc[item.type].list.push(item)
+      return acc
+    }, {})
+
+    return Object.values(grouped)
   }
 
   const changeIcon = (option: IconOption) => {
@@ -58,6 +58,16 @@ const EditorSetting = () => {
     })
   }
 
+  const resetSetting = () => {
+    setCoverSetting({
+      ...DEFAULT_SETTING,
+      title: coverSetting.title,
+      author: coverSetting.author,
+      icon: coverSetting.icon,
+      customIcon: coverSetting.customIcon
+    })
+  }
+
   // 动态加载字体
   useEffect(() => {
     fontLoader.loadFont(coverSetting.font.label, coverSetting.font.url)
@@ -69,22 +79,26 @@ const EditorSetting = () => {
       <form>
         <div className='flex w-full items-center flex-wrap'>
           <div className='flex w-full space-x-1.5 mb-4'>
-            <Label htmlFor='title' className='w-12 justify-end'>标题</Label>
+            <Label htmlFor='title' className='w-12 justify-end'>
+              标题
+            </Label>
             <Textarea
               id='title'
               className='flex-1 focus-visible:ring-1'
               placeholder='请输入封面标题'
-              defaultValue={coverSetting.title}
+              value={coverSetting.title}
               onChange={(e) => setCoverSetting({ ...coverSetting, title: e.target.value })}
             />
           </div>
           <div className='flex w-full space-x-1.5 mb-4'>
-            <Label htmlFor='author' className='w-12 justify-end'>作者</Label>
+            <Label htmlFor='author' className='w-12 justify-end'>
+              作者
+            </Label>
             <Input
               id='author'
               className='flex-1 focus-visible:ring-1'
               placeholder='请输入作者'
-              defaultValue={coverSetting.author}
+              value={coverSetting.author}
               onChange={(e) => setCoverSetting({ ...coverSetting, author: e.target.value })}
             />
           </div>
@@ -94,7 +108,11 @@ const EditorSetting = () => {
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
             <Label className='w-12 justify-end'>字体</Label>
-            <Select defaultValue={coverSetting.font.value} onValueChange={(value) => { changeValue(value, 'font', FONTS) }}>
+            <Select
+              value={coverSetting.font.value}
+              onValueChange={(value) => {
+                changeValue(value, 'font', FONTS)
+              }}>
               <SelectTrigger id='font' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
                 <SelectValue placeholder='请选择字体' />
               </SelectTrigger>
@@ -113,19 +131,25 @@ const EditorSetting = () => {
             </Select>
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pl-2 space-x-1.5 mb-4'>
-            <Label htmlFor='bg' className='w-12 justify-end'>背景色</Label>
+            <Label htmlFor='bg' className='w-12 justify-end'>
+              背景色
+            </Label>
             <Input
               id='bg'
               type='color'
               className='flex-1 focus-visible:ring-1'
               placeholder='请选择背景色'
-              defaultValue={coverSetting.color.bgColor}
-              onChange={(e) => setCoverSetting({ ...coverSetting, color: { bgColor: e.target.value} })}
+              value={coverSetting.color.bgColor}
+              onChange={(e) => setCoverSetting({ ...coverSetting, color: { bgColor: e.target.value } })}
             />
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
             <Label className='w-12 justify-end'>纹理</Label>
-            <Select defaultValue={coverSetting.pattern.value} onValueChange={(value) => { changeValue(value, 'pattern', PATTERNS) }}>
+            <Select
+              value={coverSetting.pattern.value}
+              onValueChange={(value) => {
+                changeValue(value, 'pattern', PATTERNS)
+              }}>
               <SelectTrigger id='pattern' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
                 <SelectValue placeholder='请选择纹理' />
               </SelectTrigger>
@@ -140,7 +164,11 @@ const EditorSetting = () => {
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pl-2 space-x-1.5 mb-4'>
             <Label className='w-12 justify-end'>尺寸</Label>
-            <Select defaultValue={coverSetting.size.value} onValueChange={(value) => { changeValue(value, 'size', SIZES) }}>
+            <Select
+              value={coverSetting.size.value}
+              onValueChange={(value) => {
+                changeValue(value, 'size', SIZES)
+              }}>
               <SelectTrigger id='pattern' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
                 <SelectValue placeholder='请选择尺寸' />
               </SelectTrigger>
@@ -153,12 +181,15 @@ const EditorSetting = () => {
               </SelectContent>
             </Select>
           </div>
-
         </div>
       </form>
+      <div className='flex justify-center items-center'>
+        <Button className='cursor-pointer' onClick={resetSetting}>
+          重置
+        </Button>
+      </div>
     </div>
   )
 }
 
 export default EditorSetting
-
