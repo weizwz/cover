@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { CoverProvider } from './components/coverContext'
 
 export const metadata: Metadata = {
   title: 'thisCover 封面生成器',
@@ -13,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`antialiased`}>{children}</body>
+      <body className={`antialiased`}>
+        <CoverProvider>{children}</CoverProvider>
+      </body>
     </html>
   )
 }
