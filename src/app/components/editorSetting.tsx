@@ -89,11 +89,11 @@ const EditorSetting = () => {
             />
           </div>
           <div className='flex w-full space-x-1.5 mb-4'>
-            <Label htmlFor='author' className='w-12 justify-end'>图标</Label>
+            <Label className='w-12 justify-end'>图标</Label>
             <IconSelect onChange={changeIcon} />
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
-            <Label htmlFor='font' className='w-12 justify-end'>字体</Label>
+            <Label className='w-12 justify-end'>字体</Label>
             <Select defaultValue={coverSetting.font.value} onValueChange={(value) => { changeValue(value, 'font', FONTS) }}>
               <SelectTrigger id='font' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
                 <SelectValue placeholder='请选择字体' />
@@ -124,7 +124,7 @@ const EditorSetting = () => {
             />
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
-            <Label htmlFor='pattern' className='w-12 justify-end'>纹理</Label>
+            <Label className='w-12 justify-end'>纹理</Label>
             <Select defaultValue={coverSetting.pattern.value} onValueChange={(value) => { changeValue(value, 'pattern', PATTERNS) }}>
               <SelectTrigger id='pattern' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
                 <SelectValue placeholder='请选择纹理' />
@@ -139,7 +139,7 @@ const EditorSetting = () => {
             </Select>
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pl-2 space-x-1.5 mb-4'>
-            <Label htmlFor='size' className='w-12 justify-end'>尺寸</Label>
+            <Label className='w-12 justify-end'>尺寸</Label>
             <Select defaultValue={coverSetting.size.value} onValueChange={(value) => { changeValue(value, 'size', SIZES) }}>
               <SelectTrigger id='pattern' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
                 <SelectValue placeholder='请选择尺寸' />
