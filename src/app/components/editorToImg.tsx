@@ -18,7 +18,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
   async function saveImage(data: string): Promise<void> {
     const a = document.createElement('a') as HTMLAnchorElement
     a.href = data
-    a.download = `thisCover-${getFormattedDateTime()}.png`
+    a.download = `thisCover-${getFormattedDateTime()}.${coverSetting.download}`
     document.body.appendChild(a)
     setLoading(false)
 
@@ -63,7 +63,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
     }
 
     return await html2canvas(element, options).then((canvas: HTMLCanvasElement) => {
-      return canvas.toDataURL('image/png')
+      return canvas.toDataURL('image/' + coverSetting.download)
     })
   }
 

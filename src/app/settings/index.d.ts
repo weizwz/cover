@@ -38,10 +38,12 @@ interface UnsplashImage {
   downloadLink: string
 }
 
+type DownloadType = 'png' | 'jpg' | 'webp'
+
 interface Setting {
   title: string
   author: string
-  download: 'png' | 'jpg' | 'webp'
+  download: DownloadType
   scale: number
   icon: IconOption
   customIcon: string
