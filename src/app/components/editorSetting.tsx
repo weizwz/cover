@@ -102,14 +102,12 @@ const EditorSetting = () => {
   }, [coverSetting.font.label, coverSetting.font.url])
 
   return (
-    <div className='h-full w-full overflow-y-auto p-4 pr-8'>
+    <div className='h-full w-full overflow-y-auto py-4 pl-0 pr-10'>
       <h2 className='text-lg font-bold text-center mb-4'>基础配置</h2>
       <form>
         <div className='flex w-full items-center flex-wrap'>
           <div className='flex w-full space-x-1.5 mb-4'>
-            <Label htmlFor='title' className='w-12 justify-end'>
-              标题
-            </Label>
+            <Label htmlFor='title' className='w-16 justify-end'>标题</Label>
             <Textarea
               id='title'
               className='flex-1 focus-visible:ring-1'
@@ -119,9 +117,7 @@ const EditorSetting = () => {
             />
           </div>
           <div className='flex w-full space-x-1.5 mb-4'>
-            <Label htmlFor='author' className='w-12 justify-end'>
-              作者
-            </Label>
+            <Label htmlFor='author' className='w-16 justify-end'>作者</Label>
             <Input
               id='author'
               className='flex-1 focus-visible:ring-1'
@@ -131,11 +127,11 @@ const EditorSetting = () => {
             />
           </div>
           <div className='flex w-full space-x-1.5 mb-4'>
-            <Label className='w-12 justify-end'>图标</Label>
+            <Label className='w-16 justify-end'>图标</Label>
             <IconSelect onChange={changeIcon} />
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
-            <Label className='w-12 justify-end'>字体</Label>
+            <Label htmlFor='font' className='w-16 justify-end'>字体</Label>
             <Select
               value={coverSetting.font.value}
               onValueChange={(value) => {
@@ -159,9 +155,7 @@ const EditorSetting = () => {
             </Select>
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pl-2 space-x-1.5 mb-4'>
-            <Label htmlFor='bg' className='w-12 justify-end'>
-              背景色
-            </Label>
+            <Label htmlFor='bg' className='w-16 justify-end'>背景色</Label>
             <Input
               id='bg'
               type='color'
@@ -172,7 +166,7 @@ const EditorSetting = () => {
             />
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
-            <Label htmlFor='pattern' className='w-12 justify-end'>纹理</Label>
+            <Label htmlFor='pattern' className='w-16 justify-end'>纹理</Label>
             <Select
               value={coverSetting.pattern.value}
               onValueChange={(value) => {
@@ -191,7 +185,24 @@ const EditorSetting = () => {
             </Select>
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pl-2 space-x-1.5 mb-4'>
-            <Label htmlFor='size' className='w-12 justify-end'>尺寸</Label>
+            <Label htmlFor='download' className='w-16 justify-end'>保存格式</Label>
+            <Select
+              value={coverSetting.download}
+              onValueChange={(value) => {
+                setCoverSetting({ ...coverSetting, download: value as DownloadType })
+              }}>
+              <SelectTrigger id='download' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
+                <SelectValue placeholder='请选择保存文件格式' />
+              </SelectTrigger>
+              <SelectContent position='popper'>
+                <SelectItem key='png' value='png'>PNG</SelectItem>
+                <SelectItem key='jpg' value='jpg'>JPG</SelectItem>
+                <SelectItem key='webp' value='webp'>WEBP</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
+            <Label htmlFor='size' className='w-16 justify-end'>比例</Label>
             <Select
               value={coverSetting.size.value}
               onValueChange={(value) => {
@@ -209,27 +220,11 @@ const EditorSetting = () => {
               </SelectContent>
             </Select>
           </div>
-          <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
-            <Label htmlFor='download' className='w-12 justify-end'>类型</Label>
-            <Select
-              value={coverSetting.download}
-              onValueChange={(value) => {
-                setCoverSetting({ ...coverSetting, download: value as DownloadType })
-              }}>
-              <SelectTrigger id='download' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
-                <SelectValue placeholder='请选择保存文件类型' />
-              </SelectTrigger>
-              <SelectContent position='popper'>
-                <SelectItem key='png' value='png'>PNG</SelectItem>
-                <SelectItem key='jpg' value='jpg'>JPG</SelectItem>
-                <SelectItem key='webp' value='webp'>WEBP</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pl-2 space-x-1.5 mb-4'>
-            <Label className='w-12 justify-end'>缩放</Label>
+            <Label htmlFor='download' className='w-16 justify-end'>输出倍率</Label>
             <div className='h-9 flex-1 flex items-center gap-2 border border-input rounded-md shadow-xs px-2'>
               <Slider
+                id='download'
                 className='flex-1'
                 value={[coverSetting.scale]}
                 min={0.5}
