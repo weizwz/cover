@@ -7,20 +7,20 @@ import { X } from 'lucide-react'
 import pcBg from '../assets/images/mobile.webp'
 
 const MobileMockupTheme: React.FC<ThemeProps> = ({ config }) => {
-  const { title, color, pattern, author, icon, font, customIcon, size } = config
+  const { title, color, pattern, author, font, size } = config
   const [image, setImage] = useState<string | undefined>(undefined)
 
   return (
-    <div className={`overflow-y-hidden w-full h-full justify-center relative`} style={{ backgroundColor: color.bgColor }}>
-      <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern.value} ${pattern.isOpacity ? 'filter-opacity-50' : ''}`} />
+    <div className={`overflow-hidden w-full h-full justify-center relative`} style={{ backgroundColor: color.bgColor }}>
+      <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern.value} ${pattern.isOpacity ? 'opacity-50' : ''}`} />
       <div
-        className={`${font.value} h-full rounded-2xl flex items-center relative z-10 ${size.value.indexOf('vertical') === 0 ? 'flex-col px-24 py-12' : ''} ${
+        className={`${font.value} h-full flex items-center relative z-10 ${size.value.indexOf('vertical') === 0 ? 'flex-col px-24 py-12' : ''} ${
           size.value.indexOf('vertical') === -1 ? 'px-24' : ''
         }`}>
-        <div className='flex-1 flex flex-col justify-end items-center'>
-          <h2 className='text-2xl mb-2 font-semibold text-white text-shadow-sm text-shadow-black'>{author}</h2>
+        <div className='flex-1 flex flex-col justify-end items-center gap-2 text-white text-center'>
+          <h2 className='text-2xl font-semibold text-shadow-sm text-shadow-black'>{author}</h2>
           <h1
-            className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white text-center text-shadow-lg text-shadow-black ${
+            className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-shadow-lg text-shadow-black ${
               size.value.indexOf('square') === 0 ? 'pl-8' : ''
             }`}>
             {title}
