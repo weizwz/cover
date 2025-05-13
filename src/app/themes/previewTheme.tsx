@@ -17,8 +17,8 @@ const PreviewTheme: React.FC<ThemeProps> = ({ config }) => {
         className={`${font.value} h-full flex flex-col items-center ${
           size.value.indexOf('vertical') >= 0 ? 'justify-center' : ''
         } relative z-10 p-12 text-center`}>
-        <h2 className='text-2xl mb-2 font-semibold text-white text-shadow-sm text-shadow-black'>{author}</h2>
-        <h1 className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white text-shadow-lg text-shadow-black`}>{title}</h1>
+        <div className='text-2xl mb-2 font-semibold text-white text-shadow-sm text-shadow-black'>{author}</div>
+        <div className={`text-5xl ${font?.lineHeight || 'leading-14'} font-bold text-white text-shadow-lg text-shadow-black`}>{title}</div>
 
         <div className='w-full aspect-[1.5382] group flex flex-col relative'>
           <img src={pcBg.src} className='absolute top-0 left-0 w-full z-10' alt='background' />
@@ -38,7 +38,7 @@ const PreviewTheme: React.FC<ThemeProps> = ({ config }) => {
               </Button>
             </div>
           ) : (
-            <div className='absolute z-10 inset-y-[11.58%] inset-x-[11.66%] w-[76.68%] aspect-[1.5397] px-4 py-12 flex flex-col items-center'>
+            <div className='ignore absolute z-10 inset-y-[11.58%] inset-x-[11.66%] w-[76.68%] aspect-[1.5397] px-4 py-12 flex flex-col items-center'>
               <div className='w-fit rounded overflow-hidden mb-4'>
                 <Input
                   type='file'

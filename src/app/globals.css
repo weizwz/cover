@@ -149,7 +149,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-.filter-opacity-50 {
-  filter: opacity(0.5);
-}
