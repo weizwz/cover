@@ -41,7 +41,8 @@ interface UnsplashImage {
 interface Setting {
   title: string
   author: string
-  download: 'png' | 'jpg'
+  download: 'png' | 'jpg' | 'webp'
+  scale: number
   icon: IconOption
   customIcon: string
   theme: Theme

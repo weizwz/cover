@@ -43,7 +43,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
     // https://github.com/yorickshan/html2canvas-pro/blob/main/docs/configuration.md
     const options: Options = {
       useCORS: true,
-      scale: 2,
+      scale: coverSetting.scale,
       backgroundColor: null,
       allowTaint: true,
       height: element.offsetHeight,

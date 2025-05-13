@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Slider } from '@/components/ui/slider'
 import { Check } from 'lucide-react'
 
 import { useContext, useEffect, useState } from 'react'
@@ -207,6 +208,20 @@ const EditorSetting = () => {
                 ))}
               </SelectContent>
             </Select>
+          </div>
+          <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
+            <Label className='w-12 justify-end'>缩放</Label>
+            <div className='h-9 flex-1 flex items-center gap-2 border border-input rounded-md shadow-xs px-2'>
+              <Slider
+                className='flex-1'
+                value={[coverSetting.scale]}
+                min={0.5}
+                max={5}
+                step={0.5}
+                onValueChange={(newValue) => setCoverSetting({ ...coverSetting, scale: newValue[0] })}
+              />
+              <div className='nowrap'>{coverSetting.scale} 倍</div>
+            </div>
           </div>
         </div>
       </form>
