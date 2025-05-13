@@ -1,13 +1,11 @@
 'use client'
 
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Slider } from '@/components/ui/slider'
-import { Check } from 'lucide-react'
 
 import { useContext, useEffect, useState } from 'react'
 import { CoverContext } from './coverContext'
@@ -17,16 +15,27 @@ import { PATTERNS } from '../settings/patterns'
 import { SIZES } from '../settings/sizes'
 import { DEFAULT_SETTING } from '../settings/default'
 import { imgToBase64 } from '../tools/img'
+import CenteredAlert from './common/centeredAlert'
 
 const EditorSetting = () => {
   const { coverSetting, setCoverSetting } = useContext(CoverContext)
   const [fontData, setFontData] = useState<FontData[]>([])
   const [showAlert, setShowAlert] = useState(false)
+  const [alertData, setAlertData] = useState<CenterAlertOptions>()
 
   // 初始化
   useEffect(() => {
     setFontData(groupWithTypeName(FONTS))
   }, [])
+
+  const showNotification = (data: React.SetStateAction<CenterAlertOptions | undefined>) => {
+    setAlertData(data)
+    setShowAlert(true)
+  }
+
+  const handleClose = () => {
+    setShowAlert(false)
+  }
 
   // 字体分组显示
   const groupWithTypeName = (items: Font[]): FontData[] => {
@@ -69,22 +78,27 @@ const EditorSetting = () => {
       imgToBase64(coverSetting.customIcon).then((res) => {
         coverSetting.customIcon = 'data:image/png;base64,' + res
         localStorage.setItem('coverSetting', JSON.stringify(coverSetting))
+        showNotification({
+          type: 'success',
+          title: '设置已保存',
+          message: '数据仅保存在本地浏览器中，请放心使用'
+        })
+      }).catch((err) => {
+        showNotification({
+          type: 'error',
+          title: '设置保存失败',
+          message: err
+        })
       })
     } else {
       localStorage.setItem('coverSetting', JSON.stringify(coverSetting))
+      showNotification({
+        type: 'success',
+        title: '设置已保存',
+        message: '数据仅保存在本地浏览器中，请放心使用'
+      })
     }
-    setShowAlert(true)
   }
-
-  useEffect(() => {
-    if (showAlert) {
-      const timer = setTimeout(() => {
-        setShowAlert(false)
-      }, 3000)
-
-      return () => clearTimeout(timer)
-    }
-  }, [showAlert])
 
   const resetSetting = () => {
     setCoverSetting({
@@ -93,6 +107,11 @@ const EditorSetting = () => {
       author: coverSetting.author,
       icon: coverSetting.icon,
       customIcon: coverSetting.customIcon
+    })
+    showNotification({
+      type: 'success',
+      title: '样式已重置',
+      message: '标题、作者、图标等信息不会被重置'
     })
   }
 
@@ -267,13 +286,7 @@ const EditorSetting = () => {
           重置
         </Button>
       </div>
-      {showAlert && (
-        <Alert className='fixed z-50 w-auto top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-green-500 text-green-600 shadow-xs shadow-green-500 bg-green-50'>
-          <Check className='h-4 w-4' />
-          <AlertTitle>保存成功！</AlertTitle>
-          <AlertDescription className='text-gray-800'>当前数据保存在本地浏览器中，请放心使用</AlertDescription>
-        </Alert>
-      )}
+      {showAlert && <CenteredAlert type={alertData?.type} title={alertData?.title} message={alertData?.message} onClose={handleClose} />}
     </div>
   )
 }
