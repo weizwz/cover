@@ -1,13 +1,11 @@
 'use client'
 
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Slider } from '@/components/ui/slider'
-import { Check } from 'lucide-react'
 
 import { useContext, useEffect, useState } from 'react'
 import { CoverContext } from './coverContext'
@@ -17,16 +15,27 @@ import { PATTERNS } from '../settings/patterns'
 import { SIZES } from '../settings/sizes'
 import { DEFAULT_SETTING } from '../settings/default'
 import { imgToBase64 } from '../tools/img'
+import CenteredAlert from './common/centeredAlert'
 
 const EditorSetting = () => {
   const { coverSetting, setCoverSetting } = useContext(CoverContext)
   const [fontData, setFontData] = useState<FontData[]>([])
   const [showAlert, setShowAlert] = useState(false)
+  const [alertData, setAlertData] = useState<CenterAlertOptions>()
 
   // 初始化
   useEffect(() => {
     setFontData(groupWithTypeName(FONTS))
   }, [])
+
+  const showNotification = (data: React.SetStateAction<CenterAlertOptions | undefined>) => {
+    setAlertData(data)
+    setShowAlert(true)
+  }
+
+  const handleClose = () => {
+    setShowAlert(false)
+  }
 
   // 字体分组显示
   const groupWithTypeName = (items: Font[]): FontData[] => {
@@ -69,22 +78,27 @@ const EditorSetting = () => {
       imgToBase64(coverSetting.customIcon).then((res) => {
         coverSetting.customIcon = 'data:image/png;base64,' + res
         localStorage.setItem('coverSetting', JSON.stringify(coverSetting))
+        showNotification({
+          type: 'success',
+          title: '设置已保存',
+          message: '数据仅保存在本地浏览器中，请放心使用'
+        })
+      }).catch((err) => {
+        showNotification({
+          type: 'error',
+          title: '设置保存失败',
+          message: err
+        })
       })
     } else {
       localStorage.setItem('coverSetting', JSON.stringify(coverSetting))
+      showNotification({
+        type: 'success',
+        title: '设置已保存',
+        message: '数据仅保存在本地浏览器中，请放心使用'
+      })
     }
-    setShowAlert(true)
   }
-
-  useEffect(() => {
-    if (showAlert) {
-      const timer = setTimeout(() => {
-        setShowAlert(false)
-      }, 2000)
-
-      return () => clearTimeout(timer)
-    }
-  }, [showAlert])
 
   const resetSetting = () => {
     setCoverSetting({
@@ -94,6 +108,11 @@ const EditorSetting = () => {
       icon: coverSetting.icon,
       customIcon: coverSetting.customIcon
     })
+    showNotification({
+      type: 'success',
+      title: '样式已重置',
+      message: '标题、作者、图标等信息不会被重置'
+    })
   }
 
   // 动态加载字体
@@ -102,12 +121,12 @@ const EditorSetting = () => {
   }, [coverSetting.font.label, coverSetting.font.url])
 
   return (
-    <div className='h-full w-full overflow-y-auto p-4 pr-8'>
+    <div className='h-full w-full overflow-y-auto py-4 pl-0 pr-10'>
       <h2 className='text-lg font-bold text-center mb-4'>基础配置</h2>
       <form>
         <div className='flex w-full items-center flex-wrap'>
           <div className='flex w-full space-x-1.5 mb-4'>
-            <Label htmlFor='title' className='w-12 justify-end'>
+            <Label htmlFor='title' className='w-16 justify-end'>
               标题
             </Label>
             <Textarea
@@ -119,7 +138,7 @@ const EditorSetting = () => {
             />
           </div>
           <div className='flex w-full space-x-1.5 mb-4'>
-            <Label htmlFor='author' className='w-12 justify-end'>
+            <Label htmlFor='author' className='w-16 justify-end'>
               作者
             </Label>
             <Input
@@ -131,11 +150,13 @@ const EditorSetting = () => {
             />
           </div>
           <div className='flex w-full space-x-1.5 mb-4'>
-            <Label className='w-12 justify-end'>图标</Label>
+            <Label className='w-16 justify-end'>图标</Label>
             <IconSelect onChange={changeIcon} />
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
-            <Label className='w-12 justify-end'>字体</Label>
+            <Label htmlFor='font' className='w-16 justify-end'>
+              字体
+            </Label>
             <Select
               value={coverSetting.font.value}
               onValueChange={(value) => {
@@ -159,7 +180,7 @@ const EditorSetting = () => {
             </Select>
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pl-2 space-x-1.5 mb-4'>
-            <Label htmlFor='bg' className='w-12 justify-end'>
+            <Label htmlFor='bg' className='w-16 justify-end'>
               背景色
             </Label>
             <Input
@@ -172,7 +193,9 @@ const EditorSetting = () => {
             />
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
-            <Label htmlFor='pattern' className='w-12 justify-end'>纹理</Label>
+            <Label htmlFor='pattern' className='w-16 justify-end'>
+              纹理
+            </Label>
             <Select
               value={coverSetting.pattern.value}
               onValueChange={(value) => {
@@ -191,7 +214,34 @@ const EditorSetting = () => {
             </Select>
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pl-2 space-x-1.5 mb-4'>
-            <Label htmlFor='size' className='w-12 justify-end'>尺寸</Label>
+            <Label htmlFor='download' className='w-16 justify-end'>
+              保存格式
+            </Label>
+            <Select
+              value={coverSetting.download}
+              onValueChange={(value) => {
+                setCoverSetting({ ...coverSetting, download: value as DownloadType })
+              }}>
+              <SelectTrigger id='download' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
+                <SelectValue placeholder='请选择保存文件格式' />
+              </SelectTrigger>
+              <SelectContent position='popper'>
+                <SelectItem key='png' value='png'>
+                  PNG
+                </SelectItem>
+                <SelectItem key='jpg' value='jpg'>
+                  JPG
+                </SelectItem>
+                <SelectItem key='webp' value='webp'>
+                  WEBP
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
+            <Label htmlFor='size' className='w-16 justify-end'>
+              比例
+            </Label>
             <Select
               value={coverSetting.size.value}
               onValueChange={(value) => {
@@ -209,27 +259,13 @@ const EditorSetting = () => {
               </SelectContent>
             </Select>
           </div>
-          <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
-            <Label htmlFor='download' className='w-12 justify-end'>类型</Label>
-            <Select
-              value={coverSetting.download}
-              onValueChange={(value) => {
-                setCoverSetting({ ...coverSetting, download: value as DownloadType })
-              }}>
-              <SelectTrigger id='download' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
-                <SelectValue placeholder='请选择保存文件类型' />
-              </SelectTrigger>
-              <SelectContent position='popper'>
-                <SelectItem key='png' value='png'>PNG</SelectItem>
-                <SelectItem key='jpg' value='jpg'>JPG</SelectItem>
-                <SelectItem key='webp' value='webp'>WEBP</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pl-2 space-x-1.5 mb-4'>
-            <Label className='w-12 justify-end'>缩放</Label>
+            <Label htmlFor='download' className='w-16 justify-end'>
+              输出倍率
+            </Label>
             <div className='h-9 flex-1 flex items-center gap-2 border border-input rounded-md shadow-xs px-2'>
               <Slider
+                id='download'
                 className='flex-1'
                 value={[coverSetting.scale]}
                 min={0.5}
@@ -250,13 +286,7 @@ const EditorSetting = () => {
           重置
         </Button>
       </div>
-      {showAlert && (
-        <Alert className='fixed z-50 w-auto top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
-          <Check className='h-4 w-4' />
-          <AlertTitle>保存成功!</AlertTitle>
-          <AlertDescription>当前数据仅保存在浏览器中，请放心使用</AlertDescription>
-        </Alert>
-      )}
+      {showAlert && <CenteredAlert type={alertData?.type} title={alertData?.title} message={alertData?.message} onClose={handleClose} />}
     </div>
   )
 }

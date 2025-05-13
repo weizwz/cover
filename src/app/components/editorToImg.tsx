@@ -1,26 +1,39 @@
 'use client'
 
 import React, { useContext, useState } from 'react'
-import { CoverContext } from './coverContext'
-import unsplash from '../config/unsplash'
-import { LoaderCircle, Download } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { LoaderCircle, Download, Copy } from 'lucide-react'
 import html2canvas from 'html2canvas-pro'
 import type { Options } from 'html2canvas-pro'
+
+import CenteredAlert from './common/centeredAlert'
+import { CoverContext } from './coverContext'
+import unsplash from '../config/unsplash'
 import { getFormattedDateTime } from '../tools/date'
+import { base64ToBlob } from '../tools/img'
 
 const EditorToImg: React.FC<EditorToImgProps> = (props) => {
   const [loading, setLoading] = useState<boolean>(false)
-
+  const [copyLoading, setCopyLoading] = useState<boolean>(false)
+  const [showAlert, setShowAlert] = useState(false)
+  const [alertData, setAlertData] = useState<CenterAlertOptions>()
   const { coverSetting } = useContext(CoverContext)
   const componentRef = React.createRef<HTMLDivElement>()
+
+  const showNotification = (data: React.SetStateAction<CenterAlertOptions | undefined>) => {
+    setAlertData(data)
+    setShowAlert(true)
+  }
+
+  const handleClose = () => {
+    setShowAlert(false)
+  }
 
   async function saveImage(data: string): Promise<void> {
     const a = document.createElement('a') as HTMLAnchorElement
     a.href = data
     a.download = `thisCover-${getFormattedDateTime()}.${coverSetting.download}`
     document.body.appendChild(a)
-    setLoading(false)
 
     a.click()
     document.body.removeChild(a)
@@ -37,6 +50,24 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
         unsplash.photos.trackDownload({ downloadLocation: coverSetting.unsplashImage.downloadLink })
       }
     }
+
+    setLoading(false)
+    showNotification({
+      type: 'success',
+      title: '图片已生成',
+      message: '请及时下载图片到本地'
+    })
+  }
+
+  const copyImage = async (): Promise<void> => {
+    setCopyLoading(true)
+
+    if (componentRef.current) {
+      const data = await getData(componentRef.current)
+      await copyImageToClipboard(data)
+    }
+
+    setCopyLoading(false)
   }
 
   async function getData(element: HTMLElement): Promise<string> {
@@ -59,7 +90,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
       foreignObjectRendering: false,
       ignoreElements: (element) => {
         return element.classList.contains('ignore')
-      },
+      }
     }
 
     return await html2canvas(element, options).then((canvas: HTMLCanvasElement) => {
@@ -67,15 +98,38 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
     })
   }
 
+  async function copyImageToClipboard(base64: string): Promise<void> {
+    try {
+      const blob = base64ToBlob(base64)
+      const clipboardItem = new ClipboardItem({ ['image/png']: blob })
+      await navigator.clipboard.write([clipboardItem])
+      showNotification({
+        type: 'success',
+        title: '复制成功',
+        message: '图片已复制到剪贴板'
+      })
+    } catch (err) {
+      showNotification({
+        type: 'error',
+        title: '复制失败',
+        message: '' + err
+      })
+    }
+  }
+
   return (
     <React.Fragment>
       <div className='relative'>
         <div ref={componentRef}>{props.children}</div>
-        <div className='absolute -inset-y-10 left-4 lg:top-0 lg:left-full w-16 h-16 px-4'>
+        <div className='absolute -inset-y-10 left-4 lg:top-0 lg:left-full w-16 px-4 flex flex-col gap-2'>
           <Button className='cursor-pointer' disabled={loading} variant='outline' size='icon' onClick={() => downloadImage()}>
             {loading ? <LoaderCircle className='animate-spin' /> : <Download />}
           </Button>
+          <Button className='cursor-pointer' disabled={copyLoading} variant='outline' size='icon' onClick={() => copyImage()}>
+            {copyLoading ? <LoaderCircle className='animate-spin' /> : <Copy />}
+          </Button>
         </div>
+        {showAlert && <CenteredAlert type={alertData?.type} title={alertData?.title} message={alertData?.message} onClose={handleClose} />}
       </div>
     </React.Fragment>
   )

@@ -1,14 +1,13 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Select, { OptionProps } from 'react-select'
 import type { MenuListProps, MultiValue, SingleValue } from 'react-select'
 import { FixedSizeList as List } from 'react-window'
-import { DEFAULT_ICON } from '../settings/default'
+import { CoverContext } from './coverContext'
 
 // 设置Iconify API的URL
 const iconifyHost = process.env.NEXT_PUBLIC_API_ICONIFY_URL
-const defaultIcon = DEFAULT_ICON
 
 // 自定义 Option 渲染组件
 const CustomOption = ({ data, isFocused, isSelected, innerRef, innerProps }: OptionProps<IconOption>) => {
@@ -55,8 +54,9 @@ const MenuList = ({ options, children, maxHeight, getValue }: MenuListProps<Icon
 }
 
 const IconSelect = (props: { onChange: (arg0: IconOption) => void }) => {
-  const [selectValue, setSelectValue] = useState<SingleValue<IconOption>>(defaultIcon)
-  const [selectOptions, setSelectOptions] = useState([defaultIcon])
+  const { coverSetting } = useContext(CoverContext)
+  const [selectValue, setSelectValue] = useState<SingleValue<IconOption>>(coverSetting.icon)
+  const [selectOptions, setSelectOptions] = useState([coverSetting.icon])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -73,7 +73,7 @@ const IconSelect = (props: { onChange: (arg0: IconOption) => void }) => {
           label: item
         }))
 
-        setSelectOptions([defaultIcon, ...options])
+        setSelectOptions([coverSetting.icon, ...options])
         setLoading(false)
       } catch (error) {
         console.error('The Iconify API call failed :', error)
@@ -82,7 +82,7 @@ const IconSelect = (props: { onChange: (arg0: IconOption) => void }) => {
     }
 
     fetchData()
-  }, [])
+  }, [coverSetting.icon])
 
   const handleChange = (newValue: MultiValue<IconOption> | SingleValue<IconOption>) => {
     setSelectValue(newValue as IconOption)
