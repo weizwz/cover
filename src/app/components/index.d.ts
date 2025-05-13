@@ -38,3 +38,13 @@ interface FontData {
   typeName: string;
   list: Font[];
 }
+
+interface CenterAlertOptions {
+  type: 'success' | 'error'
+  title: string
+  message: string
+}
+
+interface CenteredAlertProps extends CenterAlertOptions {
+  onClose: () => void
+}
