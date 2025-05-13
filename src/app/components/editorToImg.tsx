@@ -16,13 +16,9 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
   const [loading, setLoading] = useState<boolean>(false)
   const [copyLoading, setCopyLoading] = useState<boolean>(false)
   const [showAlert, setShowAlert] = useState(false)
-  const [alertData, setAlertData] = useState<CenterAlertOptions>({
-    type: 'success',
-    title: '成功',
-    message: '操作成功',
-  })
+  const [alertData, setAlertData] = useState<CenterAlertOptions>()
 
-  const showNotification = (data: React.SetStateAction<CenterAlertOptions>) => {
+  const showNotification = (data: React.SetStateAction<CenterAlertOptions | undefined>) => {
     setAlertData(data)
     setShowAlert(true)
   };
@@ -134,7 +130,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
             {copyLoading ? <LoaderCircle className='animate-spin' /> : <Copy />}
           </Button>
         </div>
-        {showAlert && <CenteredAlert type={alertData.type} title={alertData.title} message={alertData.message} onClose={handleClose} />}
+        {showAlert && <CenteredAlert type={alertData?.type} title={alertData?.title} message={alertData?.message} onClose={handleClose} />}
       </div>
     </React.Fragment>
   )

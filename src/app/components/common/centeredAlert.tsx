@@ -22,15 +22,15 @@ const CenteredAlert: React.FC<CenteredAlertProps> = ({ type, title, message, onC
 
   return (
     <Alert
-      variant={type === 'success' ? 'default' : 'destructive'}
+      variant={type === 'error' ? 'destructive' : 'default'}
       className={`
         fixed top-10 left-1/2 -translate-x-1/2 -translate-y-1/2 w-auto z-50 transition-all duration-500 ease-out shadow-xs
         ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10 pointer-events-none'}
-        ${type === 'success' ? 'border-green-500 text-green-600 shadow-green-500 bg-green-50' : 'border-red-500 text-red-600 shadow-red-500 bg-red-50'}
+        ${type === 'error' ? 'border-red-500 text-red-600 shadow-red-500 bg-red-50' : 'border-green-500 text-green-600 shadow-green-500 bg-green-50'}
       `}>
-      {type === 'success' ? <CircleCheck className='h-4 w-4' /> : <CircleX className='h-4 w-4' />}
-      <AlertTitle>{title}</AlertTitle>
-      <AlertDescription>{message}</AlertDescription>
+      {type === 'error' ? <CircleX className='h-4 w-4' /> : <CircleCheck className='h-4 w-4' />}
+      <AlertTitle>{title || '提示'}</AlertTitle>
+      <AlertDescription>{message || '未知提示，请联系管理员'}</AlertDescription>
     </Alert>
   )
 }

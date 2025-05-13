@@ -40,9 +40,9 @@ interface FontData {
 }
 
 interface CenterAlertOptions {
-  type: 'success' | 'error'
-  title: string
-  message: string
+  type: 'success' | 'error' | undefined
+  title?: string
+  message?: string
 }
 
 interface CenteredAlertProps extends CenterAlertOptions {
