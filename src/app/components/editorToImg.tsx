@@ -17,18 +17,17 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
   const [copyLoading, setCopyLoading] = useState<boolean>(false)
   const [showAlert, setShowAlert] = useState(false)
   const [alertData, setAlertData] = useState<CenterAlertOptions>()
+  const { coverSetting } = useContext(CoverContext)
+  const componentRef = React.createRef<HTMLDivElement>()
 
   const showNotification = (data: React.SetStateAction<CenterAlertOptions | undefined>) => {
     setAlertData(data)
     setShowAlert(true)
-  };
+  }
 
   const handleClose = () => {
     setShowAlert(false)
-  };
-
-  const { coverSetting } = useContext(CoverContext)
-  const componentRef = React.createRef<HTMLDivElement>()
+  }
 
   async function saveImage(data: string): Promise<void> {
     const a = document.createElement('a') as HTMLAnchorElement
@@ -56,7 +55,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
     showNotification({
       type: 'success',
       title: '图片已生成',
-      message: '请及时下载图片到本地',
+      message: '请及时下载图片到本地'
     })
   }
 
@@ -107,13 +106,13 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
       showNotification({
         type: 'success',
         title: '复制成功',
-        message: '图片已复制到剪贴板',
+        message: '图片已复制到剪贴板'
       })
     } catch (err) {
       showNotification({
         type: 'error',
         title: '复制失败',
-        message: '' + err,
+        message: '' + err
       })
     }
   }
