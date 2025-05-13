@@ -52,7 +52,7 @@ const UnsplashSearch: React.FC<UnsplashSearchProps> = ({ largeImgPreview }) => {
   }, [unsplashParam])
 
   return (
-    <div className='w-full h-full p-4 flex flex-col bg-white items-center justify-center'>
+    <div className='ignore w-full h-full p-4 flex flex-col bg-white items-center justify-center'>
       <div className='w-full flex items-center mb-4'>
         <div className='mx-auto w-full flex bg-gray-50 rounded-full border border-gray-50'>
           <input

@@ -15,8 +15,8 @@ const OutlineTheme: React.FC<ThemeProps> = ({ config }) => {
           )}
         </div>
         <div className={`${font.value} flex flex-col gap-6`}>
-          <h1 className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-shadow-lg text-shadow-black`}>{title}</h1>
-          <h2 className='text-2xl font-semibold text-shadow-sm text-shadow-black'>{author}</h2>
+          <div className={`text-5xl ${font?.lineHeight || 'leading-14'} font-bold text-shadow-lg text-shadow-black`}>{title}</div>
+          <div className='text-2xl font-semibold text-shadow-sm text-shadow-black'>{author}</div>
         </div>
       </div>
     </div>

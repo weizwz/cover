@@ -17,14 +17,9 @@ const MobileMockupTheme: React.FC<ThemeProps> = ({ config }) => {
         className={`${font.value} h-full flex items-center relative z-10 ${size.value.indexOf('vertical') === 0 ? 'flex-col px-24 py-12' : ''} ${
           size.value.indexOf('vertical') === -1 ? 'px-24' : ''
         }`}>
-        <div className='flex-1 flex flex-col justify-end items-center gap-2 text-white text-center'>
-          <h2 className='text-2xl font-semibold text-shadow-sm text-shadow-black'>{author}</h2>
-          <h1
-            className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-shadow-lg text-shadow-black ${
-              size.value.indexOf('square') === 0 ? 'pl-8' : ''
-            }`}>
-            {title}
-          </h1>
+        <div className={`flex-1 flex flex-col justify-end items-center gap-4 text-white text-center ${size.value.indexOf('square') === 0 ? 'pl-8' : ''}`}>
+          <div className='text-2xl font-semibold text-shadow-sm text-shadow-black'>{author}</div>
+          <div className={`text-5xl ${font?.lineHeight || 'leading-14'} font-bold text-shadow-lg text-shadow-black`}>{title}</div>
         </div>
 
         <div className={`${size.value.indexOf('horizontal') >= 0 ? 'h-full' : 'w-full'} aspect-[0.5286] group flex flex-col relative`}>
@@ -36,7 +31,7 @@ const MobileMockupTheme: React.FC<ThemeProps> = ({ config }) => {
                 <img src={image} className='w-full object-cover object-top' alt='preview' />
               </div>
               <Button
-                className='hidden cursor-pointer absolute z-10 top-0 right-0 rounded-full text-center group-hover:flex'
+                className='ignore hidden cursor-pointer absolute z-10 top-0 right-0 rounded-full text-center group-hover:flex'
                 variant='outline'
                 size='icon'
                 onClick={() => setImage(undefined)}>
@@ -44,7 +39,7 @@ const MobileMockupTheme: React.FC<ThemeProps> = ({ config }) => {
               </Button>
             </div>
           ) : (
-            <div className='absolute z-10 inset-y-[7.125%] inset-x-[13.515%] w-[72.97%] aspect-[0.4498] px-4 py-12 flex flex-col items-center'>
+            <div className='ignore absolute z-10 inset-y-[7.125%] inset-x-[13.515%] w-[72.97%] aspect-[0.4498] px-4 py-12 flex flex-col items-center'>
               <div className='w-fit rounded overflow-hidden mb-4'>
                 <Input
                   type='file'
