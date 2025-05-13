@@ -22,6 +22,7 @@ export const DEFAULT_SETTING: Setting = {
   title: '免费、漂亮的封面生成器',
   author: '唯知笔记',
   download: 'png',
+  scale: 2,
   icon: DEFAULT_ICON,
   customIcon: '',
   theme: THEMES[0],

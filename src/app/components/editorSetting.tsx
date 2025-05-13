@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Slider } from '@/components/ui/slider'
 import { Check } from 'lucide-react'
 
 import { useContext, useEffect, useState } from 'react'
@@ -171,7 +172,7 @@ const EditorSetting = () => {
             />
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
-            <Label className='w-12 justify-end'>纹理</Label>
+            <Label htmlFor='pattern' className='w-12 justify-end'>纹理</Label>
             <Select
               value={coverSetting.pattern.value}
               onValueChange={(value) => {
@@ -190,13 +191,13 @@ const EditorSetting = () => {
             </Select>
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pl-2 space-x-1.5 mb-4'>
-            <Label className='w-12 justify-end'>尺寸</Label>
+            <Label htmlFor='size' className='w-12 justify-end'>尺寸</Label>
             <Select
               value={coverSetting.size.value}
               onValueChange={(value) => {
                 changeValue(value, 'size', SIZES)
               }}>
-              <SelectTrigger id='pattern' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
+              <SelectTrigger id='size' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
                 <SelectValue placeholder='请选择尺寸' />
               </SelectTrigger>
               <SelectContent position='popper'>
@@ -207,6 +208,37 @@ const EditorSetting = () => {
                 ))}
               </SelectContent>
             </Select>
+          </div>
+          <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
+            <Label htmlFor='download' className='w-12 justify-end'>类型</Label>
+            <Select
+              value={coverSetting.download}
+              onValueChange={(value) => {
+                setCoverSetting({ ...coverSetting, download: value as DownloadType })
+              }}>
+              <SelectTrigger id='download' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
+                <SelectValue placeholder='请选择保存文件类型' />
+              </SelectTrigger>
+              <SelectContent position='popper'>
+                <SelectItem key='png' value='png'>PNG</SelectItem>
+                <SelectItem key='jpg' value='jpg'>JPG</SelectItem>
+                <SelectItem key='webp' value='webp'>WEBP</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div className='flex w-full 2xl:w-1/2 2xl:pl-2 space-x-1.5 mb-4'>
+            <Label className='w-12 justify-end'>缩放</Label>
+            <div className='h-9 flex-1 flex items-center gap-2 border border-input rounded-md shadow-xs px-2'>
+              <Slider
+                className='flex-1'
+                value={[coverSetting.scale]}
+                min={0.5}
+                max={5}
+                step={0.5}
+                onValueChange={(newValue) => setCoverSetting({ ...coverSetting, scale: newValue[0] })}
+              />
+              <div className='nowrap text-sm'>{coverSetting.scale} 倍</div>
+            </div>
           </div>
         </div>
       </form>
