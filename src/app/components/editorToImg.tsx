@@ -54,7 +54,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
       windowHeight: window.innerHeight,
       x: 0,
       y: 0,
-      logging: true,
+      logging: process.env.NODE_ENV === 'development',
       imageTimeout: 15000,
       foreignObjectRendering: false,
       ignoreElements: (element) => {
