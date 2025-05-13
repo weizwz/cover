@@ -1,7 +1,7 @@
 'use client'
 
 const OutlineTheme: React.FC<ThemeProps> = ({ config }) => {
-  const { title, color, pattern, author, icon, font, customIcon, size } = config
+  const { title, color, pattern, author, icon, font, customIcon } = config
 
   return (
     <div className={`w-full h-full text-white relative`} style={{ background: color.bgColor }}>
