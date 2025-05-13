@@ -237,7 +237,7 @@ const EditorSetting = () => {
                 step={0.5}
                 onValueChange={(newValue) => setCoverSetting({ ...coverSetting, scale: newValue[0] })}
               />
-              <div className='nowrap'>{coverSetting.scale} 倍</div>
+              <div className='nowrap text-sm'>{coverSetting.scale} 倍</div>
             </div>
           </div>
         </div>
