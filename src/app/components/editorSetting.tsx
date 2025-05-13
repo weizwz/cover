@@ -80,7 +80,7 @@ const EditorSetting = () => {
     if (showAlert) {
       const timer = setTimeout(() => {
         setShowAlert(false)
-      }, 2000)
+      }, 3000)
 
       return () => clearTimeout(timer)
     }
@@ -107,7 +107,9 @@ const EditorSetting = () => {
       <form>
         <div className='flex w-full items-center flex-wrap'>
           <div className='flex w-full space-x-1.5 mb-4'>
-            <Label htmlFor='title' className='w-16 justify-end'>标题</Label>
+            <Label htmlFor='title' className='w-16 justify-end'>
+              标题
+            </Label>
             <Textarea
               id='title'
               className='flex-1 focus-visible:ring-1'
@@ -117,7 +119,9 @@ const EditorSetting = () => {
             />
           </div>
           <div className='flex w-full space-x-1.5 mb-4'>
-            <Label htmlFor='author' className='w-16 justify-end'>作者</Label>
+            <Label htmlFor='author' className='w-16 justify-end'>
+              作者
+            </Label>
             <Input
               id='author'
               className='flex-1 focus-visible:ring-1'
@@ -131,7 +135,9 @@ const EditorSetting = () => {
             <IconSelect onChange={changeIcon} />
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
-            <Label htmlFor='font' className='w-16 justify-end'>字体</Label>
+            <Label htmlFor='font' className='w-16 justify-end'>
+              字体
+            </Label>
             <Select
               value={coverSetting.font.value}
               onValueChange={(value) => {
@@ -155,7 +161,9 @@ const EditorSetting = () => {
             </Select>
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pl-2 space-x-1.5 mb-4'>
-            <Label htmlFor='bg' className='w-16 justify-end'>背景色</Label>
+            <Label htmlFor='bg' className='w-16 justify-end'>
+              背景色
+            </Label>
             <Input
               id='bg'
               type='color'
@@ -166,7 +174,9 @@ const EditorSetting = () => {
             />
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
-            <Label htmlFor='pattern' className='w-16 justify-end'>纹理</Label>
+            <Label htmlFor='pattern' className='w-16 justify-end'>
+              纹理
+            </Label>
             <Select
               value={coverSetting.pattern.value}
               onValueChange={(value) => {
@@ -185,7 +195,9 @@ const EditorSetting = () => {
             </Select>
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pl-2 space-x-1.5 mb-4'>
-            <Label htmlFor='download' className='w-16 justify-end'>保存格式</Label>
+            <Label htmlFor='download' className='w-16 justify-end'>
+              保存格式
+            </Label>
             <Select
               value={coverSetting.download}
               onValueChange={(value) => {
@@ -195,14 +207,22 @@ const EditorSetting = () => {
                 <SelectValue placeholder='请选择保存文件格式' />
               </SelectTrigger>
               <SelectContent position='popper'>
-                <SelectItem key='png' value='png'>PNG</SelectItem>
-                <SelectItem key='jpg' value='jpg'>JPG</SelectItem>
-                <SelectItem key='webp' value='webp'>WEBP</SelectItem>
+                <SelectItem key='png' value='png'>
+                  PNG
+                </SelectItem>
+                <SelectItem key='jpg' value='jpg'>
+                  JPG
+                </SelectItem>
+                <SelectItem key='webp' value='webp'>
+                  WEBP
+                </SelectItem>
               </SelectContent>
             </Select>
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
-            <Label htmlFor='size' className='w-16 justify-end'>比例</Label>
+            <Label htmlFor='size' className='w-16 justify-end'>
+              比例
+            </Label>
             <Select
               value={coverSetting.size.value}
               onValueChange={(value) => {
@@ -221,7 +241,9 @@ const EditorSetting = () => {
             </Select>
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pl-2 space-x-1.5 mb-4'>
-            <Label htmlFor='download' className='w-16 justify-end'>输出倍率</Label>
+            <Label htmlFor='download' className='w-16 justify-end'>
+              输出倍率
+            </Label>
             <div className='h-9 flex-1 flex items-center gap-2 border border-input rounded-md shadow-xs px-2'>
               <Slider
                 id='download'
@@ -246,10 +268,10 @@ const EditorSetting = () => {
         </Button>
       </div>
       {showAlert && (
-        <Alert className='fixed z-50 w-auto top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+        <Alert className='fixed z-50 w-auto top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-green-500 text-green-600 shadow-xs shadow-green-500 bg-green-50'>
           <Check className='h-4 w-4' />
-          <AlertTitle>保存成功!</AlertTitle>
-          <AlertDescription>当前数据仅保存在浏览器中，请放心使用</AlertDescription>
+          <AlertTitle>保存成功！</AlertTitle>
+          <AlertDescription className='text-gray-800'>当前数据保存在本地浏览器中，请放心使用</AlertDescription>
         </Alert>
       )}
     </div>
