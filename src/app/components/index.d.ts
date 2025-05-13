@@ -33,15 +33,6 @@ interface EditorToImgProps {
   children: React.ReactNode;
 }
 
-interface GetDataOptions {
-  useCORS: boolean
-  scale: number
-  backgroundColor: string | null
-  allowTaint: boolean
-  height: number
-  width: number
-}
-
 interface FontData {
   type: string;
   typeName: string;

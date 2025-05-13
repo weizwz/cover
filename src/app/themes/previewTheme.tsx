@@ -30,7 +30,7 @@ const PreviewTheme: React.FC<ThemeProps> = ({ config }) => {
                 <img src={image} className='w-full object-cover object-top' alt='preview' />
               </div>
               <Button
-                className='hidden cursor-pointer absolute z-10 top-4 right-4 rounded-full text-center group-hover:flex'
+                className='ignore hidden cursor-pointer absolute z-10 top-4 right-4 rounded-full text-center group-hover:flex'
                 variant='outline'
                 size='icon'
                 onClick={() => setImage(undefined)}>
