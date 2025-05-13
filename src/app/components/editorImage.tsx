@@ -36,7 +36,7 @@ const EditorImage = () => {
     }
   }
 
-  return <div className={`w-full ${coverSetting.size.value}`}>{selectTheme(coverSetting.theme.value)}</div>
+  return <div className={`${coverSetting.size.value}`}>{selectTheme(coverSetting.theme.value)}</div>
 }
 
 export default EditorImage

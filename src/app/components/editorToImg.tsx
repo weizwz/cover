@@ -41,7 +41,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
   async function getData(element: HTMLElement): Promise<string> {
     const options: GetDataOptions = {
       useCORS: true,
-      scale: window.devicePixelRatio | 1,
+      scale: 2,
       backgroundColor: null,
       allowTaint: true,
       height: element.offsetHeight,
@@ -56,7 +56,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
   return (
     <React.Fragment>
       <div className='relative'>
-        <div ref={componentRef} className="w-full">
+        <div ref={componentRef}>
           {props.children}
         </div>
         <div className='absolute -inset-y-10 left-4 lg:top-0 lg:left-full w-16 h-16 px-4'>
