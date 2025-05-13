@@ -4,23 +4,19 @@ const OutlineTheme: React.FC<ThemeProps> = ({ config }) => {
   const { title, color, pattern, author, icon, font, customIcon, size } = config
 
   return (
-    <div className='w-full h-full bg-white'>
-      <div className={`overflow-y-hidden text-gray-800 h-full relative`} style={{ backgroundColor: color.bgColor }}>
-        <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern.value} ${pattern.isOpacity ? 'filter-opacity-50' : ''}`} />
-        <div className={`h-full rounded-2xl p-24 flex flex-col justify-center relative z-10`}>
+    <div className={`w-full h-full text-white relative`} style={{ background: color.bgColor }}>
+      <div className={`absolute w-full h-full ${pattern.value} ${pattern.isOpacity ? 'opacity-50' : ''}`} />
+      <div className={`h-full p-24 flex flex-col justify-center`}>
+        <div className='items-center flex'>
           {customIcon ? (
-            <div className='m-6'>
-              <img src={customIcon} alt='img' className='rounded-full object-cover w-24 h-24 bg-white p-1 border-white' />
-            </div>
+            <img className='w-18 h-18' src={customIcon} alt='icon'/>
           ) : (
-            <div className='items-center flex'>
-              <img className='w-18 h-18' src={`https://api.iconify.design/simple-icons/${icon.value}.svg?color=%23fff`} alt={`${icon.label} icon`} />
-            </div>
+            <img className='w-18 h-18' src={`https://api.iconify.design/simple-icons/${icon.value}.svg?color=%23fff`} alt={`${icon.label} icon`} />
           )}
-          <div className={`${font.value} mb-16 mt-8`}>
-            <h1 className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-white text-shadow-lg text-shadow-black`}>{title}</h1>
-            <h2 className='text-2xl mt-6 font-semibold text-white text-shadow-sm text-shadow-black'>{author}</h2>
-          </div>
+        </div>
+        <div className={`${font.value} mb-16 mt-8`}>
+          <h1 className={`text-5xl ${font?.lineHeight || 'leading-[1.2]'} font-bold text-shadow-lg text-shadow-black`}>{title}</h1>
+          <h2 className='text-2xl mt-6 font-semibold text-shadow-sm text-shadow-black'>{author}</h2>
         </div>
       </div>
     </div>
