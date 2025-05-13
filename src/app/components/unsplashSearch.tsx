@@ -91,7 +91,7 @@ const UnsplashSearch: React.FC<UnsplashSearchProps> = ({ largeImgPreview }) => {
             return (
               <div
                 key={image.id}
-                className={`rounded-lg relative cursor-pointer w-full ${largeImgPreview ? 'h-32' : 'h-20'}`}
+                className={`rounded-lg relative cursor-pointer shadow-lg w-full ${largeImgPreview ? 'h-32' : 'h-20'}`}
                 onClick={() => selectImage(image)}>
                 <span className='font-Inter top-2 left-2 absolute z-10 text-xs font-semibold text-white text-shadow-xs text-shadow-black'>点击选择此照片</span>
                 <UnsplashImage src={image.urls.regular} alt={image.alt_description} />
