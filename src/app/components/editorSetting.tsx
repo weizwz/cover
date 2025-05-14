@@ -106,7 +106,7 @@ const EditorSetting = () => {
       title: coverSetting.title,
       author: coverSetting.author,
       icon: coverSetting.icon,
-      customIcon: coverSetting.customIcon
+      customIcon: coverSetting.customIcon,
     })
     showNotification({
       type: 'success',
@@ -214,8 +214,29 @@ const EditorSetting = () => {
             </Select>
           </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pl-2 space-x-1.5 mb-4'>
+            <Label htmlFor='size' className='w-16 justify-end'>
+              宽高比例
+            </Label>
+            <Select
+              value={coverSetting.size.value}
+              onValueChange={(value) => {
+                changeValue(value, 'size', SIZES)
+              }}>
+              <SelectTrigger id='size' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
+                <SelectValue placeholder='请选择宽高比例' />
+              </SelectTrigger>
+              <SelectContent position='popper'>
+                {SIZES.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
             <Label htmlFor='download' className='w-16 justify-end'>
-              保存格式
+              格式
             </Label>
             <Select
               value={coverSetting.download}
@@ -223,7 +244,7 @@ const EditorSetting = () => {
                 setCoverSetting({ ...coverSetting, download: value as DownloadType })
               }}>
               <SelectTrigger id='download' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
-                <SelectValue placeholder='请选择保存文件格式' />
+                <SelectValue placeholder='请选择输出文件格式' />
               </SelectTrigger>
               <SelectContent position='popper'>
                 <SelectItem key='png' value='png'>
@@ -238,30 +259,9 @@ const EditorSetting = () => {
               </SelectContent>
             </Select>
           </div>
-          <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
-            <Label htmlFor='size' className='w-16 justify-end'>
-              比例
-            </Label>
-            <Select
-              value={coverSetting.size.value}
-              onValueChange={(value) => {
-                changeValue(value, 'size', SIZES)
-              }}>
-              <SelectTrigger id='size' className='flex-1 mr-0 overflow-hidden focus-visible:ring-1'>
-                <SelectValue placeholder='请选择尺寸' />
-              </SelectTrigger>
-              <SelectContent position='popper'>
-                {SIZES.map((item) => (
-                  <SelectItem key={item.value} value={item.value}>
-                    {item.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
           <div className='flex w-full 2xl:w-1/2 2xl:pl-2 space-x-1.5 mb-4'>
             <Label htmlFor='download' className='w-16 justify-end'>
-              输出倍率
+              输出缩放
             </Label>
             <div className='h-9 flex-1 flex items-center gap-2 border border-input rounded-md shadow-xs px-2'>
               <Slider
