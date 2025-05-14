@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { X } from 'lucide-react'
+import { X, CirclePlus } from 'lucide-react'
 import pcBg from '../assets/images/pc.webp'
 
 const PreviewTheme: React.FC<ThemeProps> = ({ config }) => {
@@ -39,20 +39,26 @@ const PreviewTheme: React.FC<ThemeProps> = ({ config }) => {
             </div>
           ) : (
             <div className='ignore absolute z-10 inset-y-[11.58%] inset-x-[11.66%] w-[76.68%] aspect-[1.5397] px-4 py-12 flex flex-col items-center'>
-              <div className='w-fit rounded overflow-hidden mb-4'>
+              <div className='w-fit rounded-md overflow-hidden mb-4 relative'>
                 <Input
                   type='file'
                   accept='image/png, image/jpeg, image/webp'
-                  className='cursor-pointer bg-white'
+                  className='cursor-pointer bg-white/80'
                   onChange={(e) => {
                     if (e.target.files && e.target.files[0]) {
                       setImage(URL.createObjectURL(e.target.files[0]))
                     }
                   }}
                 />
+                <div className='absolute top-0 right-0 w-full h-full px-4 flex items-center justify-between bg-white pointer-events-none'>
+                  <p className='text-gray-800 whitespace-nowrap'>请选择文件</p>
+                  <CirclePlus className='w-5 h-5'/>
+                </div>
               </div>
-              <span className='text-center text-gray-800'>上传PC截图</span>
-              <span className='text-center text-gray-600 text-sm'>截图宽高比&gt;=3:2效果最佳</span>
+              <div className='p-4 text-gray-800 text-sm bg-white/80 rounded-lg shadow-md'>
+                <p className='text-left'>友情提示：</p>
+                <p className='text-gray-600'>截图宽高比 &gt;=3:2 效果最佳</p>
+              </div>
             </div>
           )}
         </div>
