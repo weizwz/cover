@@ -180,19 +180,6 @@ const EditorSetting = () => {
             </Select>
           </div>
           <div className='flex w-full md:w-1/2 xl:w-full 2xl:w-1/2'>
-            <Label htmlFor='bg' className='w-16 justify-end mr-2'>
-              背景色
-            </Label>
-            <Input
-              id='bg'
-              type='color'
-              className='flex-1 focus-visible:ring-1'
-              placeholder='请选择背景色'
-              value={coverSetting.color.bgColor}
-              onChange={(e) => setCoverSetting({ ...coverSetting, color: { bgColor: e.target.value } })}
-            />
-          </div>
-          <div className='flex w-full md:w-1/2 xl:w-full 2xl:w-1/2'>
             <Label htmlFor='pattern' className='w-16 justify-end mr-2'>
               纹理
             </Label>
@@ -213,9 +200,22 @@ const EditorSetting = () => {
               </SelectContent>
             </Select>
           </div>
-          <div className='flex w-full md:w-1/2 xl:w-full 2xl:w-1/2'>
+          <div className='flex w-full'>
+            <Label htmlFor='bg' className='w-16 justify-end mr-2'>
+              背景
+            </Label>
+            <Input
+              id='bg'
+              type='color'
+              className='flex-1 focus-visible:ring-1'
+              placeholder='请选择背景色'
+              value={coverSetting.color.bgColor}
+              onChange={(e) => setCoverSetting({ ...coverSetting, color: { bgColor: e.target.value } })}
+            />
+          </div>
+          <div className='flex w-full'>
             <Label htmlFor='size' className='w-16 justify-end mr-2'>
-              宽高比例
+              尺寸
             </Label>
             <Select
               value={coverSetting.size.value}
@@ -261,7 +261,7 @@ const EditorSetting = () => {
           </div>
           <div className='flex w-full md:w-1/2 xl:w-full 2xl:w-1/2'>
             <Label htmlFor='download' className='w-16 justify-end mr-2'>
-              输出缩放
+              输出比
             </Label>
             <div className='h-9 flex-1 flex items-center gap-2 border border-input rounded-md shadow-xs px-2'>
               <Slider

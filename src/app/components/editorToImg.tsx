@@ -2,7 +2,7 @@
 
 import React, { useContext, useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { LoaderCircle, Download, Copy } from 'lucide-react'
+import { LoaderCircle, Download, Copy, ArrowRightLeft } from 'lucide-react'
 import html2canvas from 'html2canvas-pro'
 import type { Options } from 'html2canvas-pro'
 
@@ -17,7 +17,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
   const [copyLoading, setCopyLoading] = useState<boolean>(false)
   const [showAlert, setShowAlert] = useState(false)
   const [alertData, setAlertData] = useState<CenterAlertOptions>()
-  const { coverSetting } = useContext(CoverContext)
+  const { coverSetting, setCoverSetting } = useContext(CoverContext)
   const componentRef = React.createRef<HTMLDivElement>()
 
   const showNotification = (data: React.SetStateAction<CenterAlertOptions | undefined>) => {
@@ -117,16 +117,35 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
     }
   }
 
+  const changeThemeAndSwapX = (): void => {
+    setCoverSetting({
+      ...coverSetting,
+      theme: { ...coverSetting.theme, swapX: !coverSetting.theme.swapX }
+    })
+  }
+
   return (
     <React.Fragment>
       <div className='relative'>
         <div className='2xl:absolute 2xl:top-0 2xl:left-full px-4 pb-4 flex 2xl:flex-col gap-2'>
-          <Button className='cursor-pointer' disabled={loading} variant='outline' size='icon' onClick={() => downloadImage()}>
+          <Button className='cursor-pointer' disabled={loading} variant='outline' size='icon' title='下载图片' onClick={() => downloadImage()}>
             {loading ? <LoaderCircle className='animate-spin' /> : <Download />}
           </Button>
-          <Button className='cursor-pointer' disabled={copyLoading} variant='outline' size='icon' onClick={() => copyImage()}>
+          <Button className='cursor-pointer' disabled={copyLoading} variant='outline' size='icon' title='复制图片' onClick={() => copyImage()}>
             {copyLoading ? <LoaderCircle className='animate-spin' /> : <Copy />}
           </Button>
+          {coverSetting.theme.swapX !== undefined && (
+            <Button
+              className='cursor-pointer'
+              variant='outline'
+              size='icon'
+              title='交换图文位置'
+              onClick={() => {
+                changeThemeAndSwapX()
+              }}>
+              <ArrowRightLeft />
+            </Button>
+          )}
         </div>
         <div ref={componentRef}>{props.children}</div>
         {showAlert && <CenteredAlert type={alertData?.type} title={alertData?.title} message={alertData?.message} onClose={handleClose} />}
