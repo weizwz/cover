@@ -121,9 +121,9 @@ const EditorSetting = () => {
   }, [coverSetting.font.label, coverSetting.font.url])
 
   return (
-    <div className='h-full w-full overflow-y-auto py-4 pl-0 pr-10'>
+    <div className='h-full w-full overflow-y-auto py-4'>
       <h2 className='text-lg font-bold text-center mb-4'>基础配置</h2>
-      <form>
+      <form className='pr-10'>
         <div className='flex w-full items-center flex-wrap gap-y-4'>
           <div className='flex w-full'>
             <Label htmlFor='title' className='w-16 justify-end mr-2'>
