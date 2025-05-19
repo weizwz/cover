@@ -36,12 +36,12 @@ export const THEMES: Theme[] = [
   {
     label: '桌面预览',
     value: 'preview',
-    preview: previewThemePlaceholder,
-    swapX: false
+    preview: previewThemePlaceholder
   },
   {
     label: '手机预览',
     value: 'mobile',
-    preview: mobileThemePlaceholder
+    preview: mobileThemePlaceholder,
+    swapX: false
   }
 ]
