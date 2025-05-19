@@ -7,7 +7,7 @@ import { X, CirclePlus } from 'lucide-react'
 import pcBg from '../assets/images/mobile.webp'
 
 const MobileMockupTheme: React.FC<ThemeProps> = ({ config }) => {
-  const { title, color, pattern, author, font, size } = config
+  const { title, color, pattern, author, font, size, theme } = config
   const [image, setImage] = useState<string | undefined>(undefined)
 
   return (
@@ -17,7 +17,10 @@ const MobileMockupTheme: React.FC<ThemeProps> = ({ config }) => {
         className={`${font.value} h-full flex items-center relative z-10 ${size.value.indexOf('vertical') === 0 ? 'flex-col px-24 py-12' : ''} ${
           size.value.indexOf('vertical') === -1 ? 'px-24' : ''
         }`}>
-        <div className={`flex-1 flex flex-col justify-end items-center gap-4 text-white text-center ${size.value.indexOf('square') === 0 ? 'pl-8' : ''}`}>
+        <div
+          className={`flex-1 ${theme.swapX ? 'order-1' : ''} flex flex-col justify-end items-center gap-4 text-white text-center ${
+            size.value.indexOf('square') === 0 ? 'pl-8' : ''
+          }`}>
           <div className='text-2xl font-semibold text-shadow-sm text-shadow-black'>{author}</div>
           <div className={`text-5xl ${font?.lineHeight || 'leading-14'} font-bold text-shadow-lg text-shadow-black`}>{title}</div>
         </div>
@@ -53,7 +56,7 @@ const MobileMockupTheme: React.FC<ThemeProps> = ({ config }) => {
                 />
                 <div className='absolute top-0 right-0 w-full h-full px-4 flex items-center justify-between bg-white pointer-events-none'>
                   <p className='text-gray-800 whitespace-nowrap'>请选择文件</p>
-                  <CirclePlus className='w-5 h-5'/>
+                  <CirclePlus className='w-5 h-5' />
                 </div>
               </div>
               <div className='p-4 text-gray-800 text-sm bg-white/80 rounded-lg shadow-md'>
