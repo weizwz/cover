@@ -2,23 +2,11 @@
 
 import { useContext } from 'react'
 import Image from 'next/image'
-import { Button } from '@/components/ui/button'
-import { ArrowRightLeft } from 'lucide-react'
 import { CoverContext } from './coverContext'
 import { THEMES } from '../settings/themes'
 
 const EditorTheme = () => {
   const { coverSetting, setCoverSetting } = useContext(CoverContext)
-
-  const changeThemeAndSwapX = (e: React.MouseEvent<HTMLButtonElement>, item: Theme): void => {
-    // 阻止默认事件
-    e.stopPropagation()
-
-    setCoverSetting({
-      ...coverSetting,
-      theme: { ...item, swapX: !coverSetting.theme.swapX }
-    })
-  }
 
   return (
     <div className='h-full w-full overflow-y-auto p-4'>
@@ -33,18 +21,6 @@ const EditorTheme = () => {
             onClick={() => setCoverSetting({ ...coverSetting, theme: item })}>
             <div className='relative'>
               <Image src={item.preview.src} width={100} height={60} alt={item.label} />
-              {item.swapX !== undefined && (
-                <Button
-                  className='cursor-pointer w-6 h-6 absolute top-1/2 left-1/2 -translate-3 rounded-full border-none bg-transparent'
-                  variant='outline'
-                  size='icon'
-                  title='图文位置互换'
-                  onClick={(e) => {
-                    changeThemeAndSwapX(e, item)
-                  }}>
-                  <ArrowRightLeft strokeWidth={1}/>
-                </Button>
-              )}
             </div>
             <div className='text-sm text-center text-gray-600 font-bold whitespace-nowrap'>{item.label}</div>
           </div>
