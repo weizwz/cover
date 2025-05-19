@@ -124,9 +124,9 @@ const EditorSetting = () => {
     <div className='h-full w-full overflow-y-auto py-4 pl-0 pr-10'>
       <h2 className='text-lg font-bold text-center mb-4'>基础配置</h2>
       <form>
-        <div className='flex w-full items-center flex-wrap'>
-          <div className='flex w-full space-x-1.5 mb-4'>
-            <Label htmlFor='title' className='w-16 justify-end'>
+        <div className='flex w-full items-center flex-wrap gap-y-4'>
+          <div className='flex w-full'>
+            <Label htmlFor='title' className='w-16 justify-end mr-2'>
               标题
             </Label>
             <Textarea
@@ -137,8 +137,8 @@ const EditorSetting = () => {
               onChange={(e) => setCoverSetting({ ...coverSetting, title: e.target.value })}
             />
           </div>
-          <div className='flex w-full space-x-1.5 mb-4'>
-            <Label htmlFor='author' className='w-16 justify-end'>
+          <div className='flex w-full md:w-1/2 xl:w-full'>
+            <Label htmlFor='author' className='w-16 justify-end mr-2'>
               作者
             </Label>
             <Input
@@ -149,12 +149,12 @@ const EditorSetting = () => {
               onChange={(e) => setCoverSetting({ ...coverSetting, author: e.target.value })}
             />
           </div>
-          <div className='flex w-full space-x-1.5 mb-4'>
-            <Label className='w-16 justify-end'>图标</Label>
+          <div className='flex w-full md:w-1/2 xl:w-full'>
+            <Label className='w-16 justify-end mr-2'>图标</Label>
             <IconSelect onChange={changeIcon} />
           </div>
-          <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
-            <Label htmlFor='font' className='w-16 justify-end'>
+          <div className='flex w-full md:w-1/2 xl:w-full 2xl:w-1/2'>
+            <Label htmlFor='font' className='w-16 justify-end mr-2'>
               字体
             </Label>
             <Select
@@ -179,8 +179,8 @@ const EditorSetting = () => {
               </SelectContent>
             </Select>
           </div>
-          <div className='flex w-full 2xl:w-1/2 2xl:pl-2 space-x-1.5 mb-4'>
-            <Label htmlFor='bg' className='w-16 justify-end'>
+          <div className='flex w-full md:w-1/2 xl:w-full 2xl:w-1/2'>
+            <Label htmlFor='bg' className='w-16 justify-end mr-2'>
               背景色
             </Label>
             <Input
@@ -192,8 +192,8 @@ const EditorSetting = () => {
               onChange={(e) => setCoverSetting({ ...coverSetting, color: { bgColor: e.target.value } })}
             />
           </div>
-          <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
-            <Label htmlFor='pattern' className='w-16 justify-end'>
+          <div className='flex w-full md:w-1/2 xl:w-full 2xl:w-1/2'>
+            <Label htmlFor='pattern' className='w-16 justify-end mr-2'>
               纹理
             </Label>
             <Select
@@ -213,8 +213,8 @@ const EditorSetting = () => {
               </SelectContent>
             </Select>
           </div>
-          <div className='flex w-full 2xl:w-1/2 2xl:pl-2 space-x-1.5 mb-4'>
-            <Label htmlFor='size' className='w-16 justify-end'>
+          <div className='flex w-full md:w-1/2 xl:w-full 2xl:w-1/2'>
+            <Label htmlFor='size' className='w-16 justify-end mr-2'>
               宽高比例
             </Label>
             <Select
@@ -234,8 +234,8 @@ const EditorSetting = () => {
               </SelectContent>
             </Select>
           </div>
-          <div className='flex w-full 2xl:w-1/2 2xl:pr-2 space-x-1.5 mb-4'>
-            <Label htmlFor='download' className='w-16 justify-end'>
+          <div className='flex w-full md:w-1/2 xl:w-full 2xl:w-1/2'>
+            <Label htmlFor='download' className='w-16 justify-end mr-2'>
               格式
             </Label>
             <Select
@@ -259,8 +259,8 @@ const EditorSetting = () => {
               </SelectContent>
             </Select>
           </div>
-          <div className='flex w-full 2xl:w-1/2 2xl:pl-2 space-x-1.5 mb-4'>
-            <Label htmlFor='download' className='w-16 justify-end'>
+          <div className='flex w-full md:w-1/2 xl:w-full 2xl:w-1/2'>
+            <Label htmlFor='download' className='w-16 justify-end mr-2'>
               输出缩放
             </Label>
             <div className='h-9 flex-1 flex items-center gap-2 border border-input rounded-md shadow-xs px-2'>

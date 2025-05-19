@@ -120,7 +120,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
   return (
     <React.Fragment>
       <div className='relative'>
-        <div className='lg:absolute lg:top-0 lg:left-full lg:w-16 px-4 pb-4 flex lg:flex-col gap-2'>
+        <div className='2xl:absolute 2xl:top-0 2xl:left-full px-4 pb-4 flex 2xl:flex-col gap-2'>
           <Button className='cursor-pointer' disabled={loading} variant='outline' size='icon' onClick={() => downloadImage()}>
             {loading ? <LoaderCircle className='animate-spin' /> : <Download />}
           </Button>

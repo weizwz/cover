@@ -17,7 +17,7 @@ const Editor = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const mediaQueryList = window.matchMedia('(max-width: 1024px)')
+    const mediaQueryList = window.matchMedia('(max-width: 1280px)')
 
     const handleResize = (event: MediaQueryListEvent) => {
       setIsSmallScreen(event.matches)
@@ -76,11 +76,11 @@ const Editor = () => {
             <EditorSetting />
           </div>
           <Separator orientation='vertical' />
-          <div className='h-full lg:flex-1 overflow-y-auto bg-gray-50'>
+          <div className='h-full flex-1 overflow-hidden bg-gray-50'>
             <EditorPreview />
           </div>
           <Separator orientation='vertical' />
-          <div className='h-full w-[120px] xl:w-[180px] 2xl:w-[300px]'>
+          <div className='h-full w-[120px] xl:w-[140px] 2xl:w-[300px]'>
             <EditorTheme />
           </div>
         </div>
