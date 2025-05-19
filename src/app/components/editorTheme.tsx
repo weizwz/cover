@@ -35,13 +35,14 @@ const EditorTheme = () => {
               <Image src={item.preview.src} width={100} height={60} alt={item.label} />
               {item.swapX !== undefined && (
                 <Button
-                  className='cursor-pointer w-6 h-6 absolute top-1/2 left-1/2 -translate-3 rounded-full border-none'
+                  className='cursor-pointer w-6 h-6 absolute top-1/2 left-1/2 -translate-3 rounded-full border-none bg-transparent'
                   variant='outline'
                   size='icon'
+                  title='图文位置互换'
                   onClick={(e) => {
                     changeThemeAndSwapX(e, item)
                   }}>
-                  <ArrowRightLeft strokeWidth={1.5} size={10} />
+                  <ArrowRightLeft strokeWidth={1}/>
                 </Button>
               )}
             </div>
