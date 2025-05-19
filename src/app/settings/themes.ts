@@ -30,7 +30,8 @@ export const THEMES: Theme[] = [
   {
     label: '图文对称',
     value: 'stylish',
-    preview: stylishThemePlaceholder
+    preview: stylishThemePlaceholder,
+    swapX: false
   },
   {
     label: '桌面预览',
@@ -40,6 +41,7 @@ export const THEMES: Theme[] = [
   {
     label: '手机预览',
     value: 'mobile',
-    preview: mobileThemePlaceholder
+    preview: mobileThemePlaceholder,
+    swapX: false
   }
 ]

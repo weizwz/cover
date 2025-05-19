@@ -4,7 +4,10 @@ interface SelectOption {
 }
 
 interface Theme extends SelectOption {
+  // 预览图像
   preview: StaticImageData
+  // 图文左右交换位置
+  swapX?: boolean
 }
 
 interface ColorRandom {
