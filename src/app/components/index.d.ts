@@ -25,18 +25,20 @@ interface UnsplashImageRespLink {
 interface UnsplashImageResp {
   id: string
   alt_description: string
-  urls: UnsplashImageRespUrl,
+  urls: UnsplashImageRespUrl
   links: UnsplashImageRespLink
 }
 
 interface EditorToImgProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
-interface FontData {
-  type: string;
-  typeName: string;
-  list: Font[];
+type GroupItem = Font | Pattern
+
+interface GroupData {
+  type: string
+  typeName: string
+  list: GroupItem[]
 }
 
 interface CenterAlertOptions {

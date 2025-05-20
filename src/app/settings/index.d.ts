@@ -22,6 +22,8 @@ interface Font extends SelectOption {
 }
 
 interface Pattern extends SelectOption {
+  type: string
+  typeName: string
   isOpacity?: boolean
 }
 

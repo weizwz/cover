@@ -12,7 +12,7 @@ const PreviewTheme: React.FC<ThemeProps> = ({ config }) => {
 
   return (
     <div className={`w-full h-full flex flex-col overflow-hidden relative`} style={{ backgroundColor: color.bgColor }}>
-      <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern.value} ${pattern.isOpacity ? 'opacity-50' : ''}`} />
+      <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern.value} ${pattern.isOpacity ? 'opacity-40' : ''}`} />
       <div
         className={`${font.value} h-full flex flex-col items-center ${
           size.value.indexOf('vertical') >= 0 ? 'justify-center' : ''
@@ -52,7 +52,7 @@ const PreviewTheme: React.FC<ThemeProps> = ({ config }) => {
                 />
                 <div className='absolute top-0 right-0 w-full h-full px-4 flex items-center justify-between bg-white pointer-events-none'>
                   <p className='text-gray-800 whitespace-nowrap'>请选择文件</p>
-                  <CirclePlus className='w-5 h-5'/>
+                  <CirclePlus className='w-5 h-5' />
                 </div>
               </div>
               <div className='p-4 text-gray-800 text-sm bg-white/80 rounded-lg shadow-md'>
