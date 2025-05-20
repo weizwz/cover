@@ -19,13 +19,15 @@ import CenteredAlert from './common/centeredAlert'
 
 const EditorSetting = () => {
   const { coverSetting, setCoverSetting } = useContext(CoverContext)
-  const [fontData, setFontData] = useState<FontData[]>([])
+  const [fontData, setFontData] = useState<GroupData[]>([])
+  const [patternData, setPatternData] = useState<GroupData[]>([])
   const [showAlert, setShowAlert] = useState(false)
   const [alertData, setAlertData] = useState<CenterAlertOptions>()
 
   // 初始化
   useEffect(() => {
     setFontData(groupWithTypeName(FONTS))
+    setPatternData(groupWithTypeName(PATTERNS))
   }, [])
 
   const showNotification = (data: React.SetStateAction<CenterAlertOptions | undefined>) => {
@@ -38,8 +40,8 @@ const EditorSetting = () => {
   }
 
   // 字体分组显示
-  const groupWithTypeName = (items: Font[]): FontData[] => {
-    const grouped = items.reduce<Record<string, FontData>>((acc, item) => {
+  const groupWithTypeName = (items: GroupItem[]): GroupData[] => {
+    const grouped = items.reduce<Record<string, GroupData>>((acc, item) => {
       if (!acc[item.type]) {
         acc[item.type] = {
           type: item.type,
@@ -192,10 +194,15 @@ const EditorSetting = () => {
                 <SelectValue placeholder='请选择纹理' />
               </SelectTrigger>
               <SelectContent position='popper'>
-                {PATTERNS.map((item) => (
-                  <SelectItem key={item.value} value={item.value}>
-                    {item.label}
-                  </SelectItem>
+                {patternData.map((item) => (
+                  <SelectGroup key={item.type}>
+                    <SelectLabel className='font-bold text-primary'>{item.typeName}</SelectLabel>
+                    {item.list.map((temp) => (
+                      <SelectItem key={temp.value} value={temp.value}>
+                        {temp.label}
+                      </SelectItem>
+                    ))}
+                  </SelectGroup>
                 ))}
               </SelectContent>
             </Select>
