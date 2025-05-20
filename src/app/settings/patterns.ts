@@ -20,15 +20,8 @@ export const PATTERNS: Pattern[] = [
     isOpacity: true
   },
   {
-    label: '叉号',
-    value: 'hideout',
-    type: 'basic',
-    typeName: '基础',
-    isOpacity: true
-  },
-  {
-    label: '电路',
-    value: 'circuit-board',
+    label: '叠加',
+    value: 'plus',
     type: 'basic',
     typeName: '基础',
     isOpacity: true
@@ -41,8 +34,29 @@ export const PATTERNS: Pattern[] = [
     isOpacity: true
   },
   {
-    label: '泡泡',
-    value: 'bubbles',
+    label: '棱形',
+    value: 'quads',
+    type: 'basic',
+    typeName: '基础',
+    isOpacity: true
+  },
+  {
+    label: '叉号集',
+    value: 'hideout',
+    type: 'basic',
+    typeName: '基础',
+    isOpacity: true
+  },
+  {
+    label: '编织带',
+    value: 'herringbone',
+    type: 'basic',
+    typeName: '基础',
+    isOpacity: true
+  },
+  {
+    label: '六边形',
+    value: 'hexagon',
     type: 'basic',
     typeName: '基础',
     isOpacity: true
@@ -71,6 +85,13 @@ export const PATTERNS: Pattern[] = [
   {
     label: '船锚',
     value: 'anchors',
+    type: 'pattern',
+    typeName: '图案',
+    isOpacity: true
+  },
+  {
+    label: '花朵',
+    value: 'flower',
     type: 'pattern',
     typeName: '图案',
     isOpacity: true
