@@ -9,6 +9,16 @@ import { CoverContext } from './coverContext'
 // 设置Iconify API的URL
 const iconifyHost = process.env.NEXT_PUBLIC_API_ICONIFY_URL
 
+// 自定义label显示
+const formatOptionLabel = ({ label }: { label: string }) => {
+  return (
+    <div className='flex items-center'>
+      <span className='mr-2 overflow-hidden text-ellipsis'>{label}</span>
+      <img className='w-6 h-6' loading='lazy' src={`${iconifyHost}/simple-icons/${label}.svg`} alt={`${label} icon`} />
+    </div>
+  )
+}
+
 // 自定义 Option 渲染组件
 const CustomOption = ({ data, isFocused, isSelected, innerRef, innerProps }: OptionProps<IconOption>) => {
   return (
@@ -55,8 +65,8 @@ const MenuList = ({ options, children, maxHeight, getValue }: MenuListProps<Icon
 
 const IconSelect = (props: { onChange: (arg0: IconOption) => void }) => {
   const { coverSetting } = useContext(CoverContext)
-  const [selectValue, setSelectValue] = useState<SingleValue<IconOption>>(coverSetting.icon)
-  const [selectOptions, setSelectOptions] = useState([coverSetting.icon])
+  const [selectValue, setSelectValue] = useState<IconOption>(coverSetting.icon)
+  const [selectOptions, setSelectOptions] = useState<IconOption[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -98,9 +108,9 @@ const IconSelect = (props: { onChange: (arg0: IconOption) => void }) => {
       options={selectOptions}
       components={{ Option: CustomOption, MenuList: MenuList }}
       onChange={handleChange}
+      formatOptionLabel={formatOptionLabel}
       placeholder='搜索图标'
       isSearchable={true}
-      isClearable={false}
       styles={{
         menuList: (base) => ({ ...base, padding: 0 }),
         control: (provided, state) => ({
