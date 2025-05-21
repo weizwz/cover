@@ -16,9 +16,7 @@ export default function Head() {
             height={28}
             priority
           />
-          <div className="text-xl ml-2 font-bold font-mono text-primary">thisCover
-            <span className="hidden md:inline"> 封面生成器</span>
-          </div>
+          <div className="text-xl ml-2 font-bold font-mono text-primary">ThisCover</div>
         </div>
         <div className="h-full flex items-center justify-end">
           <Button className="rounded-3xl">
