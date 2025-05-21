@@ -160,8 +160,8 @@ const EditorSetting = () => {
             <Label className='w-16 justify-end mr-2'>图标</Label>
             {/* <IconSelect onChange={changeIcon} /> */}
             <div className='flex-1 flex items-center justify-between border rounded-md box-border shadow-xs bg-white text-sm overflow-hidden'>
-              <div className='flex-1 h-full px-3 flex items-center overflow-hidden'>
-                <span className='mr-2 overflow-hidden text-ellipsis'>{coverSetting.customIcon ? '本地图标' : coverSetting.icon.label}</span>
+              <div className='flex-1 h-full px-3 flex items-center overflow-hidden min-w-12'>
+                <span className={`mr-2 overflow-hidden text-ellipsis hidden sm:inline-block xl:hidden 2xl:inline-block`}>{coverSetting.customIcon ? '本地图标' : coverSetting.icon.label}</span>
                 {coverSetting.customIcon ? (
                   <img src={coverSetting.customIcon} className='w-6 h-6' loading='lazy' alt='custom icon' />
                 ) : (
