@@ -1,6 +1,6 @@
-# thisCover
+# ThisCover
 
-一个免费、漂亮的封面生成器，**基于 [rutikwankhade/CoverView](https://github.com/rutikwankhade/CoverView) 修改**
+一个免费、漂亮的封面生成器，**基于 [rutikwankhade/CoverView](https://github.com/rutikwankhade/CoverView) **
 
 全新架构升级，使用 `next.js v15` + `react v19` + `shadcn/ui` + `tailwindcss v4` + `lucide icons`
 
@@ -19,6 +19,7 @@
 - [x] 添加保存图片格式选项，支持png、jpg、webp
 - [x] 添加复制图片到剪切板功能
 - [x] 左文右图主题，支持图片和文本位置互换
+- [ ] 添加首页、封面示例、关于、常见问题等页面
 - [ ] 支持上传自定义图标
 - [ ] 支持在线图标，输入链接即可
 - [ ] 背景选项扩展，支持单色，渐变和上传图片、在线图片
