@@ -36,7 +36,7 @@ const BackgroundTheme: React.FC<ThemeProps> = ({ config }) => {
                 )}
               </div>
               <div className={`text-5xl ${font?.lineHeight || 'leading-14'} font-bold text-shadow-lg text-shadow-black`}>{title}</div>
-              <div className='text-2xl font-semibold text-shadow-sm text-shadow-black'>{author}</div>
+              <div className={`text-2xl font-semibold text-shadow-sm text-shadow-black ${author.trim() === '' && 'hidden'}`}>{author}</div>
             </div>
           </div>
         </div>

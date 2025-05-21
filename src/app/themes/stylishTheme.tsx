@@ -20,7 +20,7 @@ const StylishTheme: React.FC<ThemeProps> = ({ config }) => {
           ) : (
             <img className='w-8 h-8' src={`https://api.iconify.design/simple-icons/${icon.value}.svg`} alt={`${icon.label} icon`} />
           )}
-          <div className='text-2xl font-semibold'>{author}</div>
+          <div className={`text-2xl font-semibold ${author.trim() === '' && 'hidden'}`}>{author}</div>
         </div>
       </div>
       <div className='w-1/2 h-full'>

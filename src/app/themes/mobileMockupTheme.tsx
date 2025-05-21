@@ -21,7 +21,7 @@ const MobileMockupTheme: React.FC<ThemeProps> = ({ config }) => {
           className={`flex-1 ${theme.swapX ? 'order-1' : ''} flex flex-col justify-end items-center gap-4 text-white text-center ${
             size.value.indexOf('square') === 0 ? 'pl-8' : ''
           }`}>
-          <div className='text-2xl font-semibold text-shadow-sm text-shadow-black'>{author}</div>
+          <div className={`text-2xl font-semibold text-shadow-sm text-shadow-black ${author.trim() === '' && 'hidden'}`}>{author}</div>
           <div className={`text-5xl ${font?.lineHeight || 'leading-14'} font-bold text-shadow-lg text-shadow-black`}>{title}</div>
         </div>
 

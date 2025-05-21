@@ -15,7 +15,7 @@ const BasicTheme: React.FC<ThemeProps> = ({ config }) => {
           ) : (
             <img className='w-10 h-10' src={`https://api.iconify.design/simple-icons/${icon.value}.svg`} alt={`${icon.label} icon`} />
           )}
-          <div className='text-2xl font-semibold'>{author}</div>
+          <div className={`text-2xl font-semibold ${author.trim() === '' && 'hidden'}`}>{author}</div>
         </div>
       </div>
     </div>
