@@ -21,7 +21,8 @@ const eslintConfig = [
       //     varsIgnorePattern: '^(pattern|size)$',
       //   }
       // ],
-      'no-unused-vars': 'off'
+      'no-unused-vars': 'off',
+      // "react-hooks/exhaustive-deps": 'off'  关闭useEffect依赖监听告警
     }
   }
 ]

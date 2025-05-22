@@ -17,7 +17,7 @@ const iconifyHost = process.env.NEXT_PUBLIC_API_ICONIFY_URL
 const FormatOptionLabel = ({ icon }: { icon: IconOption }) => {
   return (
     <div className='flex items-center'>
-      <img className='w-6 h-6 mr-2' loading='lazy' src={`${iconifyHost}/${icon.value}.svg`} alt={`${icon.label} icon`} />
+      <img className='w-6 h-6 mr-2' loading='lazy' src={icon.label === '本地图标' ? icon.value : `${iconifyHost}/${icon.value}.svg`} alt={`${icon.label} icon`} />
       <span className='overflow-hidden text-ellipsis'>{icon.label}</span>
     </div>
   )
@@ -32,13 +32,22 @@ const IconSelect = () => {
   const [query, setQuery] = useState(coverSetting.icon.label)
   const [options, setOptions] = useState<IconOption[]>([])
 
+  // 初始化
   useEffect(() => {
+    if (coverSetting.customIcon) {
+      setSelectItem({ value: coverSetting.customIcon, label: '本地图标' })
+      setOptions([{ value: coverSetting.customIcon, label: '本地图标' }])
+      setLoading(false)
+      setQuery('')
+      return
+    }
     fetchSearchResults(coverSetting.icon.label)
-  }, [coverSetting.icon.label])
+  }, [])
 
   const selectHandle = (value: string) => {
-    const selectedOption = options.find((item) => item.value === value)
+    const selectedOption = options.find((item: IconOption) => item.value === value)
     setSelectItem(selectedOption as IconOption)
+    setCoverSetting({ ...coverSetting, icon: selectedOption as IconOption, customIcon: '' })
     setOpen(false)
   }
 
@@ -47,6 +56,17 @@ const IconSelect = () => {
     setQuery(query)
     // 发起远程搜索请求
     throttledFetchSearchResults(query)
+  }
+
+  // 上传图标
+  const handleCustomIconChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const customIcon = URL.createObjectURL(e.target.files[0])
+      setSelectItem({ value: customIcon, label: '本地图标' })
+      setOptions([{ value: customIcon, label: '本地图标' }])
+      setCoverSetting({ ...coverSetting, customIcon })
+      setQuery('')
+    }
   }
 
   // 节流函数
@@ -79,7 +99,7 @@ const IconSelect = () => {
     }
   }
 
-  if (loading) return <div className='flex-1 h-9 px-3 py-1 border border-input rounded-md'>图标加载中...</div>
+  if (loading) return <div className='flex-1 h-9 px-3 py-2 border border-input rounded-md text-sm'>图标加载中...</div>
 
   return (
     <div className='flex-1 flex items-center justify-between gap-2 overflow-hidden'>
@@ -108,18 +128,14 @@ const IconSelect = () => {
         </PopoverContent>
       </Popover>
 
-      <div className='h-full w-15 relative'>
+      <div className='h-full w-15 relative overflow-hidden'>
         <Input
           type='file'
           accept='image/png, image/jpeg, image/webp'
-          className='cursor-pointer bg-none border-none'
-          onChange={(e) => {
-            if (e.target.files && e.target.files[0]) {
-              setCoverSetting({ ...coverSetting, customIcon: URL.createObjectURL(e.target.files[0]) })
-            }
-          }}
+          className='absolute h-full w-fit right-0 top-0 opacity-0 cursor-pointer'
+          onChange={handleCustomIconChange}
         />
-        <Button className='absolute left-0 top-0 cursor-pointer pointer-events-none'>上传</Button>
+        <Button className='cursor-pointer pointer-events-none'>上传</Button>
       </div>
     </div>
   )
