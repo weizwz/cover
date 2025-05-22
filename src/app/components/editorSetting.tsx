@@ -15,8 +15,7 @@ import { SIZES } from '../settings/sizes'
 import { DEFAULT_SETTING } from '../settings/default'
 import { imgToBase64 } from '../tools/img'
 import CenteredAlert from './common/centeredAlert'
-
-const iconifyHost = process.env.NEXT_PUBLIC_API_ICONIFY_URL
+import IconSelect from './iconSelect'
 
 const EditorSetting = () => {
   const { coverSetting, setCoverSetting } = useContext(CoverContext)
@@ -149,40 +148,7 @@ const EditorSetting = () => {
           </div>
           <div className='flex w-full md:w-1/2 xl:w-full'>
             <Label className='w-16 justify-end mr-2'>图标</Label>
-            <div className='flex-1 flex items-center justify-between border rounded-md box-border shadow-xs bg-white text-sm overflow-hidden'>
-              <div className='flex-1 h-full px-3 flex items-center overflow-hidden min-w-12'>
-                <span className={`mr-2 overflow-hidden text-ellipsis hidden sm:inline-block xl:hidden 2xl:inline-block`}>{coverSetting.customIcon ? '本地图标' : coverSetting.icon.label}</span>
-                {coverSetting.customIcon ? (
-                  <img src={coverSetting.customIcon} className='w-6 h-6' loading='lazy' alt='custom icon' />
-                ) : (
-                  <img
-                    className='w-6 h-6'
-                    loading='lazy'
-                    src={`${iconifyHost}/simple-icons/${coverSetting.icon.label}.svg`}
-                    alt={`${coverSetting.icon.label} icon`}
-                  />
-                )}
-              </div>
-              <div className='flex h-full items-center'>
-                <div className='w-18 relative'>
-                  <Input
-                    type='file'
-                    accept='image/png, image/jpeg, image/webp'
-                    className='cursor-pointer bg-none border-none'
-                    onChange={(e) => {
-                      if (e.target.files && e.target.files[0]) {
-                        setCoverSetting({ ...coverSetting, customIcon: URL.createObjectURL(e.target.files[0]) })
-                      }
-                    }}
-                  />
-                  <div className='absolute w-full h-full left-0 top-0 bg-white px-2 cursor-default text-primary flex items-center pointer-events-none'>
-                    本地上传
-                  </div>
-                </div>
-                <div className='w-[1px] h-1/2 bg-gray-300' />
-                <div className='h-full px-2 cursor-pointer text-primary flex items-center'>在线搜索</div>
-              </div>
-            </div>
+            <IconSelect />
           </div>
           <div className='flex w-full md:w-1/2 xl:w-full 2xl:w-1/2'>
             <Label htmlFor='font' className='w-16 justify-end mr-2'>
