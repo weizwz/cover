@@ -6,11 +6,9 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Slider } from '@/components/ui/slider'
-import { Separator } from '@/components/ui/separator'
 
 import { useContext, useEffect, useState } from 'react'
 import { CoverContext } from './coverContext'
-import IconSelect from './iconSelect'
 import { fontLoader, FONTS } from '../settings/fonts'
 import { PATTERNS } from '../settings/patterns'
 import { SIZES } from '../settings/sizes'
@@ -57,13 +55,6 @@ const EditorSetting = () => {
     }, {})
 
     return Object.values(grouped)
-  }
-
-  const changeIcon = (option: IconOption) => {
-    setCoverSetting({
-      ...coverSetting,
-      icon: option
-    })
   }
 
   type changeOptions = Font | Pattern | Size
@@ -158,7 +149,6 @@ const EditorSetting = () => {
           </div>
           <div className='flex w-full md:w-1/2 xl:w-full'>
             <Label className='w-16 justify-end mr-2'>图标</Label>
-            {/* <IconSelect onChange={changeIcon} /> */}
             <div className='flex-1 flex items-center justify-between border rounded-md box-border shadow-xs bg-white text-sm overflow-hidden'>
               <div className='flex-1 h-full px-3 flex items-center overflow-hidden min-w-12'>
                 <span className={`mr-2 overflow-hidden text-ellipsis hidden sm:inline-block xl:hidden 2xl:inline-block`}>{coverSetting.customIcon ? '本地图标' : coverSetting.icon.label}</span>
@@ -186,11 +176,11 @@ const EditorSetting = () => {
                     }}
                   />
                   <div className='absolute w-full h-full left-0 top-0 bg-white px-2 cursor-default text-primary flex items-center pointer-events-none'>
-                    上传图标
+                    本地上传
                   </div>
                 </div>
                 <div className='w-[1px] h-1/2 bg-gray-300' />
-                <div className='h-full px-2 cursor-pointer text-primary flex items-center'>选择图标</div>
+                <div className='h-full px-2 cursor-pointer text-primary flex items-center'>在线搜索</div>
               </div>
             </div>
           </div>
