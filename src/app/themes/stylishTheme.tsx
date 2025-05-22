@@ -6,6 +6,8 @@ import { X } from 'lucide-react'
 import { CoverContext } from '../components/coverContext'
 import UnsplashSearch from '../components/unsplashSearch'
 
+const iconifyHost = process.env.NEXT_PUBLIC_API_ICONIFY_URL
+
 const StylishTheme: React.FC<ThemeProps> = ({ config }) => {
   const { title, color, author, icon, font, customIcon, theme } = config
   const { coverSetting, setCoverSetting } = useContext(CoverContext)
@@ -15,11 +17,7 @@ const StylishTheme: React.FC<ThemeProps> = ({ config }) => {
       <div className={`w-1/2 h-full ${font.value} ${theme.swapX ? 'order-1' : ''} p-12 flex flex-col justify-center gap-6 bg-white text-gray-800`}>
         <div className={`text-5xl ${font?.lineHeight || 'leading-14'} font-bold`}>{title}</div>
         <div className='flex items-center gap-4'>
-          {customIcon ? (
-            <img className='w-8 h-8' src={customIcon} alt='icon' />
-          ) : (
-            <img className='w-8 h-8' src={`https://api.iconify.design/simple-icons/${icon.value}.svg`} alt={`${icon.label} icon`} />
-          )}
+          <img className='w-8 h-8' src={customIcon || `${iconifyHost}/${icon.value}.svg`} alt={`${icon.label} icon`} />
           <div className={`text-2xl font-semibold ${author.trim() === '' && 'hidden'}`}>{author}</div>
         </div>
       </div>
