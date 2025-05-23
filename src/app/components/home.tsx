@@ -13,6 +13,8 @@ import cover3 from '@/app/assets/images/ThisCover_20250523_180347.png'
 import cover4 from '@/app/assets/images/ThisCover_20250524_001002.png'
 import cover5 from '@/app/assets/images/ThisCover_20250524_005755.png'
 import cover6 from '@/app/assets/images/ThisCover_20250524_011123.png'
+import cover7 from '@/app/assets/images/ThisCover_20250524_012817.png'
+import cover8 from '@/app/assets/images/ThisCover_20250524_013456.png'
 
 export default function Main() {
   return (
@@ -26,7 +28,7 @@ export default function Main() {
           </h2>
         </div>
         <Link href='/editor' className='flex justify-center mt-4'>
-          <Button className='cursor-pointer md:py-6 md:px-16 md:text-lg font-bold rounded-full'>让我试试</Button>
+          <Button className='cursor-pointer md:py-6 md:px-16 md:text-lg font-bold rounded-full'>现在开始</Button>
         </Link>
         <div className='w-full max-w-360 flex flex-wrap justify-around'>
           <div className='w-full md:w-1/4 h-fit transform duration-300 border hover:scale-110 hover:-rotate-3 rotate-6 bg-white p-2 shadow-lg shadow-gray-50 rounded-lg flex flex-col'>
@@ -145,22 +147,41 @@ export default function Main() {
 
       <section className='w-full px-16 py-12 flex flex-col items-center bg-indigo-50/50 gap-8'>
         <h2 className='text-2xl md:text-3xl font-bold text-primary'>更多示例</h2>
-        <div className='w-full max-w-360 grid md:grid-cols-2 xl:grid-cols-3 gap-4'>
-          <div className='w-full h-fit border bg-white p-2 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
-            <Image className='border border-gray-100 rounded mb-2' src={cover4} width={600} height={600} layout='responsive' alt='ThisCover-1' />
-            <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>图标：xiaohongshu <Separator orientation='vertical'/> 背景色：rgb(255, 36, 66)</div>
-            <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>纹理：爱心 <Separator orientation='vertical'/> 尺寸：1:1 <Separator orientation='vertical'/> 主题：简洁</div>
+        <div className='w-full max-w-360 flex flex-wrap justify-around'>
+          <div className='w-full md:w-1/3 p-4'>
+            <div className='w-full h-fit border bg-white p-2 mb-8 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
+              <Image className='border border-gray-100 rounded mb-2' src={cover8} width={600} height={1066} layout='responsive' alt='ThisCover-1' />
+              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>图标：juejin <Separator orientation='vertical'/> 背景色：rgb(35,128,254)</div>
+              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>纹理：编织带 <Separator orientation='vertical'/> 尺寸：3:2 <Separator orientation='vertical'/> 主题：现代</div>
+            </div>
           </div>
-          <div className='w-full h-fit border bg-white p-2 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
-            <Image className='border border-gray-100 rounded mb-2' src={cover5} width={800} height={450} layout='responsive' alt='ThisCover-1' />
-            <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>字体：抖音美好体 <Separator orientation='vertical'/> 背景搜索词：beautiful background</div>
-            <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>尺寸：16:9 <Separator orientation='vertical'/> 主题：图文对称</div>
+
+          <div className='w-full md:w-1/3 p-4'>
+            <div className='w-full h-fit border bg-white p-2 mb-8 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
+              <Image className='border border-gray-100 rounded mb-2' src={cover4} width={600} height={600} layout='responsive' alt='ThisCover-1' />
+              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>图标：xiaohongshu <Separator orientation='vertical'/> 背景色：rgb(255, 36, 66)</div>
+              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>纹理：爱心 <Separator orientation='vertical'/> 尺寸：1:1 <Separator orientation='vertical'/> 主题：简洁</div>
+            </div>
+            <div className='w-full h-fit border bg-white p-2 mb-8 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
+              <Image className='border border-gray-100 rounded mb-2' src={cover5} width={800} height={450} layout='responsive' alt='ThisCover-1' />
+              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>字体：抖音美好体 <Separator orientation='vertical'/> 背景搜索词：beautiful background</div>
+              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>尺寸：16:9 <Separator orientation='vertical'/> 主题：图文对称</div>
+            </div>
           </div>
-          <div className='w-full h-fit border bg-white p-2 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
-            <Image className='border border-gray-100 rounded mb-2' src={cover6} width={800} height={450} layout='responsive' alt='ThisCover-1' />
-            <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>作者：删除留空 <Separator orientation='vertical'/> 纹理：无</div>
-            <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>尺寸：16:9 <Separator orientation='vertical'/> 主题：桌面预览</div>
+
+          <div className='w-full md:w-1/3 p-4'>
+            <div className='w-full h-fit border bg-white p-2 mb-8 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
+              <Image className='border border-gray-100 rounded mb-2' src={cover6} width={800} height={450} layout='responsive' alt='ThisCover-1' />
+              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>作者：删除留空 <Separator orientation='vertical'/> 字体：思源宋体 <Separator orientation='vertical'/> 纹理：无</div>
+              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>尺寸：16:9 <Separator orientation='vertical'/> 主题：桌面预览</div>
+            </div>
+            <div className='w-full h-fit border bg-white p-2 mb-8 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
+              <Image className='border border-gray-100 rounded mb-2' src={cover7} width={800} height={600} layout='responsive' alt='ThisCover-1' />
+              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>图标：juejin <Separator orientation='vertical'/> 背景色：rgb(35,128,254)</div>
+              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>纹理：编织带 <Separator orientation='vertical'/> 尺寸：3:2 <Separator orientation='vertical'/> 主题：现代</div>
+            </div>
           </div>
+          
         </div>
       </section>
     </div>
