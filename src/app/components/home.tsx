@@ -11,6 +11,8 @@ import cover2 from '@/app/assets/images/ThisCover_20250523_173053.png'
 import cover3 from '@/app/assets/images/ThisCover_20250523_180347.png'
 
 import cover4 from '@/app/assets/images/ThisCover_20250524_001002.png'
+import cover5 from '@/app/assets/images/ThisCover_20250524_005755.png'
+import cover6 from '@/app/assets/images/ThisCover_20250524_011123.png'
 
 export default function Main() {
   return (
@@ -38,7 +40,7 @@ export default function Main() {
             <p className='animate animate-pulse w-1/4 bg-gray-100 md:h-5 h-2 rounded mb-2 m-auto'></p>
           </div>
           <div className='w-full md:w-1/4 h-fit transform md:-translate-y-8 duration-300 hover:scale-110 hover:rotate-3 border -rotate-6 bg-white p-2 shadow-lg shadow-gray-50 rounded-lg flex flex-col '>
-            <Image className='border border-gray-100 rounded mb-2' src={cover3} width={800} height={450} layout='responsive' alt='ThisCover-2' />
+            <Image className='border border-gray-100 rounded mb-2' src={cover3} width={600} height={600} layout='responsive' alt='ThisCover-2' />
             <p className='animate animate-pulse w-1/2 bg-gray-100 md:h-5 h-2 rounded mb-2'></p>
             <p className='animate animate-pulse w-1/2 bg-gray-100 md:h-5 h-2 rounded mb-2'></p>
           </div>
@@ -145,9 +147,19 @@ export default function Main() {
         <h2 className='text-2xl md:text-3xl font-bold text-primary'>更多示例</h2>
         <div className='w-full max-w-360 grid md:grid-cols-2 xl:grid-cols-3 gap-4'>
           <div className='w-full h-fit border bg-white p-2 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
-            <Image className='border border-gray-100 rounded mb-2' src={cover4} width={800} height={450} layout='responsive' alt='ThisCover-1' />
+            <Image className='border border-gray-100 rounded mb-2' src={cover4} width={600} height={600} layout='responsive' alt='ThisCover-1' />
             <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>图标：xiaohongshu <Separator orientation='vertical'/> 背景色：rgb(255, 36, 66)</div>
             <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>纹理：爱心 <Separator orientation='vertical'/> 尺寸：1:1 <Separator orientation='vertical'/> 主题：简洁</div>
+          </div>
+          <div className='w-full h-fit border bg-white p-2 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
+            <Image className='border border-gray-100 rounded mb-2' src={cover5} width={800} height={450} layout='responsive' alt='ThisCover-1' />
+            <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>字体：抖音美好体 <Separator orientation='vertical'/> 背景搜索词：beautiful background</div>
+            <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>尺寸：16:9 <Separator orientation='vertical'/> 主题：图文对称</div>
+          </div>
+          <div className='w-full h-fit border bg-white p-2 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
+            <Image className='border border-gray-100 rounded mb-2' src={cover6} width={800} height={450} layout='responsive' alt='ThisCover-1' />
+            <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>作者：删除留空 <Separator orientation='vertical'/> 纹理：无</div>
+            <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>尺寸：16:9 <Separator orientation='vertical'/> 主题：桌面预览</div>
           </div>
         </div>
       </section>
