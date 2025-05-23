@@ -68,19 +68,7 @@ export default function Main() {
               <CardHeader className='gap-2'>
                 <CardTitle className='text-lg'>个性化主题</CardTitle>
                 <CardDescription className='text-md text-gray-800'>
-                  图标、背景、字体、底纹<span className='text-primary font-bold'>多样化配置</span><br></br>简洁、现代、经典等个性化主题选择<br></br>
-                  png、jpg、webp都支持，还可一键复制
-                </CardDescription>
-              </CardHeader>
-            </Card>
-          </div>
-          <div className='w-full md:w-1/4 p-4 box-border'>
-            <Card className='w-full h-full'>
-              <CardHeader className='gap-2'>
-                <CardTitle className='text-lg'>多种尺寸</CardTitle>
-                <CardDescription className='text-md text-gray-800'>
-                  9+主流尺寸，横板+竖版，包含日常大部分使用场景<br></br>
-                  小红书，头条、博客园、知乎、掘金等<span className='text-primary font-bold'>多平台适配</span>
+                  图标、背景、字体、底纹<span className='text-primary font-bold'>多样化配置</span><br></br>简洁、现代、经典、背景、手机预览等多个个性化主题选择<br></br>
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -93,6 +81,17 @@ export default function Main() {
                   预览界面实时展现，配置即改即变<br></br>
                   主题切换即生效<br></br>
                   <span className='text-primary font-bold'>所见即所得</span>
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </div>
+          <div className='w-full md:w-1/4 p-4 box-border'>
+            <Card className='w-full h-full'>
+              <CardHeader className='gap-2'>
+                <CardTitle className='text-lg'>主流适配</CardTitle>
+                <CardDescription className='text-md text-gray-800'>
+                  9+主流尺寸，横板+竖版，小红书，头条、知乎等<span className='text-primary font-bold'>多平台适配</span><br></br>
+                  png、jpg、webp都多格式输出，还可一键复制
                 </CardDescription>
               </CardHeader>
             </Card>
