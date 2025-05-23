@@ -9,8 +9,7 @@ import type { Options } from 'html2canvas-pro'
 import CenteredAlert from './common/centeredAlert'
 import { CoverContext } from './coverContext'
 import unsplash from '../config/unsplash'
-import { getFormattedDateTime } from '../tools/date'
-import { base64ToBlob } from '../tools/img'
+import { base64ToBlob, getFormattedDateTime } from '../tools/utils'
 
 const EditorToImg: React.FC<EditorToImgProps> = (props) => {
   const [loading, setLoading] = useState<boolean>(false)
@@ -32,7 +31,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
   async function saveImage(data: string): Promise<void> {
     const a = document.createElement('a') as HTMLAnchorElement
     a.href = data
-    a.download = `thisCover-${getFormattedDateTime()}.${coverSetting.download}`
+    a.download = `ThisCover_${getFormattedDateTime()}.${coverSetting.download}`
     document.body.appendChild(a)
 
     a.click()

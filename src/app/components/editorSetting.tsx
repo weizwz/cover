@@ -13,7 +13,7 @@ import { fontLoader, FONTS } from '../settings/fonts'
 import { PATTERNS } from '../settings/patterns'
 import { SIZES } from '../settings/sizes'
 import { DEFAULT_SETTING } from '../settings/default'
-import { imgToBase64 } from '../tools/img'
+import { imgToBase64 } from '../tools/utils'
 import CenteredAlert from './common/centeredAlert'
 import IconSelect from './iconSelect'
 
