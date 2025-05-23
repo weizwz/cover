@@ -143,7 +143,7 @@ export default function Main() {
         </div>
       </section>
 
-      <section className='w-full px-16 py-12 flex flex-col items-center bg-indigo-50/50 gap-4'>
+      <section className='w-full px-16 py-12 flex flex-col items-center bg-indigo-50/50 gap-8'>
         <h2 className='text-2xl md:text-3xl font-bold text-primary'>更多示例</h2>
         <div className='w-full max-w-360 grid md:grid-cols-2 xl:grid-cols-3 gap-4'>
           <div className='w-full h-fit border bg-white p-2 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
