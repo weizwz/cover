@@ -1,6 +1,6 @@
 # ThisCover
 
-一个免费、漂亮的封面生成器，**基于 [rutikwankhade/CoverView](https://github.com/rutikwankhade/CoverView) **
+一个免费、漂亮的封面生成器，基于 [**rutikwankhade/CoverView**](https://github.com/rutikwankhade/CoverView)
 
 全新架构升级，使用 `next.js v15` + `react v19` + `shadcn/ui` + `tailwindcss v4` + `lucide icons`
 
