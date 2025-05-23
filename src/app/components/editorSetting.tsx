@@ -91,7 +91,7 @@ const EditorSetting = () => {
       localStorage.setItem('coverSetting', JSON.stringify(coverSetting))
       showNotification({
         type: 'success',
-        title: '设置已保存',
+        title: '配置已保存',
         message: '数据仅保存在本地浏览器中，请放心使用'
       })
     }
@@ -109,6 +109,15 @@ const EditorSetting = () => {
       type: 'success',
       title: '样式已重置',
       message: '标题、作者、图标等信息不会被重置'
+    })
+  }
+
+  const clearLocalSetting = () => {
+    localStorage.setItem('coverSetting', JSON.stringify(DEFAULT_SETTING))
+    showNotification({
+      type: 'success',
+      title: '保存配置已清除',
+      message: '刷新页面或下次进入网站后生效'
     })
   }
 
@@ -287,6 +296,9 @@ const EditorSetting = () => {
         <Button className='cursor-pointer' variant='outline' onClick={resetSetting}>
           重置
         </Button>
+      </div>
+      <div className='flex justify-end items-center p-4 pr-12'>
+        <span className='text-sm underline cursor-pointer' onClick={clearLocalSetting}>清除已保存配置</span>
       </div>
       {showAlert && <CenteredAlert type={alertData?.type} title={alertData?.title} message={alertData?.message} onClose={handleClose} />}
     </div>
