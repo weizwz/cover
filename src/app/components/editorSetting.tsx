@@ -9,13 +9,13 @@ import { Slider } from '@/components/ui/slider'
 
 import { useContext, useEffect, useState } from 'react'
 import { CoverContext } from './coverContext'
-import IconSelect from './iconSelect'
 import { fontLoader, FONTS } from '../settings/fonts'
 import { PATTERNS } from '../settings/patterns'
 import { SIZES } from '../settings/sizes'
 import { DEFAULT_SETTING } from '../settings/default'
 import { imgToBase64 } from '../tools/img'
 import CenteredAlert from './common/centeredAlert'
+import IconSelect from './iconSelect'
 
 const EditorSetting = () => {
   const { coverSetting, setCoverSetting } = useContext(CoverContext)
@@ -56,13 +56,6 @@ const EditorSetting = () => {
     return Object.values(grouped)
   }
 
-  const changeIcon = (option: IconOption) => {
-    setCoverSetting({
-      ...coverSetting,
-      icon: option
-    })
-  }
-
   type changeOptions = Font | Pattern | Size
   const changeValue = (value: string, key: string, array: changeOptions[]) => {
     const selectedOption = array.filter((item) => {
@@ -77,26 +70,28 @@ const EditorSetting = () => {
   const saveSetting = () => {
     if (coverSetting.customIcon) {
       //转为base64
-      imgToBase64(coverSetting.customIcon).then((res) => {
-        coverSetting.customIcon = 'data:image/png;base64,' + res
-        localStorage.setItem('coverSetting', JSON.stringify(coverSetting))
-        showNotification({
-          type: 'success',
-          title: '设置已保存',
-          message: '数据仅保存在本地浏览器中，请放心使用'
+      imgToBase64(coverSetting.customIcon)
+        .then((res) => {
+          coverSetting.customIcon = 'data:image/png;base64,' + res
+          localStorage.setItem('coverSetting', JSON.stringify(coverSetting))
+          showNotification({
+            type: 'success',
+            title: '设置已保存',
+            message: '数据仅保存在本地浏览器中，请放心使用'
+          })
         })
-      }).catch((err) => {
-        showNotification({
-          type: 'error',
-          title: '设置保存失败',
-          message: err
+        .catch((err) => {
+          showNotification({
+            type: 'error',
+            title: '设置保存失败',
+            message: err
+          })
         })
-      })
     } else {
       localStorage.setItem('coverSetting', JSON.stringify(coverSetting))
       showNotification({
         type: 'success',
-        title: '设置已保存',
+        title: '配置已保存',
         message: '数据仅保存在本地浏览器中，请放心使用'
       })
     }
@@ -108,12 +103,21 @@ const EditorSetting = () => {
       title: coverSetting.title,
       author: coverSetting.author,
       icon: coverSetting.icon,
-      customIcon: coverSetting.customIcon,
+      customIcon: coverSetting.customIcon
     })
     showNotification({
       type: 'success',
       title: '样式已重置',
       message: '标题、作者、图标等信息不会被重置'
+    })
+  }
+
+  const clearLocalSetting = () => {
+    localStorage.setItem('coverSetting', JSON.stringify(DEFAULT_SETTING))
+    showNotification({
+      type: 'success',
+      title: '保存配置已清除',
+      message: '刷新页面或下次进入网站后生效'
     })
   }
 
@@ -153,7 +157,7 @@ const EditorSetting = () => {
           </div>
           <div className='flex w-full md:w-1/2 xl:w-full'>
             <Label className='w-16 justify-end mr-2'>图标</Label>
-            <IconSelect onChange={changeIcon} />
+            <IconSelect />
           </div>
           <div className='flex w-full md:w-1/2 xl:w-full 2xl:w-1/2'>
             <Label htmlFor='font' className='w-16 justify-end mr-2'>
@@ -292,6 +296,9 @@ const EditorSetting = () => {
         <Button className='cursor-pointer' variant='outline' onClick={resetSetting}>
           重置
         </Button>
+      </div>
+      <div className='flex justify-end items-center p-4 pr-12'>
+        <span className='text-sm underline cursor-pointer' onClick={clearLocalSetting}>清除已保存配置</span>
       </div>
       {showAlert && <CenteredAlert type={alertData?.type} title={alertData?.title} message={alertData?.message} onClose={handleClose} />}
     </div>

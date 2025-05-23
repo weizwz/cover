@@ -4,7 +4,7 @@ import { PATTERNS } from './patterns'
 import { COLORS_RANDOM } from './colorsRandom'
 import { SIZES } from './sizes'
 
-export const DEFAULT_ICON: IconOption = { label: 'xiaohongshu', value: 'xiaohongshu' }
+export const DEFAULT_ICON: IconOption = { label: 'xiaohongshu', value: 'simple-icons:xiaohongshu' }
 
 export const DEFAULT_UNSPLASH_PARAM: UnsplashParam = {
   query: 'beautiful background',

@@ -1,6 +1,6 @@
-# thisCover
+# ThisCover
 
-一个免费、漂亮的封面生成器，**基于 [rutikwankhade/CoverView](https://github.com/rutikwankhade/CoverView) 修改**
+一个免费、漂亮的封面生成器，**基于 [rutikwankhade/CoverView](https://github.com/rutikwankhade/CoverView) **
 
 全新架构升级，使用 `next.js v15` + `react v19` + `shadcn/ui` + `tailwindcss v4` + `lucide icons`
 
@@ -9,7 +9,7 @@
 ## 功能修改
 
 - [x] 文字汉化
-- [x] 使用iconify的simple-icons系列图标，当前3000+
+- [x] ~~使用iconify的simple-icons系列图标，当前3000+~~
 - [x] 应用开源/免费商用字体，当前23+
 - [x] 纹理修改，支持除自定义背景图片外的其他主题，当前18+
 - [x] 修改平台为尺寸，提供常用比例，如1:1、16:9等，当前9+
@@ -19,8 +19,9 @@
 - [x] 添加保存图片格式选项，支持png、jpg、webp
 - [x] 添加复制图片到剪切板功能
 - [x] 左文右图主题，支持图片和文本位置互换
-- [ ] 支持上传自定义图标
-- [ ] 支持在线图标，输入链接即可
+- [x] 图标整合：支持上传自定义图标，iconify图标搜索支持显示最多100
+- [x] 添加清除按钮，清除本地浏览器配置
+- [ ] 添加首页、封面示例、关于、常见问题等页面
 - [ ] 背景选项扩展，支持单色，渐变和上传图片、在线图片
 - [ ] 背景图片支持模糊和灰度
 - [ ] 配置里加入随机功能，支持随机底纹和背景色
