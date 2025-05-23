@@ -1,11 +1,11 @@
-import Head from './components/head'
-import Main from './components/home'
+import Head from '../components/head'
+import Editor from '../components/editor'
 
 export default function Home() {
   return (
     <div className='h-screen'>
       <Head />
-      <Main />
+      <Editor />
     </div>
   )
 }
