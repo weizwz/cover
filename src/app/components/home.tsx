@@ -231,7 +231,9 @@ export default function Main() {
       </section>
 
       <footer className='w-full px-4 md:px-12 py-12 flex flex-col items-center gap-4'>
-        <p>Copyright © 2025{new Date().getFullYear() === 2025 ? '' : '-' + new Date().getFullYear()} weizwz</p>
+        <p>Copyright © 2025{new Date().getFullYear() === 2025 ? '' : '-' + new Date().getFullYear()} 
+          <a className='font-bold text-primary ml-2' target="_blank" href="https://note.weizwz.com/">weizwz</a>
+        </p>
         <div className='flex flex-wrap items-center justify-center gap-2'>
           <a target="_blank" href="https://nextjs.org/" title="本站框架基于 Next.js 15.3.1">
             <img alt="Next.js" src="https://img.shields.io/badge/Frame-Next.js-000?logo=nextdotjs&amp;logoColor=fff" />
