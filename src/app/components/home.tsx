@@ -168,7 +168,9 @@ export default function Main() {
           <p className='text-sm mb-2'>1. 作者是可以留空的，删除内容后在封面中不会占用任何空间；作者也可以当副标题使用</p>
           <p className='text-sm mb-2'>2. 设置背景时，点开颜色面板，左侧有一个喷枪的图标，点击后可以取当前屏幕中的所有颜色，包括桌面</p>
           <p className='text-sm mb-2'>3. 博客封面黄金比例一般是16:9，足以适配大多数博客平台</p>
-          <p className='text-sm mb-2'>4. 设置好常用的配置后，可以点击保存按钮，保存到本地浏览器，下次进来会读取这个配置。如果不想要了，可以点击 清除已保存配置</p>
+          <p className='text-sm mb-2'>
+            4. 设置好常用的配置后，可以点击保存按钮，保存到本地浏览器，下次进来会读取这个配置。如果不想要了，可以点击 清除已保存配置
+          </p>
         </div>
         <div className='w-full max-w-360 flex flex-wrap justify-around'>
           <div className='w-full md:w-1/3 p-4'>
@@ -226,35 +228,43 @@ export default function Main() {
           </div>
         </div>
         <Link href='/editor' className='flex justify-center pb-4'>
-          <Button className='cursor-pointer md:py-6 md:px-16  has-[>svg]:px-16 md:text-lg font-bold rounded-full'><CircleArrowRight size={24} className='size-6'/> 快来试试吧</Button>
+          <Button className='cursor-pointer md:py-6 md:px-16  has-[>svg]:px-16 md:text-lg font-bold rounded-full'>
+            <CircleArrowRight size={24} className='size-6' /> 快来试试吧
+          </Button>
         </Link>
       </section>
 
       <footer className='w-full px-4 md:px-12 py-12 flex flex-col items-center gap-4'>
-        <p>Copyright © 2025{new Date().getFullYear() === 2025 ? '' : '-' + new Date().getFullYear()} 
-          <a className='font-bold text-primary ml-2' target="_blank" href="https://note.weizwz.com/">weizwz</a>
+        <p>
+          Copyright © 2025{new Date().getFullYear() === 2025 ? '' : '-' + new Date().getFullYear()}
+          <a className='font-bold text-primary ml-2' target='_blank' href='https://note.weizwz.com/'>
+            weizwz
+          </a>
         </p>
         <div className='flex flex-wrap items-center justify-center gap-2'>
-          <a target="_blank" href="https://nextjs.org/" title="本站框架基于 Next.js 15.3.1">
-            <img alt="Next.js" src="https://img.shields.io/badge/Frame-Next.js-000?logo=nextdotjs&amp;logoColor=fff" />
+          <a target='_blank' href='https://nextjs.org/' title='本站框架基于 Next.js 15.3.1'>
+            <img alt='Next.js' src='https://img.shields.io/badge/Frame-Next.js-000?logo=nextdotjs&amp;logoColor=fff' />
           </a>
-          <a target="_blank" href="https://react.dev/" title="本站语言使用 React 19.0.0">
-            <img alt="React" src="https://img.shields.io/badge/Language-React-61DAFB?logo=react&amp;logoColor=fff" />
+          <a target='_blank' href='https://react.dev/' title='本站语言使用 React 19.0.0'>
+            <img alt='React' src='https://img.shields.io/badge/Language-React-61DAFB?logo=react&amp;logoColor=fff' />
           </a>
-          <a target="_blank" href="https://tailwindcss.com/" title="本站样式库使用 Tailwind CSS 4">
-            <img alt="Tailwind CSS" src="https://img.shields.io/badge/CSS-Tailwind CSS-16BCFF?logo=tailwindcss&amp;logoColor=fff" />
+          <a target='_blank' href='https://lucide.dev/' title='本站图标库使用 Lucide'>
+            <img alt='Lucide' src='https://img.shields.io/badge/Icon-Lucide-F56565?logo=lucide&amp;logoColor=fff' />
           </a>
-          <a target="_blank" href="https://ui.shadcn.com/" title="本站UI框架使用 shadcn/ui">
-            <img alt="shadcn/ui" src="https://img.shields.io/badge/UI-shadcnui-000?logo=shadcnui&amp;logoColor=fff" />
+          <a target='_blank' href='https://tailwindcss.com/' title='本站样式库使用 Tailwind CSS 4'>
+            <img alt='Tailwind CSS' src='https://img.shields.io/badge/CSS-Tailwind CSS-16BCFF?logo=tailwindcss&amp;logoColor=fff' />
           </a>
-          <a target="_blank" href="https://iconify.design/" title="本站图标API使用 iconify">
-            <img alt="iconify" src="https://img.shields.io/badge/Icon-iconify-1769AA?logo=iconify&amp;logoColor=fff" />
+          <a target='_blank' href='https://ui.shadcn.com/' title='本站UI框架使用 shadcn/ui'>
+            <img alt='shadcn/ui' src='https://img.shields.io/badge/UI-shadcnui-000?logo=shadcnui&amp;logoColor=fff' />
           </a>
-          <a target="_blank" href="https://github.com/weizwz" title="本站代码托管于 Github">
-            <img alt="Github" src="https://img.shields.io/badge/Code-Github-432DD7?logo=github&amp;logoColor=fff" />
+          <a target='_blank' href='https://iconify.design/' title='本站图标API使用 iconify'>
+            <img alt='iconify' src='https://img.shields.io/badge/Icon API-iconify-1769AA?logo=iconify&amp;logoColor=fff' />
           </a>
-          <a target="_blank" href="https://vercel.com/" title="本站部署于 Vercel">
-            <img alt="Vercel" src="https://img.shields.io/badge/Deploy-Vercel-000?logo=vercel&amp;logoColor=fff" />
+          <a target='_blank' href='https://github.com/weizwz' title='本站代码托管于 Github'>
+            <img alt='Github' src='https://img.shields.io/badge/Code-Github-432DD7?logo=github&amp;logoColor=fff' />
+          </a>
+          <a target='_blank' href='https://vercel.com/' title='本站部署于 Vercel'>
+            <img alt='Vercel' src='https://img.shields.io/badge/Deploy-Vercel-000?logo=vercel&amp;logoColor=fff' />
           </a>
         </div>
       </footer>
