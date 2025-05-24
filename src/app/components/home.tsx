@@ -194,24 +194,24 @@ export default function Main() {
               </div>
             </div>
             <div className='w-full h-fit border bg-white p-2 mb-8 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
-              <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={cover5} width={800} height={450} alt='ThisCover-1' />
-              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>
-                字体：抖音美好体 <Separator orientation='vertical' /> 背景搜索词：beautiful background
-              </div>
-              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>
-                尺寸：16:9 <Separator orientation='vertical' /> 主题：图文对称
-              </div>
-            </div>
-          </div>
-
-          <div className='w-full md:w-1/3 p-4'>
-            <div className='w-full h-fit border bg-white p-2 mb-8 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
               <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={cover6} width={800} height={450} alt='ThisCover-1' />
               <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>
                 作者：删除留空 <Separator orientation='vertical' /> 字体：思源宋体 <Separator orientation='vertical' /> 纹理：无
               </div>
               <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>
                 尺寸：16:9 <Separator orientation='vertical' /> 主题：桌面预览
+              </div>
+            </div>
+          </div>
+
+          <div className='w-full md:w-1/3 p-4'>
+            <div className='w-full h-fit border bg-white p-2 mb-8 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
+              <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={cover5} width={800} height={450} alt='ThisCover-1' />
+              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>
+                字体：抖音美好体 <Separator orientation='vertical' /> 背景搜索词：beautiful background
+              </div>
+              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>
+                尺寸：16:9 <Separator orientation='vertical' /> 主题：图文对称
               </div>
             </div>
             <div className='w-full h-fit border bg-white p-2 mb-8 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
