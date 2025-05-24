@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { CircleArrowRight } from 'lucide-react'
 
 import cover1 from '@/app/assets/images/ThisCover_20250523_171549.png'
 import cover2 from '@/app/assets/images/ThisCover_20250523_173053.png'
@@ -224,7 +225,37 @@ export default function Main() {
             </div>
           </div>
         </div>
+        <Link href='/editor' className='flex justify-center pb-4'>
+          <Button className='cursor-pointer md:py-6 md:px-16  has-[>svg]:px-16 md:text-lg font-bold rounded-full'><CircleArrowRight size={24} className='size-6'/> 快来试试吧</Button>
+        </Link>
       </section>
+
+      <footer className='w-full px-4 md:px-12 py-12 flex flex-col items-center gap-4'>
+        <p>Copyright © 2025{new Date().getFullYear() === 2025 ? '' : '-' + new Date().getFullYear()} weizwz</p>
+        <div className='flex flex-wrap items-center justify-center gap-2'>
+          <a target="_blank" href="https://nextjs.org/" title="本站框架基于 Next.js 15.3.1">
+            <img alt="Next.js" src="https://img.shields.io/badge/Frame-Next.js-000?logo=nextdotjs&amp;logoColor=fff" />
+          </a>
+          <a target="_blank" href="https://react.dev/" title="本站语言使用 React 19.0.0">
+            <img alt="React" src="https://img.shields.io/badge/Language-React-61DAFB?logo=react&amp;logoColor=fff" />
+          </a>
+          <a target="_blank" href="https://tailwindcss.com/" title="本站样式库使用 Tailwind CSS 4">
+            <img alt="Tailwind CSS" src="https://img.shields.io/badge/CSS-Tailwind CSS-16BCFF?logo=tailwindcss&amp;logoColor=fff" />
+          </a>
+          <a target="_blank" href="https://ui.shadcn.com/" title="本站UI框架使用 shadcn/ui">
+            <img alt="shadcn/ui" src="https://img.shields.io/badge/UI-shadcnui-000?logo=shadcnui&amp;logoColor=fff" />
+          </a>
+          <a target="_blank" href="https://lucide.dev/" title="本站图标库使用 Lucide">
+            <img alt="Lucide" src="https://img.shields.io/badge/Icon-Lucide-F56565?logo=lucide&amp;logoColor=fff" />
+          </a>
+          <a target="_blank" href="https://github.com/weizwz" title="本站代码托管于 Github">
+            <img alt="Github" src="https://img.shields.io/badge/Code-Github-432DD7?logo=github&amp;logoColor=fff" />
+          </a>
+          <a target="_blank" href="https://vercel.com/" title="本站部署于 Vercel">
+            <img alt="Vercel" src="https://img.shields.io/badge/Deploy-Vercel-000?logo=vercel&amp;logoColor=fff" />
+          </a>
+        </div>
+      </footer>
     </div>
   )
 }
