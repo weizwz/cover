@@ -20,7 +20,7 @@ import cover8 from '@/app/assets/images/ThisCover_20250524_013456.png'
 export default function Main() {
   return (
     <div className='pt-14 w-full flex flex-col items-center'>
-      <section className='w-full px-4 md:px-12 pt-16 flex flex-col items-center gap-6'>
+      <section className='w-full px-4 md:px-12 pt-16 flex flex-col items-center gap-6 graph-paper-primary'>
         <div className='font-bold text-center'>
           <h1 className='text-5xl md:text-6xl font-extrabold'>ThisCover</h1>
           <h2 className='text-3xl md:text-4xl font-bold mt-4'>
@@ -31,26 +31,26 @@ export default function Main() {
         <Link href='/editor' className='flex justify-center mt-4'>
           <Button className='cursor-pointer md:py-6 md:px-16 md:text-lg font-bold rounded-full'>现在开始</Button>
         </Link>
-        <div className='w-full max-w-360 flex flex-wrap justify-around'>
+        <div className='w-full max-w-360 flex flex-wrap justify-around px-4'>
           <div className='w-full md:w-1/4 h-fit transform duration-300 border hover:scale-110 hover:-rotate-3 rotate-6 bg-white p-2 shadow-lg shadow-gray-50 rounded-lg flex flex-col'>
-            <Image className='border border-gray-100 rounded mb-2' src={cover1} width={800} height={450} layout='responsive' alt='ThisCover-1' />
+            <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={cover1} width={800} height={450} alt='ThisCover-1' />
             <p className='animate animate-pulse bg-gray-100 md:h-5 h-2 rounded mb-2'></p>
             <p className='animate animate-pulse w-1/3 bg-gray-100 md:h-5 h-2 rounded mb-2'></p>
           </div>
           <div className='w-full md:w-1/3 h-fit transform md:translate-y-4 hover:scale-110 duration-300 border bg-white p-4 shadow-lg shadow-gray-50 rounded-lg flex flex-col'>
-            <Image className='border border-gray-100 rounded mb-2' src={cover2} width={800} height={450} layout='responsive' alt='ThisCover-2' />
+            <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={cover2} width={800} height={450} alt='ThisCover-2' />
             <p className='animate animate-pulse bg-gray-100 md:h-5 h-2 rounded mb-2'></p>
             <p className='animate animate-pulse w-1/4 bg-gray-100 md:h-5 h-2 rounded mb-2 m-auto'></p>
           </div>
           <div className='w-full md:w-1/4 h-fit transform md:-translate-y-8 duration-300 hover:scale-110 hover:rotate-3 border -rotate-6 bg-white p-2 shadow-lg shadow-gray-50 rounded-lg flex flex-col '>
-            <Image className='border border-gray-100 rounded mb-2' src={cover3} width={600} height={600} layout='responsive' alt='ThisCover-2' />
+            <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={cover3} width={600} height={600} alt='ThisCover-2' />
             <p className='animate animate-pulse w-1/2 bg-gray-100 md:h-5 h-2 rounded mb-2'></p>
             <p className='animate animate-pulse w-1/2 bg-gray-100 md:h-5 h-2 rounded mb-2'></p>
           </div>
         </div>
       </section>
 
-      <section className='w-full px-4 md:px-12 py-12 flex flex-col items-center bg-indigo-50/50 gap-4'>
+      <section className='w-full px-4 md:px-12 py-12 flex flex-col items-center bg-indigo-50/50 graph-paper-primary gap-4'>
         <h2 className='text-2xl md:text-3xl font-bold text-primary'>基本功能</h2>
         <div className='flex justify-center items-center flex-wrap gap-4'>
           <Badge className='px-3 py-1 rounded-full bg-purple-500/10 border-purple-500/20 text-purple-500' variant='secondary'>
@@ -161,7 +161,7 @@ export default function Main() {
         </div>
       </section>
 
-      <section className='w-full px-4 md:px-12 py-12 flex flex-col items-center bg-indigo-50/50 gap-8'>
+      <section className='w-full px-4 md:px-12 py-12 flex flex-col items-center bg-indigo-50/50 graph-paper-primary gap-8'>
         <h2 className='text-2xl md:text-3xl font-bold text-primary'>更多示例</h2>
         <div className='w-full max-w-360 px-4 pt-4'>
           <h3 className='text-md font-bold mb-2'>友情提示：</h3>
@@ -173,7 +173,7 @@ export default function Main() {
         <div className='w-full max-w-360 flex flex-wrap justify-around'>
           <div className='w-full md:w-1/3 p-4'>
             <div className='w-full h-fit border bg-white p-2 mb-8 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
-              <Image className='border border-gray-100 rounded mb-2' src={cover8} width={600} height={1066} layout='responsive' alt='ThisCover-1' />
+              <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={cover8} width={600} height={1066} alt='ThisCover-1' />
               <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>
                 背景色：取色器取截图中的颜色 <Separator orientation='vertical' /> 纹理：无
               </div>
@@ -185,7 +185,7 @@ export default function Main() {
 
           <div className='w-full md:w-1/3 p-4'>
             <div className='w-full h-fit border bg-white p-2 mb-8 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
-              <Image className='border border-gray-100 rounded mb-2' src={cover4} width={600} height={600} layout='responsive' alt='ThisCover-1' />
+              <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={cover4} width={600} height={600} alt='ThisCover-1' />
               <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>
                 图标：xiaohongshu <Separator orientation='vertical' /> 背景色：rgb(255, 36, 66)
               </div>
@@ -194,7 +194,7 @@ export default function Main() {
               </div>
             </div>
             <div className='w-full h-fit border bg-white p-2 mb-8 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
-              <Image className='border border-gray-100 rounded mb-2' src={cover5} width={800} height={450} layout='responsive' alt='ThisCover-1' />
+              <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={cover5} width={800} height={450} alt='ThisCover-1' />
               <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>
                 字体：抖音美好体 <Separator orientation='vertical' /> 背景搜索词：beautiful background
               </div>
@@ -206,7 +206,7 @@ export default function Main() {
 
           <div className='w-full md:w-1/3 p-4'>
             <div className='w-full h-fit border bg-white p-2 mb-8 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
-              <Image className='border border-gray-100 rounded mb-2' src={cover6} width={800} height={450} layout='responsive' alt='ThisCover-1' />
+              <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={cover6} width={800} height={450} alt='ThisCover-1' />
               <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>
                 作者：删除留空 <Separator orientation='vertical' /> 字体：思源宋体 <Separator orientation='vertical' /> 纹理：无
               </div>
@@ -215,7 +215,7 @@ export default function Main() {
               </div>
             </div>
             <div className='w-full h-fit border bg-white p-2 mb-8 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
-              <Image className='border border-gray-100 rounded mb-2' src={cover7} width={800} height={600} layout='responsive' alt='ThisCover-1' />
+              <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={cover7} width={800} height={600} alt='ThisCover-1' />
               <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>
                 图标：juejin <Separator orientation='vertical' /> 背景色：rgb(35,128,254)
               </div>
