@@ -4,7 +4,7 @@ import Main from './components/home'
 export default function Home() {
   return (
     <div className='h-screen'>
-      <Head />
+      <Head className="max-w-360 m-auto"/>
       <Main />
     </div>
   )
