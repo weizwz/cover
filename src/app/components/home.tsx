@@ -7,15 +7,15 @@ import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/ca
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { CircleArrowRight } from 'lucide-react'
 
-import cover1 from '@/app/assets/images/ThisCover_20250523_171549.png'
-import cover2 from '@/app/assets/images/ThisCover_20250523_173053.png'
-import cover3 from '@/app/assets/images/ThisCover_20250523_180347.png'
+import cover1 from '@/app/assets/images/ThisCover_20250523_171549.webp'
+import cover2 from '@/app/assets/images/ThisCover_20250523_173053.webp'
+import cover3 from '@/app/assets/images/ThisCover_20250523_180347.webp'
 
-import cover4 from '@/app/assets/images/ThisCover_20250524_001002.png'
-import cover5 from '@/app/assets/images/ThisCover_20250524_005755.png'
-import cover6 from '@/app/assets/images/ThisCover_20250524_011123.png'
-import cover7 from '@/app/assets/images/ThisCover_20250524_012817.png'
-import cover8 from '@/app/assets/images/ThisCover_20250524_013456.png'
+import cover4 from '@/app/assets/images/ThisCover_20250524_001002.webp'
+import cover5 from '@/app/assets/images/ThisCover_20250524_005755.webp'
+import cover6 from '@/app/assets/images/ThisCover_20250524_011123.webp'
+import cover7 from '@/app/assets/images/ThisCover_20250524_012817.webp'
+import cover8 from '@/app/assets/images/ThisCover_20250524_013456.webp'
 
 export default function Main() {
   return (
