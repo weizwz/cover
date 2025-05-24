@@ -247,8 +247,8 @@ export default function Main() {
           <a target="_blank" href="https://ui.shadcn.com/" title="本站UI框架使用 shadcn/ui">
             <img alt="shadcn/ui" src="https://img.shields.io/badge/UI-shadcnui-000?logo=shadcnui&amp;logoColor=fff" />
           </a>
-          <a target="_blank" href="https://lucide.dev/" title="本站图标库使用 Lucide">
-            <img alt="Lucide" src="https://img.shields.io/badge/Icon-Lucide-F56565?logo=lucide&amp;logoColor=fff" />
+          <a target="_blank" href="https://iconify.design/" title="本站图标API使用 iconify">
+            <img alt="iconify" src="https://img.shields.io/badge/Icon-iconify-1769AA?logo=iconify&amp;logoColor=fff" />
           </a>
           <a target="_blank" href="https://github.com/weizwz" title="本站代码托管于 Github">
             <img alt="Github" src="https://img.shields.io/badge/Code-Github-432DD7?logo=github&amp;logoColor=fff" />
