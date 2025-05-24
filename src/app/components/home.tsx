@@ -20,7 +20,7 @@ import cover8 from '@/app/assets/images/ThisCover_20250524_013456.png'
 export default function Main() {
   return (
     <div className='pt-14 w-full flex flex-col items-center'>
-      <section className='w-full p-4 md:p-12 pb-8 flex flex-col items-center gap-6'>
+      <section className='w-full px-4 md:px-12 pt-16 flex flex-col items-center gap-6'>
         <div className='font-bold text-center'>
           <h1 className='text-5xl md:text-6xl font-extrabold'>ThisCover</h1>
           <h2 className='text-3xl md:text-4xl font-bold mt-4'>
