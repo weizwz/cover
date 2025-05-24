@@ -19,7 +19,7 @@ import cover8 from '@/app/assets/images/ThisCover_20250524_013456.png'
 export default function Main() {
   return (
     <div className='pt-14 w-full flex flex-col items-center'>
-      <section className='w-full p-12 pb-8 flex flex-col items-center gap-6'>
+      <section className='w-full p-4 md:p-12 pb-8 flex flex-col items-center gap-6'>
         <div className='font-bold text-center'>
           <h1 className='text-5xl md:text-6xl font-extrabold'>ThisCover</h1>
           <h2 className='text-3xl md:text-4xl font-bold mt-4'>
@@ -49,7 +49,7 @@ export default function Main() {
         </div>
       </section>
 
-      <section className='w-full px-12 py-12 flex flex-col items-center bg-indigo-50/50 gap-4'>
+      <section className='w-full px-4 md:px-12 py-12 flex flex-col items-center bg-indigo-50/50 gap-4'>
         <h2 className='text-2xl md:text-3xl font-bold text-primary'>基本功能</h2>
         <div className='flex justify-center items-center flex-wrap gap-4'>
           <Badge className='px-3 py-1 rounded-full bg-purple-500/10 border-purple-500/20 text-purple-500' variant='secondary'>
@@ -121,7 +121,7 @@ export default function Main() {
         </div>
       </section>
 
-      <section className='w-full px-12 py-12 flex flex-col items-center gap-4'>
+      <section className='w-full px-4 md:px-12 py-12 flex flex-col items-center gap-4'>
         <h2 className='text-2xl md:text-3xl font-bold'>常见问题</h2>
         <div className='w-full max-w-360 flex justify-center flex-wrap px-4'>
           <Accordion type='single' collapsible className='w-full'>
@@ -142,13 +142,17 @@ export default function Main() {
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value='item-3'>
-              <AccordionTrigger className='text-md'>背景主题和图文对称主题的图片很慢，或者加载不出来</AccordionTrigger>
+              <AccordionTrigger className='text-md'>使用图片搜索功能时加载很慢，甚至加载不出来</AccordionTrigger>
               <AccordionContent>
                 图片搜索使用的是国外 unsplash 的API，国内加载较慢，请耐心等待。建议使用科学上网工具，这样加载会很快。<br></br>
                 搜索词请使用英文，国内开源免费的API较少，请见谅
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value='item-4'>
+              <AccordionTrigger className='text-md'>预览主题中上传的截图总是覆盖不全？</AccordionTrigger>
+              <AccordionContent>桌面和手机截图尽量按照提示比例来，效果会更好；高度可以超出一部分会被截取掉，不影响整体观感</AccordionContent>
+            </AccordionItem>
+            <AccordionItem value='item-5'>
               <AccordionTrigger className='text-md'>无法下载、无法复制？</AccordionTrigger>
               <AccordionContent>图片下载、复制功能基本支持主流浏览器，请查看浏览器版本是否过低 或者 最好使用最新版chrome浏览器</AccordionContent>
             </AccordionItem>
@@ -156,13 +160,14 @@ export default function Main() {
         </div>
       </section>
 
-      <section className='w-full px-12 py-12 flex flex-col items-center bg-indigo-50/50 gap-8'>
+      <section className='w-full px-4 md:px-12 py-12 flex flex-col items-center bg-indigo-50/50 gap-8'>
         <h2 className='text-2xl md:text-3xl font-bold text-primary'>更多示例</h2>
         <div className='w-full max-w-360 px-4 pt-4'>
           <h3 className='text-md font-bold mb-2'>友情提示：</h3>
           <p className='text-sm mb-2'>1. 作者是可以留空的，删除内容后在封面中不会占用任何空间；作者也可以当副标题使用</p>
-          <p className='text-sm mb-2'>2. 封面黄金比例一般是16:9；手机屏幕显示一般是9:16</p>
-          <p className='text-sm'>3. 预览主题中，桌面和手机截图尽量按照提示比例来，效果会更好；高度可以超出一部分会被截取掉，不影响整体观感</p>
+          <p className='text-sm mb-2'>2. 设置背景时，点开颜色面板，左侧有一个喷枪的图标，点击后可以取当前屏幕中的所有颜色，包括桌面</p>
+          <p className='text-sm mb-2'>3. 博客封面黄金比例一般是16:9，足以适配大多数博客平台</p>
+          <p className='text-sm mb-2'>4. 设置好常用的配置后，可以点击保存按钮，保存到本地浏览器，下次进来会读取这个配置。如果不想要了，可以点击 清除已保存配置</p>
         </div>
         <div className='w-full max-w-360 flex flex-wrap justify-around'>
           <div className='w-full md:w-1/3 p-4'>
