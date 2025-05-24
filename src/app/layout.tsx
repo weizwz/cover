@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import './assets/css/patterns.css'
 import { CoverProvider } from './components/coverContext'
 
 export const metadata: Metadata = {

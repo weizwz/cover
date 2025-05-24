@@ -2,7 +2,6 @@
 
 import { useContext } from 'react'
 import '../assets/css/theme.css'
-import '../assets/css/patterns.css'
 import ModernTheme from '../themes/modernTheme'
 import BasicTheme from '../themes/basicTheme'
 import OutlineTheme from '../themes/outlineTheme'
