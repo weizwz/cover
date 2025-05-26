@@ -8,6 +8,8 @@ interface Theme extends SelectOption {
   preview: StaticImageData
   // 图文左右交换位置
   swapX?: boolean
+  // 图片上下拉伸
+  stretchY?: boolean
 }
 
 interface ColorRandom {
