@@ -3,7 +3,7 @@
 import React, { useContext, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
-import { LoaderCircle, Download, Copy, ArrowRightLeft } from 'lucide-react'
+import { LoaderCircle, Download, Copy, ArrowRightLeft, ImageUpscale } from 'lucide-react'
 import html2canvas from 'html2canvas-pro'
 import type { Options } from 'html2canvas-pro'
 
@@ -124,6 +124,13 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
     })
   }
 
+  const changeThemeStretchY = (): void => {
+    setCoverSetting({
+      ...coverSetting,
+      theme: { ...coverSetting.theme, stretchY: !coverSetting.theme.stretchY }
+    })
+  }
+
   return (
     <React.Fragment>
       <div className='relative'>
@@ -144,7 +151,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <Button className='cursor-pointer' disabled={copyLoading} variant='outline' size='icon' title='复制图片' onClick={() => copyImage()}>
+                <Button className='cursor-pointer' disabled={copyLoading} variant='outline' size='icon' onClick={() => copyImage()}>
                   {copyLoading ? <LoaderCircle className='animate-spin' /> : <Copy />}
                 </Button>
               </TooltipTrigger>
@@ -162,7 +169,6 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
                     className='cursor-pointer'
                     variant='outline'
                     size='icon'
-                    title='交换图文位置'
                     onClick={() => {
                       changeThemeAndSwapX()
                     }}>
@@ -170,7 +176,28 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>图文位置互换</p>
+                  <p>图文互换位置</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          )}
+
+          {coverSetting.theme.stretchY !== undefined && (
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    className='cursor-pointer'
+                    variant='outline'
+                    size='icon'
+                    onClick={() => {
+                      changeThemeStretchY()
+                    }}>
+                    <ImageUpscale className='rotate-180 scale-x-[-1]' />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>图片填充框架</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>

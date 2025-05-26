@@ -42,6 +42,7 @@ export const THEMES: Theme[] = [
     label: '手机预览',
     value: 'mobile',
     preview: mobileThemePlaceholder,
-    swapX: false
+    swapX: false,
+    stretchY: false
   }
 ]
