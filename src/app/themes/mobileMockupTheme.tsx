@@ -18,7 +18,7 @@ const MobileMockupTheme: React.FC<ThemeProps> = ({ config }) => {
           size.value.indexOf('vertical') === -1 ? 'px-24' : ''
         }`}>
         <div
-          className={`flex-1 ${theme.swapX ? 'order-1' : ''} flex flex-col justify-end items-center gap-4 text-white text-center ${
+          className={`flex-1 ${theme.swapX ? 'order-1' : 'justify-end'} flex flex-col items-center gap-4 text-white text-center ${
             size.value.indexOf('square') === 0 ? 'pl-8' : ''
           }`}>
           <div className={`text-2xl font-semibold text-shadow-sm text-shadow-black ${author.trim() === '' && 'hidden'}`}>{author}</div>
