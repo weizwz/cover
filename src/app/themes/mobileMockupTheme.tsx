@@ -15,11 +15,10 @@ const MobileMockupTheme: React.FC<ThemeProps> = ({ config }) => {
       <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern.value} ${pattern.isOpacity ? 'opacity-40' : ''}`} />
       <div
         className={`${font.value} h-full flex items-center relative z-10 ${size.value.indexOf('vertical') === 0 ? 'flex-col px-24 py-12' : ''} ${
-          size.value.indexOf('vertical') === -1 ? 'px-24' : ''
-        }`}>
+          size.value.indexOf('vertical') === -1 ? 'px-24' : ''} ${theme.swapX ? 'justify-end' : ''}`}>
         <div
           className={`flex-1 ${theme.swapX ? 'order-1' : 'justify-end'} flex flex-col items-center gap-4 text-white text-center ${
-            size.value.indexOf('square') === 0 ? 'pl-8' : ''
+            size.value.indexOf('square') === 0 ? theme.swapX ? 'pr-8' : 'pl-8' : ''
           }`}>
           <div className={`text-2xl font-semibold text-shadow-sm text-shadow-black ${author.trim() === '' && 'hidden'}`}>{author}</div>
           <div className={`text-5xl ${font?.lineHeight || 'leading-14'} font-bold text-shadow-lg text-shadow-black`}>{title}</div>
