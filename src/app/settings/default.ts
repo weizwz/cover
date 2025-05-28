@@ -28,7 +28,7 @@ export const DEFAULT_SETTING: Setting = {
   theme: THEMES[0],
   font: FONTS[0],
   color: COLORS_RANDOM[0],
-  pattern: PATTERNS[1],
+  pattern: PATTERNS[0],
   size: SIZES[0],
   unsplashImage: DEFAULT_UNSPLASH_IMAGE
 }
