@@ -166,13 +166,13 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button
-                    className='cursor-pointer'
+                    className={`group cursor-pointer ${coverSetting.theme.swapX ? 'bg-primary' : ''} hover:bg-primary`}
                     variant='outline'
                     size='icon'
                     onClick={() => {
                       changeThemeAndSwapX()
                     }}>
-                    <ArrowRightLeft />
+                    <ArrowRightLeft className={`${coverSetting.theme.swapX ? 'text-white' : ''} group-hover:text-white`}/>
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
@@ -187,17 +187,17 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button
-                    className='cursor-pointer'
+                    className={`group cursor-pointer ${coverSetting.theme.stretchY ? 'bg-primary' : ''} hover:bg-primary`}
                     variant='outline'
                     size='icon'
                     onClick={() => {
                       changeThemeStretchY()
                     }}>
-                    <ImageUpscale className='rotate-180 scale-x-[-1]' />
+                    <ImageUpscale className={`rotate-180 scale-x-[-1] ${coverSetting.theme.stretchY ? 'text-white' : ''} group-hover:text-white`}/>
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>图片填充框架</p>
+                  <p>图片填满空间</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
