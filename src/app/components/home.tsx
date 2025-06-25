@@ -76,10 +76,11 @@ export default function Main() {
           <div className='w-full md:w-1/2 xl:w-1/4 p-4 box-border'>
             <Card className='w-full h-full'>
               <CardHeader className='gap-2'>
-                <CardTitle className='text-lg'>个性化主题</CardTitle>
+                <CardTitle className='text-lg'>个性创作</CardTitle>
                 <CardDescription className='text-md text-gray-800'>
-                  图标、背景、字体、底纹<span className='text-primary font-bold'>多样化配置</span>
-                  <br></br>简洁、现代、经典、背景、手机预览等多个个性化主题选择<br></br>
+                  图标、背景、字体、底纹多样化配置
+                  <br/>简洁、现代、经典、背景、手机预览等多个主题<br/>
+                  两者配合创造<span className='text-primary font-bold'>独属于你的作品</span>
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -89,9 +90,9 @@ export default function Main() {
               <CardHeader className='gap-2'>
                 <CardTitle className='text-lg'>实时预览</CardTitle>
                 <CardDescription className='text-md text-gray-800'>
-                  预览界面实时展现，配置即改即变<br></br>
-                  主题切换即生效<br></br>
-                  <span className='text-primary font-bold'>所见即所得</span>
+                  预览界面实时展现，配置即改即变<br/>
+                  主题切换，实时生效<br/>
+                  预览图即导出图，<span className='text-primary font-bold'>所见即所得</span>
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -102,7 +103,7 @@ export default function Main() {
                 <CardTitle className='text-lg'>主流适配</CardTitle>
                 <CardDescription className='text-md text-gray-800'>
                   9+主流尺寸，横板+竖版，小红书，头条、知乎等<span className='text-primary font-bold'>多平台适配</span>
-                  <br></br>
+                  <br/>
                   png、jpg、webp都多格式输出，还可一键复制
                 </CardDescription>
               </CardHeader>
@@ -111,9 +112,9 @@ export default function Main() {
           <div className='w-full md:w-1/2 xl:w-1/4 p-4 box-border'>
             <Card className='w-full h-full'>
               <CardHeader className='gap-2'>
-                <CardTitle className='text-lg'>永久免费</CardTitle>
+                <CardTitle className='text-lg'>开源免费</CardTitle>
                 <CardDescription className='text-md text-gray-800'>
-                  开源项目，每一行代码都看得见，无后门、不采集隐私<br></br>
+                  开源免费，静态部署，无后台交互<br/>保护你的每一份设计<br/>
                   <span className='text-primary font-bold'>MIT协议</span>，想怎么用就怎么用
                 </CardDescription>
               </CardHeader>
@@ -129,13 +130,13 @@ export default function Main() {
             <AccordionItem value='item-1'>
               <AccordionTrigger className='text-md'>选择字体后，字体并没有变化</AccordionTrigger>
               <AccordionContent>
-                字体选择后需要在线加载，请耐心等待。<br></br>如果等待时间过长，请查看你的网络状态是否良好；也有可能是网络波动，请稍后再试
+                字体选择后需要在线加载，请耐心等待。<br/>如果等待时间过长，请查看你的网络状态是否良好；也有可能是网络波动，请稍后再试
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value='item-2'>
               <AccordionTrigger className='text-md'>找不到想要的图标，不知道怎么搜索</AccordionTrigger>
               <AccordionContent>
-                1. 搜索时请使用英文 <br></br>2.当前使用的是{' '}
+                1. 搜索时请使用英文 <br/>2.当前使用的是{' '}
                 <a className='text-primary underline' href='https://icon-sets.iconify.design/' target='_blank'>
                   iconify图标
                 </a>
@@ -145,7 +146,7 @@ export default function Main() {
             <AccordionItem value='item-3'>
               <AccordionTrigger className='text-md'>使用图片搜索功能时加载很慢，甚至加载不出来</AccordionTrigger>
               <AccordionContent>
-                图片搜索使用的是国外 unsplash 的API，国内加载较慢，请耐心等待。建议使用科学上网工具，这样加载会很快。<br></br>
+                图片搜索使用的是国外 unsplash 的API，国内加载较慢，请耐心等待。建议使用科学上网工具，这样加载会很快。<br/>
                 搜索词请使用英文，国内开源免费的API较少，请见谅
               </AccordionContent>
             </AccordionItem>
@@ -259,6 +260,9 @@ export default function Main() {
           </a>
           <a target='_blank' href='https://iconify.design/' title='本站图标API使用 iconify'>
             <img alt='iconify' src='https://img.shields.io/badge/Icon API-iconify-1769AA?logo=iconify&amp;logoColor=fff' />
+          </a>
+          <a target='_blank' href='https://unsplash.com/developers' title='本站图片API使用 unsplash'>
+            <img alt='unsplash' src='https://img.shields.io/badge/Image API-unsplash-000000?logo=unsplash&amp;logoColor=fff' />
           </a>
           <a target='_blank' href='https://github.com/weizwz' title='本站代码托管于 Github'>
             <img alt='Github' src='https://img.shields.io/badge/Code-Github-432DD7?logo=github&amp;logoColor=fff' />

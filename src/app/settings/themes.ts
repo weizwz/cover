@@ -36,7 +36,8 @@ export const THEMES: Theme[] = [
   {
     label: '桌面预览',
     value: 'preview',
-    preview: previewThemePlaceholder
+    preview: previewThemePlaceholder,
+    stretchY: false
   },
   {
     label: '手机预览',
