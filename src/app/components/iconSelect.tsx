@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Check, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -17,7 +17,12 @@ const iconifyHost = process.env.NEXT_PUBLIC_API_ICONIFY_URL
 const FormatOptionLabel = ({ icon }: { icon: IconOption }) => {
   return (
     <div className='flex items-center'>
-      <img className='w-6 h-6 mr-2' loading='lazy' src={icon.label === '本地图标' ? icon.value : `${iconifyHost}/${icon.value}.svg`} alt={`${icon.label} icon`} />
+      <img
+        className='w-6 h-6 mr-2'
+        loading='lazy'
+        src={icon.label === '本地图标' ? icon.value : `${iconifyHost}/${icon.value}.svg`}
+        alt={`${icon.label} icon`}
+      />
       <span className='overflow-hidden text-ellipsis'>{icon.label}</span>
     </div>
   )
@@ -27,6 +32,7 @@ const IconSelect = () => {
   const [open, setOpen] = useState(false)
   const [loading, setLoading] = useState(true)
 
+  const IconInputRef = useRef<HTMLInputElement>(null)
   const { coverSetting, setCoverSetting } = useContext(CoverContext)
   const [selectItem, setSelectItem] = useState<IconOption>(coverSetting.icon)
   const [query, setQuery] = useState(coverSetting.icon.label)
@@ -46,6 +52,10 @@ const IconSelect = () => {
 
   const selectHandle = (value: string) => {
     const selectedOption = options.find((item: IconOption) => item.value === value)
+    // 清空本地图标
+    if (IconInputRef.current) {
+      IconInputRef.current.value = ''
+    }
     setSelectItem(selectedOption as IconOption)
     setCoverSetting({ ...coverSetting, icon: selectedOption as IconOption, customIcon: '' })
     setOpen(false)
@@ -130,6 +140,7 @@ const IconSelect = () => {
 
       <div className='h-full w-15 relative overflow-hidden'>
         <Input
+          ref={IconInputRef}
           type='file'
           accept='image/png, image/jpeg, image/webp'
           className='absolute h-full w-fit right-0 top-0 opacity-0 cursor-pointer'
