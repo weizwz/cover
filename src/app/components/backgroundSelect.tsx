@@ -4,7 +4,7 @@ import React, { useContext, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
-import { Upload, Globe } from 'lucide-react'
+import { Globe } from 'lucide-react'
 import { CoverContext } from './coverContext'
 import UnsplashSearch from './unsplashSearch'
 
@@ -81,13 +81,19 @@ const BackgroundSelect = () => {
               在线
             </Button>
           </DialogTrigger>
-          <DialogContent className='max-w-4xl max-h-[80vh] overflow-hidden'>
-            <DialogHeader>
-              <DialogTitle>选择在线背景图片</DialogTitle>
+          <DialogContent className='max-w-7xl w-[90vw] max-h-[90vh] overflow-hidden bg-gradient-to-br from-white to-gray-50'>
+            <DialogHeader className='border-b border-gray-100 pb-4'>
+              <DialogTitle className='text-2xl font-bold text-gray-800 flex items-center gap-2'>
+                <div className='w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center'>
+                  <Globe className='w-4 h-4 text-white' />
+                </div>
+                选择在线背景图片
+              </DialogTitle>
+              <p className='text-sm text-gray-600 mt-2'>从 Unsplash 精选高质量图片作为封面背景</p>
             </DialogHeader>
-            <div className='h-[60vh] overflow-auto'>
+            <div className='overflow-hidden'>
               <UnsplashSearch 
-                largeImgPreview={false} 
+                largeImgPreview={true} 
                 onImageSelect={handleUnsplashSelect}
               />
             </div>
