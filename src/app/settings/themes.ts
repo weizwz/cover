@@ -28,7 +28,7 @@ export const THEMES: Theme[] = [
     preview: backgroundThemePlaceholder
   },
   {
-    label: '图文对称',
+    label: '图文',
     value: 'stylish',
     preview: stylishThemePlaceholder,
     swapX: false

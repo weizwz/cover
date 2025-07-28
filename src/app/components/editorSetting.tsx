@@ -82,10 +82,10 @@ const EditorSetting = () => {
     }
 
     // 处理背景图片
-    if (coverSetting.color.bgImage) {
+    if (coverSetting.bg.type === 'local' && coverSetting.bg.image) {
       promises.push(
-        imgToBase64(coverSetting.color.bgImage).then((res) => {
-          settingToSave.color.bgImage = 'data:image/png;base64,' + res
+        imgToBase64(coverSetting.bg.image).then((res) => {
+          settingToSave.bg.image = 'data:image/png;base64,' + res
         })
       )
     }
@@ -124,7 +124,7 @@ const EditorSetting = () => {
       author: coverSetting.author,
       icon: coverSetting.icon,
       customIcon: coverSetting.customIcon,
-      color: { ...DEFAULT_SETTING.color, bgImage: '' }
+      bg: { ...DEFAULT_SETTING.bg }
     })
     showNotification({
       type: 'success',

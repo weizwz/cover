@@ -12,6 +12,7 @@ interface UnsplashImageProps {
 
 interface UnsplashSearchProps {
   largeImgPreview: boolean
+  onImageSelect?: () => void
 }
 
 interface UnsplashImageRespUrl {

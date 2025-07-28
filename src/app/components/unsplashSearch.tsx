@@ -7,7 +7,7 @@ import unsplash from '../config/unsplash'
 import { CoverContext } from './coverContext'
 import UnsplashImage from './unsplashImage'
 
-const UnsplashSearch: React.FC<UnsplashSearchProps> = ({ largeImgPreview }) => {
+const UnsplashSearch: React.FC<UnsplashSearchProps> = ({ largeImgPreview, onImageSelect }) => {
   const [imageList, setImageList] = useState<UnsplashImageResp[]>([])
   const { coverSetting, setCoverSetting, unsplashParam, setUnsplashParam } = useContext(CoverContext)
   const [text, setText] = useState(unsplashParam.query)
@@ -15,12 +15,18 @@ const UnsplashSearch: React.FC<UnsplashSearchProps> = ({ largeImgPreview }) => {
   const selectImage = (image: UnsplashImageResp) => {
     setCoverSetting({
       ...coverSetting,
-      unsplashImage: {
-        searchText: unsplashParam.query,
-        url: image.urls.regular,
-        downloadLink: image.links.download_location
+      bg: {
+        ...coverSetting.bg,
+        type: 'unsplash',
+        image: undefined,
+        unsplashUrl: image.urls.regular
       }
     })
+    
+    // 如果有回调函数，调用它
+    if (onImageSelect) {
+      onImageSelect()
+    }
   }
 
   // 回车搜索
