@@ -16,6 +16,7 @@ import { DEFAULT_SETTING } from '../settings/default'
 import { imgToBase64 } from '../tools/utils'
 import CenteredAlert from './common/centeredAlert'
 import IconSelect from './iconSelect'
+import BackgroundSelect from './backgroundSelect'
 
 const EditorSetting = () => {
   const { coverSetting, setCoverSetting } = useContext(CoverContext)
@@ -68,12 +69,31 @@ const EditorSetting = () => {
   }
 
   const saveSetting = () => {
+    const promises = []
+    const settingToSave = { ...coverSetting }
+
+    // 处理自定义图标
     if (coverSetting.customIcon) {
-      //转为base64
-      imgToBase64(coverSetting.customIcon)
-        .then((res) => {
-          coverSetting.customIcon = 'data:image/png;base64,' + res
-          localStorage.setItem('coverSetting', JSON.stringify(coverSetting))
+      promises.push(
+        imgToBase64(coverSetting.customIcon).then((res) => {
+          settingToSave.customIcon = 'data:image/png;base64,' + res
+        })
+      )
+    }
+
+    // 处理背景图片
+    if (coverSetting.color.bgImage) {
+      promises.push(
+        imgToBase64(coverSetting.color.bgImage).then((res) => {
+          settingToSave.color.bgImage = 'data:image/png;base64,' + res
+        })
+      )
+    }
+
+    if (promises.length > 0) {
+      Promise.all(promises)
+        .then(() => {
+          localStorage.setItem('coverSetting', JSON.stringify(settingToSave))
           showNotification({
             type: 'success',
             title: '设置已保存',
@@ -88,7 +108,7 @@ const EditorSetting = () => {
           })
         })
     } else {
-      localStorage.setItem('coverSetting', JSON.stringify(coverSetting))
+      localStorage.setItem('coverSetting', JSON.stringify(settingToSave))
       showNotification({
         type: 'success',
         title: '配置已保存',
@@ -103,7 +123,8 @@ const EditorSetting = () => {
       title: coverSetting.title,
       author: coverSetting.author,
       icon: coverSetting.icon,
-      customIcon: coverSetting.customIcon
+      customIcon: coverSetting.customIcon,
+      color: { ...DEFAULT_SETTING.color, bgImage: '' }
     })
     showNotification({
       type: 'success',
@@ -215,14 +236,7 @@ const EditorSetting = () => {
             <Label htmlFor='bg' className='w-16 justify-end mr-2'>
               背景
             </Label>
-            <Input
-              id='bg'
-              type='color'
-              className='flex-1 focus-visible:ring-1'
-              placeholder='请选择背景色'
-              value={coverSetting.color.bgColor}
-              onChange={(e) => setCoverSetting({ ...coverSetting, color: { bgColor: e.target.value } })}
-            />
+            <BackgroundSelect />
           </div>
           <div className='flex w-full'>
             <Label htmlFor='size' className='w-16 justify-end mr-2'>

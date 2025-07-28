@@ -14,6 +14,7 @@ interface Theme extends SelectOption {
 
 interface ColorRandom {
   bgColor: string
+  bgImage?: string
 }
 
 interface Font extends SelectOption {

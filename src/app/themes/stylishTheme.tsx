@@ -12,8 +12,12 @@ const StylishTheme: React.FC<ThemeProps> = ({ config }) => {
   const { title, color, author, icon, font, customIcon, theme } = config
   const { coverSetting, setCoverSetting } = useContext(CoverContext)
 
+  const backgroundStyle = color.bgImage 
+    ? { backgroundImage: `url(${color.bgImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }
+    : { backgroundColor: color.bgColor }
+
   return (
-    <div className='w-full h-full overflow-y-hidden flex' style={{ backgroundColor: color.bgColor }}>
+    <div className='w-full h-full overflow-y-hidden flex' style={backgroundStyle}>
       <div className={`w-1/2 h-full ${font.value} ${theme.swapX ? 'order-1' : ''} p-12 flex flex-col justify-center gap-6 bg-white text-gray-800`}>
         <div className={`text-5xl ${font?.lineHeight || 'leading-14'} font-bold`}>{title}</div>
         <div className='flex items-center gap-4'>

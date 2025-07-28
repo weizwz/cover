@@ -27,7 +27,7 @@ export const DEFAULT_SETTING: Setting = {
   customIcon: '',
   theme: THEMES[0],
   font: FONTS[0],
-  color: COLORS_RANDOM[0],
+  color: { ...COLORS_RANDOM[0], bgImage: '' },
   pattern: PATTERNS[0],
   size: SIZES[0],
   unsplashImage: DEFAULT_UNSPLASH_IMAGE
