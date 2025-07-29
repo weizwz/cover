@@ -6,6 +6,8 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Slider } from '@/components/ui/slider'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
+import { HelpCircle } from 'lucide-react'
 
 import { useContext, useEffect, useState } from 'react'
 import { CoverContext } from './coverContext'
@@ -207,9 +209,19 @@ const EditorSetting = () => {
             </Select>
           </div>
           <div className='flex w-full md:w-1/2 xl:w-full 2xl:w-1/2'>
-            <Label htmlFor='pattern' className='w-16 justify-end mr-2'>
-              纹理
-            </Label>
+            <div className='w-16 flex items-center justify-end mr-2 gap-1'>
+              <Label htmlFor='pattern'>纹理</Label>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <HelpCircle className='w-3 h-3 text-gray-400 hover:text-gray-600 cursor-help' />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>纹理仅在纯色背景下生效</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
             <Select
               value={coverSetting.pattern.value}
               onValueChange={(value) => {
@@ -312,7 +324,9 @@ const EditorSetting = () => {
         </Button>
       </div>
       <div className='flex justify-end items-center p-4 pr-12'>
-        <span className='text-sm underline cursor-pointer' onClick={clearLocalSetting}>清除已保存配置</span>
+        <span className='text-sm underline cursor-pointer' onClick={clearLocalSetting}>
+          清除已保存配置
+        </span>
       </div>
       {showAlert && <CenteredAlert type={alertData?.type} title={alertData?.title} message={alertData?.message} onClose={handleClose} />}
     </div>

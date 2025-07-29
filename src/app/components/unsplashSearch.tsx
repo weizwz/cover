@@ -138,7 +138,7 @@ const UnsplashSearch: React.FC<UnsplashSearchProps> = ({ largeImgPreview, onImag
           <div className='flex flex-col items-center justify-center h-64 text-gray-500'>
             <Search className='w-12 h-12 mb-4 opacity-50' />
             <p className='text-lg font-medium mb-2'>暂无搜索结果</p>
-            <p className='text-sm'>请尝试使用英文关键词搜索，如 &quot;nature&quot;, &quot;abstract&quot;, &quot;minimal&quot;</p>
+            <p className='text-sm'>请切换网络 或 尝试使用英文关键词搜索，如 &quot;nature&quot;, &quot;abstract&quot;, &quot;minimal&quot;</p>
           </div>
         )}
       </div>
