@@ -14,7 +14,7 @@ const BasicTheme: React.FC<ThemeProps> = ({ config }) => {
   const hasImage = hasBackgroundImage(coverSetting.bg)
 
   return (
-    <div className={`flex text-gray-800 justify-center items-center h-full p-12 relative`} style={backgroundStyle}>
+    <div className={`flex text-gray-800 justify-center items-center h-full p-16 relative`} style={backgroundStyle}>
       {!hasImage && <div className={`absolute w-full h-full ${pattern.value} ${pattern.isOpacity ? 'opacity-40' : ''}`} />}
       <div
         className={`w-full h-full max-h-[360px] max-w-[640px] flex flex-col justify-center items-center gap-6 p-12 ${font.value} bg-white rounded-2xl relative z-10`}>

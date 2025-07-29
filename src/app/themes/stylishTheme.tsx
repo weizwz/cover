@@ -25,7 +25,7 @@ const StylishTheme: React.FC<ThemeProps> = ({ config }) => {
 
   return (
     <div className='w-full h-full overflow-y-hidden flex' style={{ backgroundColor: coverSetting.bg.color }}>
-      <div className={`w-1/2 h-full ${font.value} ${theme.swapX ? 'order-1' : ''} p-12 flex flex-col justify-center gap-6 bg-white text-gray-800`}>
+      <div className={`w-1/2 h-full p-12 ${font.value} ${theme.swapX ? 'order-1 pr-14' : 'pl-14'} flex flex-col justify-center gap-6 bg-white text-gray-800`}>
         <div className={`text-5xl ${font?.lineHeight || 'leading-14'} font-bold`}>{title}</div>
         <div className='flex items-center gap-4'>
           <img className='w-8 h-8' src={customIcon || `${iconifyHost}/${icon.value}.svg`} alt={`${icon.label} icon`} />
