@@ -11,17 +11,38 @@ const StylishTheme: React.FC<ThemeProps> = ({ config }) => {
   const { title, author, icon, font, customIcon, theme } = config
   const { coverSetting, setCoverSetting } = useContext(CoverContext)
 
-  // 获取右侧图片
-  const getRightImage = () => {
+  // 获取右侧背景样式
+  const getRightBackgroundStyle = () => {
     if (coverSetting.bg.type === 'unsplash' && coverSetting.bg.unsplashUrl) {
-      return coverSetting.bg.unsplashUrl
+      return {
+        backgroundImage: `url(${coverSetting.bg.unsplashUrl})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }
     } else if (coverSetting.bg.type === 'local' && coverSetting.bg.image) {
-      return coverSetting.bg.image
+      return {
+        backgroundImage: `url(${coverSetting.bg.image})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }
+    } else if (coverSetting.bg.type === 'gradient' && coverSetting.bg.gradient) {
+      return {
+        background: coverSetting.bg.gradient
+      }
+    } else {
+      return {
+        backgroundColor: coverSetting.bg.color
+      }
     }
-    return null
   }
 
-  const rightImage = getRightImage()
+  // 检查是否有图片内容
+  const hasImageContent = () => {
+    return (coverSetting.bg.type === 'unsplash' && coverSetting.bg.unsplashUrl) || (coverSetting.bg.type === 'local' && coverSetting.bg.image)
+  }
+
+  const rightBackgroundStyle = getRightBackgroundStyle()
+  const hasImage = hasImageContent()
 
   return (
     <div className='w-full h-full overflow-y-hidden flex' style={{ backgroundColor: coverSetting.bg.color }}>
@@ -32,24 +53,23 @@ const StylishTheme: React.FC<ThemeProps> = ({ config }) => {
           <div className={`text-2xl font-semibold ${author.trim() === '' && 'hidden'}`}>{author}</div>
         </div>
       </div>
-      <div className='w-1/2 h-full relative' style={{ backgroundColor: coverSetting.bg.color }}>
-        {rightImage ? (
+      <div className='w-1/2 h-full relative' style={rightBackgroundStyle}>
+        {hasImage && (
           <div className='relative w-full h-full flex group'>
-            <img src={rightImage} className='object-cover w-full h-full' alt='preview' />
             <Button
               className='ignore hidden cursor-pointer absolute top-4 right-4 rounded-full text-center group-hover:flex'
               variant='outline'
               size='icon'
               onClick={() =>
-                setCoverSetting({ 
-                  ...coverSetting, 
-                  bg: { ...coverSetting.bg, type: 'color', image: undefined, unsplashUrl: undefined }
+                setCoverSetting({
+                  ...coverSetting,
+                  bg: { ...coverSetting.bg, type: 'color', image: undefined, unsplashUrl: undefined, gradient: undefined }
                 })
               }>
               <X />
             </Button>
           </div>
-        ) : null}
+        )}
       </div>
     </div>
   )

@@ -21,6 +21,13 @@ export const getBackgroundStyle = (bg: Background): React.CSSProperties => {
         }
       }
       break
+    case 'gradient':
+      if (bg.gradient) {
+        return {
+          background: bg.gradient
+        }
+      }
+      break
     case 'color':
     default:
       return {
@@ -34,9 +41,10 @@ export const getBackgroundStyle = (bg: Background): React.CSSProperties => {
 }
 
 /**
- * 检查是否有背景图片
+ * 检查是否有背景图片或渐变
  */
 export const hasBackgroundImage = (bg: Background): boolean => {
   return (bg.type === 'unsplash' && !!bg.unsplashUrl) || 
-         (bg.type === 'local' && !!bg.image)
+         (bg.type === 'local' && !!bg.image) ||
+         (bg.type === 'gradient' && !!bg.gradient)
 }

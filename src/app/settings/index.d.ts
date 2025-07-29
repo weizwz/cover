@@ -15,8 +15,9 @@ interface Theme extends SelectOption {
 interface Background {
   color: string
   image?: string
-  type: 'color' | 'local' | 'unsplash'
+  type: 'color' | 'local' | 'unsplash' | 'gradient'
   unsplashUrl?: string
+  gradient?: string
 }
 
 interface Font extends SelectOption {
