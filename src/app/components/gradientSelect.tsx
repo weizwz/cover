@@ -32,7 +32,7 @@ const GradientSelect: React.FC<GradientSelectProps> = ({ onGradientSelect }) => 
   const currentGradients = GRADIENT_COLORS[selectedGradientColorKey]?.gradients || []
 
   return (
-    <div className='ignore w-full h-full flex flex-col'>
+    <div className='ignore w-full flex-1 flex flex-col overflow-hidden'>
       {/* 颜色过滤器 */}
       <div className='flex flex-wrap gap-2 justify-center'>
         {COLOR_KEYS.map((colorKey) => {
@@ -53,7 +53,7 @@ const GradientSelect: React.FC<GradientSelectProps> = ({ onGradientSelect }) => 
       </div>
 
       {/* 渐变色网格 */}
-      <div className='flex-1 pt-4'>
+      <div className='flex-1 pt-4 overflow-y-auto'>
         <div className='grid grid-cols-3 xl:grid-cols-4 gap-4'>
           {currentGradients.map((gradient, index) => {
             const isSelected = coverSetting.bg.type === 'gradient' && coverSetting.bg.gradient === gradient.value
@@ -61,7 +61,7 @@ const GradientSelect: React.FC<GradientSelectProps> = ({ onGradientSelect }) => 
             return (
               <div
                 key={index}
-                className={`group flex items-center justify-center relative cursor-pointer rounded-xl aspect-[4/3] transition-all duration-300 hover:scale-105`}
+                className={`group flex items-center justify-center relative cursor-pointer rounded-xl aspect-[4/3]`}
                 style={{ background: gradient.value }}
                 onClick={() => selectGradient(gradient.value)}>
                 {/* 选中状态 */}
@@ -72,8 +72,10 @@ const GradientSelect: React.FC<GradientSelectProps> = ({ onGradientSelect }) => 
                 )}
 
                 {/* 悬停效果 */}
-                <div className='bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-gray-800 opacity-0 group:opacity-100'>
-                  点击选择
+                <div className='absolute inset-0 bg-black/0 group-hover:bg-black/20 rounded-xl transition-all duration-300 flex items-center justify-center'>
+                  <div className='opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-gray-800'>
+                    点击选择
+                  </div>
                 </div>
               </div>
             )
