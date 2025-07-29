@@ -46,8 +46,10 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
       const data = await getData(componentRef.current)
       await saveImage(data)
 
-      if (coverSetting.unsplashImage?.downloadLink) {
-        unsplash.photos.trackDownload({ downloadLocation: coverSetting.unsplashImage.downloadLink })
+      // 如果使用了unsplash图片，追踪下载
+      if (coverSetting.bg.type === 'unsplash' && coverSetting.bg.unsplashUrl) {
+        // 这里需要从unsplashParam中获取下载链接，暂时注释掉
+        // unsplash.photos.trackDownload({ downloadLocation: downloadLink })
       }
     }
 

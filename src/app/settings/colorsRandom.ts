@@ -1,68 +1,90 @@
-export const COLORS_RANDOM: ColorRandom[] = [
+export const BACKGROUNDS_RANDOM: Background[] = [
   {
-    bgColor: '#A3B3FF',
+    color: '#A3B3FF',
+    type: 'color'
   },
   {
-    bgColor: '#80D8CF',
+    color: '#80D8CF',
+    type: 'color'
   },
   {
-    bgColor: '#d972ff',
+    color: '#d972ff',
+    type: 'color'
   },
   {
-    bgColor: '#a7ff83',
+    color: '#a7ff83',
+    type: 'color'
   },
   {
-    bgColor: '#CB91FE',
+    color: '#CB91FE',
+    type: 'color'
   },
   {
-    bgColor: '#9D2EFE',
+    color: '#9D2EFE',
+    type: 'color'
   },
   {
-    bgColor: '#88EF69',
+    color: '#88EF69',
+    type: 'color'
   },
   {
-    bgColor: '#ffa600',
+    color: '#ffa600',
+    type: 'color'
   },
   {
-    bgColor: '#8078E7',
+    color: '#8078E7',
+    type: 'color'
   },
   {
-    bgColor: '#B1B3E4',
+    color: '#B1B3E4',
+    type: 'color'
   },
   {
-    bgColor: '#CA96DB',
+    color: '#CA96DB',
+    type: 'color'
   },
   {
-    bgColor: '#F9A6A8',
+    color: '#F9A6A8',
+    type: 'color'
   },
   {
-    bgColor: '#dcd6f7',
+    color: '#dcd6f7',
+    type: 'color'
   },
   {
-    bgColor: '#aba9e9',
+    color: '#aba9e9',
+    type: 'color'
   },
   {
-    bgColor: '#ffe9e3',
+    color: '#ffe9e3',
+    type: 'color'
   },
   {
-    bgColor: '#efb1ff',
+    color: '#efb1ff',
+    type: 'color'
   },
   {
-    bgColor: '#fee856',
+    color: '#fee856',
+    type: 'color'
   },
   {
-    bgColor: '#fee856',
+    color: '#fee856',
+    type: 'color'
   },
   {
-    bgColor: '#16db93',
+    color: '#16db93',
+    type: 'color'
   },
   {
-    bgColor: '#ffc4d6',
+    color: '#ffc4d6',
+    type: 'color'
   },
   {
-    bgColor: '#80ed99',
+    color: '#80ed99',
+    type: 'color'
   },
   {
-    bgColor: '#ffb2e6',
+    color: '#ffb2e6',
+    type: 'color'
   },
 ]

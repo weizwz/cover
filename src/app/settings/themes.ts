@@ -28,19 +28,19 @@ export const THEMES: Theme[] = [
     preview: backgroundThemePlaceholder
   },
   {
-    label: '图文对称',
+    label: '图文',
     value: 'stylish',
     preview: stylishThemePlaceholder,
     swapX: false
   },
   {
-    label: '桌面预览',
+    label: '桌面',
     value: 'preview',
     preview: previewThemePlaceholder,
     stretchY: false
   },
   {
-    label: '手机预览',
+    label: '手机',
     value: 'mobile',
     preview: mobileThemePlaceholder,
     swapX: false,

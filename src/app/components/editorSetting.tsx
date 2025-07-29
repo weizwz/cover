@@ -6,6 +6,8 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Slider } from '@/components/ui/slider'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
+import { HelpCircle } from 'lucide-react'
 
 import { useContext, useEffect, useState } from 'react'
 import { CoverContext } from './coverContext'
@@ -16,6 +18,7 @@ import { DEFAULT_SETTING } from '../settings/default'
 import { imgToBase64 } from '../tools/utils'
 import CenteredAlert from './common/centeredAlert'
 import IconSelect from './iconSelect'
+import BackgroundSelect from './backgroundSelect'
 
 const EditorSetting = () => {
   const { coverSetting, setCoverSetting } = useContext(CoverContext)
@@ -68,12 +71,31 @@ const EditorSetting = () => {
   }
 
   const saveSetting = () => {
+    const promises = []
+    const settingToSave = { ...coverSetting }
+
+    // 处理自定义图标
     if (coverSetting.customIcon) {
-      //转为base64
-      imgToBase64(coverSetting.customIcon)
-        .then((res) => {
-          coverSetting.customIcon = 'data:image/png;base64,' + res
-          localStorage.setItem('coverSetting', JSON.stringify(coverSetting))
+      promises.push(
+        imgToBase64(coverSetting.customIcon).then((res) => {
+          settingToSave.customIcon = 'data:image/png;base64,' + res
+        })
+      )
+    }
+
+    // 处理背景图片
+    if (coverSetting.bg.type === 'local' && coverSetting.bg.image) {
+      promises.push(
+        imgToBase64(coverSetting.bg.image).then((res) => {
+          settingToSave.bg.image = 'data:image/png;base64,' + res
+        })
+      )
+    }
+
+    if (promises.length > 0) {
+      Promise.all(promises)
+        .then(() => {
+          localStorage.setItem('coverSetting', JSON.stringify(settingToSave))
           showNotification({
             type: 'success',
             title: '设置已保存',
@@ -88,7 +110,7 @@ const EditorSetting = () => {
           })
         })
     } else {
-      localStorage.setItem('coverSetting', JSON.stringify(coverSetting))
+      localStorage.setItem('coverSetting', JSON.stringify(settingToSave))
       showNotification({
         type: 'success',
         title: '配置已保存',
@@ -103,7 +125,8 @@ const EditorSetting = () => {
       title: coverSetting.title,
       author: coverSetting.author,
       icon: coverSetting.icon,
-      customIcon: coverSetting.customIcon
+      customIcon: coverSetting.customIcon,
+      bg: { ...DEFAULT_SETTING.bg }
     })
     showNotification({
       type: 'success',
@@ -129,7 +152,7 @@ const EditorSetting = () => {
   return (
     <div className='h-full w-full overflow-y-auto py-4'>
       <h2 className='text-lg font-bold text-center mb-4'>基础配置</h2>
-      <form className='pr-10'>
+      <form className='pr-10 pb-10'>
         <div className='flex w-full items-center flex-wrap gap-y-4'>
           <div className='flex w-full'>
             <Label htmlFor='title' className='w-16 justify-end mr-2'>
@@ -186,9 +209,19 @@ const EditorSetting = () => {
             </Select>
           </div>
           <div className='flex w-full md:w-1/2 xl:w-full 2xl:w-1/2'>
-            <Label htmlFor='pattern' className='w-16 justify-end mr-2'>
-              纹理
-            </Label>
+            <div className='w-16 flex items-center justify-end mr-2 gap-1'>
+              <Label htmlFor='pattern'>纹理</Label>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <HelpCircle className='w-3 h-3 text-gray-400 hover:text-gray-600 cursor-help' />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>纹理仅在纯色背景下生效</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
             <Select
               value={coverSetting.pattern.value}
               onValueChange={(value) => {
@@ -215,14 +248,7 @@ const EditorSetting = () => {
             <Label htmlFor='bg' className='w-16 justify-end mr-2'>
               背景
             </Label>
-            <Input
-              id='bg'
-              type='color'
-              className='flex-1 focus-visible:ring-1'
-              placeholder='请选择背景色'
-              value={coverSetting.color.bgColor}
-              onChange={(e) => setCoverSetting({ ...coverSetting, color: { bgColor: e.target.value } })}
-            />
+            <BackgroundSelect />
           </div>
           <div className='flex w-full'>
             <Label htmlFor='size' className='w-16 justify-end mr-2'>
@@ -298,7 +324,9 @@ const EditorSetting = () => {
         </Button>
       </div>
       <div className='flex justify-end items-center p-4 pr-12'>
-        <span className='text-sm underline cursor-pointer' onClick={clearLocalSetting}>清除已保存配置</span>
+        <span className='text-sm underline cursor-pointer' onClick={clearLocalSetting}>
+          清除已保存配置
+        </span>
       </div>
       {showAlert && <CenteredAlert type={alertData?.type} title={alertData?.title} message={alertData?.message} onClose={handleClose} />}
     </div>

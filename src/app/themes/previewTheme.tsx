@@ -1,22 +1,28 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { X, CirclePlus } from 'lucide-react'
 import pcBg from '../assets/images/pc.webp'
+import { CoverContext } from '../components/coverContext'
+import { getBackgroundStyle, hasBackgroundImage } from '../tools/backgroundUtils'
 
 const PreviewTheme: React.FC<ThemeProps> = ({ config }) => {
-  const { title, color, pattern, author, font, size, theme } = config
+  const { title, pattern, author, font, size, theme } = config
+  const { coverSetting } = useContext(CoverContext)
   const [image, setImage] = useState<string | undefined>(undefined)
 
+  const backgroundStyle = getBackgroundStyle(coverSetting.bg)
+  const hasImage = hasBackgroundImage(coverSetting.bg)
+
   return (
-    <div className={`w-full h-full flex flex-col overflow-hidden relative`} style={{ backgroundColor: color.bgColor }}>
-      <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern.value} ${pattern.isOpacity ? 'opacity-40' : ''}`} />
+    <div className={`w-full h-full flex flex-col overflow-hidden relative`} style={backgroundStyle}>
+      {!hasImage && <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern.value} ${pattern.isOpacity ? 'opacity-40' : ''}`} />}
       <div
         className={`${font.value} h-full flex flex-col items-center ${
           size.value.indexOf('vertical') >= 0 ? 'justify-center' : ''
-        } relative z-10 p-12 text-center`}>
+        } relative z-10 p-16 text-center`}>
         <div className={`text-2xl mb-2 font-semibold text-white text-shadow-sm text-shadow-black ${author.trim() === '' && 'hidden'}`}>{author}</div>
         <div className={`text-5xl ${font?.lineHeight || 'leading-14'} font-bold text-white text-shadow-lg text-shadow-black`}>{title}</div>
 
