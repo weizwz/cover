@@ -166,7 +166,7 @@ export const Examples = [
       },
       font: { label: '系统默认', value: 'font-default', type: 'ht', typeName: '黑体', url: '' },
       bg: { color: '#a3b3ff', type: 'gradient' as const, gradient: 'linear-gradient(135deg, #62748D 0%, #90A1B9 100%)' },
-      pattern: { label: '甜点', value: 'dessert', type: 'pattern', typeName: '图案', isOpacity: true },
+      pattern: { label: '无', value: 'none', type: 'basic', typeName: '基础' },
       size: { label: '横向 4:3（小红书横板）', value: 'horizontal4-3' }
     }
   },
@@ -229,7 +229,7 @@ export const Examples = [
       },
       font: { label: '霞鹜漫黑', value: 'font-xwmh', type: 'qt', typeName: '其他', url: 'https://fontsapi.zeoseven.com/134/main/result.css' },
       bg: { color: '#a3b3ff', type: 'gradient' as const, gradient: 'radial-gradient(circle at 35% 50%, #f2ea18 0%, #f53a19 100%)' },
-      pattern: { label: '叉号集', value: 'hideout', type: 'basic', typeName: '基础', isOpacity: true },
+      pattern: { label: '无', value: 'none', type: 'basic', typeName: '基础' },
       size: { label: '横向 3:2（掘金）', value: 'horizontal3-2' }
     }
   },
