@@ -89,7 +89,7 @@ export const Examples = [
           blurHeight: 5
         }
       },
-      font: { label: '抖音美好体', value: 'font-dymht', type: 'yt', typeName: '圆体', url: 'https://fontsapi.zeoseven.com/84/main/result.css' },
+      font: { label: '抖音美好体', value: 'font-dymht', type: 'yt', typeName: '圆体', url: 'https://chinese-fonts-cdn.deno.dev/packages/dymh/dist/DouyinSansBold/result.css' },
       bg: {
         color: '#a3b3ff',
         type: 'unsplash' as const,
@@ -261,7 +261,7 @@ export const Examples = [
         swapX: false,
         stretchY: true
       },
-      font: { label: '抖音美好体', value: 'font-dymht', type: 'yt', typeName: '圆体', url: 'https://fontsapi.zeoseven.com/84/main/result.css' },
+      font: { label: '抖音美好体', value: 'font-dymht', type: 'yt', typeName: '圆体', url: 'https://chinese-fonts-cdn.deno.dev/packages/dymh/dist/DouyinSansBold/result.css' },
       bg: {
         color: '#b36548',
         type: 'unsplash' as const,
