@@ -62,7 +62,7 @@ const UnsplashSearch: React.FC<UnsplashSearchProps> = ({ largeImgPreview, onImag
       {/* 搜索区域 */}
       <div className='w-full mb-4'>
         <div className='max-w-2xl mx-auto'>
-          <div className='relative flex justify-between items-center bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200'>
+          <div className='relative pr-2 flex justify-between items-center bg-white rounded-lg border border-gray-200 hover:shadow-sm transition-shadow duration-200'>
             <input
               type='text'
               value={text}
@@ -72,7 +72,7 @@ const UnsplashSearch: React.FC<UnsplashSearchProps> = ({ largeImgPreview, onImag
               onKeyDown={handleKeyDown}
             />
             <Button 
-              className='cursor-pointer m-1 px-6 border-0 rounded-lg' 
+              className='cursor-pointer px-6' 
               onClick={searchImage}
             >
               <Search className='w-4 h-4 mr-2 hidden md:block' />
@@ -113,8 +113,8 @@ const UnsplashSearch: React.FC<UnsplashSearchProps> = ({ largeImgPreview, onImag
       </div>
 
       {/* 图片网格 */}
-      <div className='flex-1 py-4 overflow-y-auto'>
-        <div className='grid gap-4 grid-cols-3 xl:grid-cols-4'>
+      <div className='flex-1 mt-4 overflow-y-auto'>
+        <div className='grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4'>
           {imageList.map((image) => {
             return (
               <div
@@ -122,7 +122,7 @@ const UnsplashSearch: React.FC<UnsplashSearchProps> = ({ largeImgPreview, onImag
                 className={`group rounded-xl relative cursor-pointer bg-gray-100 ${largeImgPreview ? 'aspect-[4/3]' : 'aspect-square'}`}
                 onClick={() => selectImage(image)}
               >
-                <UnsplashImage src={image.urls.regular} alt={image.alt_description} />
+                <UnsplashImage src={image.urls.regular} alt={image.alt_description} user={image.user} links={image.links}/>
                 <div className='absolute inset-0 bg-black/0 group-hover:bg-black/20 rounded-xl transition-all duration-300 flex items-center justify-center'>
                   <div className='opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-gray-800'>
                     点击选择

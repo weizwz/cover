@@ -8,9 +8,26 @@ interface CoverContextType {
   applyTemplate: (templateData: Setting) => void
 }
 
+interface UnsplashImageRespUserLink {
+  html: string
+}
+
+interface UnsplashImageRespUserImage {
+  medium: string
+}
+
+interface UnsplashImageRespUser {
+  id: string
+  username: string
+  links: UnsplashImageRespUserLink
+  profile_image: UnsplashImageRespUserImage
+}
+
 interface UnsplashImageProps {
   src: string
   alt: string
+  user: UnsplashImageRespUser
+  links: UnsplashImageRespLink
 }
 
 interface UnsplashSearchProps {
@@ -24,6 +41,7 @@ interface UnsplashImageRespUrl {
 
 interface UnsplashImageRespLink {
   download_location: string
+  html: string
 }
 
 interface UnsplashImageResp {
@@ -31,6 +49,7 @@ interface UnsplashImageResp {
   alt_description: string
   urls: UnsplashImageRespUrl
   links: UnsplashImageRespLink
+  user: UnsplashImageRespUser
 }
 
 interface EditorToImgProps {

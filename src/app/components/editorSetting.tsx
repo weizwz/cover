@@ -7,7 +7,7 @@ import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Slider } from '@/components/ui/slider'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
-import { HelpCircle } from 'lucide-react'
+import { HelpCircle, RotateCcw, Save } from 'lucide-react'
 
 import { useContext, useEffect, useState } from 'react'
 import { CoverContext } from './coverContext'
@@ -152,7 +152,7 @@ const EditorSetting = () => {
   return (
     <div className='h-full w-full overflow-y-auto py-4'>
       <h2 className='text-lg font-bold text-center mb-4'>基础配置</h2>
-      <form className='pr-10 pb-10'>
+      <form className='pr-10 pb-4'>
         <div className='flex w-full items-center flex-wrap gap-y-4'>
           <div className='flex w-full'>
             <Label htmlFor='title' className='w-16 justify-end mr-2'>
@@ -210,17 +210,17 @@ const EditorSetting = () => {
           </div>
           <div className='flex w-full md:w-1/2 xl:w-full 2xl:w-1/2'>
             <div className='w-16 flex items-center justify-end mr-2 gap-1'>
-              <Label htmlFor='pattern'>纹理</Label>
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <HelpCircle className='w-3 h-3 text-gray-400 hover:text-gray-600 cursor-help' />
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>纹理仅在纯色背景下生效</p>
+                    <p>纹理仅在纯色/渐变背景下生效</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
+              <Label htmlFor='pattern'>纹理</Label>
             </div>
             <Select
               value={coverSetting.pattern.value}
@@ -298,7 +298,7 @@ const EditorSetting = () => {
           </div>
           <div className='flex w-full md:w-1/2 xl:w-full 2xl:w-1/2'>
             <Label htmlFor='download' className='w-16 justify-end mr-2'>
-              输出比
+              输出
             </Label>
             <div className='h-9 flex-1 flex items-center gap-2 border border-input rounded-md shadow-xs px-2'>
               <Slider
@@ -310,16 +310,18 @@ const EditorSetting = () => {
                 step={0.5}
                 onValueChange={(newValue) => setCoverSetting({ ...coverSetting, scale: newValue[0] })}
               />
-              <div className='nowrap text-sm'>{coverSetting.scale} 倍</div>
+              <div className='nowrap text-sm'>缩放{coverSetting.scale}倍</div>
             </div>
           </div>
         </div>
       </form>
       <div className='flex justify-center items-center p-4'>
         <Button className='cursor-pointer mr-4' onClick={saveSetting}>
+          <Save className='w-4 h-4 hidden md:block' />
           保存
         </Button>
         <Button className='cursor-pointer' variant='outline' onClick={resetSetting}>
+          <RotateCcw className='w-4 h-4 hidden md:block' />
           重置
         </Button>
       </div>

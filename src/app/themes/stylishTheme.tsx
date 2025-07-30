@@ -8,7 +8,7 @@ import { CoverContext } from '../components/coverContext'
 const iconifyHost = process.env.NEXT_PUBLIC_API_ICONIFY_URL
 
 const StylishTheme: React.FC<ThemeProps> = ({ config }) => {
-  const { title, author, icon, font, customIcon, theme } = config
+  const { title, author, icon, font, customIcon, theme, pattern } = config
   const { coverSetting, setCoverSetting } = useContext(CoverContext)
 
   // 获取右侧背景样式
@@ -54,6 +54,10 @@ const StylishTheme: React.FC<ThemeProps> = ({ config }) => {
         </div>
       </div>
       <div className='w-1/2 h-full relative' style={rightBackgroundStyle}>
+        {(coverSetting.bg.type === 'color' || (coverSetting.bg.type === 'gradient' && coverSetting.bg.gradient)) && (
+          <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern.value} ${pattern.isOpacity ? 'opacity-40' : ''}`} />
+        )}
+
         {hasImage && (
           <div className='relative w-full h-full flex group'>
             <Button

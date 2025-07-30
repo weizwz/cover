@@ -41,10 +41,17 @@ export const getBackgroundStyle = (bg: Background): React.CSSProperties => {
 }
 
 /**
- * 检查是否有背景图片或渐变
+ * 检查是否有背景图片
  */
 export const hasBackgroundImage = (bg: Background): boolean => {
   return (bg.type === 'unsplash' && !!bg.unsplashUrl) || 
-         (bg.type === 'local' && !!bg.image) ||
-         (bg.type === 'gradient' && !!bg.gradient)
+         (bg.type === 'local' && !!bg.image)
+}
+
+/**
+ * 检查是否应该显示纹理
+ * 只有纯色背景或渐变背景时才显示纹理
+ */
+export const shouldShowPattern = (bg: Background): boolean => {
+  return bg.type === 'color' || (bg.type === 'gradient' && !!bg.gradient)
 }

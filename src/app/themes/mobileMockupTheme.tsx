@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input'
 import { X, CirclePlus } from 'lucide-react'
 import pcBg from '../assets/images/mobile.webp'
 import { CoverContext } from '../components/coverContext'
-import { getBackgroundStyle, hasBackgroundImage } from '../tools/backgroundUtils'
+import { getBackgroundStyle, shouldShowPattern } from '../tools/backgroundUtils'
 
 const MobileMockupTheme: React.FC<ThemeProps> = ({ config }) => {
   const { title, pattern, author, font, size, theme } = config
@@ -14,11 +14,11 @@ const MobileMockupTheme: React.FC<ThemeProps> = ({ config }) => {
   const [image, setImage] = useState<string | undefined>(undefined)
 
   const backgroundStyle = getBackgroundStyle(coverSetting.bg)
-  const hasImage = hasBackgroundImage(coverSetting.bg)
+  const showPattern = shouldShowPattern(coverSetting.bg)
 
   return (
     <div className={`overflow-hidden w-full h-full justify-center relative`} style={backgroundStyle}>
-      {!hasImage && <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern.value} ${pattern.isOpacity ? 'opacity-40' : ''}`} />}
+      {showPattern && <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern.value} ${pattern.isOpacity ? 'opacity-40' : ''}`} />}
       <div
         className={`${font.value} h-full flex items-center relative z-10 ${size.value.indexOf('vertical') === 0 ? 'flex-col px-24 py-12' : ''} ${
           size.value.indexOf('vertical') === -1 ? 'px-24' : ''} ${theme.swapX ? 'justify-end' : ''}`}>
