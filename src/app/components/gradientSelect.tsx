@@ -54,7 +54,7 @@ const GradientSelect: React.FC<GradientSelectProps> = ({ onGradientSelect }) => 
 
       {/* 渐变色网格 */}
       <div className='flex-1 pt-4 overflow-y-auto'>
-        <div className='grid grid-cols-3 xl:grid-cols-4 gap-4'>
+        <div className='grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4'>
           {currentGradients.map((gradient, index) => {
             const isSelected = coverSetting.bg.type === 'gradient' && coverSetting.bg.gradient === gradient.value
 

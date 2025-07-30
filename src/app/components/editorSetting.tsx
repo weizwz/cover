@@ -7,7 +7,7 @@ import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Slider } from '@/components/ui/slider'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
-import { HelpCircle } from 'lucide-react'
+import { HelpCircle, RotateCcw, Save } from 'lucide-react'
 
 import { useContext, useEffect, useState } from 'react'
 import { CoverContext } from './coverContext'
@@ -317,9 +317,11 @@ const EditorSetting = () => {
       </form>
       <div className='flex justify-center items-center p-4'>
         <Button className='cursor-pointer mr-4' onClick={saveSetting}>
+          <Save className='w-4 h-4 hidden md:block' />
           保存
         </Button>
         <Button className='cursor-pointer' variant='outline' onClick={resetSetting}>
+          <RotateCcw className='w-4 h-4 hidden md:block' />
           重置
         </Button>
       </div>

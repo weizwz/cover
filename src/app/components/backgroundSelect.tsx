@@ -67,7 +67,7 @@ const BackgroundSelect = () => {
           <DialogTrigger asChild>
             <Button className='cursor-pointer'>渐变</Button>
           </DialogTrigger>
-          <DialogContent className='max-w-7xl w-[90vw] max-h-[90vh] flex flex-col overflow-hidden bg-gradient-to-br from-white to-gray-50'>
+          <DialogContent className='max-w-4xl! w-[90vw] max-h-[90vh] flex flex-col overflow-hidden bg-gradient-to-br from-white to-gray-50'>
             <DialogHeader className='border-b border-gray-100 pb-4'>
               <DialogTitle className='text-2xl font-bold text-gray-800 flex items-center gap-2'>
                 <div className='w-8 h-8 bg-gradient-to-r from-pink-500 to-violet-600 rounded-lg flex items-center justify-center'>
@@ -98,7 +98,7 @@ const BackgroundSelect = () => {
           <DialogTrigger asChild>
             <Button className='cursor-pointer'>在线</Button>
           </DialogTrigger>
-          <DialogContent className='max-w-7xl w-[90vw] max-h-[90vh] flex flex-col overflow-hidden bg-gradient-to-br from-white to-gray-50'>
+          <DialogContent className='max-w-4xl! w-[90vw] max-h-[90vh] flex flex-col overflow-hidden bg-gradient-to-br from-white to-gray-50'>
             <DialogHeader className='border-b border-gray-100 pb-4'>
               <DialogTitle className='text-2xl font-bold text-gray-800 flex items-center gap-2'>
                 <div className='w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center'>
