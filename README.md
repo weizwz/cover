@@ -6,6 +6,19 @@
 
 在原来的基础上进行了汉化 + 本土功能定制和扩展
 
+## 注意事项
+
+### 环境变量
+
+环境变量需要在根目录自行创建 `.env` 文件，内容如下：
+
+```txt
+NEXT_PUBLIC_API_ACCESS_KEY = 'xxxxx'
+NEXT_PUBLIC_API_ICONIFY_URL = 'https://api.iconify.design'
+```
+
+NEXT_PUBLIC_API_ACCESS_KEY 即 unsplash api，需要到官网申请 https://unsplash.com/developers
+
 ## 功能修改
 
 - [x] 文字汉化
@@ -26,8 +39,7 @@
 - [x] 背景选项扩展，支持单色，渐变和上传图片、在线图片
 - [x] 首页示例支持一键使用
 - [ ] 背景图片支持模糊和灰度
-- [ ] 配置里加入随机功能，支持随机底纹和背景色
-- [ ] 支持配置根据主题变动，比如背景主题不需要背景色和底纹
+- [ ] 加入随机功能，支持随机底纹和背景色/渐变色
 - [ ] 添加新主题，类似九宫格/拼图等，待设计
 
 ## BUG
