@@ -9,26 +9,59 @@
   --font-default: 'system-ui', 'sans-serif';
   --font-ChillKai: 'ChillKai', 'sans-serif';
   --font-dyh: 'Smiley Sans Oblique', 'sans-serif';
-  --font-dymht: 'DouyinSans', 'sans-serif';
-  --font-gsht: 'Sarasa Mono TC', 'sans-serif';
-  --font-hcqyt: '寒蝉全圆体 Bold', 'sans-serif';
-  --font-jcyt: 'JiangChengYuanTi', 'sans-serif';
+  --font-dymht: 'Douyin Sans', 'sans-serif';
+  --font-fhst: 'FlyFlowerSong', 'sans-serif';
+  --font-gsht: 'Sarasa Mono SC', 'sans-serif';
+  --font-hcqyt: '寒蝉全圆体', 'sans-serif';
+  --font-hwmct: 'Huiwen-mincho', 'sans-serif';
   --font-jhlst: 'KingHwa_OldSong', 'sans-serif';
-  --font-mm: 'Maple Mono CN SemiBold', 'sans-serif';
+  --font-mkzyt: 'MaokenZhuyuanTi', 'sans-serif';
+  --font-mm: 'Maple Mono CN', 'sans-serif';
+  --font-mzxst: 'MuzaiPixel', 'sans-serif';
+  --font-pfmmd: 'PING FANG MENG MNEG DA', 'sans-serif';
   --font-qzkzkt: 'TW-Kai', 'sans-serif';
   --font-rzjryzzk: 'nzgrRuYinZouZhangKai', 'sans-serif';
+  --font-stdgt: 'STDongGuanTi Bld', 'sans-serif';
   --font-syht: 'Noto Sans CJK SC', 'sans-serif';
-  --font-syst: 'Noto Serif CJK HK', 'sans-serif';
+  --font-syst: 'Source Han Serif CN VF', 'sans-serif';
   --font-wyyt: 'WenYuan Rounded SC M', 'sans-serif';
   --font-wyht: 'WenYuan Sans SC', 'sans-serif';
-  --font-wyst: 'WenYuan Serif SC', 'sans-serif';
-  --font-xwwk: 'LXGW WenKai GB', 'sans-serif';
+  --font-xwwk: 'LXGW Bright Medium', 'sans-serif';
   --font-xwxxh: 'LXGW Neo XiHei', 'sans-serif';
+  --font-xwxzs: 'LXGW Neo ZhiSong', 'sans-serif';
   --font-xwmh: 'LXGW Marker Gothic', 'sans-serif';
   --font-yffyt: 'YFFYT', 'sans-serif';
   --font-yqt: 'Child Fun Sans Demo', 'sans-serif';
+  --font-ysbth: 'YouSheBiaoTiHei', 'sans-serif';
   --font-yzgcxst: 'YEFONTXiaoShiTou', 'sans-serif';
   --font-zqfs: 'Zhuque Fangsong (technical preview)', 'sans-serif';
+}
+
+/* 字体调整 */
+.font-mkzyt .font-bold,
+.font-mkzyt .font-semibold,
+.font-hwmct .font-bold,
+.font-hwmct .font-semibold,
+.font-dyh .font-bold,
+.font-dyh .font-semibold,
+.font-yzgcxst .font-bold,
+.font-yzgcxst .font-semibold,
+.font-mzxst .font-bold,
+.font-mzxst .font-semibold,
+.font-ysbth .font-bold,
+.font-ysbth .font-semibold,
+.font-hcqyt .font-bold,
+.font-hcqyt .font-semibold {
+  font-weight: 400;
+}
+.font-wyyt .font-bold,
+.font-wyyt .font-semibold,
+.font-yffyt .font-bold,
+.font-yffyt .font-semibol {
+  font-weight: 500;
+}
+.font-mzxst, .font-stdgt {
+  letter-spacing: 0.1rem;
 }
 
 @theme inline {
