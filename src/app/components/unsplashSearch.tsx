@@ -58,7 +58,7 @@ const UnsplashSearch: React.FC<UnsplashSearchProps> = ({ largeImgPreview, onImag
   }, [unsplashParam])
 
   return (
-    <div className='ignore w-full h-full flex flex-col'>
+    <div className='ignore w-full flex-1 flex flex-col overflow-hidden'>
       {/* 搜索区域 */}
       <div className='w-full mb-4'>
         <div className='max-w-2xl mx-auto'>
@@ -113,17 +113,17 @@ const UnsplashSearch: React.FC<UnsplashSearchProps> = ({ largeImgPreview, onImag
       </div>
 
       {/* 图片网格 */}
-      <div className='flex-1 py-4 overflow-y-auto overflow-x-hidden'>
+      <div className='flex-1 py-4 overflow-y-auto'>
         <div className='grid gap-4 grid-cols-3 xl:grid-cols-4'>
           {imageList.map((image) => {
             return (
               <div
                 key={image.id}
-                className={`group rounded-xl relative cursor-pointer overflow-hidden bg-gray-100 transition-all duration-300 hover:scale-105 hover:shadow-xl ${largeImgPreview ? 'aspect-[4/3]' : 'aspect-square'}`}
+                className={`group rounded-xl relative cursor-pointer bg-gray-100 ${largeImgPreview ? 'aspect-[4/3]' : 'aspect-square'}`}
                 onClick={() => selectImage(image)}
               >
                 <UnsplashImage src={image.urls.regular} alt={image.alt_description} />
-                <div className='absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center'>
+                <div className='absolute inset-0 bg-black/0 group-hover:bg-black/20 rounded-xl transition-all duration-300 flex items-center justify-center'>
                   <div className='opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-gray-800'>
                     点击选择
                   </div>

@@ -1,23 +1,31 @@
+'use client'
+
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { useContext } from 'react'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { Badge } from '@/components/ui/badge'
-import { Separator } from '@/components/ui/separator'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { CircleArrowRight } from 'lucide-react'
+
+import { Examples } from '../settings/examples'
+import { CoverContext } from './coverContext'
 
 import cover1 from '@/app/assets/images/ThisCover_20250523_171549.webp'
 import cover2 from '@/app/assets/images/ThisCover_20250523_173053.webp'
 import cover3 from '@/app/assets/images/ThisCover_20250523_180347.webp'
 
-import cover4 from '@/app/assets/images/ThisCover_20250524_001002.webp'
-import cover5 from '@/app/assets/images/ThisCover_20250524_005755.webp'
-import cover6 from '@/app/assets/images/ThisCover_20250524_011123.webp'
-import cover7 from '@/app/assets/images/ThisCover_20250524_012817.webp'
-import cover8 from '@/app/assets/images/ThisCover_20250524_013456.webp'
-
 export default function Main() {
+  const router = useRouter()
+  const { applyTemplate } = useContext(CoverContext)
+
+  const handleUseTemplate = (templateData: Setting) => {
+    applyTemplate(templateData)
+    router.push('/editor')
+  }
+
   return (
     <div className='pt-14 w-full flex flex-col items-center'>
       <section className='w-full px-4 md:px-12 pt-16 flex flex-col items-center gap-6 graph-paper-primary'>
@@ -162,7 +170,7 @@ export default function Main() {
         </div>
       </section>
 
-      <section className='w-full px-4 md:px-12 py-12 flex flex-col items-center bg-indigo-50/50 graph-paper-primary gap-8'>
+      <section className='w-full px-4 md:px-12 py-12 flex flex-col items-center bg-indigo-50/50 graph-paper-primary gap-12'>
         <h2 className='text-2xl md:text-3xl font-bold text-primary'>更多示例</h2>
         <div className='w-full max-w-360 px-4 pt-4'>
           <h3 className='text-md font-bold mb-2'>友情提示：</h3>
@@ -173,60 +181,32 @@ export default function Main() {
             4. 设置好常用的配置后，可以点击保存按钮，保存到本地浏览器，下次进来会读取这个配置。如果不想要了，可以点击 清除已保存配置
           </p>
         </div>
-        <div className='w-full max-w-360 flex flex-wrap justify-around'>
-          <div className='w-full md:w-1/3 p-4'>
-            <div className='w-full h-fit border bg-white p-2 mb-8 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
-              <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={cover8} width={600} height={1066} alt='ThisCover-1' />
-              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>
-                背景色：取色器取截图中的颜色 <Separator orientation='vertical' /> 纹理：无
-              </div>
-              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>
-                尺寸：9:16 <Separator orientation='vertical' /> 主题：手机预览
-              </div>
-            </div>
-          </div>
-
-          <div className='w-full md:w-1/3 p-4'>
-            <div className='w-full h-fit border bg-white p-2 mb-8 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
-              <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={cover4} width={600} height={600} alt='ThisCover-1' />
-              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>
-                图标：xiaohongshu <Separator orientation='vertical' /> 背景色：rgb(255, 36, 66)
-              </div>
-              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>
-                纹理：爱心 <Separator orientation='vertical' /> 尺寸：1:1 <Separator orientation='vertical' /> 主题：简洁
-              </div>
-            </div>
-            <div className='w-full h-fit border bg-white p-2 mb-8 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
-              <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={cover6} width={800} height={450} alt='ThisCover-1' />
-              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>
-                作者：删除留空 <Separator orientation='vertical' /> 字体：思源宋体 <Separator orientation='vertical' /> 纹理：无
-              </div>
-              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>
-                尺寸：16:9 <Separator orientation='vertical' /> 主题：桌面预览
+        <div className='w-full max-w-360 columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4'>
+          {Examples.map((example) => (
+            <div key={example.id} className='break-inside-avoid mb-4'>
+              <div className='w-full h-fit border bg-white p-3 shadow-lg shadow-gray-50 rounded-xl flex flex-col overflow-hidden hover:shadow-xl transition-shadow duration-300'>
+                <div className='relative mb-3'>
+                  <Image 
+                    className={`w-full aspect-[${example.ratio}] border border-gray-100 rounded-md`} 
+                    src={example.preview}
+                    width={400}
+                    height={400}
+                    alt={example.name}
+                  />
+                </div>
+                <div className='flex items-center justify-between'>
+                  <span className='text-slate-600 text-sm px-2'>{example?.mark}</span>
+                  <Button 
+                    onClick={() => handleUseTemplate(example.data)}
+                    size='sm'
+                    className='w-1/3 font-medium py-2 rounded-md cursor-pointer'
+                  >
+                    使用此模版
+                  </Button>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div className='w-full md:w-1/3 p-4'>
-            <div className='w-full h-fit border bg-white p-2 mb-8 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
-              <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={cover5} width={800} height={450} alt='ThisCover-1' />
-              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>
-                字体：抖音美好体 <Separator orientation='vertical' /> 背景搜索词：beautiful background
-              </div>
-              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>
-                尺寸：16:9 <Separator orientation='vertical' /> 主题：图文对称
-              </div>
-            </div>
-            <div className='w-full h-fit border bg-white p-2 mb-8 shadow-lg shadow-gray-50 rounded-lg flex flex-col overflow-hidden'>
-              <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={cover7} width={800} height={600} alt='ThisCover-1' />
-              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>
-                图标：juejin <Separator orientation='vertical' /> 背景色：rgb(35,128,254)
-              </div>
-              <div className='w-full bg-gray-100 rounded px-2 py-1 flex gap-2 md:gap-4 text-sm mb-2'>
-                纹理：编织带 <Separator orientation='vertical' /> 尺寸：3:2 <Separator orientation='vertical' /> 主题：现代
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
         <Link href='/editor' className='flex justify-center pb-4'>
           <Button className='cursor-pointer md:py-6 md:px-16  has-[>svg]:px-16 md:text-lg font-bold rounded-full'>

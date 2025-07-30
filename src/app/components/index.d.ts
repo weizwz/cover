@@ -5,6 +5,7 @@ interface CoverContextType {
   setUnsplashParam: React.Dispatch<React.SetStateAction<UnsplashParam>>
   selectedGradientColorKey: string
   setSelectedGradientColorKey: React.Dispatch<React.SetStateAction<string>>
+  applyTemplate: (templateData: Setting) => void
 }
 
 interface UnsplashImageProps {

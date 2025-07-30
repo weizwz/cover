@@ -9,7 +9,8 @@ const CoverContext = createContext<CoverContextType>({
   unsplashParam: DEFAULT_UNSPLASH_PARAM,
   setUnsplashParam: () => {},
   selectedGradientColorKey: 'red',
-  setSelectedGradientColorKey: () => {}
+  setSelectedGradientColorKey: () => {},
+  applyTemplate: () => {}
 })
 
 const CoverProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -17,7 +18,12 @@ const CoverProvider: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   const [unsplashParam, setUnsplashParam] = useState(DEFAULT_UNSPLASH_PARAM)
   const [selectedGradientColorKey, setSelectedGradientColorKey] = useState('red')
 
-  return <CoverContext.Provider value={{ coverSetting, setCoverSetting, unsplashParam, setUnsplashParam, selectedGradientColorKey, setSelectedGradientColorKey }}>{children}</CoverContext.Provider>
+  const applyTemplate = (templateData: Setting) => {
+    setCoverSetting({ ...DEFAULT_SETTING, ...templateData })
+    localStorage.setItem('coverSetting', JSON.stringify({ ...DEFAULT_SETTING, ...templateData }))
+  }
+
+  return <CoverContext.Provider value={{ coverSetting, setCoverSetting, unsplashParam, setUnsplashParam, selectedGradientColorKey, setSelectedGradientColorKey, applyTemplate }}>{children}</CoverContext.Provider>
 }
 
 export { CoverProvider, CoverContext }
