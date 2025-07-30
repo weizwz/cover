@@ -86,11 +86,11 @@ export const FONTS: Font[] = [
     url: 'https://fontsapi.zeoseven.com/5/main/result.css'
   },
   {
-    label: '霞鹜文楷',
+    label: '霞鹜文楷 Bright',
     value: 'font-xwwk',
     type: 'kt',
     typeName: '楷体',
-    url: 'https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Bold/result.css'
+    url: 'https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkaibright/dist/LXGWBright-Medium/result.css'
   },
   {
     label: '润植家如印奏章楷',
