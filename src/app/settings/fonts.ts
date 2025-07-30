@@ -37,6 +37,13 @@ export const FONTS: Font[] = [
     url: 'https://fontsapi.zeoseven.com/19/main/result.css'
   },
   {
+    label: '优设标题黑',
+    value: 'font-ysbth',
+    type: 'ht',
+    typeName: '黑体',
+    url: 'https://chinese-fonts-cdn.deno.dev/packages/ysbth/dist/%E4%BC%98%E8%AE%BE%E6%A0%87%E9%A2%98%E9%BB%91/result.css'
+  },
+  {
     label: '思源宋体',
     value: 'font-syst',
     type: 'st',
@@ -72,6 +79,13 @@ export const FONTS: Font[] = [
     url: 'https://chinese-fonts-cdn.deno.dev/packages/zqfs/dist/ZhuqueFangsong-Regular/result.css'
   },
   {
+    label: '汇文明朝体',
+    value: 'font-hwmct',
+    type: 'st',
+    typeName: '宋体',
+    url: 'https://chinese-fonts-cdn.deno.dev/packages/hwmct/dist/%E6%B1%87%E6%96%87%E6%98%8E%E6%9C%9D%E4%BD%93/result.css'
+  },
+  {
     label: '全字库正楷体',
     value: 'font-qzkzkt',
     type: 'kt',
@@ -91,6 +105,13 @@ export const FONTS: Font[] = [
     type: 'kt',
     typeName: '楷体',
     url: 'https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkaibright/dist/LXGWBright-Medium/result.css'
+  },
+  {
+    label: '上图东观体',
+    value: 'font-stdgt',
+    type: 'kt',
+    typeName: '楷体',
+    url: 'https://chinese-fonts-cdn.deno.dev/packages/stdgt/dist/%E4%B8%8A%E5%9B%BE%E4%B8%9C%E8%A7%82%E4%BD%93-%E7%B2%97%E4%BD%93/result.css'
   },
   {
     label: '润植家如印奏章楷',
@@ -183,6 +204,13 @@ export const FONTS: Font[] = [
     type: 'qt',
     typeName: '其他',
     url: 'https://chinese-fonts-cdn.deno.dev/packages/mzxst/dist/MZPXflat/result.css'
+  },
+  {
+    label: '平方萌萌哒',
+    value: 'font-pfmmd',
+    type: 'qt',
+    typeName: '其他',
+    url: 'https://chinese-fonts-cdn.deno.dev/packages/pfmmd/dist/%E5%B9%B3%E6%96%B9%E8%90%8C%E8%90%8C%E5%93%92/result.css'
   },
 ]
 
