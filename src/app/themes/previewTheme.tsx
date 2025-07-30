@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input'
 import { X, CirclePlus } from 'lucide-react'
 import pcBg from '../assets/images/pc.webp'
 import { CoverContext } from '../components/coverContext'
-import { getBackgroundStyle, hasBackgroundImage } from '../tools/backgroundUtils'
+import { getBackgroundStyle, shouldShowPattern } from '../tools/backgroundUtils'
 
 const PreviewTheme: React.FC<ThemeProps> = ({ config }) => {
   const { title, pattern, author, font, size, theme } = config
@@ -14,11 +14,11 @@ const PreviewTheme: React.FC<ThemeProps> = ({ config }) => {
   const [image, setImage] = useState<string | undefined>(undefined)
 
   const backgroundStyle = getBackgroundStyle(coverSetting.bg)
-  const hasImage = hasBackgroundImage(coverSetting.bg)
+  const showPattern = shouldShowPattern(coverSetting.bg)
 
   return (
     <div className={`w-full h-full flex flex-col overflow-hidden relative`} style={backgroundStyle}>
-      {!hasImage && <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern.value} ${pattern.isOpacity ? 'opacity-40' : ''}`} />}
+      {showPattern && <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern.value} ${pattern.isOpacity ? 'opacity-40' : ''}`} />}
       <div
         className={`${font.value} h-full flex flex-col items-center ${
           size.value.indexOf('vertical') >= 0 ? 'justify-center' : ''

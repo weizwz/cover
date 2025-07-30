@@ -217,7 +217,7 @@ const EditorSetting = () => {
                     <HelpCircle className='w-3 h-3 text-gray-400 hover:text-gray-600 cursor-help' />
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>纹理仅在纯色背景下生效</p>
+                    <p>纹理仅在纯色/渐变背景下生效</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>

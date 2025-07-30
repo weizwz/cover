@@ -2,7 +2,7 @@
 
 import { useContext } from 'react'
 import { CoverContext } from '../components/coverContext'
-import { getBackgroundStyle, hasBackgroundImage } from '../tools/backgroundUtils'
+import { getBackgroundStyle, shouldShowPattern } from '../tools/backgroundUtils'
 
 const iconifyHost = process.env.NEXT_PUBLIC_API_ICONIFY_URL
 
@@ -11,11 +11,11 @@ const OutlineTheme: React.FC<ThemeProps> = ({ config }) => {
   const { coverSetting } = useContext(CoverContext)
 
   const backgroundStyle = getBackgroundStyle(coverSetting.bg)
-  const hasImage = hasBackgroundImage(coverSetting.bg)
+  const showPattern = shouldShowPattern(coverSetting.bg)
 
   return (
     <div className={`w-full h-full text-white relative`} style={backgroundStyle}>
-      {!hasImage && <div className={`absolute w-full h-full ${pattern.value} ${pattern.isOpacity ? 'opacity-40' : ''}`} />}
+      {showPattern && <div className={`absolute w-full h-full ${pattern.value} ${pattern.isOpacity ? 'opacity-40' : ''}`} />}
       <div className={`w-full h-full p-24 pb-36 flex flex-col gap-6 justify-center relative z-10`}>
         <div className='items-center flex'>
           <img className='w-18 h-18' src={customIcon || `${iconifyHost}/${icon.value}.svg?color=%23fff`} alt={`${icon.label} icon`} />
