@@ -70,13 +70,6 @@ const GradientSelect: React.FC<GradientSelectProps> = ({ onGradientSelect }) => 
                     <Check className='w-4 h-4 text-white' />
                   </div>
                 )}
-
-                {/* 悬停效果 */}
-                <div className='absolute inset-0 bg-black/0 group-hover:bg-black/20 rounded-xl transition-all duration-300 flex items-center justify-center'>
-                  <div className='opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-gray-800'>
-                    点击选择
-                  </div>
-                </div>
               </div>
             )
           })}
