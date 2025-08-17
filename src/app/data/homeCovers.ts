@@ -73,7 +73,7 @@ export const HomeCovers = [
   {
     id: '3',
     name: 'demo3',
-    preview: 'https://p.weizwz.com/cover/ThisCover_20250817_162902_a07a6575e51c7e3f.webp',
+    preview: 'https://p.weizwz.com/cover/ThisCover_20250817_170842_0f88bd188cabcecc.webp',
     data: {
       title: 'OPPO主题组件开发',
       author: 'weizwz',
