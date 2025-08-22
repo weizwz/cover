@@ -9,7 +9,6 @@ import type { Options } from 'html2canvas-pro'
 
 import CenteredAlert from './common/centeredAlert'
 import { CoverContext } from './coverContext'
-import unsplash from '../config/unsplash'
 import { base64ToBlob, getFormattedDateTime } from '../tools/utils'
 
 const EditorToImg: React.FC<EditorToImgProps> = (props) => {
