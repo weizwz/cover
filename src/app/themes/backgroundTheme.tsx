@@ -36,7 +36,7 @@ const BackgroundTheme: React.FC<ThemeProps> = ({ config }) => {
               </Button>
             )}
 
-            <div className={`${font.value} h-full flex flex-col justify-center gap-6 pb-12 text-center text-white`}>
+            <div className={`${font.value} h-full flex flex-col justify-center gap-6 pb-10 text-center text-white`}>
               <div className='flex items-center justify-center'>
                 <img className='w-18 h-18' src={customIcon || `${iconifyHost}/${icon.value}.svg?color=%23fff`} alt={`${icon.label} icon`} />
               </div>

@@ -11,11 +11,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { CircleArrowRight } from 'lucide-react'
 
 import { Examples } from '../settings/examples'
+import { HomeCovers } from '../data/homeCovers'
 import { CoverContext } from './coverContext'
-
-import cover1 from '@/app/assets/images/ThisCover_20250523_171549.webp'
-import cover2 from '@/app/assets/images/ThisCover_20250523_173053.webp'
-import cover3 from '@/app/assets/images/ThisCover_20250523_180347.webp'
 
 export default function Main() {
   const router = useRouter()
@@ -41,19 +38,49 @@ export default function Main() {
         </Link>
         <div className='w-full max-w-360 flex flex-wrap justify-around px-4'>
           <div className='w-full md:w-1/4 h-fit transform duration-300 border hover:scale-110 hover:-rotate-3 rotate-6 bg-white p-2 shadow-lg shadow-gray-50 rounded-lg flex flex-col'>
-            <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={cover1} width={800} height={450} alt='ThisCover-1' />
-            <p className='animate animate-pulse bg-gray-100 md:h-5 h-2 rounded mb-2'></p>
-            <p className='animate animate-pulse w-1/3 bg-gray-100 md:h-5 h-2 rounded mb-2'></p>
+            <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={HomeCovers[0].preview} width={800} height={450} alt='ThisCover-1' />
+            <p className='w-full animate animate-pulse bg-gray-100 h-6 rounded mb-2'></p>
+            <div className='flex justify-between gap-2'>
+              <p className='w-2/3 animate animate-pulse bg-gray-100 h-6 rounded'></p>
+              <Button 
+                onClick={() => handleUseTemplate(HomeCovers[0].data)}
+                size='sm'
+                variant='outline'
+                className='w-1/3 h-6 rounded cursor-pointer border-gray-100 text-gray-400 hover:text-gray-500'
+              >
+                使用此模版
+              </Button>
+            </div>
           </div>
           <div className='w-full md:w-1/3 h-fit transform md:translate-y-4 hover:scale-110 duration-300 border bg-white p-4 shadow-lg shadow-gray-50 rounded-lg flex flex-col'>
-            <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={cover2} width={800} height={450} alt='ThisCover-2' />
-            <p className='animate animate-pulse bg-gray-100 md:h-5 h-2 rounded mb-2'></p>
-            <p className='animate animate-pulse w-1/4 bg-gray-100 md:h-5 h-2 rounded mb-2 m-auto'></p>
+            <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={HomeCovers[1].preview} width={800} height={450} alt='ThisCover-2' />
+            <p className='animate animate-pulse bg-gray-100 h-6 rounded mb-2'></p>
+            <div className='flex justify-end gap-2'>
+              <p className='w-1/3 animate animate-pulse bg-gray-100 h-6 rounded'></p>
+              <Button 
+                onClick={() => handleUseTemplate(HomeCovers[1].data)}
+                size='sm'
+                variant='outline'
+                className='w-1/3 h-6 rounded cursor-pointer border-gray-100 text-gray-400 hover:text-gray-500'
+              >
+                使用此模版
+              </Button>
+            </div>
           </div>
           <div className='w-full md:w-1/4 h-fit transform md:-translate-y-8 duration-300 hover:scale-110 hover:rotate-3 border -rotate-6 bg-white p-2 shadow-lg shadow-gray-50 rounded-lg flex flex-col '>
-            <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={cover3} width={600} height={600} alt='ThisCover-2' />
-            <p className='animate animate-pulse w-1/2 bg-gray-100 md:h-5 h-2 rounded mb-2'></p>
-            <p className='animate animate-pulse w-1/2 bg-gray-100 md:h-5 h-2 rounded mb-2'></p>
+            <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={HomeCovers[2].preview} width={600} height={600} alt='ThisCover-2' />
+            <p className='animate animate-pulse w-1/2 bg-gray-100 h-6 rounded mb-2'></p>
+            <div className='flex justify-between'>
+              <p className='w-1/2 animate animate-pulse bg-gray-100 h-6 rounded'></p>
+              <Button 
+                onClick={() => handleUseTemplate(HomeCovers[2].data)}
+                size='sm'
+                variant='outline'
+                className='flex-1 ml-2 h-6 rounded cursor-pointer border-gray-100 text-gray-400 hover:text-gray-500'
+              >
+                使用此模版
+              </Button>
+            </div>
           </div>
         </div>
       </section>
