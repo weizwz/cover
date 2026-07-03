@@ -204,8 +204,8 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
             </TooltipProvider>
           )}
         </div>
-        <div ref={componentRef} className='w-full pb-12 overflow-auto'>
-          {props.children}
+        <div className='w-full pb-12 overflow-auto'>
+          <div ref={componentRef}>{props.children}</div>
         </div>
         {showAlert && <CenteredAlert type={alertData?.type} title={alertData?.title} message={alertData?.message} onClose={handleClose} />}
       </div>
