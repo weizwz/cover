@@ -13,7 +13,7 @@ import { CoverContext } from './coverContext'
 
 const EditorImage = () => {
   const { coverSetting } = useContext(CoverContext)
-  
+
   const selectTheme = (theme: string) => {
     switch (theme) {
       case 'basic':
@@ -35,7 +35,7 @@ const EditorImage = () => {
     }
   }
 
-  return <div className={`${coverSetting.size.value}`}>{selectTheme(coverSetting.theme.value)}</div>
+  return <div className={`${coverSetting.size.value} mx-auto`}>{selectTheme(coverSetting.theme.value)}</div>
 }
 
 export default EditorImage

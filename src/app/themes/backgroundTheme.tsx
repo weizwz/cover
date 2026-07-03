@@ -27,8 +27,8 @@ const BackgroundTheme: React.FC<ThemeProps> = ({ config }) => {
                 variant='outline'
                 size='icon'
                 onClick={() =>
-                  setCoverSetting({ 
-                    ...coverSetting, 
+                  setCoverSetting({
+                    ...coverSetting,
                     bg: { ...coverSetting.bg, type: 'color', unsplashUrl: undefined }
                   })
                 }>
@@ -46,7 +46,7 @@ const BackgroundTheme: React.FC<ThemeProps> = ({ config }) => {
           </div>
         </div>
       ) : (
-        <div className={`${font.value} realtive w-full h-full flex flex-col justify-center gap-6 p-12 pb-22 text-center text-white`}>
+        <div className={`${font.value} relative w-full h-full flex flex-col justify-center gap-6 p-12 pb-22 text-center text-white`}>
           {showPattern && <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern.value} ${pattern.isOpacity ? 'opacity-40' : ''}`} />}
           <div className='flex items-center justify-center'>
             <img className='w-18 h-18' src={customIcon || `${iconifyHost}/${icon.value}.svg?color=%23fff`} alt={`${icon.label} icon`} />

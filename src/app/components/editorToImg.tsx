@@ -134,8 +134,8 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
 
   return (
     <React.Fragment>
-      <div className='relative'>
-        <div className='2xl:absolute 2xl:top-0 2xl:left-full px-4 pb-4 flex 2xl:flex-col gap-2'>
+      <div className='flex flex-col items-center'>
+        <div className='flex justify-center gap-2 mb-4'>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
@@ -173,7 +173,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
                     onClick={() => {
                       changeThemeAndSwapX()
                     }}>
-                    <ArrowRightLeft className={`${coverSetting.theme.swapX ? 'text-white' : ''} group-hover:text-white`}/>
+                    <ArrowRightLeft className={`${coverSetting.theme.swapX ? 'text-white' : ''} group-hover:text-white`} />
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
@@ -194,7 +194,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
                     onClick={() => {
                       changeThemeStretchY()
                     }}>
-                    <ImageUpscale className={`rotate-180 scale-x-[-1] ${coverSetting.theme.stretchY ? 'text-white' : ''} group-hover:text-white`}/>
+                    <ImageUpscale className={`rotate-180 scale-x-[-1] ${coverSetting.theme.stretchY ? 'text-white' : ''} group-hover:text-white`} />
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
@@ -204,7 +204,9 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
             </TooltipProvider>
           )}
         </div>
-        <div ref={componentRef}>{props.children}</div>
+        <div ref={componentRef} className='w-full pb-12 overflow-auto'>
+          {props.children}
+        </div>
         {showAlert && <CenteredAlert type={alertData?.type} title={alertData?.title} message={alertData?.message} onClose={handleClose} />}
       </div>
     </React.Fragment>
