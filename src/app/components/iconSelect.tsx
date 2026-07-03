@@ -61,8 +61,8 @@ const IconSelect = () => {
     setOpen(false)
   }
 
-  const handleInputChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const query = event.target.value
+  const handleInputChange = async (event: React.FormEvent<HTMLInputElement>) => {
+    const query = (event.target as HTMLInputElement).value
     setQuery(query)
     // 发起远程搜索请求
     throttledFetchSearchResults(query)
