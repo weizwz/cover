@@ -41,49 +41,49 @@ export const FONTS: Font[] = [
     value: 'font-ysbth',
     type: 'ht',
     typeName: '黑体',
-    url: 'https://chinese-fonts-cdn.deno.dev/packages/ysbth/dist/%E4%BC%98%E8%AE%BE%E6%A0%87%E9%A2%98%E9%BB%91/result.css'
+    url: 'https://cn-font.claude-code-best.win/packages/ysbth/dist/%E4%BC%98%E8%AE%BE%E6%A0%87%E9%A2%98%E9%BB%91/result.css'
   },
   {
     label: '思源宋体',
     value: 'font-syst',
     type: 'st',
     typeName: '宋体',
-    url: 'https://chinese-fonts-cdn.deno.dev/packages/syst/dist/SourceHanSerifCN/result.css'
+    url: 'https://cn-font.claude-code-best.win/packages/syst/dist/SourceHanSerifCN/result.css'
   },
   {
     label: '霞鹜新致宋',
     value: 'font-xwxzs',
     type: 'st',
     typeName: '宋体',
-    url: 'https://chinese-fonts-cdn.deno.dev/packages/LxgwNeoZhiSong/dist/LXGWNeoZhiSong/result.css'
+    url: 'https://cn-font.claude-code-best.win/packages/LxgwNeoZhiSong/dist/LXGWNeoZhiSong/result.css'
   },
   {
     label: '飞花宋体',
     value: 'font-fhst',
     type: 'st',
     typeName: '宋体',
-    url: 'https://chinese-fonts-cdn.deno.dev/packages/fhst/dist/%E9%A3%9E%E8%8A%B1%E5%AE%8B%E4%BD%93/result.css'
+    url: 'https://cn-font.claude-code-best.win/packages/fhst/dist/%E9%A3%9E%E8%8A%B1%E5%AE%8B%E4%BD%93/result.css'
   },
   {
     label: '京華老宋体',
     value: 'font-jhlst',
     type: 'st',
     typeName: '宋体',
-    url: 'https://chinese-fonts-cdn.deno.dev/packages/jhlst/dist/%E4%BA%AC%E8%8F%AF%E8%80%81%E5%AE%8B%E4%BD%93v2_002/result.css'
+    url: 'https://cn-font.claude-code-best.win/packages/jhlst/dist/%E4%BA%AC%E8%8F%AF%E8%80%81%E5%AE%8B%E4%BD%93v2_002/result.css'
   },
   {
     label: '朱雀仿宋',
     value: 'font-zqfs',
     type: 'st',
     typeName: '宋体',
-    url: 'https://chinese-fonts-cdn.deno.dev/packages/zqfs/dist/ZhuqueFangsong-Regular/result.css'
+    url: 'https://cn-font.claude-code-best.win/packages/zqfs/dist/ZhuqueFangsong-Regular/result.css'
   },
   {
     label: '汇文明朝体',
     value: 'font-hwmct',
     type: 'st',
     typeName: '宋体',
-    url: 'https://chinese-fonts-cdn.deno.dev/packages/hwmct/dist/%E6%B1%87%E6%96%87%E6%98%8E%E6%9C%9D%E4%BD%93/result.css'
+    url: 'https://cn-font.claude-code-best.win/packages/hwmct/dist/%E6%B1%87%E6%96%87%E6%98%8E%E6%9C%9D%E4%BD%93/result.css'
   },
   {
     label: '全字库正楷体',
@@ -104,21 +104,21 @@ export const FONTS: Font[] = [
     value: 'font-xwwk',
     type: 'kt',
     typeName: '楷体',
-    url: 'https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkaibright/dist/LXGWBright-Medium/result.css'
+    url: 'https://cn-font.claude-code-best.win/packages/lxgwwenkaibright/dist/LXGWBright-Medium/result.css'
   },
   {
     label: '上图东观体',
     value: 'font-stdgt',
     type: 'kt',
     typeName: '楷体',
-    url: 'https://chinese-fonts-cdn.deno.dev/packages/stdgt/dist/%E4%B8%8A%E5%9B%BE%E4%B8%9C%E8%A7%82%E4%BD%93-%E7%B2%97%E4%BD%93/result.css'
+    url: 'https://cn-font.claude-code-best.win/packages/stdgt/dist/%E4%B8%8A%E5%9B%BE%E4%B8%9C%E8%A7%82%E4%BD%93-%E7%B2%97%E4%BD%93/result.css'
   },
   {
     label: '润植家如印奏章楷',
     value: 'font-rzjryzzk',
     type: 'kt',
     typeName: '楷体',
-    url: 'https://chinese-fonts-cdn.deno.dev/packages/rzjryzzk/dist/nzgrRuYinZouZhangKai/result.css'
+    url: 'https://cn-font.claude-code-best.win/packages/rzjryzzk/dist/nzgrRuYinZouZhangKai/result.css'
   },
   {
     label: '澳声通拼音文楷',
@@ -126,21 +126,21 @@ export const FONTS: Font[] = [
     type: 'kt',
     typeName: '楷体',
     lineHeight: 'leading-[1.5]',
-    url: 'https://chinese-fonts-cdn.deno.dev/packages/ToneOZ-Pinyin-WenKai/dist/ToneOZ-Pinyin-WenKai-Bold/result.css'
+    url: 'https://cn-font.claude-code-best.win/packages/ToneOZ-Pinyin-WenKai/dist/ToneOZ-Pinyin-WenKai-Bold/result.css'
   },
   {
     label: '抖音美好体',
     value: 'font-dymht',
     type: 'yt',
     typeName: '圆体',
-    url: 'https://chinese-fonts-cdn.deno.dev/packages/dymh/dist/DouyinSansBold/result.css'
+    url: 'https://cn-font.claude-code-best.win/packages/dymh/dist/DouyinSansBold/result.css'
   },
   {
     label: '寒蝉全圆体',
     value: 'font-hcqyt',
     type: 'yt',
     typeName: '圆体',
-    url: 'https://chinese-fonts-cdn.deno.dev/packages/hcqyt/dist/ChillRoundFRegular/result.css'
+    url: 'https://cn-font.claude-code-best.win/packages/hcqyt/dist/ChillRoundFRegular/result.css'
   },
   {
     label: '文源圆体',
@@ -154,21 +154,21 @@ export const FONTS: Font[] = [
     value: 'font-mkzyt',
     type: 'yt',
     typeName: '圆体',
-    url: 'https://chinese-fonts-cdn.deno.dev/packages/mkzyt/dist/%E7%8C%AB%E5%95%83%E7%8F%A0%E5%9C%86%E4%BD%93/result.css'
+    url: 'https://cn-font.claude-code-best.win/packages/mkzyt/dist/%E7%8C%AB%E5%95%83%E7%8F%A0%E5%9C%86%E4%BD%93/result.css'
   },
   {
     label: 'Maple Mono',
     value: 'font-mm',
     type: 'qt',
     typeName: '其他',
-    url: 'https://chinese-fonts-cdn.deno.dev/packages/maple-mono-cn/dist/MapleMono-CN-Regular/result.css'
+    url: 'https://cn-font.claude-code-best.win/packages/maple-mono-cn/dist/MapleMono-CN-Regular/result.css'
   },
   {
     label: '得意黑',
     value: 'font-dyh',
     type: 'qt',
     typeName: '其他',
-    url: 'https://chinese-fonts-cdn.deno.dev/packages/dyh/dist/SmileySans-Oblique/result.css'
+    url: 'https://cn-font.claude-code-best.win/packages/dyh/dist/SmileySans-Oblique/result.css'
   },
   {
     label: '霞鹜漫黑',
@@ -182,7 +182,7 @@ export const FONTS: Font[] = [
     value: 'font-yqt',
     type: 'qt',
     typeName: '其他',
-    url: 'https://chinese-fonts-cdn.deno.dev/packages/yqt/dist/ChildFunSans-Demo/result.css'
+    url: 'https://cn-font.claude-code-best.win/packages/yqt/dist/ChildFunSans-Demo/result.css'
   },
   {
     label: '云峰飞云体',
@@ -196,26 +196,26 @@ export const FONTS: Font[] = [
     value: 'font-yzgcxst',
     type: 'qt',
     typeName: '其他',
-    url: 'https://chinese-fonts-cdn.deno.dev/packages/yzgcxst/dist/%E4%B9%9F%E5%AD%97%E5%B7%A5%E5%8E%82%E5%B0%8F%E7%9F%B3%E5%A4%B4/result.css'
+    url: 'https://cn-font.claude-code-best.win/packages/yzgcxst/dist/%E4%B9%9F%E5%AD%97%E5%B7%A5%E5%8E%82%E5%B0%8F%E7%9F%B3%E5%A4%B4/result.css'
   },
   {
     label: '目哉像素体',
     value: 'font-mzxst',
     type: 'qt',
     typeName: '其他',
-    url: 'https://chinese-fonts-cdn.deno.dev/packages/mzxst/dist/MZPXflat/result.css'
+    url: 'https://cn-font.claude-code-best.win/packages/mzxst/dist/MZPXflat/result.css'
   },
   {
     label: '平方萌萌哒',
     value: 'font-pfmmd',
     type: 'qt',
     typeName: '其他',
-    url: 'https://chinese-fonts-cdn.deno.dev/packages/pfmmd/dist/%E5%B9%B3%E6%96%B9%E8%90%8C%E8%90%8C%E5%93%92/result.css'
-  },
+    url: 'https://cn-font.claude-code-best.win/packages/pfmmd/dist/%E5%B9%B3%E6%96%B9%E8%90%8C%E8%90%8C%E5%93%92/result.css'
+  }
 ]
 
 class FontLoader {
-  private loadedFonts: Set<string>;
+  private loadedFonts: Set<string>
 
   constructor() {
     this.loadedFonts = new Set()
