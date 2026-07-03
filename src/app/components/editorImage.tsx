@@ -35,7 +35,7 @@ const EditorImage = () => {
     }
   }
 
-  return <div className={`${coverSetting.size.value} mx-auto`}>{selectTheme(coverSetting.theme.value)}</div>
+  return <div className={`${coverSetting.size.value}`}>{selectTheme(coverSetting.theme.value)}</div>
 }
 
 export default EditorImage

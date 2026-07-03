@@ -134,8 +134,8 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
 
   return (
     <React.Fragment>
-      <div className='flex flex-col items-center'>
-        <div className='flex justify-center gap-2 mb-4'>
+      <div className='relative'>
+        <div className='2xl:absolute 2xl:top-0 2xl:left-full px-4 pb-4 flex 2xl:flex-col gap-2'>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
@@ -204,9 +204,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
             </TooltipProvider>
           )}
         </div>
-        <div className='w-full pb-12 overflow-auto'>
-          <div ref={componentRef}>{props.children}</div>
-        </div>
+        <div ref={componentRef}>{props.children}</div>
         {showAlert && <CenteredAlert type={alertData?.type} title={alertData?.title} message={alertData?.message} onClose={handleClose} />}
       </div>
     </React.Fragment>
