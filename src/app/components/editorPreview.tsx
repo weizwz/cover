@@ -1,7 +1,7 @@
 'use client'
 
-import EditorImage from "./editorImage"
-import EditorToImg from "./editorToImg"
+import EditorImage from './editorImage'
+import EditorToImg from './editorToImg'
 
 const EditorPreview = () => {
   return (

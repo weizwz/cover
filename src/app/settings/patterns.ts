@@ -41,6 +41,13 @@ export const PATTERNS: Pattern[] = [
     isOpacity: true
   },
   {
+    label: '点点点',
+    value: 'dots',
+    type: 'basic',
+    typeName: '基础',
+    isOpacity: true
+  },
+  {
     label: '叉号集',
     value: 'hideout',
     type: 'basic',

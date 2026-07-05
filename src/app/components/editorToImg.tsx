@@ -173,7 +173,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
                     onClick={() => {
                       changeThemeAndSwapX()
                     }}>
-                    <ArrowRightLeft className={`${coverSetting.theme.swapX ? 'text-white' : ''} group-hover:text-white`}/>
+                    <ArrowRightLeft className={`${coverSetting.theme.swapX ? 'text-white' : ''} group-hover:text-white`} />
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
@@ -194,7 +194,7 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
                     onClick={() => {
                       changeThemeStretchY()
                     }}>
-                    <ImageUpscale className={`rotate-180 scale-x-[-1] ${coverSetting.theme.stretchY ? 'text-white' : ''} group-hover:text-white`}/>
+                    <ImageUpscale className={`rotate-180 scale-x-[-1] ${coverSetting.theme.stretchY ? 'text-white' : ''} group-hover:text-white`} />
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>

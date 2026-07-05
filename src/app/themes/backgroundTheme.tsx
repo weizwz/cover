@@ -27,8 +27,8 @@ const BackgroundTheme: React.FC<ThemeProps> = ({ config }) => {
                 variant='outline'
                 size='icon'
                 onClick={() =>
-                  setCoverSetting({ 
-                    ...coverSetting, 
+                  setCoverSetting({
+                    ...coverSetting,
                     bg: { ...coverSetting.bg, type: 'color', unsplashUrl: undefined }
                   })
                 }>
@@ -46,13 +46,15 @@ const BackgroundTheme: React.FC<ThemeProps> = ({ config }) => {
           </div>
         </div>
       ) : (
-        <div className={`${font.value} realtive w-full h-full flex flex-col justify-center gap-6 p-12 pb-22 text-center text-white`}>
+        <div className={`${font.value} relative w-full h-full p-24 pb-34 text-center text-white`}>
           {showPattern && <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern.value} ${pattern.isOpacity ? 'opacity-40' : ''}`} />}
-          <div className='flex items-center justify-center'>
-            <img className='w-18 h-18' src={customIcon || `${iconifyHost}/${icon.value}.svg?color=%23fff`} alt={`${icon.label} icon`} />
+          <div className={`h-full flex flex-col justify-center gap-6 relative z-10`}>
+            <div className='flex items-center justify-center'>
+              <img className='w-18 h-18' src={customIcon || `${iconifyHost}/${icon.value}.svg?color=%23fff`} alt={`${icon.label} icon`} />
+            </div>
+            <div className={`text-5xl ${font?.lineHeight || 'leading-14'} font-bold text-shadow-lg text-shadow-black`}>{title}</div>
+            <div className={`text-2xl font-semibold text-shadow-sm text-shadow-black ${author.trim() === '' && 'hidden'}`}>{author}</div>
           </div>
-          <div className={`text-5xl ${font?.lineHeight || 'leading-14'} font-bold text-shadow-lg text-shadow-black`}>{title}</div>
-          <div className={`text-2xl font-semibold text-shadow-sm text-shadow-black ${author.trim() === '' && 'hidden'}`}>{author}</div>
         </div>
       )}
     </div>

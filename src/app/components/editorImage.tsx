@@ -13,7 +13,7 @@ import { CoverContext } from './coverContext'
 
 const EditorImage = () => {
   const { coverSetting } = useContext(CoverContext)
-  
+
   const selectTheme = (theme: string) => {
     switch (theme) {
       case 'basic':
