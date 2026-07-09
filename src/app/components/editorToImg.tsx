@@ -91,6 +91,32 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
       foreignObjectRendering: false,
       ignoreElements: (element) => {
         return element.classList.contains('ignore')
+      },
+      onclone: (document) => {
+        const elements = document.querySelectorAll('*')
+        for (let i = 0; i < elements.length; i++) {
+          const el = elements[i] as HTMLElement
+          if (el.style && el.style.backgroundImage && el.style.backgroundImage.includes('url(')) {
+            const match = el.style.backgroundImage.match(/url\(['"]?(.*?)['"]?\)/)
+            if (match && match[1] && match[1].startsWith('http')) {
+              try {
+                const url = new URL(match[1])
+                url.searchParams.set('_t', new Date().getTime().toString())
+                el.style.backgroundImage = `url("${url.toString()}")`
+              } catch (e) {}
+            }
+          }
+          if (el.tagName && el.tagName.toLowerCase() === 'img') {
+            const imgEl = el as HTMLImageElement
+            if (imgEl.src && imgEl.src.startsWith('http')) {
+              try {
+                const url = new URL(imgEl.src)
+                url.searchParams.set('_t', new Date().getTime().toString())
+                imgEl.src = url.toString()
+              } catch (e) {}
+            }
+          }
+        }
       }
     }
 
