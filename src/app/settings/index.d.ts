@@ -61,6 +61,8 @@ interface Setting {
   theme: Theme
   font: Font
   bg: Background
+  bgBlur: number
+  bgGrayscale: number
   pattern: Pattern
   size: Size
 }

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" class="light" style="">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">try {
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "secondary-fixed-dim": "#bec6e0",
+              "outline-variant": "#c7c4d7",
+              "on-primary-fixed-variant": "#2f2ebe",
+              "tertiary-container": "#727577",
+              "tertiary-fixed": "#e0e3e5",
+              "secondary-fixed": "#dae2fd",
+              "on-primary-container": "#fffbff",
+              "on-tertiary-container": "#fbfdff",
+              "error-container": "#ffdad6",
+              "surface-variant": "#d3e4fe",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed": "#07006c",
+              "on-surface": "#0b1c30",
+              "on-secondary": "#ffffff",
+              "primary-fixed": "#e1e0ff",
+              "inverse-surface": "#213145",
+              "surface-container-high": "#dce9ff",
+              "on-secondary-container": "#5c647a",
+              "surface-bright": "#f8f9ff",
+              "surface": "#f8f9ff",
+              "secondary-container": "#dae2fd",
+              "on-error-container": "#93000a",
+              "inverse-primary": "#c0c1ff",
+              "primary": "#4648d4",
+              "error": "#ba1a1a",
+              "outline": "#767586",
+              "background": "#f8f9ff",
+              "primary-fixed-dim": "#c0c1ff",
+              "tertiary-fixed-dim": "#c4c7c9",
+              "on-tertiary-fixed-variant": "#444749",
+              "on-error": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "primary-container": "#6063ee",
+              "surface-container-highest": "#d3e4fe",
+              "on-secondary-fixed-variant": "#3f465c",
+              "on-surface-variant": "#464554",
+              "on-tertiary-fixed": "#191c1e",
+              "inverse-on-surface": "#eaf1ff",
+              "surface-dim": "#cbdbf5",
+              "surface-container": "#e5eeff",
+              "on-secondary-fixed": "#131b2e",
+              "surface-container-low": "#eff4ff",
+              "tertiary": "#595c5e",
+              "surface-tint": "#494bd6",
+              "secondary": "#565e74",
+              "on-background": "#0b1c30",
+              "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            "spacing": {
+              "margin": "32px",
+              "max-width": "1440px",
+              "lg": "48px",
+              "sm": "12px",
+              "xs": "4px",
+              "md": "24px",
+              "xl": "80px",
+              "gutter": "24px",
+              "base": "8px"
+            },
+            "fontFamily": {
+              "headline-xl": ["Plus Jakarta Sans"],
+              "headline-lg": ["Plus Jakarta Sans"],
+              "body-lg": ["Inter"],
+              "label-sm": ["Inter"],
+              "title-md": ["Plus Jakarta Sans"],
+              "body-md": ["Inter"]
+            },
+            "fontSize": {
+              "headline-xl": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+              "headline-lg": ["30px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+              "body-lg": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+              "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+              "title-md": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+              "body-md": ["14px", { "lineHeight": "1.6", "fontWeight": "400" }]
+            }
+          },
+        },
+      }
+    } catch (_e) { }</script>
+  <meta charset="utf-8">
+</head>
+
+<body class="font-body-md text-body-md">
+  <!-- TopNavBar -->
+  <header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-md h-16 bg-surface dark:bg-surface-dim shadow-sm">
+    <div class="flex items-center gap-base">
+      <span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;" data-original-icon="auto_awesome">auto_awesome</span>
+      <h1 class="text-title-md font-headline-xl tracking-tight text-on-surface dark:text-surface-bright">ThisCover</h1>
+    </div>
+    <div class="flex items-center gap-md">
+      <button class="bg-primary hover:bg-primary-container text-on-primary px-4 py-2 rounded-full font-label-sm text-label-sm flex items-center gap-base transition-all scale-95 active:scale-90">
+        <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+        Star on GitHub
+      </button>
+    </div>
+  </header>
+  <main class="pt-16 min-h-screen flex">
+    <!-- Left SideNavBar (Configuration) -->
+    <aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-[380px] bg-surface-container-lowest border-r border-outline-variant overflow-y-auto custom-scrollbar p-md flex flex-col gap-md z-40 pb-24">
+      <div>
+        <h2 class="font-headline-lg text-headline-lg text-primary mb-1">Configuration</h2>
+      </div>
+      <div class="bg-white rounded-xl p-4 border border-outline-variant/30 shadow-sm flex flex-col gap-4">
+        <h3 class="font-title-md text-title-md text-on-surface">Basic Info (基础信息)</h3>
+        <div class="flex flex-col gap-1"><label class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Title (标题)</label><textarea class="w-full bg-surface-container-low border-outline-variant rounded-lg p-3 text-body-md focus:ring-2 focus:ring-primary focus:border-primary transition-all resize-none" rows="2">免费、漂亮的封面生成器</textarea></div>
+        <div class="flex flex-col gap-1"><label class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Author (作者)</label><input class="w-full bg-surface-container-low border-outline-variant rounded-lg p-3 text-body-md focus:ring-2 focus:ring-primary focus:border-primary transition-all" type="text" value="唯知笔记"></div>
+        <div class="flex flex-col gap-1"><label class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Font (字体)</label><select class="bg-surface-container-low border-outline-variant rounded-lg p-2 text-body-md focus:ring-primary">
+            <option>Plus Jakarta Sans</option>
+            <option>Inter</option>
+            <option>Noto Sans SC</option>
+          </select></div>
+      </div>
+      <div class="bg-white rounded-xl p-4 border border-outline-variant/30 shadow-sm flex flex-col gap-4">
+        <h3 class="font-title-md text-title-md text-on-surface">Graphic Settings (图形设置)</h3>
+        <div class="flex flex-col gap-1"><label class="font-label-sm text-label-sm text-outline">Icon (图标)</label>
+          <div class="flex gap-2"><select class="flex-1 bg-surface-container-low border-outline-variant rounded-lg p-2 text-body-md">
+              <option>Search Icons...</option>
+            </select><button class="bg-secondary-container text-on-secondary-container px-3 py-1.5 rounded-lg font-label-sm text-label-sm hover:bg-secondary-fixed transition-colors"><span class="material-symbols-outlined text-[18px]">upload</span></button></div>
+        </div>
+        <div class="flex flex-col gap-1"><label class="font-label-sm text-label-sm text-outline">Background (背景)</label>
+          <div class="grid grid-cols-4 gap-2"><button class="bg-surface-container p-2 rounded-lg hover:bg-surface-container-high flex items-center justify-center" title="Color"><span class="material-symbols-outlined text-[20px]">palette</span></button><button class="bg-surface-container p-2 rounded-lg hover:bg-surface-container-high flex items-center justify-center" title="Gradient"><span class="material-symbols-outlined text-[20px]">gradient</span></button><button
+                    class="bg-surface-container p-2 rounded-lg hover:bg-surface-container-high flex items-center justify-center" title="Online Image"><span class="material-symbols-outlined text-[20px]">image_search</span></button><button class="bg-surface-container p-2 rounded-lg hover:bg-surface-container-high flex items-center justify-center" title="Upload"><span class="material-symbols-outlined text-[20px]">upload_file</span></button></div>
+        </div>
+        <div class="flex flex-col gap-1"><label class="font-label-sm text-label-sm text-outline">Texture (背景纹理)</label><select class="bg-surface-container-low border-outline-variant rounded-lg p-2 text-body-md">
+            <option>None</option>
+            <option>Grainy</option>
+            <option>Dots</option>
+            <option>Lines</option>
+          </select></div>
+        <div class="flex flex-col gap-1"><label class="font-label-sm text-label-sm text-outline">Blur (背景模糊)</label><input class="w-full accent-primary h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer" type="range" min="0" max="100" value="0"></div>
+        <div class="flex flex-col gap-1"><label class="font-label-sm text-label-sm text-outline">Grayscale (背景灰度)</label><input class="w-full accent-primary h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer" type="range" min="0" max="100" value="0"></div>
+      </div>
+      <div class="bg-white rounded-xl p-4 border border-outline-variant/30 shadow-sm flex flex-col gap-4 mb-8">
+        <h3 class="font-title-md text-title-md text-on-surface">Export Options (导出选项)</h3>
+        <div class="flex flex-col gap-1"><label class="font-label-sm text-label-sm text-outline">Size (尺寸)</label><select class="bg-surface-container-low border-outline-variant rounded-lg p-2 text-body-md">
+            <option>1:1 (Social Media)</option>
+            <option>16:9 (HD Desktop)</option>
+            <option>9:16 (Story)</option>
+          </select></div>
+        <div class="flex flex-col gap-1"><label class="font-label-sm text-label-sm text-outline">Format (格式)</label><select class="bg-surface-container-low border-outline-variant rounded-lg p-2 text-body-md">
+            <option>PNG</option>
+            <option>JPG</option>
+            <option>WebP</option>
+          </select></div>
+        <div class="flex flex-col gap-1"><label class="font-label-sm text-label-sm text-outline">Scale (缩放倍率)</label><input class="w-full accent-primary h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer" type="range" min="1" max="5" step="1" value="2"></div>
+      </div>
+      <div class="bottom-0 left-0 w-full bg-white/80 backdrop-blur-[1px] border-t border-outline-variant/30 p-4 flex gap-2 z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] sticky"><button class="flex-1 py-2 bg-primary text-white rounded-lg font-label-sm text-label-sm hover:brightness-110 transition-all flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[18px]">save</span> Save</button><button
+                class="flex-1 py-2 bg-slate-100 text-on-surface rounded-lg font-label-sm text-label-sm hover:bg-slate-200 transition-all flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[18px]">casino</span> Random</button><button class="flex-1 py-2 bg-slate-100 text-on-surface rounded-lg font-label-sm text-label-sm hover:bg-slate-200 transition-all flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[18px]">restart_alt</span>
+          Reset</button></div>
+    </aside>
+    <!-- Preview Area -->
+    <section class="flex-1 ml-[380px] mr-[260px] flex flex-col items-center justify-center p-lg relative bg-background">
+      <div class="w-full max-w-4xl flex flex-col items-center">
+        <div class="mb-gutter text-center">
+          <h4 class="font-title-md text-title-md text-on-surface-variant mb-2">Live Preview</h4>
+
+        </div>
+        <!-- Main Canvas -->
+        <div class="relative group">
+          <!-- Preview Container -->
+          <div class="aspect-square w-[560px] rounded-2xl shadow-2xl overflow-hidden border border-outline-variant/20 relative transition-transform duration-500 hover:scale-[1.01] bg-transparent">
+            <div class="absolute inset-0 z-0">
+              <img class="w-full h-full object-cover" data-alt="A cinematic mountain landscape at dusk with snowy peaks catching the last rays of crimson sunlight. Deep shadows are falling in the valleys below, creating a dramatic high-contrast scene. The overall atmosphere is moody, majestic, and high-end, utilizing a palette of deep navy, charcoal, and vibrant burnt orange highlights. Professional photography style."
+                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS6gM4NmStbKqUTOnXiJyZOUVqMPBzB76FhcvPLcTcAUAKhhP8VnL1ZhsrbkVJ4mtuFtJ5P6Ao5JJXVHhCBHYM2YEXMujxLPpzp2-jfRGWgi2l-f9VPjCn5wKv_lH0vOxZEMwbIIkaPxjERzTcXI9gsTpohrWNd_WqnaLVxUHrjyz8QlKw3nXflOr_UI2vCQW6VICJ_VKdfuRF6ZhLAGPBz_m4FHaYLC2pMBkIWE4slTv9zSMP5_AeSFoQr4plhXxB3ujglEEBeDWG">
+            </div>
+            <div class="absolute inset-0 bg-black/30 backdrop-blur-[1px] z-10 flex flex-col items-center justify-center text-center p-md">
+              <!-- Icon -->
+              <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-md shadow-lg">
+                <span class="text-headline-xl font-headline-xl text-on-surface">C</span>
+              </div>
+              <!-- Title -->
+              <h2 class="text-white font-headline-xl text-headline-xl leading-tight mb-md max-w-sm">免费、漂亮的封面生成器</h2>
+              <!-- Author -->
+              <p class="text-white/80 font-body-lg text-body-lg tracking-wide uppercase">唯知笔记</p>
+            </div>
+            <!-- Grain Overlay -->
+            <div class="absolute inset-0 pointer-events-none opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] z-20"></div>
+          </div>
+          <!-- Floating Actions -->
+          <div class="absolute -right-16 top-0 flex flex-col gap-3"><button class="w-12 h-12 bg-white rounded-xl shadow-lg border border-outline-variant/20 flex items-center justify-center text-on-surface hover:text-primary hover:scale-110 transition-all">
+              <span class="material-symbols-outlined">download</span>
+            </button>
+            <button class="w-12 h-12 bg-white rounded-xl shadow-lg border border-outline-variant/20 flex items-center justify-center text-on-surface hover:text-primary hover:scale-110 transition-all">
+              <span class="material-symbols-outlined">content_copy</span>
+            </button>
+            <button class="w-12 h-12 bg-white rounded-xl shadow-lg border border-outline-variant/20 flex items-center justify-center text-on-surface hover:text-primary hover:scale-110 transition-all">
+              <span class="material-symbols-outlined">share</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Right SideNavBar (Themes) -->
+    <aside class="fixed right-0 top-16 h-[calc(100vh-64px)] w-[260px] bg-surface-container-lowest border-l border-outline-variant p-md flex flex-col gap-md z-40">
+      <div>
+        <h2 class="font-headline-lg text-headline-lg text-primary mb-1">Themes</h2>
+      </div>
+      <div class="grid grid-cols-2 gap-3 overflow-y-auto custom-scrollbar"><button class="group flex flex-col gap-2 p-1 focus:outline-none">
+          <div class="aspect-square bg-surface-container rounded-lg border border-outline-variant group-hover:scale-[1.02] transition-transform flex items-center justify-center relative overflow-hidden bg-transparent">
+            <div class="w-full h-1/2 bg-white absolute bottom-0 shadow-sm"></div><span class="material-symbols-outlined text-primary text-3xl z-10" data-original-icon="auto_awesome">auto_awesome</span>
+          </div><span class="text-center font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary transition-colors">Clean</span>
+        </button><button class="group flex flex-col gap-2 p-1 focus:outline-none">
+          <div class="aspect-square bg-primary-container/10 rounded-lg border-2 border-primary flex items-center justify-center relative ring-2 ring-primary ring-offset-2 bg-transparent">
+            <div class="absolute -top-2 -right-2 w-6 h-6 bg-primary rounded-full flex items-center justify-center shadow-sm z-20">
+              <span class="material-symbols-outlined text-white text-[16px] font-bold">check</span>
+            </div>
+            <span class="material-symbols-outlined text-primary text-3xl">layers</span>
+          </div><span class="text-center font-label-sm text-label-sm text-primary font-bold">Modern</span>
+        </button><button class="group flex flex-col gap-2 p-1 focus:outline-none">
+          <div class="aspect-square bg-surface-container rounded-lg border border-outline-variant group-hover:scale-[1.02] transition-transform flex items-center justify-center opacity-80 group-hover:opacity-100 bg-transparent"><span class="material-symbols-outlined text-outline text-3xl" data-original-icon="history_edu">history_edu</span></div><span class="text-center font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary">Classic</span>
+        </button><button class="group flex flex-col gap-2 p-1 focus:outline-none">
+          <div class="aspect-square bg-surface-container rounded-lg border border-outline-variant group-hover:scale-[1.02] transition-transform flex items-center justify-center opacity-80 group-hover:opacity-100 overflow-hidden relative bg-transparent">
+            <div class="absolute inset-0 bg-gradient-to-br from-indigo-200 to-purple-200"></div><span class="material-symbols-outlined text-on-surface-variant text-3xl relative z-10">image</span>
+          </div><span class="text-center font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary">Background</span>
+        </button><button class="group flex flex-col gap-2 p-1 focus:outline-none">
+          <div class="aspect-square bg-surface-container rounded-lg border border-outline-variant group-hover:scale-[1.02] transition-transform flex items-center justify-center opacity-80 group-hover:opacity-100 bg-transparent"><span class="material-symbols-outlined text-outline text-3xl">grid_view</span></div><span class="text-center font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary">Graphic</span>
+        </button><button class="group flex flex-col gap-2 p-1 focus:outline-none">
+          <div class="aspect-square bg-surface-container rounded-lg border border-outline-variant group-hover:scale-[1.02] transition-transform flex items-center justify-center opacity-80 group-hover:opacity-100 bg-transparent"><span class="material-symbols-outlined text-outline text-3xl">desktop_windows</span></div><span class="text-center font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary">Desktop</span>
+        </button><button class="group flex flex-col gap-2 p-1 focus:outline-none">
+          <div class="aspect-square bg-surface-container rounded-lg border border-outline-variant group-hover:scale-[1.02] transition-transform flex items-center justify-center opacity-80 group-hover:opacity-100 bg-transparent"><span class="material-symbols-outlined text-outline text-3xl">smartphone</span></div><span class="text-center font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary">Mobile</span>
+        </button></div>
+      <div class="mt-auto bg-primary-container/10 p-4 rounded-xl border border-primary/20">
+        <div class="flex items-start gap-3"><span class="material-symbols-outlined text-primary">lightbulb</span>
+          <div class="flex flex-col gap-1">
+            <p class="font-title-md text-[14px] text-on-primary-fixed-variant">Pro Tip</p>
+            <p class="text-label-sm text-secondary-container text-on-secondary-container">Hold Shift while dragging to snap text to the grid system for a pixel-perfect design.</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+  <!-- Interactive Micro-interactions -->
+  <script>
+    document.querySelectorAll('button, select, input[type="range"]').forEach(el => {
+      el.addEventListener('mousedown', () => el.classList.add('scale-95'))
+      el.addEventListener('mouseup', () => el.classList.remove('scale-95'))
+      el.addEventListener('mouseleave', () => el.classList.remove('scale-95'))
+    })
+
+    // Simple switch toggle effect
+    const toggleBtn = document.querySelector('aside button.w-10')
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        const knob = toggleBtn.querySelector('span')
+        if (toggleBtn.classList.contains('bg-primary')) {
+          toggleBtn.classList.remove('bg-primary')
+          toggleBtn.classList.add('bg-slate-300')
+          knob.style.right = 'auto'
+          knob.style.left = '4px'
+        } else {
+          toggleBtn.classList.add('bg-primary')
+          toggleBtn.classList.remove('bg-slate-300')
+          knob.style.left = 'auto'
+          knob.style.right = '4px'
+        }
+      })
+    }
+  </script>
+
+
+
+</body>
+
+</html>

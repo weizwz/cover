@@ -61,7 +61,7 @@ export const Examples = [
       font: { label: '系统默认', value: 'font-default', type: 'ht', typeName: '黑体', url: '' },
       bg: { color: '#ff2442', type: 'color' as const },
       pattern: { label: '甜点', value: 'dessert', type: 'pattern', typeName: '图案', isOpacity: true },
-      size: { label: '等比 1:1（小红书）', value: 'square vertical1-1 horizontal1-1' }
+      size: { label: '等比 1:1（小红书、公众号）', value: 'square vertical1-1 horizontal1-1' }
     }
   },
   {
@@ -89,7 +89,13 @@ export const Examples = [
           blurHeight: 5
         }
       },
-      font: { label: '抖音美好体', value: 'font-dymht', type: 'yt', typeName: '圆体', url: 'https://chinese-fonts-cdn.deno.dev/packages/dymh/dist/DouyinSansBold/result.css' },
+      font: {
+        label: '抖音美好体',
+        value: 'font-dymht',
+        type: 'yt',
+        typeName: '圆体',
+        url: 'https://chinese-fonts-cdn.deno.dev/packages/dymh/dist/DouyinSansBold/result.css'
+      },
       bg: {
         color: '#a3b3ff',
         type: 'unsplash' as const,
@@ -198,7 +204,7 @@ export const Examples = [
       font: { label: '霞鹜漫黑', value: 'font-xwmh', type: 'qt', typeName: '其他', url: 'https://fontsapi.zeoseven.com/134/main/result.css' },
       bg: { color: '#33bea6', type: 'color' as const },
       pattern: { label: '叉号集', value: 'hideout', type: 'basic', typeName: '基础', isOpacity: true },
-      size: { label: '等比 1:1（小红书）', value: 'square vertical1-1 horizontal1-1' }
+      size: { label: '等比 1:1（小红书、公众号）', value: 'square vertical1-1 horizontal1-1' }
     }
   },
 
@@ -261,7 +267,13 @@ export const Examples = [
         swapX: false,
         stretchY: true
       },
-      font: { label: '抖音美好体', value: 'font-dymht', type: 'yt', typeName: '圆体', url: 'https://chinese-fonts-cdn.deno.dev/packages/dymh/dist/DouyinSansBold/result.css' },
+      font: {
+        label: '抖音美好体',
+        value: 'font-dymht',
+        type: 'yt',
+        typeName: '圆体',
+        url: 'https://chinese-fonts-cdn.deno.dev/packages/dymh/dist/DouyinSansBold/result.css'
+      },
       bg: {
         color: '#b36548',
         type: 'unsplash' as const,
@@ -269,7 +281,7 @@ export const Examples = [
           'https://images.unsplash.com/photo-1660066543518-57247c9fc76a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MTQ0NTh8MHwxfHNlYXJjaHw2Nnx8V2lkZ2V0cyUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzUzODM0NDYyfDA&ixlib=rb-4.1.0&q=80&w=1080'
       },
       pattern: { label: '无', value: 'none', type: 'basic', typeName: '基础' },
-      size: { label: '等比 1:1（小红书）', value: 'square vertical1-1 horizontal1-1' }
+      size: { label: '等比 1:1（小红书、公众号）', value: 'square vertical1-1 horizontal1-1' }
     }
   }
 ]

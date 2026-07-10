@@ -98,7 +98,7 @@ export const HomeCovers = [
       font: { label: '霞鹜漫黑', value: 'font-xwmh', type: 'qt', typeName: '其他', url: 'https://fontsapi.zeoseven.com/134/main/result.css' },
       bg: { color: '#0c9e38', type: 'color' as const },
       pattern: { label: '无', value: 'none', type: 'basic', typeName: '基础' },
-      size: { label: '等比 1:1（小红书）', value: 'square vertical1-1 horizontal1-1' }
+      size: { label: '等比 1:1（小红书、公众号）', value: 'square vertical1-1 horizontal1-1' }
     }
   }
 ]

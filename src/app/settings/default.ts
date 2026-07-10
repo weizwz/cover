@@ -22,6 +22,8 @@ export const DEFAULT_SETTING: Setting = {
   theme: THEMES[0],
   font: FONTS[0],
   bg: { ...BACKGROUNDS_RANDOM[0] },
+  bgBlur: 0,
+  bgGrayscale: 0,
   pattern: PATTERNS[0],
   size: SIZES[0]
 }

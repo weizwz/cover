@@ -1,6 +1,6 @@
 export const SIZES: Size[] = [
   {
-    label: '等比 1:1（小红书）',
+    label: '等比 1:1（小红书、公众号）',
     value: 'square vertical1-1 horizontal1-1'
   },
   {
