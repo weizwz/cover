@@ -115,7 +115,7 @@ const IconSelect = () => {
     <div className='flex-1 flex items-center justify-between gap-2 overflow-hidden'>
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
-          <Button variant='outline' role='combobox' aria-expanded={open} className='flex-1 justify-between'>
+          <Button variant='outline' role='combobox' aria-expanded={open} className='flex-1 justify-between bg-indigo-50/50!'>
             <FormatOptionLabel icon={selectItem} />
             <ChevronDown className='opacity-50' />
           </Button>

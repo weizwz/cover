@@ -166,41 +166,70 @@ const EditorSetting = () => {
   }
 
   return (
-    <div className='flex flex-col h-full bg-surface-container-lowest border-r border-outline-variant relative'>
-      <div className='flex-1 overflow-y-auto custom-scrollbar p-6 flex flex-col gap-6 pb-24'>
+    <div className='flex flex-col h-full relative'>
+      <div className='flex-1 overflow-y-auto custom-scrollbar py-6 px-8 flex flex-col gap-4 pb-24'>
         <div>
           <h2 className='text-lg font-bold text-primary text-center'>基础配置</h2>
         </div>
 
-        {/* 基础信息 */}
-        <div className='bg-white rounded-xl p-4 border border-outline-variant/30 shadow-sm flex flex-col gap-4'>
-          <div className='flex flex-col gap-1'>
-            <Label htmlFor='title' className='text-xs font-semibold uppercase tracking-wider text-outline'>
-              标题
-            </Label>
-            <Textarea
-              id='title'
-              className='w-full bg-surface-container-low border-outline-variant rounded-lg p-3 text-sm focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all resize-none'
-              rows={2}
-              placeholder='请输入封面标题'
-              value={coverSetting.title}
-              onChange={(e) => setCoverSetting({ ...coverSetting, title: e.target.value })}
-            />
-          </div>
-          <div className='flex flex-col gap-1'>
-            <Label htmlFor='author' className='text-xs font-semibold uppercase tracking-wider text-outline'>
-              作者
-            </Label>
-            <Input
-              id='author'
-              className='w-full bg-surface-container-low border-outline-variant rounded-lg p-3 text-sm focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all'
-              placeholder='请输入作者'
-              value={coverSetting.author}
-              onChange={(e) => setCoverSetting({ ...coverSetting, author: e.target.value })}
-            />
-          </div>
-          <div className='flex flex-col gap-1'>
-            <Label htmlFor='font' className='text-xs font-semibold uppercase tracking-wider text-outline'>
+        <div className='flex flex-col gap-1'>
+          <Label htmlFor='title' className='text-xs font-semibold uppercase tracking-wider text-neutral-500'>
+            标题
+          </Label>
+          <Textarea
+            id='title'
+            className='w-full bg-indigo-50/50 rounded-lg p-3 text-sm focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all resize-none'
+            rows={2}
+            placeholder='请输入封面标题'
+            value={coverSetting.title}
+            onChange={(e) => setCoverSetting({ ...coverSetting, title: e.target.value })}
+          />
+        </div>
+        <div className='flex flex-col gap-1'>
+          <Label htmlFor='author' className='text-xs font-semibold uppercase tracking-wider text-neutral-500'>
+            作者
+          </Label>
+          <Input
+            id='author'
+            className='w-full bg-indigo-50/50 rounded-lg p-3 text-sm focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all'
+            placeholder='请输入作者'
+            value={coverSetting.author}
+            onChange={(e) => setCoverSetting({ ...coverSetting, author: e.target.value })}
+          />
+        </div>
+
+        <div className='flex flex-col gap-1'>
+          <Label className='text-xs font-semibold uppercase tracking-wider text-neutral-500'>图标</Label>
+          <IconSelect />
+        </div>
+
+        <div className='flex flex-col gap-1'>
+          <Label htmlFor='size' className='text-xs font-semibold uppercase tracking-wider text-neutral-500'>
+            尺寸
+          </Label>
+          <Select
+            value={coverSetting.size.value}
+            onValueChange={(value) => {
+              changeValue(value, 'size', SIZES)
+            }}>
+            <SelectTrigger
+              id='size'
+              className='w-full bg-indigo-50/50 rounded-lg p-3 text-sm focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all'>
+              <SelectValue placeholder='请选择宽高比例' />
+            </SelectTrigger>
+            <SelectContent position='popper'>
+              {SIZES.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className='flex justify-between gap-4'>
+          <div className='flex flex-col gap-1 w-1/2'>
+            <Label htmlFor='font' className='text-xs font-semibold uppercase tracking-wider text-neutral-500'>
               字体
             </Label>
             <Select
@@ -210,7 +239,7 @@ const EditorSetting = () => {
               }}>
               <SelectTrigger
                 id='font'
-                className='w-full bg-surface-container-low border-outline-variant rounded-lg p-3 text-sm focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all'>
+                className='w-full bg-indigo-50/50 rounded-lg p-3 text-sm focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all'>
                 <SelectValue placeholder='请选择字体' />
               </SelectTrigger>
               <SelectContent position='popper'>
@@ -227,22 +256,10 @@ const EditorSetting = () => {
               </SelectContent>
             </Select>
           </div>
-        </div>
-
-        {/* 图形设置 */}
-        <div className='bg-white rounded-xl p-4 border border-outline-variant/30 shadow-sm flex flex-col gap-4'>
-          <div className='flex flex-col gap-1'>
-            <Label className='text-xs font-semibold uppercase tracking-wider text-outline'>图标</Label>
-            <IconSelect />
-          </div>
-          <div className='flex flex-col gap-1'>
-            <Label className='text-xs font-semibold uppercase tracking-wider text-outline'>背景</Label>
-            <BackgroundSelect />
-          </div>
-          <div className='flex flex-col gap-1'>
+          <div className='flex flex-col gap-1 w-1/2'>
             <div className='flex items-center gap-1'>
-              <Label htmlFor='pattern' className='text-xs font-semibold uppercase tracking-wider text-outline'>
-                背景纹理
+              <Label htmlFor='pattern' className='text-xs font-semibold uppercase tracking-wider text-neutral-500'>
+                纹理
               </Label>
               <TooltipProvider>
                 <Tooltip>
@@ -262,7 +279,7 @@ const EditorSetting = () => {
               }}>
               <SelectTrigger
                 id='pattern'
-                className='w-full bg-surface-container-low border-outline-variant rounded-lg p-3 text-sm focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all'>
+                className='w-full bg-indigo-50/50 rounded-lg p-3 text-sm focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all'>
                 <SelectValue placeholder='请选择纹理' />
               </SelectTrigger>
               <SelectContent position='popper'>
@@ -279,109 +296,81 @@ const EditorSetting = () => {
               </SelectContent>
             </Select>
           </div>
-          <div className='flex flex-col gap-1'>
-            <Label className='text-xs font-semibold uppercase tracking-wider text-outline flex justify-between'>
-              <span>背景模糊</span>
-              <span className='text-primary'>{coverSetting.bgBlur ?? 0}</span>
-            </Label>
-            <Slider
-              value={[coverSetting.bgBlur ?? 0]}
-              min={0}
-              max={100}
-              step={1}
-              onValueChange={(val) => setCoverSetting({ ...coverSetting, bgBlur: val[0] })}
-            />
-          </div>
-          <div className='flex flex-col gap-1'>
-            <Label className='text-xs font-semibold uppercase tracking-wider text-outline flex justify-between'>
-              <span>背景灰度</span>
-              <span className='text-primary'>{coverSetting.bgGrayscale ?? 0}</span>
-            </Label>
-            <Slider
-              value={[coverSetting.bgGrayscale ?? 0]}
-              min={0}
-              max={100}
-              step={1}
-              onValueChange={(val) => setCoverSetting({ ...coverSetting, bgGrayscale: val[0] })}
-            />
-          </div>
         </div>
 
-        {/* 导出选项 */}
-        <div className='bg-white rounded-xl p-4 border border-outline-variant/30 shadow-sm flex flex-col gap-4'>
-          <div className='flex flex-col gap-1'>
-            <Label htmlFor='size' className='text-xs font-semibold uppercase tracking-wider text-outline'>
-              尺寸
-            </Label>
-            <Select
-              value={coverSetting.size.value}
-              onValueChange={(value) => {
-                changeValue(value, 'size', SIZES)
-              }}>
-              <SelectTrigger
-                id='size'
-                className='w-full bg-surface-container-low border-outline-variant rounded-lg p-3 text-sm focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all'>
-                <SelectValue placeholder='请选择宽高比例' />
-              </SelectTrigger>
-              <SelectContent position='popper'>
-                {SIZES.map((item) => (
-                  <SelectItem key={item.value} value={item.value}>
-                    {item.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-          <div className='flex flex-col gap-1'>
-            <Label htmlFor='download' className='text-xs font-semibold uppercase tracking-wider text-outline'>
-              格式
-            </Label>
-            <Select
-              value={coverSetting.download}
-              onValueChange={(value) => {
-                setCoverSetting({ ...coverSetting, download: value as DownloadType })
-              }}>
-              <SelectTrigger
-                id='download'
-                className='w-full bg-surface-container-low border-outline-variant rounded-lg p-3 text-sm focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all'>
-                <SelectValue placeholder='请选择输出文件格式' />
-              </SelectTrigger>
-              <SelectContent position='popper'>
-                <SelectItem key='png' value='png'>
-                  PNG
-                </SelectItem>
-                <SelectItem key='jpg' value='jpg'>
-                  JPG
-                </SelectItem>
-                <SelectItem key='webp' value='webp'>
-                  WEBP
-                </SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          <div className='flex flex-col gap-1'>
-            <Label className='text-xs font-semibold uppercase tracking-wider text-outline flex justify-between'>
-              <span>缩放倍率</span>
-              <span className='text-primary'>{coverSetting.scale}x</span>
-            </Label>
-            <Slider
-              value={[coverSetting.scale]}
-              min={1}
-              max={5}
-              step={0.5}
-              onValueChange={(newValue) => setCoverSetting({ ...coverSetting, scale: newValue[0] })}
-            />
-          </div>
+        <div className='flex flex-col gap-1'>
+          <Label className='text-xs font-semibold uppercase tracking-wider text-neutral-500'>背景</Label>
+          <BackgroundSelect />
+        </div>
+        <div className='flex flex-col gap-1 mb-1'>
+          <Label className='text-xs font-semibold uppercase tracking-wider text-neutral-500 flex justify-between'>
+            <span>背景模糊</span>
+            <span className='text-primary'>{coverSetting.bgBlur ?? 0}</span>
+          </Label>
+          <Slider value={[coverSetting.bgBlur ?? 0]} min={0} max={100} step={1} onValueChange={(val) => setCoverSetting({ ...coverSetting, bgBlur: val[0] })} />
+        </div>
+        <div className='flex flex-col gap-1 mb-1'>
+          <Label className='text-xs font-semibold uppercase tracking-wider text-neutral-500 flex justify-between'>
+            <span>背景灰度</span>
+            <span className='text-primary'>{coverSetting.bgGrayscale ?? 0}</span>
+          </Label>
+          <Slider
+            value={[coverSetting.bgGrayscale ?? 0]}
+            min={0}
+            max={100}
+            step={1}
+            onValueChange={(val) => setCoverSetting({ ...coverSetting, bgGrayscale: val[0] })}
+          />
+        </div>
+        <div className='flex flex-col gap-1'>
+          <Label htmlFor='download' className='text-xs font-semibold uppercase tracking-wider text-neutral-500'>
+            图片格式
+          </Label>
+          <Select
+            value={coverSetting.download}
+            onValueChange={(value) => {
+              setCoverSetting({ ...coverSetting, download: value as DownloadType })
+            }}>
+            <SelectTrigger
+              id='download'
+              className='w-full bg-indigo-50/50 rounded-lg p-3 text-sm focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all'>
+              <SelectValue placeholder='请选择输出文件格式' />
+            </SelectTrigger>
+            <SelectContent position='popper'>
+              <SelectItem key='png' value='png'>
+                PNG
+              </SelectItem>
+              <SelectItem key='jpg' value='jpg'>
+                JPG
+              </SelectItem>
+              <SelectItem key='webp' value='webp'>
+                WEBP
+              </SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <div className='flex flex-col gap-1'>
+          <Label className='text-xs font-semibold uppercase tracking-wider text-neutral-500 flex justify-between'>
+            <span>缩放倍率</span>
+            <span className='text-primary'>{coverSetting.scale}x</span>
+          </Label>
+          <Slider
+            value={[coverSetting.scale]}
+            min={1}
+            max={5}
+            step={0.5}
+            onValueChange={(newValue) => setCoverSetting({ ...coverSetting, scale: newValue[0] })}
+          />
         </div>
 
         <div className='flex justify-end pr-2'>
-          <span className='text-sm underline cursor-pointer text-outline hover:text-primary' onClick={clearLocalSetting}>
+          <span className='text-sm underline cursor-pointer text-neutral-500 hover:text-primary' onClick={clearLocalSetting}>
             清除已保存配置
           </span>
         </div>
       </div>
 
-      <div className='absolute bottom-0 left-0 w-full flex justify-center gap-4 bg-white/80 backdrop-blur-md border-t border-outline-variant/30 p-4 z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]'>
+      <div className='absolute bottom-0 left-0 w-full flex justify-center gap-4 bg-white/80 backdrop-blur-md border-t border-border p-4 z-50'>
         <Button className='cursor-pointer' onClick={saveSetting}>
           <Save className='w-4 h-4 hidden md:block' />
           保存

@@ -58,7 +58,13 @@ const BackgroundSelect = () => {
   return (
     <div className='flex-1 flex items-center justify-between gap-2 overflow-hidden'>
       <div className='flex-1 flex items-center gap-2'>
-        <Input type='color' className='w-full focus-visible:ring-1' placeholder='请选择背景色' value={coverSetting.bg.color} onChange={handleColorChange} />
+        <Input
+          type='color'
+          className='w-full focus-visible:ring-1 bg-indigo-50/50'
+          placeholder='请选择背景色'
+          value={coverSetting.bg.color}
+          onChange={handleColorChange}
+        />
       </div>
 
       <div className='flex gap-1 items-center'>
