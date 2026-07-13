@@ -1,0 +1,10 @@
+{
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "printWidth": 160,
+  "plugins": [
+    "prettier-plugin-tailwindcss"
+  ],
+  "proseWrap": "preserve"
+}
