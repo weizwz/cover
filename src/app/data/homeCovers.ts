@@ -25,7 +25,9 @@ export const HomeCovers = [
       font: { label: '系统默认', value: 'font-default', type: 'ht', typeName: '黑体', url: '' },
       bg: { color: '#A3B3FF', type: 'gradient' as const, gradient: 'linear-gradient(to right, #0acffe 0%, #495aff 100%)' },
       pattern: { label: '网格', value: 'graph-paper', type: 'basic', typeName: '基础', isOpacity: true },
-      size: { label: '横向 4:3（小红书横版）', value: 'horizontal4-3' }
+      size: { label: '横向 4:3（小红书横版）', value: 'horizontal4-3' },
+      bgBlur: 0,
+      bgGrayscale: 0
     }
   },
 
@@ -67,7 +69,9 @@ export const HomeCovers = [
           'https://images.unsplash.com/photo-1477346611705-65d1883cee1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MTQ0NTh8MHwxfHNlYXJjaHwxM3x8YmVhdXRpZnVsJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3NTU0MDIxNDh8MA&ixlib=rb-4.1.0&q=80&w=1080'
       },
       pattern: { label: '无', value: 'none', type: 'basic', typeName: '基础' },
-      size: { label: '横向 16:9（头条、博客园、知乎等大多数文章封面）', value: 'horizontal16-9' }
+      size: { label: '横向 16:9（头条、博客园、知乎等大多数文章封面）', value: 'horizontal16-9' },
+      bgBlur: 0,
+      bgGrayscale: 0
     }
   },
   {
@@ -98,7 +102,9 @@ export const HomeCovers = [
       font: { label: '霞鹜漫黑', value: 'font-xwmh', type: 'qt', typeName: '其他', url: 'https://fontsapi.zeoseven.com/134/main/result.css' },
       bg: { color: '#0c9e38', type: 'color' as const },
       pattern: { label: '无', value: 'none', type: 'basic', typeName: '基础' },
-      size: { label: '等比 1:1（小红书、公众号）', value: 'square vertical1-1 horizontal1-1' }
+      size: { label: '等比 1:1（小红书、公众号）', value: 'square vertical1-1 horizontal1-1' },
+      bgBlur: 0,
+      bgGrayscale: 0
     }
   }
 ]
