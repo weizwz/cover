@@ -29,7 +29,9 @@ export const Examples = [
       font: { label: '系统默认', value: 'font-default', type: 'ht', typeName: '黑体', url: '' },
       bg: { color: '#3738a6', type: 'color' as const },
       pattern: { label: '无', value: 'none', type: 'basic', typeName: '基础' },
-      size: { label: '竖向 2:3', value: 'vertical2-3' }
+      size: { label: '竖向 2:3', value: 'vertical2-3' },
+      bgBlur: 0,
+      bgGrayscale: 0
     }
   },
 
@@ -61,7 +63,9 @@ export const Examples = [
       font: { label: '系统默认', value: 'font-default', type: 'ht', typeName: '黑体', url: '' },
       bg: { color: '#ff2442', type: 'color' as const },
       pattern: { label: '甜点', value: 'dessert', type: 'pattern', typeName: '图案', isOpacity: true },
-      size: { label: '等比 1:1（小红书、公众号）', value: 'square vertical1-1 horizontal1-1' }
+      size: { label: '等比 1:1（小红书、公众号）', value: 'square vertical1-1 horizontal1-1' },
+      bgBlur: 0,
+      bgGrayscale: 0
     }
   },
   {
@@ -103,7 +107,9 @@ export const Examples = [
           'https://images.unsplash.com/photo-1477346611705-65d1883cee1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MTQ0NTh8MHwxfHNlYXJjaHwxMnx8YmVhdXRpZnVsJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3NTM2OTg0Mzh8MA&ixlib=rb-4.1.0&q=80&w=1080'
       },
       pattern: { label: '无', value: 'none', type: 'basic', typeName: '基础' },
-      size: { label: '横向 16:9（头条、博客园、知乎等大多数文章封面）', value: 'horizontal16-9' }
+      size: { label: '横向 16:9（头条、博客园、知乎等大多数文章封面）', value: 'horizontal16-9' },
+      bgBlur: 0,
+      bgGrayscale: 0
     }
   },
   {
@@ -141,7 +147,9 @@ export const Examples = [
         gradient: 'radial-gradient(circle at 38% 45%, #ff416c 0%, #ff4b2b 100%)'
       },
       pattern: { label: '无', value: 'none', type: 'basic', typeName: '基础' },
-      size: { label: '横向 4:3（小红书横板）', value: 'horizontal4-3' }
+      size: { label: '横向 4:3（小红书横板）', value: 'horizontal4-3' },
+      bgBlur: 0,
+      bgGrayscale: 0
     }
   },
   {
@@ -173,7 +181,9 @@ export const Examples = [
       font: { label: '系统默认', value: 'font-default', type: 'ht', typeName: '黑体', url: '' },
       bg: { color: '#a3b3ff', type: 'gradient' as const, gradient: 'linear-gradient(135deg, #62748D 0%, #90A1B9 100%)' },
       pattern: { label: '无', value: 'none', type: 'basic', typeName: '基础' },
-      size: { label: '横向 4:3（小红书横板）', value: 'horizontal4-3' }
+      size: { label: '横向 4:3（小红书横板）', value: 'horizontal4-3' },
+      bgBlur: 0,
+      bgGrayscale: 0
     }
   },
   {
@@ -204,7 +214,9 @@ export const Examples = [
       font: { label: '霞鹜漫黑', value: 'font-xwmh', type: 'qt', typeName: '其他', url: 'https://fontsapi.zeoseven.com/134/main/result.css' },
       bg: { color: '#33bea6', type: 'color' as const },
       pattern: { label: '叉号集', value: 'hideout', type: 'basic', typeName: '基础', isOpacity: true },
-      size: { label: '等比 1:1（小红书、公众号）', value: 'square vertical1-1 horizontal1-1' }
+      size: { label: '等比 1:1（小红书、公众号）', value: 'square vertical1-1 horizontal1-1' },
+      bgBlur: 0,
+      bgGrayscale: 0
     }
   },
 
@@ -236,7 +248,9 @@ export const Examples = [
       font: { label: '霞鹜漫黑', value: 'font-xwmh', type: 'qt', typeName: '其他', url: 'https://fontsapi.zeoseven.com/134/main/result.css' },
       bg: { color: '#a3b3ff', type: 'gradient' as const, gradient: 'radial-gradient(circle at 35% 50%, #f2ea18 0%, #f53a19 100%)' },
       pattern: { label: '无', value: 'none', type: 'basic', typeName: '基础' },
-      size: { label: '横向 3:2（掘金）', value: 'horizontal3-2' }
+      size: { label: '横向 3:2（掘金）', value: 'horizontal3-2' },
+      bgBlur: 0,
+      bgGrayscale: 0
     }
   },
 
@@ -281,7 +295,9 @@ export const Examples = [
           'https://images.unsplash.com/photo-1660066543518-57247c9fc76a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MTQ0NTh8MHwxfHNlYXJjaHw2Nnx8V2lkZ2V0cyUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzUzODM0NDYyfDA&ixlib=rb-4.1.0&q=80&w=1080'
       },
       pattern: { label: '无', value: 'none', type: 'basic', typeName: '基础' },
-      size: { label: '等比 1:1（小红书、公众号）', value: 'square vertical1-1 horizontal1-1' }
+      size: { label: '等比 1:1（小红书、公众号）', value: 'square vertical1-1 horizontal1-1' },
+      bgBlur: 0,
+      bgGrayscale: 0
     }
   }
 ]
