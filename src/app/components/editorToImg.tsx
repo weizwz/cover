@@ -4,8 +4,7 @@ import React, { useContext, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { LoaderCircle, Download, Copy, ArrowRightLeft, ImageUpscale } from 'lucide-react'
-import html2canvas from 'html2canvas-pro'
-import type { Options } from 'html2canvas-pro'
+import { snapdom } from '@zumer/snapdom'
 
 import CenteredAlert from './common/centeredAlert'
 import { CoverContext } from './coverContext'
@@ -72,57 +71,10 @@ const EditorToImg: React.FC<EditorToImgProps> = (props) => {
   }
 
   async function getData(element: HTMLElement): Promise<string> {
-    // https://github.com/yorickshan/html2canvas-pro/blob/main/docs/configuration.md
-    const options: Options = {
-      useCORS: true,
+    const canvas = await snapdom.toCanvas(element, {
       scale: coverSetting.scale,
-      backgroundColor: null,
-      allowTaint: true,
-      height: element.offsetHeight,
-      width: element.offsetWidth,
-      scrollX: window.scrollX,
-      scrollY: window.scrollY,
-      windowWidth: window.innerWidth,
-      windowHeight: window.innerHeight,
-      x: 0,
-      y: 0,
-      logging: process.env.NODE_ENV === 'development',
-      imageTimeout: 15000,
-      foreignObjectRendering: false,
-      ignoreElements: (element) => {
-        return element.classList.contains('ignore')
-      },
-      onclone: (document) => {
-        const elements = document.querySelectorAll('*')
-        for (let i = 0; i < elements.length; i++) {
-          const el = elements[i] as HTMLElement
-          if (el.style && el.style.backgroundImage && el.style.backgroundImage.includes('url(')) {
-            const match = el.style.backgroundImage.match(/url\(['"]?(.*?)['"]?\)/)
-            if (match && match[1] && match[1].startsWith('http')) {
-              try {
-                const url = new URL(match[1])
-                url.searchParams.set('_t', new Date().getTime().toString())
-                el.style.backgroundImage = `url("${url.toString()}")`
-              } catch (e) {}
-            }
-          }
-          if (el.tagName && el.tagName.toLowerCase() === 'img') {
-            const imgEl = el as HTMLImageElement
-            if (imgEl.src && imgEl.src.startsWith('http')) {
-              try {
-                const url = new URL(imgEl.src)
-                url.searchParams.set('_t', new Date().getTime().toString())
-                imgEl.src = url.toString()
-              } catch (e) {}
-            }
-          }
-        }
-      }
-    }
-
-    return await html2canvas(element, options).then((canvas: HTMLCanvasElement) => {
-      return canvas.toDataURL('image/' + coverSetting.download)
     })
+    return canvas.toDataURL('image/' + coverSetting.download)
   }
 
   async function copyImageToClipboard(base64: string): Promise<void> {
