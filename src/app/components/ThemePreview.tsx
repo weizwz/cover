@@ -96,7 +96,7 @@ const ThemePreview = ({ theme }: { theme: string }) => {
     }
   }
 
-  return <div className="h-20 w-24 overflow-hidden rounded-md bg-gray-50">{renderContent()}</div>
+  return <div className="h-16 w-24 overflow-hidden rounded-md bg-gray-50">{renderContent()}</div>
 }
 
 export default ThemePreview
