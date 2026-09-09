@@ -1,10 +1,10 @@
 # ThisCover
 
-一个免费、漂亮的封面生成器，基于 [**rutikwankhade/CoverView**](https://github.com/rutikwankhade/CoverView)
+一个免费、漂亮的封面生成器
 
-全新架构升级，使用 `next.js v16` + `react v19` + `shadcn/ui` + `tailwindcss v4` + `lucide icons`
-
-在原来的基础上进行了汉化 + 本土功能定制和扩展
+- 技术架构： `next.js v16` + `react v19` + `shadcn/ui` + `tailwindcss v4` + `lucide icons`；
+- 图片生成：新一代的 DOM 截图引擎 [SnapDOM](https://github.com/zumerlab/snapdom)
+- 项目灵感：基于 [**rutikwankhade/CoverView**](https://github.com/rutikwankhade/CoverView)
 
 ## 注意事项
 
@@ -15,11 +15,11 @@
 ```txt
 NEXT_PUBLIC_API_ACCESS_KEY = 'xxxxx'
 NEXT_PUBLIC_API_ICONIFY_URL = 'https://api.iconify.design'
-# cloudflare analytics，不用请注释 src/app/layout.tsx 中的 Script
+# Cloudflare 访问统计，不用可注释掉 `src/app/layout.tsx` 中的 Script
 NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN = 'xxxxx'
 ```
 
-NEXT_PUBLIC_API_ACCESS_KEY 即 unsplash api，需要到官网申请 https://unsplash.com/developers
+`NEXT_PUBLIC_API_ACCESS_KEY` 即 `unsplash api`，需要到官网免费申请 https://unsplash.com/developers
 
 ## 功能修改
 
@@ -41,7 +41,7 @@ NEXT_PUBLIC_API_ACCESS_KEY 即 unsplash api，需要到官网申请 https://unsp
 - [x] 背景选项扩展，支持单色，渐变和上传图片、在线图片
 - [x] 首页示例支持一键使用
 - [x] 纹理现在支持纯色背景和渐变背景
-- [ ] 背景图片支持模糊和灰度
+- [x] 背景图片支持模糊和灰度
 - [ ] 加入随机功能，支持随机底纹和背景色/渐变色
 - [ ] 添加新主题，类似九宫格/拼图等，待设计
 
