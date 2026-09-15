@@ -4,7 +4,7 @@ import React, { useContext, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
-import { Blend, Globe, ImageUp, Palette } from 'lucide-react'
+import { Blend, Globe, ImagePlus } from 'lucide-react'
 import { CoverContext } from './coverContext'
 import UnsplashSearch from './unsplashSearch'
 import GradientSelect from './gradientSelect'
@@ -78,12 +78,7 @@ const BackgroundSelect = () => {
           </DialogTrigger>
           <DialogContent className="flex max-h-[90vh] w-[90vw] max-w-4xl! flex-col overflow-hidden bg-linear-to-br from-white to-gray-50">
             <DialogHeader className="border-b border-gray-100 pb-4">
-              <DialogTitle className="flex items-center gap-2 text-2xl font-bold text-gray-800">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-r from-pink-500 to-violet-600">
-                  <Palette className="h-4 w-4 text-white" />
-                </div>
-                选择渐变色背景
-              </DialogTitle>
+              <DialogTitle className="flex items-center gap-2 text-2xl font-bold text-gray-800">选择渐变色背景</DialogTitle>
               <p className="mt-2 text-sm text-gray-600">精选渐变色彩，让你的封面更加生动</p>
             </DialogHeader>
             <GradientSelect onGradientSelect={handleGradientSelect} />
@@ -100,12 +95,7 @@ const BackgroundSelect = () => {
           </DialogTrigger>
           <DialogContent className="flex max-h-[90vh] w-[90vw] max-w-4xl! flex-col overflow-hidden bg-linear-to-br from-white to-gray-50">
             <DialogHeader className="border-b border-gray-100 pb-4">
-              <DialogTitle className="flex items-center gap-2 text-2xl font-bold text-gray-800">
-                <div className="bg-primary flex h-8 w-8 items-center justify-center rounded-lg">
-                  <Globe className="h-4 w-4 text-white" />
-                </div>
-                选择在线背景图片
-              </DialogTitle>
+              <DialogTitle className="flex items-center gap-2 text-2xl font-bold text-gray-800">选择在线背景图片</DialogTitle>
               <p className="mt-2 text-sm text-gray-600">
                 从{' '}
                 <a className="text-primary" href="https://unsplash.com/" target="_blank">
@@ -128,8 +118,8 @@ const BackgroundSelect = () => {
             onChange={handleBackgroundImageChange}
           />
           <Button className="cursor-pointer">
-            <ImageUp className="hidden h-4 w-4 md:block" />
-            上传
+            <ImagePlus className="hidden h-4 w-4 md:block" />
+            本地
           </Button>
         </div>
       </div>

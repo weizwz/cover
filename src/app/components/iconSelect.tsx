@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { Check, ChevronDown, ImageUp } from 'lucide-react'
+import { Check, ChevronDown, ImagePlus } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command'
@@ -147,8 +147,8 @@ const IconSelect = () => {
           onChange={handleCustomIconChange}
         />
         <Button className="pointer-events-none cursor-pointer">
-          <ImageUp className="hidden h-4 w-4 md:block" />
-          上传
+          <ImagePlus className="hidden h-4 w-4 md:block" />
+          本地
         </Button>
       </div>
     </div>

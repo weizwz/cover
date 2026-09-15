@@ -367,7 +367,7 @@ const EditorSetting = () => {
         </div>
         <div className="flex flex-col gap-1">
           <Label className="flex justify-between text-xs font-semibold tracking-wider text-neutral-500 uppercase">
-            <span>图片缩放</span>
+            <span>生图倍率</span>
             <span className="text-primary">{coverSetting.scale}x</span>
           </Label>
           <Slider
