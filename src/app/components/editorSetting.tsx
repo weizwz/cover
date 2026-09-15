@@ -189,7 +189,7 @@ const EditorSetting = () => {
         </div>
         <div className="flex flex-col gap-1">
           <Label htmlFor="author" className="text-xs font-semibold tracking-wider text-neutral-500 uppercase">
-            作者
+            作者 / 副标题
           </Label>
           <Input
             id="author"
@@ -205,37 +205,72 @@ const EditorSetting = () => {
           <IconSelect />
         </div>
 
-        <div className="flex flex-col gap-1">
-          <Label htmlFor="size" className="text-xs font-semibold tracking-wider text-neutral-500 uppercase">
-            尺寸
-          </Label>
-          <Select
-            value={coverSetting.size.value}
-            onValueChange={(value) => {
-              changeValue(value, 'size', SIZES)
-            }}
-          >
-            <SelectTrigger
-              id="size"
-              className="focus-visible:ring-primary focus-visible:border-primary w-full rounded-lg bg-indigo-50/50 p-3 text-sm transition-all focus-visible:ring-2"
+        <div className="grid grid-cols-2 gap-4">
+          <div className="flex flex-col gap-1">
+            <div className="flex items-center gap-1">
+              <Label htmlFor="size" className="text-xs font-semibold tracking-wider text-neutral-500 uppercase">
+                尺寸
+              </Label>
+            </div>
+            <Select
+              value={coverSetting.size.value}
+              onValueChange={(value) => {
+                changeValue(value, 'size', SIZES)
+              }}
             >
-              <SelectValue placeholder="请选择宽高比例" />
-            </SelectTrigger>
-            <SelectContent position="popper">
-              {SIZES.map((item) => (
-                <SelectItem key={item.value} value={item.value}>
-                  {item.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+              <SelectTrigger
+                id="size"
+                className="focus-visible:ring-primary focus-visible:border-primary w-full rounded-lg bg-indigo-50/50 p-3 text-sm transition-all focus-visible:ring-2"
+              >
+                <SelectValue placeholder="请选择宽高比例" />
+              </SelectTrigger>
+              <SelectContent position="popper">
+                {SIZES.map((item) => (
+                  <SelectItem key={item.value} value={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
 
-        <div className="flex justify-between gap-4">
-          <div className="flex w-1/2 flex-col gap-1">
-            <Label htmlFor="font" className="text-xs font-semibold tracking-wider text-neutral-500 uppercase">
-              字体
-            </Label>
+          <div className="flex flex-col gap-1">
+            <div className="flex items-center gap-1">
+              <Label htmlFor="download" className="text-xs font-semibold tracking-wider text-neutral-500 uppercase">
+                格式
+              </Label>
+            </div>
+            <Select
+              value={coverSetting.download}
+              onValueChange={(value) => {
+                setCoverSetting({ ...coverSetting, download: value as DownloadType })
+              }}
+            >
+              <SelectTrigger
+                id="download"
+                className="focus-visible:ring-primary focus-visible:border-primary w-full rounded-lg bg-indigo-50/50 p-3 text-sm transition-all focus-visible:ring-2"
+              >
+                <SelectValue placeholder="请选择输出文件格式" />
+              </SelectTrigger>
+              <SelectContent position="popper">
+                <SelectItem key="png" value="png">
+                  PNG
+                </SelectItem>
+                <SelectItem key="jpg" value="jpg">
+                  JPG
+                </SelectItem>
+                <SelectItem key="webp" value="webp">
+                  WEBP
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="flex flex-col gap-1">
+            <div className="flex items-center gap-1">
+              <Label htmlFor="font" className="text-xs font-semibold tracking-wider text-neutral-500 uppercase">
+                字体
+              </Label>
+            </div>
             <Select
               value={coverSetting.font.value}
               onValueChange={(value) => {
@@ -262,7 +297,7 @@ const EditorSetting = () => {
               </SelectContent>
             </Select>
           </div>
-          <div className="flex w-1/2 flex-col gap-1">
+          <div className="flex flex-col gap-1">
             <div className="flex items-center gap-1">
               <Label htmlFor="pattern" className="text-xs font-semibold tracking-wider text-neutral-500 uppercase">
                 纹理
@@ -331,37 +366,8 @@ const EditorSetting = () => {
           />
         </div>
         <div className="flex flex-col gap-1">
-          <Label htmlFor="download" className="text-xs font-semibold tracking-wider text-neutral-500 uppercase">
-            图片格式
-          </Label>
-          <Select
-            value={coverSetting.download}
-            onValueChange={(value) => {
-              setCoverSetting({ ...coverSetting, download: value as DownloadType })
-            }}
-          >
-            <SelectTrigger
-              id="download"
-              className="focus-visible:ring-primary focus-visible:border-primary w-full rounded-lg bg-indigo-50/50 p-3 text-sm transition-all focus-visible:ring-2"
-            >
-              <SelectValue placeholder="请选择输出文件格式" />
-            </SelectTrigger>
-            <SelectContent position="popper">
-              <SelectItem key="png" value="png">
-                PNG
-              </SelectItem>
-              <SelectItem key="jpg" value="jpg">
-                JPG
-              </SelectItem>
-              <SelectItem key="webp" value="webp">
-                WEBP
-              </SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        <div className="flex flex-col gap-1">
           <Label className="flex justify-between text-xs font-semibold tracking-wider text-neutral-500 uppercase">
-            <span>缩放倍率</span>
+            <span>图片缩放</span>
             <span className="text-primary">{coverSetting.scale}x</span>
           </Label>
           <Slider

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { Check, ChevronDown } from 'lucide-react'
+import { Check, ChevronDown, ImageUp } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command'
@@ -112,22 +112,22 @@ const IconSelect = () => {
   if (loading) return <div className='flex-1 h-9 px-3 py-2 border border-input rounded-md text-sm'>图标加载中...</div>
 
   return (
-    <div className='flex-1 flex items-center justify-between gap-2 overflow-hidden'>
+    <div className="flex flex-1 items-center justify-between gap-2 overflow-hidden">
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
-          <Button variant='outline' role='combobox' aria-expanded={open} className='flex-1 justify-between bg-indigo-50/50!'>
+          <Button variant="outline" role="combobox" aria-expanded={open} className="flex-1 justify-between bg-indigo-50/50!">
             <FormatOptionLabel icon={selectItem} />
-            <ChevronDown className='opacity-50' />
+            <ChevronDown className="opacity-50" />
           </Button>
         </PopoverTrigger>
-        <PopoverContent className='p-0'>
+        <PopoverContent className="p-0">
           <Command>
-            <CommandInput value={query} placeholder='请搜索图标' className='h-9' onInput={handleInputChange} />
+            <CommandInput value={query} placeholder="请搜索图标" className="h-9" onInput={handleInputChange} />
             <CommandList>
               <CommandEmpty>未找到相关图标</CommandEmpty>
               <CommandGroup>
                 {options.map((item) => (
-                  <CommandItem key={item.value} value={item.value} onSelect={selectHandle} className='w-full flex items-center justify-between'>
+                  <CommandItem key={item.value} value={item.value} onSelect={selectHandle} className="flex w-full items-center justify-between">
                     <FormatOptionLabel icon={item} />
                     <Check className={selectItem.value === item.value ? 'opacity-100' : 'opacity-0'} />
                   </CommandItem>
@@ -138,15 +138,18 @@ const IconSelect = () => {
         </PopoverContent>
       </Popover>
 
-      <div className='h-full w-15 relative overflow-hidden'>
+      <div className="relative h-full overflow-hidden">
         <Input
           ref={IconInputRef}
-          type='file'
-          accept='image/png, image/jpeg, image/webp'
-          className='absolute h-full w-fit right-0 top-0 opacity-0 cursor-pointer'
+          type="file"
+          accept="image/png, image/jpeg, image/webp"
+          className="absolute top-0 right-0 h-full w-fit cursor-pointer opacity-0"
           onChange={handleCustomIconChange}
         />
-        <Button className='cursor-pointer pointer-events-none'>上传</Button>
+        <Button className="pointer-events-none cursor-pointer">
+          <ImageUp className="hidden h-4 w-4 md:block" />
+          上传
+        </Button>
       </div>
     </div>
   )

@@ -46,41 +46,41 @@ const Editor = () => {
     )
 
   return (
-    <div className='pt-14 h-full'>
+    <div className="h-full pt-14">
       {isSmallScreen ? (
-        <Tabs defaultValue='setting' className='w-full h-full'>
-          <TabsList className='grid w-full grid-cols-3'>
-            <TabsTrigger value='setting'>基础配置</TabsTrigger>
-            <TabsTrigger value='preview'>封面预览</TabsTrigger>
-            <TabsTrigger value='theme'>主题选择</TabsTrigger>
+        <Tabs defaultValue="setting" className="h-full w-full">
+          <TabsList className="grid w-full grid-cols-3">
+            <TabsTrigger value="setting">基础配置</TabsTrigger>
+            <TabsTrigger value="preview">封面预览</TabsTrigger>
+            <TabsTrigger value="theme">主题选择</TabsTrigger>
           </TabsList>
-          <TabsContent value='setting'>
-            <div className='h-full w-full'>
+          <TabsContent value="setting">
+            <div className="h-full w-full">
               <EditorSetting />
             </div>
           </TabsContent>
-          <TabsContent value='preview'>
-            <div className='w-full h-full overflow-auto bg-gray-50'>
+          <TabsContent value="preview">
+            <div className="h-full w-full overflow-auto bg-gray-50">
               <EditorPreview />
             </div>
           </TabsContent>
-          <TabsContent value='theme'>
-            <div className='h-full w-full'>
+          <TabsContent value="theme">
+            <div className="h-full w-full">
               <EditorTheme />
             </div>
           </TabsContent>
         </Tabs>
       ) : (
-        <div className='h-full w-full flex overflow-hidden'>
-          <div className='h-full w-1/5 xl:w-1/4'>
+        <div className="flex h-full w-full overflow-hidden">
+          <div className="h-full w-1/5 xl:w-1/4">
             <EditorSetting />
           </div>
-          <Separator orientation='vertical' />
-          <div className='h-full flex-1 overflow-auto bg-gray-50'>
+          <Separator orientation="vertical" />
+          <div className="h-full flex-1 overflow-auto bg-gray-50">
             <EditorPreview />
           </div>
-          <Separator orientation='vertical' />
-          <div className='h-full w-[120px] xl:w-[160px] 2xl:w-[280px]'>
+          <Separator orientation="vertical" />
+          <div className="h-full w-30 xl:w-40 2xl:w-70">
             <EditorTheme />
           </div>
         </div>
