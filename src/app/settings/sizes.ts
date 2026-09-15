@@ -1,6 +1,6 @@
 export const SIZES: Size[] = [
   {
-    label: '等比 1:1（小红书）',
+    label: '等比 1:1（小红书、公众号）',
     value: 'square vertical1-1 horizontal1-1'
   },
   {
@@ -12,7 +12,7 @@ export const SIZES: Size[] = [
     value: 'horizontal2-1'
   },
   {
-    label: '横向 16:9（头条、博客园、知乎等大多数文章封面）',
+    label: '横向 16:9（头条、博客园、知乎等通用尺寸）',
     value: 'horizontal16-9'
   },
   {

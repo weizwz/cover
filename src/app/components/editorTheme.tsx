@@ -1,6 +1,7 @@
 'use client'
 
 import { useContext } from 'react'
+import { Check } from 'lucide-react'
 import { CoverContext } from './coverContext'
 import { THEMES } from '../settings/themes'
 import ThemePreview from './ThemePreview'
@@ -9,20 +10,29 @@ const EditorTheme = () => {
   const { coverSetting, setCoverSetting } = useContext(CoverContext)
 
   return (
-    <div className='h-full w-full overflow-y-auto p-4'>
-      <h2 className='text-lg font-bold text-center mb-4'>主题选择</h2>
-      <div className='grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-1 2xl:grid-cols-2 gap-4'>
+    <div className="flex h-full w-full flex-col gap-4 overflow-y-auto px-6 py-4">
+      <h2 className="text-primary text-center text-lg font-bold">主题选择</h2>
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-1 2xl:grid-cols-2">
         {THEMES.map((item) => (
           <div
-            className={`${
-              item.value === coverSetting.theme.value ? 'border-gray-400 shadow-sm shadow-indigo-600/50' : ''
-            } flex flex-col items-center justify-center border border-gray-200 p-1 overflow-hidden rounded-lg cursor-pointer border-hover duration-100`}
+            className="flex cursor-pointer flex-col items-center justify-center overflow-hidden rounded-lg p-1"
             key={item.label}
-            onClick={() => setCoverSetting({ ...coverSetting, theme: item })}>
-            <div className='relative w-full h-full flex flex-col justify-between items-center'>
+            onClick={() => setCoverSetting({ ...coverSetting, theme: item })}
+          >
+            <div className="relative mb-1 flex h-full w-full flex-col items-center justify-between">
+              {/* 选中状态 */}
+              {item.value === coverSetting.theme.value && (
+                <div className="bg-primary absolute top-2 right-2 z-10 flex h-5 w-5 items-center justify-center rounded-full">
+                  <Check className="h-4 w-4 text-white" />
+                </div>
+              )}
               <ThemePreview theme={item.value} />
             </div>
-            <div className='text-sm text-center text-gray-600 font-bold whitespace-nowrap'>{item.label}</div>
+            <div
+              className={`text-center text-sm font-semibold whitespace-nowrap ${item.value === coverSetting.theme.value ? 'text-primary' : 'text-neutral-600'}`}
+            >
+              {item.label}
+            </div>
           </div>
         ))}
       </div>

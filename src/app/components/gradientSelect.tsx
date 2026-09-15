@@ -32,9 +32,9 @@ const GradientSelect: React.FC<GradientSelectProps> = ({ onGradientSelect }) => 
   const currentGradients = GRADIENT_COLORS[selectedGradientColorKey]?.gradients || []
 
   return (
-    <div className='ignore w-full flex-1 flex flex-col overflow-hidden'>
+    <div className="ignore flex w-full flex-1 flex-col overflow-hidden">
       {/* 颜色过滤器 */}
-      <div className='flex flex-wrap gap-2 justify-center'>
+      <div className="flex flex-wrap justify-center gap-2">
         {COLOR_KEYS.map((colorKey) => {
           const colorData = GRADIENT_COLORS[colorKey]
           const isSelected = selectedGradientColorKey === colorKey
@@ -42,10 +42,11 @@ const GradientSelect: React.FC<GradientSelectProps> = ({ onGradientSelect }) => 
           return (
             <button
               key={colorKey}
-              className={`px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
-                isSelected ? 'bg-indigo-600 text-white shadow-md' : 'bg-white text-gray-700 border border-gray-200 hover:border-indigo-300 hover:bg-blue-50'
+              className={`cursor-pointer rounded-full px-3 py-1 text-sm font-medium transition-all duration-200 ${
+                isSelected ? 'bg-primary text-white shadow-md' : 'border border-gray-200 bg-white text-gray-700 hover:border-indigo-300 hover:bg-blue-50'
               }`}
-              onClick={() => setSelectedGradientColorKey(colorKey)}>
+              onClick={() => setSelectedGradientColorKey(colorKey)}
+            >
               {colorData.name}
             </button>
           )
@@ -53,21 +54,22 @@ const GradientSelect: React.FC<GradientSelectProps> = ({ onGradientSelect }) => 
       </div>
 
       {/* 渐变色网格 */}
-      <div className='flex-1 pt-4 overflow-y-auto'>
-        <div className='grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4'>
+      <div className="flex-1 overflow-y-auto pt-4">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
           {currentGradients.map((gradient, index) => {
             const isSelected = coverSetting.bg.type === 'gradient' && coverSetting.bg.gradient === gradient.value
 
             return (
               <div
                 key={index}
-                className={`group flex items-center justify-center relative cursor-pointer rounded-xl aspect-4/3`}
+                className={`group relative flex aspect-4/3 cursor-pointer items-center justify-center rounded-xl`}
                 style={{ background: gradient.value }}
-                onClick={() => selectGradient(gradient.value)}>
+                onClick={() => selectGradient(gradient.value)}
+              >
                 {/* 选中状态 */}
                 {isSelected && (
-                  <div className='absolute right-4 top-4 w-6 h-6 bg-indigo-600 flex items-center justify-center rounded-full'>
-                    <Check className='w-4 h-4 text-white' />
+                  <div className="absolute top-4 right-4 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600">
+                    <Check className="h-4 w-4 text-white" />
                   </div>
                 )}
               </div>

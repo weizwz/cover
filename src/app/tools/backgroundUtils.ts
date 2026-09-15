@@ -34,7 +34,7 @@ export const getBackgroundStyle = (bg: Background): React.CSSProperties => {
         backgroundColor: bg.color
       }
   }
-  
+
   return {
     backgroundColor: bg.color
   }
@@ -44,8 +44,7 @@ export const getBackgroundStyle = (bg: Background): React.CSSProperties => {
  * 检查是否有背景图片
  */
 export const hasBackgroundImage = (bg: Background): boolean => {
-  return (bg.type === 'unsplash' && !!bg.unsplashUrl) || 
-         (bg.type === 'local' && !!bg.image)
+  return (bg.type === 'unsplash' && !!bg.unsplashUrl) || (bg.type === 'local' && !!bg.image)
 }
 
 /**
@@ -54,4 +53,16 @@ export const hasBackgroundImage = (bg: Background): boolean => {
  */
 export const shouldShowPattern = (bg: Background): boolean => {
   return bg.type === 'color' || (bg.type === 'gradient' && !!bg.gradient)
+}
+
+/**
+ * 将背景模糊均匀的分为100份
+ */
+export const getBlurScale = (blur: number): string => {
+  const maxBlur = 50 // 最大模糊值
+  const exponent = 2 // 缓动指数，可根据实际视觉效果微调（2为二次，3为三次）
+
+  // 核心非线性映射公式
+  const ratio = Math.min(Math.max(blur / 100, 0), 1)
+  return (maxBlur * Math.pow(ratio, exponent)).toFixed(2)
 }

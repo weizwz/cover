@@ -60,7 +60,8 @@
 .font-yffyt .font-semibol {
   font-weight: 500;
 }
-.font-mzxst, .font-stdgt {
+.font-mzxst,
+.font-stdgt {
   letter-spacing: 0.1rem;
 }
 

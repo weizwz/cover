@@ -6,67 +6,80 @@ import { Input } from '@/components/ui/input'
 import { X, CirclePlus } from 'lucide-react'
 import pcBg from '../assets/images/mobile.webp'
 import { CoverContext } from '../components/coverContext'
-import { getBackgroundStyle, shouldShowPattern } from '../tools/backgroundUtils'
+import { getBackgroundStyle, shouldShowPattern, getBlurScale } from '../tools/backgroundUtils'
 
 const MobileMockupTheme: React.FC<ThemeProps> = ({ config }) => {
-  const { title, pattern, author, font, size, theme } = config
+  const { title, pattern, author, font, size, theme, bgBlur, bgGrayscale } = config
   const { coverSetting } = useContext(CoverContext)
   const [image, setImage] = useState<string | undefined>(undefined)
 
   const backgroundStyle = getBackgroundStyle(coverSetting.bg)
   const showPattern = shouldShowPattern(coverSetting.bg)
+  const blurScale = getBlurScale(coverSetting.bgBlur)
 
   return (
-    <div className={`overflow-hidden w-full h-full justify-center relative`} style={backgroundStyle}>
-      {showPattern && <div className={`absolute top-0 left-0 w-full h-full z-1 ${pattern.value} ${pattern.isOpacity ? 'opacity-40' : ''}`} />}
-      <div
-        className={`${font.value} h-full flex items-center relative z-10 ${size.value.indexOf('vertical') === 0 ? 'flex-col px-24 py-12' : ''} ${
-          size.value.indexOf('vertical') === -1 ? 'px-24' : ''} ${theme.swapX ? 'justify-end' : ''}`}>
+    <div className={`relative h-full w-full justify-center overflow-hidden`} style={backgroundStyle}>
+      {showPattern && <div className={`absolute top-0 left-0 z-1 h-full w-full ${pattern.value} ${pattern.isOpacity ? 'opacity-40' : ''}`} />}
+      {(bgBlur > 0 || bgGrayscale > 0) && (
         <div
-          className={`flex-1 ${theme.swapX ? 'order-1' : 'justify-end'} flex flex-col items-center gap-4 text-white text-center ${
-            size.value.indexOf('square') === 0 ? theme.swapX ? 'pr-8' : 'pl-8' : ''
-          }`}>
-          <div className={`text-2xl font-semibold text-shadow-sm text-shadow-black ${author.trim() === '' && 'hidden'}`}>{author}</div>
-          <div className={`text-5xl ${font?.lineHeight || 'leading-14'} font-bold text-shadow-lg text-shadow-black`}>{title}</div>
+          className="absolute h-full w-full"
+          style={{
+            backdropFilter: [bgBlur > 0 ? `blur(${blurScale}px)` : '', bgGrayscale > 0 ? `grayscale(${bgGrayscale}%)` : ''].filter(Boolean).join(' ')
+          }}
+        />
+      )}
+      <div
+        className={`${font.value} relative z-10 flex h-full items-center ${size.value.indexOf('vertical') === 0 ? 'flex-col px-24 py-12' : ''} ${
+          size.value.indexOf('vertical') === -1 ? 'px-24' : ''
+        } ${theme.swapX ? 'justify-end' : ''}`}
+      >
+        <div
+          className={`flex-1 ${theme.swapX ? 'order-1' : 'justify-end'} flex flex-col items-center gap-4 text-center text-white ${
+            size.value.indexOf('square') === 0 ? (theme.swapX ? 'pr-8' : 'pl-8') : ''
+          }`}
+        >
+          <div className={`text-2xl font-semibold text-shadow-black text-shadow-sm ${author.trim() === '' && 'hidden'}`}>{author}</div>
+          <div className={`text-5xl ${font?.lineHeight || 'leading-14'} font-bold text-shadow-black text-shadow-lg`}>{title}</div>
         </div>
 
-        <div className={`${size.value.indexOf('horizontal') >= 0 ? 'h-full' : 'w-full'} aspect-[0.5286] group flex flex-col relative`}>
-          <img src={pcBg.src} className='absolute top-0 left-0 w-full z-10' alt='background' />
+        <div className={`${size.value.indexOf('horizontal') >= 0 ? 'h-full' : 'w-full'} group relative flex aspect-[0.5286] flex-col`}>
+          <img src={pcBg.src} className="absolute top-0 left-0 z-10 w-full" alt="background" />
           {image ? (
             // 图片宽高比0.5286  显示区域宽高比0.4498  显示区域宽占总内容区域比0.7297, 高占比0.8575
-            <div className='group relative w-full h-full flex'>
-              <div className='absolute inset-y-[7.125%] inset-x-[13.515%] w-[72.97%] aspect-[0.4498] overflow-hidden'>
-                <img src={image} className={`w-full object-cover object-top`} alt='preview' style={{height: theme.stretchY ? '100%' : ''}}/>
+            <div className="group relative flex h-full w-full">
+              <div className="absolute inset-x-[13.515%] inset-y-[7.125%] aspect-[0.4498] w-[72.97%] overflow-hidden">
+                <img src={image} className={`w-full object-cover object-top`} alt="preview" style={{ height: theme.stretchY ? '100%' : '' }} />
               </div>
               <Button
-                className='ignore hidden cursor-pointer absolute z-10 top-0 right-0 rounded-full text-center group-hover:flex'
-                variant='outline'
-                size='icon'
-                onClick={() => setImage(undefined)}>
+                className="ignore absolute top-0 right-0 z-10 hidden cursor-pointer rounded-full text-center group-hover:flex"
+                variant="outline"
+                size="icon"
+                onClick={() => setImage(undefined)}
+              >
                 <X />
               </Button>
             </div>
           ) : (
-            <div className='ignore absolute z-10 inset-y-[7.125%] inset-x-[13.515%] w-[72.97%] aspect-[0.4498] px-4 py-12 flex flex-col items-center'>
-              <div className='w-fit rounded-md overflow-hidden mb-4 relative'>
+            <div className="ignore absolute inset-x-[13.515%] inset-y-[7.125%] z-10 flex aspect-[0.4498] w-[72.97%] flex-col items-center px-4 py-12">
+              <div className="relative mb-4 w-fit overflow-hidden rounded-md">
                 <Input
-                  type='file'
-                  accept='image/png, image/jpeg, image/webp'
-                  className='cursor-pointer'
+                  type="file"
+                  accept="image/png, image/jpeg, image/webp"
+                  className="cursor-pointer"
                   onChange={(e) => {
                     if (e.target.files && e.target.files[0]) {
                       setImage(URL.createObjectURL(e.target.files[0]))
                     }
                   }}
                 />
-                <div className='absolute top-0 right-0 w-full h-full px-4 flex items-center justify-between bg-white pointer-events-none'>
-                  <p className='text-gray-800 whitespace-nowrap'>请选择文件</p>
-                  <CirclePlus className='w-5 h-5' />
+                <div className="pointer-events-none absolute top-0 right-0 flex h-full w-full items-center justify-between bg-white px-4">
+                  <p className="whitespace-nowrap text-gray-800">请选择文件</p>
+                  <CirclePlus className="h-5 w-5" />
                 </div>
               </div>
-              <div className='p-4 text-gray-800 text-sm bg-white/80 rounded-lg shadow-md'>
-                <p className='text-left'>友情提示：</p>
-                <p className='text-gray-600'>截图宽高比 &gt;=3:2 效果最佳</p>
+              <div className="rounded-lg bg-white/80 p-4 text-sm text-gray-800 shadow-md">
+                <p className="text-left">友情提示：</p>
+                <p className="text-gray-600">截图宽高比 &gt;=3:2 效果最佳</p>
               </div>
             </div>
           )}
