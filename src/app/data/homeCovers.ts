@@ -60,7 +60,7 @@ export const HomeCovers = [
         value: 'font-dymht',
         type: 'yt',
         typeName: '圆体',
-        url: 'https://chinese-fonts-cdn.deno.dev/packages/dymh/dist/DouyinSansBold/result.css'
+        url: 'https://cn-font.claude-code-best.win/packages/dymh/dist/DouyinSansBold/result.css'
       },
       bg: {
         color: '#A3B3FF',
