@@ -7,6 +7,8 @@ import { Input } from '@/components/ui/input'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 
+import { Icon } from '@iconify/react'
+
 import { CoverContext } from './coverContext'
 import { throttle } from '../tools/utils'
 
@@ -17,12 +19,11 @@ const iconifyHost = process.env.NEXT_PUBLIC_API_ICONIFY_URL
 const FormatOptionLabel = ({ icon }: { icon: IconOption }) => {
   return (
     <div className='flex items-center'>
-      <img
-        className='w-6 h-6 mr-2'
-        loading='lazy'
-        src={icon.label === '本地图标' ? icon.value : `${iconifyHost}/${icon.value}.svg`}
-        alt={`${icon.label} icon`}
-      />
+      {icon.label === '本地图标' ? (
+        <img className='w-6 h-6 mr-2' loading='lazy' src={icon.value} alt={`${icon.label} icon`} />
+      ) : (
+        <Icon icon={icon.value} className='w-6 h-6 mr-2 shrink-0' />
+      )}
       <span className='overflow-hidden text-ellipsis'>{icon.label}</span>
     </div>
   )
