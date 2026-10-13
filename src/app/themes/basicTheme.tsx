@@ -1,10 +1,9 @@
 'use client'
 
 import { useContext } from 'react'
+import { Icon } from '@iconify/react'
 import { CoverContext } from '../components/coverContext'
 import { getBackgroundStyle, shouldShowPattern, getBlurScale } from '../tools/backgroundUtils'
-
-const iconifyHost = process.env.NEXT_PUBLIC_API_ICONIFY_URL
 
 const BasicTheme: React.FC<ThemeProps> = ({ config }) => {
   const { title, pattern, author, icon, font, customIcon, bgBlur, bgGrayscale } = config
@@ -28,7 +27,11 @@ const BasicTheme: React.FC<ThemeProps> = ({ config }) => {
       <div className={`flex h-full max-h-90 w-full max-w-160 flex-col items-center justify-center gap-6 p-12 ${font.value} relative z-10 rounded-2xl bg-white`}>
         <div className={`text-5xl ${font?.lineHeight || 'leading-14'} text-center font-bold`}>{title}</div>
         <div className="flex w-full items-center justify-center gap-4">
-          <img className="h-10 w-10" src={customIcon || `${iconifyHost}/${icon.value}.svg`} alt={`${icon.label} icon`} />
+          {customIcon ? (
+            <img className="h-10 w-10" src={customIcon} alt={`${icon.label} icon`} />
+          ) : (
+            <Icon className="h-10 w-10" icon={icon.value} />
+          )}
           <div className={`text-2xl font-semibold ${author.trim() === '' && 'hidden'}`}>{author}</div>
         </div>
       </div>

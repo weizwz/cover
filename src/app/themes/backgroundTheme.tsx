@@ -3,10 +3,9 @@
 import React, { useContext } from 'react'
 import { Button } from '@/components/ui/button'
 import { X } from 'lucide-react'
+import { Icon } from '@iconify/react'
 import { CoverContext } from '../components/coverContext'
 import { getBackgroundStyle, hasBackgroundImage, shouldShowPattern, getBlurScale } from '../tools/backgroundUtils'
-
-const iconifyHost = process.env.NEXT_PUBLIC_API_ICONIFY_URL
 
 const BackgroundTheme: React.FC<ThemeProps> = ({ config }) => {
   const { title, author, icon, font, customIcon, pattern, bgBlur, bgGrayscale } = config
@@ -45,7 +44,11 @@ const BackgroundTheme: React.FC<ThemeProps> = ({ config }) => {
 
             <div className={`${font.value} flex h-full flex-col justify-center gap-6 pb-10 text-center text-white`}>
               <div className="flex items-center justify-center">
-                <img className="h-18 w-18" src={customIcon || `${iconifyHost}/${icon.value}.svg?color=%23fff`} alt={`${icon.label} icon`} />
+                {customIcon ? (
+                  <img className="h-18 w-18" src={customIcon} alt={`${icon.label} icon`} />
+                ) : (
+                  <Icon className="h-18 w-18" icon={icon.value} color="#fff" />
+                )}
               </div>
               <div className={`text-5xl ${font?.lineHeight || 'leading-14'} font-bold text-shadow-black text-shadow-lg`}>{title}</div>
               <div className={`text-2xl font-semibold text-shadow-black text-shadow-sm ${author.trim() === '' && 'hidden'}`}>{author}</div>
@@ -65,7 +68,11 @@ const BackgroundTheme: React.FC<ThemeProps> = ({ config }) => {
           )}
           <div className={`relative z-10 flex h-full flex-col justify-center gap-6`}>
             <div className="flex items-center justify-center">
-              <img className="h-18 w-18" src={customIcon || `${iconifyHost}/${icon.value}.svg?color=%23fff`} alt={`${icon.label} icon`} />
+              {customIcon ? (
+                <img className="h-18 w-18" src={customIcon} alt={`${icon.label} icon`} />
+              ) : (
+                <Icon className="h-18 w-18" icon={icon.value} color="#fff" />
+              )}
             </div>
             <div className={`text-5xl ${font?.lineHeight || 'leading-14'} font-bold text-shadow-black text-shadow-lg`}>{title}</div>
             <div className={`text-2xl font-semibold text-shadow-black text-shadow-sm ${author.trim() === '' && 'hidden'}`}>{author}</div>

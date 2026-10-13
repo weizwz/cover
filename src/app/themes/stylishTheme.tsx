@@ -3,10 +3,9 @@
 import React, { useContext } from 'react'
 import { Button } from '@/components/ui/button'
 import { X } from 'lucide-react'
+import { Icon } from '@iconify/react'
 import { CoverContext } from '../components/coverContext'
 import { getBlurScale } from '../tools/backgroundUtils'
-
-const iconifyHost = process.env.NEXT_PUBLIC_API_ICONIFY_URL
 
 const StylishTheme: React.FC<ThemeProps> = ({ config }) => {
   const { title, author, icon, font, customIcon, theme, pattern, bgBlur, bgGrayscale } = config
@@ -51,7 +50,11 @@ const StylishTheme: React.FC<ThemeProps> = ({ config }) => {
       <div className={`h-full w-1/2 p-12 ${font.value} ${theme.swapX ? 'order-1 pr-14' : 'pl-14'} flex flex-col justify-center gap-6 bg-white text-gray-800`}>
         <div className={`text-5xl ${font?.lineHeight || 'leading-14'} font-bold`}>{title}</div>
         <div className="flex items-center gap-4">
-          <img className="h-8 w-8" src={customIcon || `${iconifyHost}/${icon.value}.svg`} alt={`${icon.label} icon`} />
+          {customIcon ? (
+            <img className="h-8 w-8" src={customIcon} alt={`${icon.label} icon`} />
+          ) : (
+            <Icon className="h-8 w-8" icon={icon.value} />
+          )}
           <div className={`text-2xl font-semibold ${author.trim() === '' && 'hidden'}`}>{author}</div>
         </div>
       </div>
